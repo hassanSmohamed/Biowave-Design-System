@@ -2,6 +2,10 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Rules — component tokens from semantic tokens only] — 2026-10-20
+### Added
+- AGENTS.md golden rule **3b**: component tokens (`<name>.tokens.json` and component variables in Figma) alias semantic tokens only — primitive → semantic → component. Never `{primitive.*}`, raw values or another component's token; a missing semantic token means stop and report (Planner adds it, §6). Already enforced by `npm run component-tokens`.
+
 ## [Tablet Button — review round 2] — 2026-10-20
 ### Changed
 - Tablet `button.md` Part E Round 2: **Approved** — Round 1 findings #1–#9 all fixed (focus ring 2 dp outside the container with no layout change, measured per size in LTR/RTL; real-font goldens; disabled stays disabled while loading); 1 new 🟢 nit (#10 golden page background equals the filled-neutral token). Review status updated in the header and `4-tablet-components/README.md`.
