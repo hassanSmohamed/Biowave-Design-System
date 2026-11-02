@@ -2,6 +2,13 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Docs — Foundation image explainers] — 2026-11-02
+### Added
+- **19 visual explainers** in `2-foundations/guidelines/images/`: Grid 3, Colors 3, Typography 2, Spacing 3, Size 1, Radius 2, Border 2, Elevation 1, Icons 1, Motion 1. Values come from `dist/tokens.json`.
+### Fixed
+- `2-foundations/README.md`: Grid summary now matches `grid.md` (Mobile 4 / 16 / 16, Tablet 80 rail, end panel as a sheet). Contrast count 152 → 201, matching `contrast-pairs.json`.
+- `guidelines/elevation.md`: removed the "one control recipe" mention (no such token; `Shadow/Control` is deprecated).
+
 ## [Docs — Token naming formulas per platform] — 2026-11-02
 ### Added
 - **Figma naming guide for designers:** `figma-assets/Biowave-Figma-Token-Naming.png`, linked from the Figma formulas in `guidelines/tokens.md`.

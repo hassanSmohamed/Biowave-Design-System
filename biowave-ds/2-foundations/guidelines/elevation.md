@@ -1,6 +1,6 @@
 # Elevation
 
-Elevation shows what floats above what. Five levels plus one control recipe; each has a Light and a Dark value.
+Elevation shows what floats above what. Five levels; each has a Light and a Dark value.
 
 | Token | Use | Light | Dark |
 |---|---|---|---|
