@@ -2,6 +2,12 @@
 
 Corner radius is chosen by **what the object is**, not by its size on screen. One scale, same on every platform: bigger surfaces get a bigger radius.
 
+## Visual guide
+
+![Radius tokens by object](images/radius-1-pick.png)
+
+![Radius rules for nesting, joined segments, sheets and pills](images/radius-2-rules.png)
+
 ## Pick by object
 | Object | Token | Value |
 |---|---|---|

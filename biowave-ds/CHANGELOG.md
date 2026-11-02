@@ -2,6 +2,11 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Docs — Foundation images in guidelines] — 2026-11-02
+### Added
+- **Visual guide** section in the Grid, Colors, Typography, Spacing, Radius, Border, Elevation, Icons and Motion guidelines. The pages show the images from `guidelines/images/` in the web docs. Size images sit in Spacing, because Size has no guideline page.
+- Docs viewer: images in guideline pages open full size in a new tab.
+
 ## [Tooling — Foundation image generator] — 2026-11-02
 ### Added
 - **`npm run docs:images`** regenerates the 19 images in `2-foundations/guidelines/images/` from `dist/tokens.json`. Source: `2-foundations/scripts/images/` (`kit.mjs` template, `grid.mjs`, `foundations.mjs`, `build.mjs`).

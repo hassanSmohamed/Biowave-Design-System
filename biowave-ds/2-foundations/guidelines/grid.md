@@ -19,6 +19,14 @@ Spacing between components on a page (`spacing-layout-section · group · stack 
 
 Breakpoints follow Material 3 window size classes (compact < 600, medium/expanded 600–1199, large ≥ 1200), so web and Flutter agree.
 
+## Visual guide
+
+![Columns, gutter and margins on Web, Tablet and Mobile](images/grid-1-structure.png)
+
+![When to use Grid/Full width and Grid/With sidebar](images/grid-2-styles.png)
+
+![Steps to apply a grid in Figma, with do and don't examples](images/grid-3-apply.png)
+
 ## Navigation per platform
 | Platform | Start (navigation) | End (details, filters) |
 |---|---|---|

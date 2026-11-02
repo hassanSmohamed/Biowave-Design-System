@@ -20,6 +20,12 @@ Border = width token + color token. Widths are new in v1.0.
 | Status outlines | `color-border-{role}` | decorative (pair with text/icon) |
 | Keyboard focus | `color-border-focus` | ≥ 3:1 |
 
+## Visual guide
+
+![Border colour and width tokens by purpose](images/border-1-tokens.png)
+
+![Focus ring anatomy and the rule against shadow borders](images/border-2-focus.png)
+
 ## Focus ring (all platforms)
 - 2px (`border-width-focus`) solid `color-border-focus`, offset 2px (`border-focus-offset`), following the control's radius.
 - Web: show on `:focus-visible` only. Flutter: use `FocusableActionDetector` / `WidgetStateProperty` focused state.
