@@ -44,6 +44,8 @@ Rules for every platform:
 Segments are lowercase and dot-separated, with kebab-case inside a segment.
 
 ### Figma
+Designer guide for the Figma file: [`Biowave-Figma-Token-Naming.png`](../../../figma-assets/Biowave-Figma-Token-Naming.png).
+
 | Layer | Formula | Example |
 |---|---|---|
 | Primitive | Collection `_Primitive` › `{Group}/{ramp}/{step}` | `Colors/primary/600` |

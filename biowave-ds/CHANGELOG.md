@@ -4,6 +4,7 @@ Every change to the design system is logged here **in the same task**, newest fi
 
 ## [Docs — Token naming formulas per platform] — 2026-11-02
 ### Added
+- **Figma naming guide for designers:** `figma-assets/Biowave-Figma-Token-Naming.png`, linked from the Figma formulas in `guidelines/tokens.md`.
 - **Naming formulas** in `2-foundations/guidelines/tokens.md`: one formula per layer for the JSON source, Figma, Web (CSS, TypeScript, MUI) and Flutter, with shared rules: the JSON path is the source of every name, theme and language are modes, framework names stay as they are. `AGENTS.md` §4 gets the same formulas in short form, linked to the full page.
 ### Changed
 - **Link code keys `hover` → `hovered`** (system state naming): `link.tokens.ts`, `Link.tsx`, `Link.test.tsx`. Internal keys only, no token value, Figma variable or spec change. Closes the Link item left open in the 31 Oct Button review. The public `underline="hover"` prop value stays, because it is an API option and not a token.
