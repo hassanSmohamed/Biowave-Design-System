@@ -2,6 +2,12 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Audit — Button family in the Web Figma file] — 2026-11-02
+### Added
+- `_audits/figma-button-family-web-2026-11-02.md`: read-only binding audit, findings, plan and open questions. Nothing changed in Figma.
+### Fixed
+- `_sync/build-stamp.json` refreshed so `npm run sync` reports READY. Generated token output was unchanged.
+
 ## [Docs — Foundation images in guidelines] — 2026-11-02
 ### Added
 - **Visual guide** section in the Grid, Colors, Typography, Spacing, Radius, Border, Elevation, Icons and Motion guidelines. The pages show the images from `guidelines/images/` in the web docs. Size images sit in Spacing, because Size has no guideline page.
