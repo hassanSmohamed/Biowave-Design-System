@@ -7,6 +7,14 @@ primitive.color.primary.600 (#193351)  ──►  color-background-brand-default
 primitive.color.primary.300 (#607D9F)  ──►  color-background-brand-default (dark)
 ```
 
+## Visual guide
+
+![How to choose a colour token, and surface versus background](images/colors-1-choose.png)
+
+![Colour roles and emphasis in Light and Dark](images/colors-2-roles.png)
+
+![Surface, text and border groups with colour rules](images/colors-3-groups.png)
+
 ## How to choose a token
 1. **What is it?** surface (static container) · background (interactive fill) · text · icon · border · link · overlay. See *Surface vs Background* below.
 2. **What role?** neutral · brand · secondary · success · error · warning · info.

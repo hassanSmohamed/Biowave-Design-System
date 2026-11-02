@@ -8,6 +8,12 @@
 
 The active family follows the language automatically: `:lang(ar)` on web, `BwTheme.build(locale:)` in Flutter, the frame mode in Figma. Do not set font families in components.
 
+## Visual guide
+
+![Typography roles, modes, language fonts and weights](images/typography-1-roles.png)
+
+![All 23 text styles with values per platform](images/typography-2-styles.png)
+
 ## How it is built — one name, everywhere
 
 ```

@@ -12,6 +12,10 @@ Elevation shows what floats above what. Five levels; each has a Light and a Dark
 
 Light shadows are tinted navy (`primary/900`); dark shadows are black.
 
+## Visual guide
+
+![Elevation levels in Light and Dark with rules](images/elevation-1-levels.png)
+
 ## Rules
 - Pair elevation with surface: `elevation-3/4` sit on `color-surface-raised`. In dark mode the lighter surface does most of the work.
 - Use the whole token; never copy individual shadow values.

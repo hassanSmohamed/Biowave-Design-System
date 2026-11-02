@@ -638,7 +638,7 @@
     const codes = [];
     let s = text.replace(/`([^`]+)`/g, (_, code) => { codes.push(code); return `\u0000${codes.length - 1}\u0000`; });
     s = escapeHtml(s);
-    s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (_, alt, src) => `<img class="doc-img" src="${resolveUrl(src, base)}" alt="${alt}" loading="lazy" onerror="this.remove()">`);
+    s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (_, alt, src) => `<a class="doc-img-link" href="${resolveUrl(src, base)}" target="_blank" rel="noopener" aria-label="Open full size: ${alt}"><img class="doc-img" src="${resolveUrl(src, base)}" alt="${alt}" loading="lazy" onerror="this.remove()"></a>`);
     s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, label, href) => `<a href="${resolveUrl(href, base)}">${label}</a>`);
     s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
     s = s.replace(/(^|[\s(])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
