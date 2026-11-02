@@ -68,7 +68,7 @@
 ```bash
 npm run tokens         # build + preview + checks
 npm run tokens:check   # checks with full contrast table
-npm run docs:images    # regenerate guidelines/images after a token change
+npm run docs:images    # regenerate guidelines/images (npm run tokens runs it too)
 ```
 
 ## Open decisions

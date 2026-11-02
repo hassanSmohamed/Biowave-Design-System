@@ -5,6 +5,8 @@ Every change to the design system is logged here **in the same task**, newest fi
 ## [Tooling — Foundation image generator] — 2026-11-02
 ### Added
 - **`npm run docs:images`** regenerates the 19 images in `2-foundations/guidelines/images/` from `dist/tokens.json`. Source: `2-foundations/scripts/images/` (`kit.mjs` template, `grid.mjs`, `foundations.mjs`, `build.mjs`).
+- **Automatic updates:** `npm run tokens` now regenerates the images. `docs:images` skips rendering when nothing changed.
+- **Stale check:** `docs:check` fails when `dist/tokens.json`, `guidelines/*.md` or the generator changed after the last render (`guidelines/images/source-hash.txt`).
 - Dev dependencies: `playwright`, `@fontsource/inter`, `@fontsource/ibm-plex-sans-arabic`, `@fontsource/jetbrains-mono`.
 ### Changed
 - All 19 images re-rendered with the project fonts from `node_modules`, so output no longer depends on system fonts.
