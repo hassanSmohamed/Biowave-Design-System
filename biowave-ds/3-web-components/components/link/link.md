@@ -846,3 +846,4 @@ None — version 1.0. Filled when the version is above 1.0; it feeds Figma doc p
 |---|---|---|---|---|
 | 1.0 | 2026-10-21 | Initial: MUI `Link`, semantic tokens only (no component tokens, P-04) | No | — |
 | 1.0 (wording) | 2026-10-29 | B3 / C4 prose: `color-link-hover` → `color-link-hovered` (colour tokens 2.0 name); no token or value change | No | — |
+| 1.0 (code) | 2026-11-02 | Internal code keys `hover` → `hovered` in `link.tokens.ts` (system state naming); the public `underline="hover"` value, tokens and values stay | No | — |

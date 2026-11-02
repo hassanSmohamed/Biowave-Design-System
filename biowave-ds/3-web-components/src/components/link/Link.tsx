@@ -138,7 +138,7 @@ const LinkRoot = styled(MuiLink, {
     },
 
     '&:hover:not([aria-disabled="true"])': {
-      color: visual.hover,
+      color: visual.hovered,
       '& .bw-link__label': {
         textDecorationLine: 'underline',
         textDecorationThickness:

@@ -2,6 +2,14 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Docs — Token naming formulas per platform] — 2026-11-02
+### Added
+- **Figma naming guide for designers:** `figma-assets/Biowave-Figma-Token-Naming.png`, linked from the Figma formulas in `guidelines/tokens.md`.
+- **Naming formulas** in `2-foundations/guidelines/tokens.md`: one formula per layer for the JSON source, Figma, Web (CSS, TypeScript, MUI) and Flutter, with shared rules: the JSON path is the source of every name, theme and language are modes, framework names stay as they are. `AGENTS.md` §4 gets the same formulas in short form, linked to the full page.
+### Changed
+- **Link code keys `hover` → `hovered`** (system state naming): `link.tokens.ts`, `Link.tsx`, `Link.test.tsx`. Internal keys only, no token value, Figma variable or spec change. Closes the Link item left open in the 31 Oct Button review. The public `underline="hover"` prop value stays, because it is an API option and not a token.
+- `guidelines/tokens.md` and `2-foundations/README.md`: the Component layer is current, no longer "future" or "later" (D-13).
+
 ## [Review — Text field against Foundations 29 Oct] — 2026-10-31
 ### Checked
 - Text field on Web, Tablet and Mobile (specs, `text-field.tokens.json`, contracts, web code and tests): every reference resolves; size tokens use the control level at the matching size, `label-gap` `spacing-sm` and `supporting-gap` `spacing-xs` match the new Use-for rules, `radius-md`, `color-border-bold` as the control boundary. The old dark-mode read-only finding (E2 #2) no longer applies: `background-base-subtlest` (#0A0A0A) now differs from `base-default` (#141414).

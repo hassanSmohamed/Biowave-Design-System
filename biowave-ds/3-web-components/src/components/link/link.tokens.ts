@@ -6,7 +6,7 @@ export type LinkUnderline = 'always' | 'hover';
 
 export interface LinkVisualTokens {
   default: string;
-  hover: string;
+  hovered: string;
   pressed: string;
   visited?: string;
   disabled: string;
@@ -17,20 +17,20 @@ const disabledColor = cssVars.color.text.disabled;
 export const linkColorTokens = {
   brand: {
     default: cssVars.color.link.default,
-    hover: cssVars.color.link.hovered,
+    hovered: cssVars.color.link.hovered,
     pressed: cssVars.color.link.pressed,
     visited: cssVars.color.link.visited,
     disabled: disabledColor,
   },
   neutral: {
     default: cssVars.color.text.default,
-    hover: cssVars.color.text.default,
+    hovered: cssVars.color.text.default,
     pressed: cssVars.color.text.default,
     disabled: disabledColor,
   },
   inverse: {
     default: cssVars.color.text.inverse,
-    hover: cssVars.color.text.inverse,
+    hovered: cssVars.color.text.inverse,
     pressed: cssVars.color.text.inverse,
     disabled: disabledColor,
   },

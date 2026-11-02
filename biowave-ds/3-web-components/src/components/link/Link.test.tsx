@@ -84,20 +84,20 @@ describe('Link token contract', () => {
     expect(linkColorTokens).toEqual({
       brand: {
         default: 'var(--bw-color-link-default)',
-        hover: 'var(--bw-color-link-hovered)',
+        hovered: 'var(--bw-color-link-hovered)',
         pressed: 'var(--bw-color-link-pressed)',
         visited: 'var(--bw-color-link-visited)',
         disabled: 'var(--bw-color-text-disabled)',
       },
       neutral: {
         default: 'var(--bw-color-text-default)',
-        hover: 'var(--bw-color-text-default)',
+        hovered: 'var(--bw-color-text-default)',
         pressed: 'var(--bw-color-text-default)',
         disabled: 'var(--bw-color-text-disabled)',
       },
       inverse: {
         default: 'var(--bw-color-text-inverse)',
-        hover: 'var(--bw-color-text-inverse)',
+        hovered: 'var(--bw-color-text-inverse)',
         pressed: 'var(--bw-color-text-inverse)',
         disabled: 'var(--bw-color-text-disabled)',
       },
@@ -176,7 +176,7 @@ describe('Link rendered variants', () => {
           const visual = linkColorTokens[color];
 
           expect(rules).toContain(visual.default);
-          expect(rules).toContain(visual.hover);
+          expect(rules).toContain(visual.hovered);
           expect(rules).toContain(visual.pressed);
           expect(rules).toContain(visual.disabled);
           expect(rootRule).toContain(size === 'inherit' ? 'display: inline' : 'display: inline-flex');
@@ -219,7 +219,7 @@ describe('Link states and underline', () => {
     const ruleList = rules.split('\n');
 
     expect(ruleList.find((rule) => rule.includes(':hover') && !rule.includes('__label'))).toContain(
-      linkColorTokens.brand.hover,
+      linkColorTokens.brand.hovered,
     );
     const activeRoot = ruleList.find(
       (rule) => rule.includes(':active') && !rule.includes('__label'),

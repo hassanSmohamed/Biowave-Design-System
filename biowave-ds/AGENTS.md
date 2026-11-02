@@ -84,17 +84,31 @@ npm run contract -- <plat> <name>   ──►   Code Executor: <name>-contract.m
 
 | Thing | Convention | Example |
 |---|---|---|
-| Token path (JSON) | dot-separated, lowercase, kebab inside a segment | `color.background.brand.hovered` |
+| Token path (JSON) — the source for every name | dot-separated, lowercase, kebab inside a segment | `color.background.brand.hovered` |
+| Primitive token | `primitive.{category}.{ramp}.{step}` | `primitive.color.primary.600` |
+| Semantic colour token | `color.{group}.{role}.{state}` | `color.background.brand.hovered` |
+| Other semantic token | `{category}.{group}.{property}.{scale}`, unused parts skipped | `spacing.md`, `spacing.control.padding-inline.md` |
+| Platform token | `platform.{category}.{…}`; `platform` is dropped in every output | `platform.font.size.body.md` |
+| Component token | `{component}.{group}.{mode}.{part}.{state}` | `button.filled.brand.container.hovered` |
 | Token name in docs | kebab-case | `color-background-brand-hovered` |
+| Figma variable | Dots become `/` | `color/background/brand/hovered` |
+| Figma primitive | `_Primitive` › `{Group}/{ramp}/{step}` | `Colors/primary/600` |
+| Figma text style | `{role}/{size}` | `body/md` |
+| Figma component variable | Collection `{Component} / {Group}` · mode · variable `{part}/{state}` | `Button / Filled` · `brand` · `container/hovered` |
 | CSS variable | `--bw-` + kebab | `--bw-color-background-brand-hovered` |
 | TS access | object path | `cssVars.color.background.brand.hovered` |
-| Dart access | camelCase without category | `context.bw.colors.backgroundBrandHovered`, `BwSpacing.md`, `BwRadius.xl2` |
+| CSS text class | `.bw-text-{role}-{size}` | `.bw-text-body-md` |
+| MUI typography variant | `{role}{Size}` | `headingLg` |
+| Dart access | camelCase without category; `2xl` → `xl2` | `context.bw.colors.backgroundBrandHovered`, `BwSpacing.md`, `BwRadius.xl2` |
+| Dart text style | `context.bw.text.{role}{Size}` | `context.bw.text.bodyMd` |
 | React component | PascalCase, no `Bw` prefix on web | `Button`, `TextField` |
 | Flutter widget | `Bw` + PascalCase | `BwButton` |
 | Component folder / file | kebab-case, same name twice | `components/text-field/text-field.md` |
 | Section IDs in `<name>.md` | Part letter + number, fixed | `A2`, `B3`, `D8` |
 | Dart file | snake_case | `bw_text_field.dart` |
 | Size scale | `sm · md · lg · xl` (add `xs`, `2xl` only if a plan needs them) | |
+
+Theme and language are modes, never part of a token name. Framework names stay as the framework defines them (`palette.primary.main`, `action.hover`, `ColorScheme.primary`). Full formulas: [`2-foundations/guidelines/tokens.md`](2-foundations/guidelines/tokens.md#naming-formulas).
 
 ## 5. Commands that must pass
 
