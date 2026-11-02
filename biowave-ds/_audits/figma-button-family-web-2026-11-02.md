@@ -31,8 +31,16 @@ Read-only check on 2026-11-02 of file `7nDhsPNntzIWlrjmuSmZ9l`. Nothing changed 
 5. Verify zero semantic and legacy bindings, publish, and mark Figma status.
 6. Repeat on Tablet and Mobile.
 
+## Decisions
+
+- **Colour tokens:** reuse the `Button / *` collections. Add small collections only for sizes and parts that are unique to Icon button and Split button.
+- **Button group:** not needed for now, so no set is built.
+- **Button / Tonal:** code only on Button. No tonal variants are added to the Button set.
+
 ## Open questions
 
-- **Colour tokens:** reuse the `Button / *` collections for Icon button and Split button, or give each its own?
-- **Button group:** build one small new set from Button instances, or leave it out for now?
-- **Button / Tonal:** keep it for code only, or add tonal variants to the Figma set?
+Token work is on hold until these are answered. The existing sets differ from the spec in ways a rebind alone cannot solve.
+
+- **Icon button sizes:** Figma has XS 32, S 40, M 56, L 96 and XL 136, plus `Width` and `Shape`. The spec has sm 32, md 40 and lg 48. Semantic control heights stop at 56, and component tokens cannot use primitives.
+- **Split button `Type=Default` and `State=Ghost`:** neither exists in the spec, and no token maps to them yet.
+- **Temporary menu in both sets:** `Add Devices Menu Buttons` uses old variables and has no component tokens.
