@@ -24,7 +24,7 @@
 
 | Foundation | Key facts (full page in `guidelines/`) |
 |---|---|
-| [Tokens](guidelines/tokens.md) | DTCG format. Layers: primitive → semantic → platform (→ component later). Modes: theme × platform × language. Figma scopes table. |
+| [Tokens](guidelines/tokens.md) | DTCG format. Layers: primitive → semantic → platform → component. Naming formulas per platform. Modes: theme × platform × language. Figma scopes table. |
 | [A11y](guidelines/a11y.md) | WCAG 2.2 AA. Contrast auto-checked (152/152 pass). Focus 2px + 2px offset. Targets 24px web / 48dp touch. Reduced motion built in. |
 | [Content](guidelines/content.md) | Sentence case, verb-first buttons, no "!", "…" for progress, errors = what happened + how to fix. MSA Arabic, no left/right in copy, +20–30% length. |
 | [Spacing](guidelines/spacing.md) | 4px base: none 0, xxs 2, xs 4, sm 6, md 8, lg 12, xl 16, 2xl 20, 3xl 24, 4xl 32, 5xl 40, 6xl 48, 7xl 64, 8xl 80, 9xl 96, 10xl 128, 11xl 160. Use gap; logical directions. |
