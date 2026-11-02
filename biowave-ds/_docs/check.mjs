@@ -12,6 +12,7 @@ import path from 'node:path';
 import { ROOT, SECTIONS, REQUIRED, load, listComponents, plainStatus } from './component-file.mjs';
 import { expectedFiles } from './build.mjs';
 import { contractState } from './contract.mjs';
+import { sourceHash, storedHash } from '../2-foundations/scripts/images/hash.mjs';
 
 const errors = [], warnings = [];
 const err = (m) => errors.push(m), warn = (m) => warnings.push(m);
@@ -116,6 +117,9 @@ const tokensCss = fs.readFileSync(path.join(ROOT, '2-foundations/web/src/generat
 const defined = new Set([...tokensCss.matchAll(/(--bw-[a-z0-9-]+)\s*:/g)].map((m) => m[1]));
 const viewerCss = fs.readFileSync(path.join(ROOT, '_docs/viewer.css'), 'utf8');
 for (const m of new Set([...viewerCss.matchAll(/var\((--bw-[a-z0-9-]+)/g)].map((x) => x[1]))) if (!defined.has(m)) err(`_docs/viewer.css uses ${m}, which is not a token`);
+
+// 8 foundation images match the tokens and guidelines
+if (sourceHash() !== storedHash()) err('Foundation images are out of date: review scripts/images/foundations.mjs if a guideline rule changed, then run npm run docs:images');
 
 warnings.forEach((w) => console.log('  ⚠ ' + w));
 errors.forEach((e) => console.log('  ✗ ' + e));
