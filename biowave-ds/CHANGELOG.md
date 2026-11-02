@@ -2,6 +2,13 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Tooling — Foundation image generator] — 2026-11-02
+### Added
+- **`npm run docs:images`** regenerates the 19 images in `2-foundations/guidelines/images/` from `dist/tokens.json`. Source: `2-foundations/scripts/images/` (`kit.mjs` template, `grid.mjs`, `foundations.mjs`, `build.mjs`).
+- Dev dependencies: `playwright`, `@fontsource/inter`, `@fontsource/ibm-plex-sans-arabic`, `@fontsource/jetbrains-mono`.
+### Changed
+- All 19 images re-rendered with the project fonts from `node_modules`, so output no longer depends on system fonts.
+
 ## [Docs — Foundation image explainers] — 2026-11-02
 ### Added
 - **19 visual explainers** in `2-foundations/guidelines/images/`: Grid 3, Colors 3, Typography 2, Spacing 3, Size 1, Radius 2, Border 2, Elevation 1, Icons 1, Motion 1. Values come from `dist/tokens.json`.

@@ -11,7 +11,7 @@
 | `tokens/platform/` | web / tablet / mobile: type scale, line heights (en/ar), role weights, grid, layout, target size, breakpoints | Planner only |
 | `guidelines/` | 15 usage pages (below) | Yes, with token changes |
 | `guidelines/images/` | 19 visual explainers (PNG) for grid, colors, typography, spacing, size, radius, border, elevation, icons, motion | Yes, with token changes |
-| `scripts/` | `build.mjs`, `check.mjs`, `preview.mjs`, `contrast-pairs.json`, `lib/tokens.mjs` | Yes |
+| `scripts/` | `build.mjs`, `check.mjs`, `preview.mjs`, `contrast-pairs.json`, `lib/tokens.mjs`, `images/` (image generator) | Yes |
 | `web/` | npm `@biowave/foundations`: generated tokens + `createBiowaveTheme` (MUI) + `BiowaveProvider` | `src/mui`, `src/BiowaveProvider.tsx` only |
 | `flutter/` | Dart `biowave_foundations`: generated tokens + `BwTheme.build` (Material 3) + `context.bw` | `lib/src/theme` only |
 | `dist/tokens.json` | Flat resolved values for every mode | Generated |
@@ -68,6 +68,7 @@
 ```bash
 npm run tokens         # build + preview + checks
 npm run tokens:check   # checks with full contrast table
+npm run docs:images    # regenerate guidelines/images after a token change
 ```
 
 ## Open decisions
