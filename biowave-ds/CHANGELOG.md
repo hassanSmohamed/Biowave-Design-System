@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-03 — Web Icon Button Figma rebind
+
+Completed the retained 9/6/135 variant sets with component-token bindings and verified Light/Dark appearance, size inheritance, stroke focus rings, and zero binding/style errors. Removed temporary-menu scrollbars, excess rows, hidden checkmarks and secondary labels; remote components unchanged. Full Web suite passes 226/226 with the authorized 30-second timeout; docs:check, typecheck and component-tokens pass. Flutter checks not run. Split Button and family publication continue.
+
 ## 2026-11-03 — Web Button Figma rebind
 
 Renamed both Button sets in place, preserved their 720 variants and keys, and verified root/focus stroke bindings. Removed 241 Split Button and 218 Icon Button page menu scrollbar instances as authorized; remote scrollbar components unchanged. Family work continues.

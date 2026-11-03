@@ -1,0 +1,294 @@
+{
+  "sessionId": "011187fa-baec-4d65-8bdf-6d45b15ec220",
+  "button": {
+    "sets": [
+      "116:5183",
+      "116:7271"
+    ],
+    "variantsEach": 360,
+    "strokeBindingErrors": 0,
+    "commit": "703e127"
+  },
+  "scrollbars": {
+    "split": 241,
+    "icon": 218
+  },
+  "icon": {
+    "sets": [
+      {
+        "id": "116:28678",
+        "count": 6,
+        "key": "6723e0e3f794a428bc64ee88356ceea8aab8b8d8"
+      },
+      {
+        "id": "116:28709",
+        "count": 135,
+        "key": "a22df9937d31d278419c1e9afb08c7e3f8c4ac03"
+      },
+      {
+        "id": "116:30310",
+        "count": 9,
+        "key": "8f1289111221e5397041f78b823d6ad3f8321a8d"
+      }
+    ],
+    "removed": [
+      "116:28697",
+      "116:28700",
+      "116:28703",
+      "116:28706",
+      "116:28710",
+      "116:28722",
+      "116:28734",
+      "116:28746",
+      "116:28758",
+      "116:29110",
+      "116:29122",
+      "116:29134",
+      "116:29146",
+      "116:29158",
+      "116:29510",
+      "116:29522",
+      "116:29534",
+      "116:29546",
+      "116:29558",
+      "116:29660",
+      "116:29672",
+      "116:29684",
+      "116:29696",
+      "116:29708",
+      "116:29710",
+      "116:29722",
+      "116:29734",
+      "116:29746",
+      "116:29758",
+      "116:29810",
+      "116:29822",
+      "116:29834",
+      "116:29846",
+      "116:29858",
+      "116:29860",
+      "116:29872",
+      "116:29884",
+      "116:29896",
+      "116:29908",
+      "116:29910",
+      "116:29922",
+      "116:29934",
+      "116:29946",
+      "116:29958",
+      "116:30311",
+      "116:30323",
+      "116:30335",
+      "116:30359",
+      "116:30371",
+      "116:30383",
+      "116:30395",
+      "116:30407",
+      "116:30431",
+      "116:30443",
+      "116:30455",
+      "116:30467",
+      "116:30479",
+      "116:30503",
+      "116:30515",
+      "116:30527",
+      "116:30539",
+      "116:30551",
+      "116:30563",
+      "116:30575",
+      "116:30587",
+      "116:30599",
+      "116:30611",
+      "116:30623",
+      "116:30635",
+      "116:30647",
+      "116:30659",
+      "116:30671",
+      "116:30683",
+      "116:30695",
+      "116:30719",
+      "116:30731",
+      "116:30743",
+      "116:30755",
+      "116:30767",
+      "116:30791",
+      "116:30803",
+      "116:30815",
+      "116:30827",
+      "116:30839",
+      "116:30863",
+      "116:30875",
+      "116:30887",
+      "116:30899",
+      "116:30911",
+      "116:30923",
+      "116:30935",
+      "116:30947",
+      "116:30959",
+      "116:30971",
+      "116:30983",
+      "116:30995",
+      "116:31007",
+      "116:31019",
+      "116:31031",
+      "116:31043",
+      "116:31055",
+      "116:31079",
+      "116:31091",
+      "116:31103",
+      "116:31115",
+      "116:31127",
+      "116:31151",
+      "116:31163",
+      "116:31175",
+      "116:31187",
+      "116:31199",
+      "116:31223",
+      "116:31235",
+      "116:31247",
+      "116:31259",
+      "116:31271",
+      "116:31283",
+      "116:31295",
+      "116:31307",
+      "116:31319",
+      "116:31331",
+      "116:31343",
+      "116:31355",
+      "116:31367",
+      "116:31379"
+    ],
+    "created": [
+      "263:1229",
+      "263:1240",
+      "263:1251",
+      "263:1262",
+      "263:1273",
+      "263:1275",
+      "263:1286",
+      "263:1297",
+      "263:1308",
+      "263:1319",
+      "263:1321",
+      "263:1332",
+      "263:1343",
+      "263:1354",
+      "263:1365"
+    ],
+    "remaps": {
+      "Size=L, Selected=False": 12,
+      "Size=L, Selected=True": 6,
+      "Size=XL, Selected=False": 12,
+      "Size=XL, Selected=True": 6,
+      "Style=Standard, Color=Default, State=Default": 90,
+      "Type=Default, Selected=N/A, Size=XS, Width=Narrow, Shape=Round": 7
+    },
+    "pending": [],
+    "verification": {
+      "verified": {
+        "sets": [
+          {
+            "id": "116:28678",
+            "key": "6723e0e3f794a428bc64ee88356ceea8aab8b8d8",
+            "variants": 6
+          },
+          {
+            "id": "116:28709",
+            "key": "a22df9937d31d278419c1e9afb08c7e3f8c4ac03",
+            "variants": 135
+          },
+          {
+            "id": "116:30310",
+            "key": "8f1289111221e5397041f78b823d6ad3f8321a8d",
+            "variants": 9
+          }
+        ],
+        "errors": [],
+        "rings": 27,
+        "menus": 126,
+        "dimensions": [
+          {
+            "variant": "Toggle=false, Selected=false, Size=sm",
+            "width": 32,
+            "height": 32,
+            "icon": 16
+          },
+          {
+            "variant": "Toggle=false, Selected=false, Size=md",
+            "width": 40,
+            "height": 40,
+            "icon": 20
+          },
+          {
+            "variant": "Toggle=false, Selected=false, Size=lg",
+            "width": 48,
+            "height": 48,
+            "icon": 24
+          },
+          {
+            "variant": "Toggle=true, Selected=false, Size=sm",
+            "width": 32,
+            "height": 32,
+            "icon": 16
+          },
+          {
+            "variant": "Toggle=true, Selected=false, Size=md",
+            "width": 40,
+            "height": 40,
+            "icon": 20
+          },
+          {
+            "variant": "Toggle=true, Selected=false, Size=lg",
+            "width": 48,
+            "height": 48,
+            "icon": 24
+          },
+          {
+            "variant": "Toggle=true, Selected=true, Size=sm",
+            "width": 32,
+            "height": 32,
+            "icon": 16
+          },
+          {
+            "variant": "Toggle=true, Selected=true, Size=md",
+            "width": 40,
+            "height": 40,
+            "icon": 20
+          },
+          {
+            "variant": "Toggle=true, Selected=true, Size=lg",
+            "width": 48,
+            "height": 48,
+            "icon": 24
+          }
+        ]
+      },
+      "menuCleanup": {
+        "authoredMenus": 117,
+        "excessRowsRemoved": 351,
+        "hiddenCheckmarksRemoved": 585,
+        "hiddenSecondaryLabelsRemoved": 585,
+        "decision": "Detached local temporary Row Icon instances to remove nonspec decorations; remote row and scrollbar components unchanged."
+      },
+      "checks": {
+        "docsCheck": "pass: 33 components, zero errors",
+        "componentTokens": "pass",
+        "typecheck": "pass",
+        "webTests": "226 passed, 13 files; 30-second timeout",
+        "flutter": "not run, as requested"
+      }
+    }
+  },
+  "split": {
+    "sets": [
+      "116:23634",
+      "116:25888"
+    ],
+    "pending": [
+      "variant matrix",
+      "bindings",
+      "full audit",
+      "visual QA"
+    ]
+  }
+}

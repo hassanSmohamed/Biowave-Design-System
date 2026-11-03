@@ -417,9 +417,7 @@ Files the Executor may touch in this fix round: exactly the four (1.1) files in 
 
 ### C8 Execution log (filled by the Executor)
 
-2026-11-03 — Button-family rebind in progress. Component token validation passes. Web transparent rename and Flutter enum migration started; Flutter SDK not found on PATH. Typecheck stops at _docs/live.tsx:100, an IconButton caller outside the brief’s listed Web files. Contract generation is blocked by a stale Figma library index. docs:check reports 14 stale contracts. Web tests: 221/226 pass, five default-timeout failures. Figma untouched.
-
-**Questions:** authorize updating the live preview caller and refreshing the library index before completing the repo phase.
+2026-11-03 — Code preparation complete: Icon button uses `transparent` on Web, Tablet and Mobile, including the live preview caller. Component token validation, typecheck and docs:check pass (33 components, zero errors). All 226 Web tests pass with the authorized 30-second timeout. Flutter checks not run, as requested. Library index refreshed read-only and all contracts regenerated. Earlier caller/index/timeout blockers are resolved; Figma rebind continues.
 
 | Field | Value |
 |---|---|
@@ -570,17 +568,15 @@ Component description: "Starts an action shown as an icon. Always has a label. S
 
 ### D11 Execution log (filled by the Figma Agent)
 
-| Field | Value |
-|---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
+2026-11-03 — Codex: completed the Web Icon Button rebind, retaining all three set keys. Outer 9 variants; Glyph 6; Appearance 135. Default transparent / neutral / default. Size read-back: controls 32/40/48 and icons 16/20/24. Read-back reports zero legacy bindings, unbound solid paints, missing text styles or disallowed effects; 27 inside-stroke focus rings checked. Light/Dark previews inspected and a stale nested icon-color override corrected.
 
-**Deviations:** none
-**Questions for the Planner:** none
+Remapped 36 L/XL glyph instances to lg, 90 Standard/Default appearance instances to transparent/neutral, and 7 narrow/round outer instances to the retained sm variant (2 Introduction, 4 Thumb, 1 Thumb2). No removed tonal variants had instances, so tonal-to-outlined remaps are zero on every screen.
+
+Menu cleanup: 218 scrollbar instances removed from the Icon Button page (remote main unchanged). All 117 authored menus now contain five rows; removed 351 excess hidden rows. Detached 585 local temporary Row Icon instances to remove 585 hidden Check decorations and 585 hidden Secondary labels without altering their remote main. Primary labels and imported icon instances retained. Menu offset is calculated from Menu / Container offset; no new token. Text/effect style bindings remain library references as allowed.
+
+Flutter checks not run, as requested. Family publication and final sync verification remain pending with Split Button. Detailed evidence: rebind-evidence.json.
 
 ---
-
 ## E · Review
 
 > One block per review round, newest first.
