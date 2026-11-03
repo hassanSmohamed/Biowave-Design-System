@@ -2,6 +2,10 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Tooling — Sync hash ignores line endings] — 2026-11-03
+### Fixed
+- `_sync/lib.mjs`: `hashFile` normalises CRLF to LF for text files. A Windows checkout no longer reports `npm run sync` as BLOCKED when the token source is unchanged.
+
 ## [Planning — Button family rebind brief] — 2026-11-03
 ### Added
 - `_workflow/tasks/2026-11-03-button-family-rebind-web.md`: Codex brief for Icon button, Split button, general Menu collections and Button stroke bindings on Web. The token drafts passed `npm run component-tokens`.

@@ -34,7 +34,11 @@ export function walk(dir, filter = () => true, out = []) {
   return out.sort();
 }
 export const sha = (s) => crypto.createHash('sha256').update(s).digest('hex').slice(0, 16);
-export const hashFile = (rel) => sha(fs.readFileSync(path.join(ROOT, rel)));
+// Text files hash with LF endings, so a Windows checkout (CRLF) and git (LF, .gitattributes text=auto) give the same result.
+export const hashFile = (rel) => {
+  const data = fs.readFileSync(path.join(ROOT, rel));
+  return sha(data.includes(0) ? data : data.toString('utf8').replace(/\r\n/g, '\n'));
+};
 
 // Everything that changes the generated token outputs.
 export const tokenSources = () => [
