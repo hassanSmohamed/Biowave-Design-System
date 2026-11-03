@@ -80,7 +80,7 @@ export function FieldAction({
       className="bw-text-field__trailing-action"
       icon={icon}
       label={label}
-      variant="text"
+      variant="transparent"
       color="neutral"
       size={size}
       toggle={toggle}

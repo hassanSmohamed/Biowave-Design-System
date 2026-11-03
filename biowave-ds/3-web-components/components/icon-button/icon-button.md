@@ -19,7 +19,7 @@
 | Figma build | Planned |
 | Review | Round 3 · 2026-10-21 · Approved |
 | Source code | [`src/components/icon-button/`](../../src/components/icon-button/) |
-| Tokens | — (no component tokens yet) |
+| Tokens | [icon-button.tokens.json](icon-button.tokens.json) |
 | Contracts | [`icon-button-contract.md`](icon-button-contract.md) · [`figma-icon-button-contract.md`](figma-icon-button-contract.md) — generated, never edited |
 | Docs page | [`icon-button.html`](icon-button.html) |
 
@@ -88,7 +88,7 @@ Same scale as [Button A4.1](../button/button.md#41-variant--emphasis).
 | `filled` | `[■◆■]` | Rare: the single main action shown as an icon (e.g. send in a message box) |
 | `tonal` | `[▒◆▒]` | A prominent icon action that must not compete with a filled Button |
 | `outlined` | `[─◆─]` | Icon actions next to outlined Buttons, or on busy backgrounds that need a boundary |
-| `text` | ` ◆ ` | **Default.** App bars, table rows, card headers (Material calls this "standard") |
+| `transparent` | ` ◆ ` | **Default.** App bars, table rows, card headers (Material calls this "standard") |
 
 #### 4.2 `color`
 Same values and rules as [Button A4.2](../button/button.md#42-color): `brand` · `secondary` · `neutral` · `error` · `inverse`. **Default for icon buttons: `neutral`**: most icon actions are utilities. Use `error` for delete in a row only when it isn't followed by a confirmation; otherwise `neutral`.
@@ -104,7 +104,7 @@ Same scale as [Button A4.3](../button/button.md#43-size), so icon buttons line u
 
 **Combination rules**
 - `tonal` is not available with `neutral` or `inverse`.
-- `toggle` is available with `text` and `outlined` only (filled and tonal already look selected).
+- `toggle` is available with `transparent` and `outlined` only (filled and tonal already look selected).
 - `xl` is not available on web.
 - A label is always required (accessible name and tooltip), even though it isn't shown.
 
@@ -179,7 +179,7 @@ Same states as [Button A5](../button/button.md#a5-states-and-behavior), plus:
 |---|---|---|---|---|---|
 | `icon` | `ReactNode` | a Material Symbols Rounded glyph (`icons.md`, D-18); selected = same glyph with `'FILL' 1` | — | ✓ | `icon` |
 | `label` | string | | — | ✓ | Accessible name and tooltip text |
-| `variant` | enum | `filled` · `tonal` · `outlined` · `text` | `text` | | A4.1 |
+| `variant` | enum | `filled` · `tonal` · `outlined` · `transparent` | `transparent` | | A4.1 |
 | `color` | enum | `brand` · `secondary` · `neutral` · `error` · `inverse` | `neutral` | | A4.2 |
 | `size` | enum | `sm` · `md` · `lg` | `md` | | A4.3 |
 | `toggle` | boolean | | `false` | | A4.4 |
@@ -220,7 +220,15 @@ Same states as [Button A5](../button/button.md#a5-states-and-behavior), plus:
 #### 3.1 Unselected
 Exactly [Button B3.1–B3.5](../button/button.md#b3-tokens-by-part-and-state) for the same `variant` × `color`, with `icon` taking the Button's icon token.
 
-#### 3.2 Selected (`toggle` + `selected`, text and outlined only)
+| Transparent, `Color` | `icon` |
+|---|---|
+| `brand · secondary · success · error · warning · info` | `color-icon-role-brand` · `color-icon-role-secondary` · `color-icon-role-success` · `color-icon-role-error` · `color-icon-role-warning` · `color-icon-role-info` |
+| `neutral` | `color-icon-default` |
+| `inverse` | `color-icon-on-brand` |
+| Container, every colour | `color-background-transparent-default` |
+
+
+#### 3.2 Selected (`toggle` + `selected`, transparent and outlined only)
 | `color` | `container` background | State layer · Hover / Pressed | `icon` | `container` border (outlined) |
 |---|---|---|---|---|
 | `brand` | `color-background-brand-subtle` | `color-background-transparent-hovered` / `color-background-transparent-pressed` | `color-icon-role-brand` | `color-border-brand` |
@@ -228,6 +236,9 @@ Exactly [Button B3.1–B3.5](../button/button.md#b3-tokens-by-part-and-state) fo
 | `error` | `color-background-error-subtle` | same | `color-icon-role-error` | `color-border-error` |
 | `neutral` | `color-background-neutral-default` | same | `color-icon-default` | `color-border-strong` |
 | `inverse` | `color-background-inverse-default` | same | `color-icon-role-brand` | `color-border-inverse` |
+| `success` | `color-background-success-subtle` | same | `color-icon-role-success` | `color-border-success` |
+| `warning` | `color-background-warning-subtle` | same | `color-icon-role-warning` | `color-border-warning` |
+| `info` | `color-background-info-subtle` | same | `color-icon-role-info` | `color-border-info` |
 | Disabled | `color-background-disabled` | — | `color-icon-disabled` | `color-border-disabled` |
 
 #### 3.3 Focus
@@ -406,6 +417,10 @@ Files the Executor may touch in this fix round: exactly the four (1.1) files in 
 
 ### C8 Execution log (filled by the Executor)
 
+2026-11-03 — Button-family rebind in progress. Component token validation passes. Web transparent rename and Flutter enum migration started; Flutter SDK not found on PATH. Typecheck stops at _docs/live.tsx:100, an IconButton caller outside the brief’s listed Web files. Contract generation is blocked by a stale Figma library index. docs:check reports 14 stale contracts. Web tests: 221/226 pass, five default-timeout failures. Figma untouched.
+
+**Questions:** authorize updating the live preview caller and refreshing the library index before completing the repo phase.
+
 | Field | Value |
 |---|---|
 | Agent | Codex |
@@ -473,7 +488,7 @@ Files the Executor may touch in this fix round: exactly the four (1.1) files in 
 | Component | Icon button |
 | Figma file | **Biowave DS — Web Components** (`_sync/figma-files.json` › `web`) |
 | Page / section | `↳ Icon Button` |
-| Mode | **Create new**, keeping the legacy nested structure (Glyph / Appearance / outer set — the model for the family). Legacy reference (read only): Foundations file › `↳ Icon Button` › `Icon Button` `4310:3146`, `Icon Button / Appearance` `4310:2356`, `Icon Button / Glyph` `4310:1555` |
+| Mode | **Rebind** the existing sets on page ↳ Icon Button |
 | Depends on | Button Part D (Web) `Built` — reuses `.Button/Spinner` from the same file |
 | Plan version | 1 · 2026-10-16 |
 
@@ -483,56 +498,44 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build).
 
 ### D2 Component structure
 
-```
-❖ Icon Button                    ← published set (size, toggle, selected)
-  ├─ ❖ .Icon Button/Appearance   ← private set (variant × color × state × selected)
-  └─ ❖ .Icon Button/Glyph        ← private set (size × selected: outlined / filled glyph swap)
-```
+Keep Icon Button (116:30310), Icon Button / Appearance (116:28709), and Icon Button / Glyph (116:28678), preserving their keys and nesting.
 
 ### D3 Layer tree and auto layout
 
-```
-Icon Button              ↔ centered · width = height {B2} · padding 0
-└── .Icon Button/Appearance  ◇ fill both axes · radius {B2} · fill/stroke {B3} · `Focus ring` layer visible when State=Focused (border.md › Figma focus ring)
-    ├── state-layer      ▭ absolute, fill {background-transparent-hovered|pressed} in Hover/Pressed of tonal/outlined/text
-    ├── icon             ◇ .Icon Button/Glyph · size {B2 icon} · fill {B3}
-    └── spinner          ◇ .Button/Spinner · visible only State=Loading (icon opacity 0)
-```
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
+
+
+| Part | Collection | Mode or variable |
+|---|---|---|
+| Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
+| `Variant=filled` | `Button / Filled` | Same name as `Color` |
+| `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
+| `Variant=transparent` | `Button / Icon` | Same name as `Color` |
+| `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
+| `Selected=true` | `Icon button / Selected` | Same name as `Color` |
+| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Tooltip layers | `Icon button / Tooltip` | `default` |
+| `Show Menu Buttons` layers | `Menu / *` | `default` |
+
 
 ### D4 Properties
 
 | Figma property | Type | Values | Default | Code prop (web) | Code value |
 |---|---|---|---|---|---|
-| `Variant` (on Appearance, exposed) | VARIANT | `Filled` · `Tonal` · `Outlined` · `Text` | `Text` | `variant` | |
-| `Color` (exposed) | VARIANT | `Brand` · `Secondary` · `Neutral` · `Error` · `Inverse` | `Neutral` | `color` | |
-| `State` (exposed) | VARIANT | `Default` · `Hovered` · `Focused` · `Pressed` · `Disabled` · `Loading` | `Default` | `disabled` / `loading` | |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | |
-| `Toggle` | VARIANT | `Off` · `On` | `Off` | `toggle` | |
-| `Selected` | VARIANT | `False` · `True` | `False` | `selected` | only with `Toggle=On` |
-| `Icon` | INSTANCE_SWAP | Google · Material Symbols (Rounded) | `edit` | `icon` | `<Icon name="{glyph}" />` |
-| `Selected icon` | INSTANCE_SWAP | Google · Material Symbols (Rounded, Fill=Filled) | `edit` | `selectedIcon` | `<Icon name="{glyph}" filled />` |
-| `Tooltip label` | TEXT | | `Edit device` | `label` | |
+| `Variant` | VARIANT | `filled` · `outlined` · `tonal` · `transparent` | `transparent` | `variant` | same spelling |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `neutral` | `color` | success, warning, info have no code equivalent |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Toggle` | VARIANT | `false` · `true` | `false` | `toggle` | boolean |
+| `Selected` | VARIANT | `false` · `true` | `false` | `selected` | boolean, only with toggle |
 
-**Icons used:** `edit` (default `Icon` / `Selected icon`) · `push_pin` (toggle example, B7)
+Variant, Color and State belong to Appearance; Size, Toggle and Selected belong to the outer set. Glyph has Size and Selected. Preserve existing icon swaps and tooltip properties.
 
 ### D5 Variants to generate
 
-- `.Icon Button/Appearance`: 18 allowed `Variant × Color` × 6 states = 108, + `Selected=True` for `Text`/`Outlined` × 5 colors × 6 states = 60 → **168**
-- `Icon Button`: `Size` 3 × (`Toggle=Off` + `Toggle=On × Selected 2`) = **9**
-- No `Language` axis (no visible text).
+Outer: 9 variants; Glyph: 6; Appearance: 135 (27 Variant × Color pairs × 5 states). Tonal is limited to brand, secondary, error. XS → sm, S → md, M/L/XL → lg; retain Default width and Rounded square shape. Default colour merges into neutral. Other tonal colours remap to outlined.
 
-#### Legacy mapping (legacy set is not edited)
-| Legacy | New |
-|---|---|
-| `Style` Standard · Filled · Tonal · Outlined | `Variant` Text · Filled · Tonal · Outlined |
-| `Color` Default / Neutral (duplicates) | `Neutral` (report which one was kept as the visual reference) |
-| `Color` Success · Warning · Info | removed |
-| `Size` XS · S · M · L · XL (32–136, Material 3 Expressive) | `SM` · `MD` (`LG` new); M/L/XL have no web equivalent |
-| `Width`, `Shape`, `Show Menu Buttons` | removed (one rounded-square shape; menu is a separate component) |
-| `Type` Default · Toggle + `Selected` | `Toggle` Off · On + `Selected` |
-
-#### After `Approved`
-In the Foundations file: report instances of the three legacy sets, then move them to `_Deprecation Ground` once product files use the new library.
+List and remap all affected instances before removing variants. Never delete and recreate a set.
 
 ### D6 States, interactions and motion
 
@@ -814,6 +817,8 @@ Skipped — Figma build is `Planned` and `figma` is skipped in `_workflow/config
 > Changes to this component on this platform.
 
 ### F0 Changes from previous version
+
+2026-11-03 — Changes: Web Button-family rebind brief; component token aliases, final Figma property names and retained sets. Icon button variant becomes transparent across platforms. Execution pending validation and Figma rebind.
 
 1.1 — review round 1 Planner items: B7 uses the Biowave `Icon` (`<Icon name="…" />`); fix round 1 depends on the shared per-test speedy Emotion cache from `ds/button-web` (PR #1); C3/C5/C6/C7 carry the Fix round 1 task list (tooltip easing and reduced motion, disabled-anchor name, offset source, trimmed-label warning, deterministic and complete tests, no raised timeouts). No API change.
 

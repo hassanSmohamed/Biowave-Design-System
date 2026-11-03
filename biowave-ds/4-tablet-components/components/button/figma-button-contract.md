@@ -1,7 +1,7 @@
-<!-- GENERATED from button.md @ b1aaf470802d0849 — do not edit; change the source and run: npm run contract -- tablet button -->
+<!-- GENERATED from button.md @ e32fd501137ce7f2 — do not edit; change the source and run: npm run contract -- tablet button -->
 # Button · زر — Tablet — Figma contract
 
-> **Everything the Figma Agent needs to build Button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-10-29). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-20 |
-| Source | [`button.md`](button.md) @ `b1aaf470802d0849` |
+| Source | [`button.md`](button.md) @ `e32fd501137ce7f2` |
 
 ## 1. Library connections in this file
 
@@ -79,6 +79,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | Button / Text | brand · secondary · error · neutral · inverse | `icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>error → 1. Themes › `color/icon/role/error`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/on/brand` |
 | Button / Text | brand · secondary · error · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
 | Button / Focus | default · inverse | `color` | default → 1. Themes › `color/border/focus`<br>inverse → 1. Themes › `color/border/inverse` |
+| Button / Focus | default · inverse | `width` | default → 7. Border › `border/width/focus`<br>inverse → 7. Border › `border/width/focus` |
 
 ## 3. Foundations variables used (keys)
 
@@ -86,7 +87,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 |---|---|---|---|---|---|
 | `border-focus-offset` | 7. Border › `border/focus/offset` | `b90b6264cf3202aa473578d22cb211167afe775d` | FLOAT | GAP | spec |
 | `border-width-default` | 7. Border › `border/width/default` | `9b62f24ecdfc438789ce3fa296e725ac14b1e08f` | FLOAT | STROKE_FLOAT | spec, component token |
-| `border-width-focus` | 7. Border › `border/width/focus` | `d660bcb01777958134799fe11a99a63aaf1fbfca` | FLOAT | STROKE_FLOAT | spec |
+| `border-width-focus` | 7. Border › `border/width/focus` | `d660bcb01777958134799fe11a99a63aaf1fbfca` | FLOAT | STROKE_FLOAT | spec, component token |
 | `color-background-brand-default` | 1. Themes › `color/background/brand/default` | `bdd7bfecb9dd5c41ac657e880d4d2efe36909e3f` | COLOR | FRAME_FILL, SHAPE_FILL | component token |
 | `color-background-brand-hovered` | 1. Themes › `color/background/brand/hovered` | `8c4a115738de9afc5cc82e97aa2aa38763e937ed` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
 | `color-background-brand-pressed` | 1. Themes › `color/background/brand/pressed` | `53e9e1b8df7612fbd2878471501d6b72fd3b12be` | COLOR | FRAME_FILL, SHAPE_FILL | component token |
@@ -175,7 +176,6 @@ Library file **Google · Material Symbols** · key `RXlnhYgUKBBE6HveEr7e9C` — 
 
 | Icon | Set key | Rounded (unfilled) | Rounded (filled) |
 |---|---|---|---|
-| `add` | `7d426edec81a6ef6e44ffdcc37eab6863c7943a7` | `d20bdb7a3a61cd1a31b9e9dddf5c46330cc9bbff` | `cbadf0df7af23f20cf573e9b3856c059d146c57d` |
 | `arrow_forward` | `90a6ad2ece86bb88d2f44286bd9efd3a60a5c815` | `48427bac81c0253cee4049d8ad243a4fb4da643d` | `1df1f77448d6e530948cc17302f5ae41c6fa453c` |
 | `login` | `96fef76a21c64dbad56e12bc0037352d5ab132e7` | `5dd2182dd69b19ede449f1c31e57246959afa909` | `1cbc2303acd1b0ab1e11dc23790f0af47d9e084b` |
 
@@ -380,21 +380,15 @@ Button                    ↔ horizontal · align center/center · gap {B2 gap} 
 
 #### D4 Properties
 
-This table is the source for Code Connect (D9).
-
 | Figma property | Type | Values | Default | Code prop (web) | Code value |
 |---|---|---|---|---|---|
-| `Variant` | VARIANT | `Filled` · `Tonal` · `Outlined` · `Text` | `Filled` | `variant` | `'filled'` · `'tonal'` · `'outlined'` · `'text'` |
-| `Color` | VARIANT | `Brand` · `Secondary` · `Neutral` · `Error` · `Inverse` | `Brand` | `color` | `'brand'` … `'inverse'` |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | `'sm'` · `'md'` · `'lg'` |
-| `State` | VARIANT | `Default` · `Hovered` · `Focused` · `Pressed` · `Disabled` · `Loading` | `Default` | `disabled` / `loading` | `Disabled` → `disabled`; `Loading` → `loading`; others are interaction states, not props |
-| `Language` | VARIANT | `EN` · `AR` | `EN` | — | Figma only; code takes language and direction from the provider |
-| `Label` | TEXT | | `Save changes` (AR variants: `حفظ التغييرات`) | `children` | |
-| `Leading icon` | BOOLEAN | | `false` | `startIcon` | present / absent |
-| `Leading icon glyph` | INSTANCE_SWAP | preferred: Google · Material Symbols (Rounded) | `add` | `startIcon` | `<Icon baseClassName="material-symbols-rounded">{glyph}</Icon>` |
-| `Trailing icon` | BOOLEAN | | `false` | `endIcon` | present / absent |
-| `Trailing icon glyph` | INSTANCE_SWAP | preferred: Google · Material Symbols (Rounded) | `arrow_forward` | `endIcon` | |
-| — (instance width Fill) | | | | `fullWidth` | not mapped; resizing the instance to Fill = `fullWidth` |
+| `Variant` | VARIANT | `filled` · `outlined` · `text` | `filled` | `variant` | same spelling |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `brand` | `color` | success, warning, info have no code equivalent |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Label` | TEXT |  |  | `children` | text |
+| `Leading icon` | BOOLEAN |  | `false` | `startIcon` | present / absent |
+| `Trailing icon` | BOOLEAN |  | `false` | `endIcon` | present / absent |
 
 #### D6 States, interactions and motion
 

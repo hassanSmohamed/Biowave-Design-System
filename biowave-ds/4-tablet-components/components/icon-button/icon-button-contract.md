@@ -1,4 +1,4 @@
-<!-- GENERATED from icon-button.md @ c45979476b48593a — do not edit; change the source and run: npm run contract -- tablet icon-button -->
+<!-- GENERATED from icon-button.md @ 1811c770698a3879 — do not edit; change the source and run: npm run contract -- tablet icon-button -->
 # Icon button · زر أيقونة — Tablet — code contract
 
 > **Everything you need to build Icon button on Tablet, and nothing else.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](icon-button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-10-16 |
 | Source code | `lib/src/components/icon_button/bw_icon_button.dart` |
 | Tokens | — |
-| Source | [`icon-button.md`](icon-button.md) @ `c45979476b48593a` |
+| Source | [`icon-button.md`](icon-button.md) @ `1811c770698a3879` |
 
 ## 1. What it is
 
@@ -42,7 +42,7 @@ An icon button starts an action shown only as an icon: close, edit, more options
 | `icon` | `IconData` | `Symbols.*_rounded` (D-18; re-exported by `biowave_foundations`) | — | ✓ | `icon` |
 | `label` | `String` | | — | ✓ | Semantics label and tooltip |
 | `onPressed` | `VoidCallback?` | | — | ✓ | `null` = disabled |
-| `variant` | `BwButtonVariant` | `filled` · `tonal` · `outlined` · `text` | `text` | | A4.1 |
+| `variant` | `BwButtonVariant` | `filled` · `tonal` · `outlined` · `transparent` | `transparent` | | A4.1 |
 | `color` | `BwButtonColor` | `brand` · `secondary` · `neutral` · `error` · `inverse` | `neutral` | | A4.2 |
 | `size` | `BwControlSize` | `sm` · `md` · `lg` · `xl` | `lg` | | A4.3 |
 | `toggle` · `selected` | `bool` · `bool` | | `false` · `false` | | A4.4 |

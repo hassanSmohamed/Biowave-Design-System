@@ -20,7 +20,7 @@ import {
 import { IconButtonTooltip } from './IconButtonTooltip';
 import { iconButtonSelectedTokens } from './iconButton.tokens';
 
-export type IconButtonVariant = ButtonVariant;
+export type IconButtonVariant = Exclude<ButtonVariant, 'text'> | 'transparent';
 export type IconButtonColor = ButtonColor;
 export type IconButtonSize = ButtonSize;
 
@@ -228,10 +228,10 @@ function resolveIconButtonVisual(
   color: IconButtonColor,
   selected: boolean,
 ): ButtonVisualTokens {
-  if (selected && (variant === 'text' || variant === 'outlined')) {
+  if (selected && (variant === 'transparent' || variant === 'outlined')) {
     return iconButtonSelectedTokens[variant][color];
   }
-  return resolveButtonTokens(variant, color);
+  return resolveButtonTokens(variant === 'transparent' ? 'text' : variant, color);
 }
 
 const IconButtonInternal = React.forwardRef<HTMLButtonElement, IconButtonInternalProps>(
@@ -239,7 +239,7 @@ const IconButtonInternal = React.forwardRef<HTMLButtonElement, IconButtonInterna
     {
       icon,
       label,
-      variant = 'text',
+      variant = 'transparent',
       color = 'neutral',
       size: sizeProp,
       segment,
@@ -263,7 +263,7 @@ const IconButtonInternal = React.forwardRef<HTMLButtonElement, IconButtonInterna
       variant === 'tonal' && (color === 'neutral' || color === 'inverse')
         ? 'outlined'
         : variant;
-    const effectiveToggle = toggle && (effectiveVariant === 'text' || effectiveVariant === 'outlined');
+    const effectiveToggle = toggle && (effectiveVariant === 'transparent' || effectiveVariant === 'outlined');
     const effectiveSelected = effectiveToggle && selected;
     const visual = resolveIconButtonVisual(effectiveVariant, color, effectiveSelected);
     const effectiveLoadingLabel = loadingLabel ?? (locale === 'ar' ? 'جارٍ التحميل' : 'Loading');

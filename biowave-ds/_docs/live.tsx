@@ -96,7 +96,7 @@ function IconButtonDemo({ t, color }: { t: (typeof copy)[Lang]; color: ButtonCol
   return (
     <>
       <Row title={t.variants}>
-        {(['filled', 'tonal', 'outlined', 'text'] as const).map((v) => (
+        {(['filled', 'tonal', 'outlined', 'transparent'] as const).map((v) => (
           <IconButton key={v} variant={noTonal.includes(color) && v === 'tonal' ? 'outlined' : v} color={color} icon={<Icon name="edit" />} label={t.edit} />
         ))}
       </Row>

@@ -8,13 +8,15 @@ import '../../common/bw_focus_ring.dart';
 import '../button/bw_button.dart';
 import '../button/bw_button_style.dart';
 
+enum BwIconButtonVariant { filled, tonal, outlined, transparent }
+
 /// A token-driven icon-only action for Biowave mobile experiences.
 class BwIconButton extends StatefulWidget {
   const BwIconButton({
     required this.icon,
     required this.label,
     required this.onPressed,
-    this.variant = BwButtonVariant.text,
+    this.variant = BwIconButtonVariant.transparent,
     this.color = BwButtonColor.neutral,
     this.size = BwControlSize.lg,
     this.toggle = false,
@@ -34,15 +36,15 @@ class BwIconButton extends StatefulWidget {
     super.key,
   })  : assert(label != '', 'BwIconButton needs a label'),
         assert(
-          !(variant == BwButtonVariant.tonal &&
+          !(variant == BwIconButtonVariant.tonal &&
               (color == BwButtonColor.neutral ||
                   color == BwButtonColor.inverse)),
           'BwIconButton tonal supports brand, secondary, and error colors only',
         ),
         assert(
           !(toggle &&
-              (variant == BwButtonVariant.filled ||
-                  variant == BwButtonVariant.tonal)),
+              (variant == BwIconButtonVariant.filled ||
+                  variant == BwIconButtonVariant.tonal)),
           'BwIconButton toggles support text and outlined variants only',
         ),
         assert(
@@ -53,7 +55,7 @@ class BwIconButton extends StatefulWidget {
   final IconData icon;
   final String label;
   final VoidCallback? onPressed;
-  final BwButtonVariant variant;
+  final BwIconButtonVariant variant;
   final BwButtonColor color;
   final BwControlSize size;
   final bool toggle;
@@ -142,18 +144,18 @@ class _BwIconButtonState extends State<BwIconButton> {
 
   bool get _announcesLoading => widget.loading && widget.onPressed != null;
 
-  BwButtonVariant get _effectiveVariant =>
-      widget.variant == BwButtonVariant.tonal &&
+  BwIconButtonVariant get _effectiveVariant =>
+      widget.variant == BwIconButtonVariant.tonal &&
               (widget.color == BwButtonColor.neutral ||
                   widget.color == BwButtonColor.inverse)
-          ? BwButtonVariant.outlined
+          ? BwIconButtonVariant.outlined
           : widget.variant;
 
   bool get _effectiveToggle =>
       widget.toggle &&
       widget.selectedIcon != null &&
-      (_effectiveVariant == BwButtonVariant.text ||
-          _effectiveVariant == BwButtonVariant.outlined);
+      (_effectiveVariant == BwIconButtonVariant.transparent ||
+          _effectiveVariant == BwIconButtonVariant.outlined);
 
   String get _loadingMessage =>
       widget.loadingLabel ??
@@ -183,7 +185,12 @@ class _BwIconButtonState extends State<BwIconButton> {
     final focusRingKey = const ValueKey<String>('BwIconButton.focus-ring');
     final baseStyle = BwButtonStyle.resolve(
       context,
-      _effectiveVariant,
+      switch (_effectiveVariant) {
+        BwIconButtonVariant.filled => BwButtonVariant.filled,
+        BwIconButtonVariant.tonal => BwButtonVariant.tonal,
+        BwIconButtonVariant.outlined => BwButtonVariant.outlined,
+        BwIconButtonVariant.transparent => BwButtonVariant.text,
+      },
       widget.color,
       widget.size,
       focusRingKey: focusRingKey,
@@ -224,7 +231,7 @@ class _BwIconButtonState extends State<BwIconButton> {
           BwButtonColor.inverse => colors.iconRoleBrand,
         };
       }),
-      side: _effectiveVariant == BwButtonVariant.outlined
+      side: _effectiveVariant == BwIconButtonVariant.outlined
           ? baseSide
           : const WidgetStatePropertyAll<BorderSide>(BorderSide.none),
       shape: widget.segment == null
@@ -287,7 +294,7 @@ class _BwIconButtonState extends State<BwIconButton> {
     final effectiveOnPressed =
         widget.loading && enabled ? () {} : widget.onPressed;
     final iconButton = switch (_effectiveVariant) {
-      BwButtonVariant.filled => IconButton.filled(
+      BwIconButtonVariant.filled => IconButton.filled(
           onPressed: effectiveOnPressed,
           focusNode: _focusNode,
           autofocus: widget.autofocus,
@@ -297,7 +304,7 @@ class _BwIconButtonState extends State<BwIconButton> {
           selectedIcon: visual,
           icon: visual,
         ),
-      BwButtonVariant.tonal => IconButton.filledTonal(
+      BwIconButtonVariant.tonal => IconButton.filledTonal(
           onPressed: effectiveOnPressed,
           focusNode: _focusNode,
           autofocus: widget.autofocus,
@@ -307,7 +314,7 @@ class _BwIconButtonState extends State<BwIconButton> {
           selectedIcon: visual,
           icon: visual,
         ),
-      BwButtonVariant.outlined => IconButton.outlined(
+      BwIconButtonVariant.outlined => IconButton.outlined(
           onPressed: effectiveOnPressed,
           focusNode: _focusNode,
           autofocus: widget.autofocus,
@@ -317,7 +324,7 @@ class _BwIconButtonState extends State<BwIconButton> {
           selectedIcon: visual,
           icon: visual,
         ),
-      BwButtonVariant.text => IconButton(
+      BwIconButtonVariant.transparent => IconButton(
           onPressed: effectiveOnPressed,
           focusNode: _focusNode,
           autofocus: widget.autofocus,

@@ -1,7 +1,7 @@
-<!-- GENERATED from icon-button.md @ e67d8c26b11f4959 — do not edit; change the source and run: npm run contract -- mobile icon-button -->
+<!-- GENERATED from icon-button.md @ 7380d9781f6172d4 — do not edit; change the source and run: npm run contract -- mobile icon-button -->
 # Icon button · زر أيقونة — Mobile — Figma contract
 
-> **Everything the Figma Agent needs to build Icon button in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-10-29). Questions go to [D11 Execution log](icon-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Icon button in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](icon-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Icon button · زر أيقونة |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.0 · 2026-10-16 |
-| Source | [`icon-button.md`](icon-button.md) @ `e67d8c26b11f4959` |
+| Source | [`icon-button.md`](icon-button.md) @ `7380d9781f6172d4` |
 
 ## 1. Library connections in this file
 
@@ -52,7 +52,9 @@ None named in B/D.
 
 ## 5. Effect styles used (keys)
 
-None named in B/D.
+| Style | Key |
+|---|---|
+| `Elevation/3` | `a6ffc0d435b5e225dd534e3df14eee3e2dba22b0` |
 
 ## 6. Components to instance (keys)
 
@@ -76,7 +78,7 @@ Library file **Google · Material Symbols** · key `RXlnhYgUKBBE6HveEr7e9C` — 
 | `icon` | `IconData` | `Symbols.*_rounded` (D-18; re-exported by `biowave_foundations`) | — | ✓ | `icon` |
 | `label` | `String` | | — | ✓ | Semantics label and tooltip |
 | `onPressed` | `VoidCallback?` | | — | ✓ | `null` = disabled |
-| `variant` | `BwButtonVariant` | `filled` · `tonal` · `outlined` · `text` | `text` | | A4.1 |
+| `variant` | `BwButtonVariant` | `filled` · `tonal` · `outlined` · `transparent` | `transparent` | | A4.1 |
 | `color` | `BwButtonColor` | `brand` · `secondary` · `neutral` · `error` · `inverse` | `neutral` | | A4.2 |
 | `size` | `BwControlSize` | `sm` · `md` · `lg` · `xl` | `lg` | | A4.3 |
 | `toggle` · `selected` | `bool` · `bool` | | `false` · `false` | | A4.4 |
@@ -178,37 +180,36 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build).
 
 #### D2 Component structure
 
-```
-❖ Icon Button                    ← published set (size, toggle, selected)
-  ├─ ❖ .Icon Button/Appearance   ← private set (variant × color × state × selected)
-  └─ ❖ .Icon Button/Glyph        ← private set (size × selected: outlined / filled glyph swap)
-```
+Keep Icon Button (116:30310), Icon Button / Appearance (116:28709), and Icon Button / Glyph (116:28678), preserving their keys and nesting.
 
 #### D3 Layer tree and auto layout
 
-```
-Icon Button              ↔ centered · width = height {B2} · padding 0
-└── .Icon Button/Appearance  ◇ fill both axes · radius {B2} · fill/stroke {B3} · `Focus ring` layer visible when State=Focused (border.md › Figma focus ring)
-    ├── state-layer      ▭ absolute, fill {background-transparent-hovered|pressed} in Hover/Pressed of tonal/outlined/text
-    ├── icon             ◇ .Icon Button/Glyph · size {B2 icon} · fill {B3}
-    └── spinner          ◇ .Button/Spinner · visible only State=Loading (icon opacity 0)
-```
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
+
+| Part | Collection | Mode or variable |
+|---|---|---|
+| Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
+| `Variant=filled` | `Button / Filled` | Same name as `Color` |
+| `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
+| `Variant=transparent` | `Button / Icon` | Same name as `Color` |
+| `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
+| `Selected=true` | `Icon button / Selected` | Same name as `Color` |
+| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Tooltip layers | `Icon button / Tooltip` | `default` |
+| `Show Menu Buttons` layers | `Menu / *` | `default` |
 
 #### D4 Properties
 
 | Figma property | Type | Values | Default | Code prop (web) | Code value |
 |---|---|---|---|---|---|
-| `Variant` (on Appearance, exposed) | VARIANT | `Filled` · `Tonal` · `Outlined` · `Text` | `Text` | `variant` | |
-| `Color` (exposed) | VARIANT | `Brand` · `Secondary` · `Neutral` · `Error` · `Inverse` | `Neutral` | `color` | |
-| `State` (exposed) | VARIANT | `Default` · `Hovered` · `Focused` · `Pressed` · `Disabled` · `Loading` | `Default` | `disabled` / `loading` | |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | |
-| `Toggle` | VARIANT | `Off` · `On` | `Off` | `toggle` | |
-| `Selected` | VARIANT | `False` · `True` | `False` | `selected` | only with `Toggle=On` |
-| `Icon` | INSTANCE_SWAP | Google · Material Symbols (Rounded) | `edit` | `icon` | `<Icon name="{glyph}" />` |
-| `Selected icon` | INSTANCE_SWAP | Google · Material Symbols (Rounded, Fill=Filled) | `edit` | `selectedIcon` | `<Icon name="{glyph}" filled />` |
-| `Tooltip label` | TEXT | | `Edit device` | `label` | |
+| `Variant` | VARIANT | `filled` · `outlined` · `tonal` · `transparent` | `transparent` | `variant` | same spelling |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `neutral` | `color` | success, warning, info have no code equivalent |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Toggle` | VARIANT | `false` · `true` | `false` | `toggle` | boolean |
+| `Selected` | VARIANT | `false` · `true` | `false` | `selected` | boolean, only with toggle |
 
-**Icons used:** `edit` (default `Icon` / `Selected icon`) · `push_pin` (toggle example, B7)
+Variant, Color and State belong to Appearance; Size, Toggle and Selected belong to the outer set. Glyph has Size and Selected. Preserve existing icon swaps and tooltip properties.
 
 #### D6 States, interactions and motion
 

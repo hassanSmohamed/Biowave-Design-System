@@ -234,7 +234,7 @@ export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
               ref={triggerRef}
               icon={<Icon name="more_horiz" />}
               label={effectiveOverflowLabel}
-              variant="text"
+              variant="transparent"
               color="neutral"
               size={size}
               aria-haspopup="menu"

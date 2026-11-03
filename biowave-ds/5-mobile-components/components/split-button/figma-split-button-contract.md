@@ -1,7 +1,7 @@
-<!-- GENERATED from split-button.md @ 4e8f4f57a322a77d — do not edit; change the source and run: npm run contract -- mobile split-button -->
+<!-- GENERATED from split-button.md @ 45e07969893d7e96 — do not edit; change the source and run: npm run contract -- mobile split-button -->
 # Split button · زر مقسّم — Mobile — Figma contract
 
-> **Everything the Figma Agent needs to build Split button in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-10-29). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Split button in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Split button · زر مقسّم |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-31 |
-| Source | [`split-button.md`](split-button.md) @ `4e8f4f57a322a77d` |
+| Source | [`split-button.md`](split-button.md) @ `45e07969893d7e96` |
 
 ## 1. Library connections in this file
 
@@ -66,11 +66,15 @@ Code-only tokens (no Figma variable by design — motion, layers): `elevation-3`
 
 ## 4. Text styles used (keys)
 
-None named in B/D.
+| Style | Key |
+|---|---|
+| `body/md` | `87a12277da6eb5157d262a0d847b277747f73b69` |
 
 ## 5. Effect styles used (keys)
 
-None named in B/D.
+| Style | Key |
+|---|---|
+| `Elevation/3` | `a6ffc0d435b5e225dd534e3df14eee3e2dba22b0` |
 
 ## 6. Components to instance (keys)
 
@@ -221,37 +225,53 @@ The Mobile Part D refers to these Web sections; they are copied here so you read
 
 #### D1 Rules for this build
 
-Same as [Button D1](../button/button.md#d1-rules-for-this-build). The two parts **must be instances** of `Button` and `Icon Button` (rule 6), with only their inner corner radii (bound to `radius/none`) and inner-side stroke weight (bound to `border/width/none`) overridden; a `Divider` instance (Vertical · Default) sits between them. Build Divider before this set.
+Follow Button component-token rules; rebind the existing parts in place.
 
 #### D2 Component structure
 
-```
-❖ Split Button         ← published set
-   contains instances of ❖ Button and ❖ Icon Button — no own drawing
-```
+Keep Split Button/EN (116:23634) and Split Button/AR (116:25888), preserving their keys and existing Action, Dropdown, Divider and menu layers. Do not compose replacement Button or Icon Button instances.
 
 #### D3 Layer tree and auto layout
 
-```
-Split Button            ↔ horizontal · gap spacing/none · hug · counter-axis stretch
-├── primary-action      ◇ Button instance · Variant/Color/Size/Language follow the set · inner corners radius/none · inline-end stroke weight border/width/none · exposed: Label, Leading icon, Leading icon glyph
-├── divider             ◇ Divider instance · Orientation=Vertical · Emphasis=Default · Inset=None · height fill (decorative)
-└── menu-trigger        ◇ Icon Button instance · same Variant/Color/Size · inner corners radius/none · inline-start stroke weight border/width/none · Icon = expand_more · Tooltip label = "More options"
-```
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
 
-**Icons used:** `expand_more` — menu trigger chevron, Google · Material Symbols Rounded (D-18)
+Copy the binding pattern from the matching Button variant, then read it back. For both `Action` and `Dropdown`:
+
+| `Variant` | Collection |
+|---|---|
+| `filled` | `Button / Filled` |
+| `outlined` | `Button / Outlined` |
+| `text` | `Button / Text` |
+
+Use the mode with the same name as `Color`.
+
+| Part | Collection | Variable |
+|---|---|---|
+| Heights, padding, gap, icon | `Button / Size` | Same name as `Size` |
+| Outer corners | `Split button / Part` | `outer-radius` |
+| Inner corners | `Split button / Part` | `inner-radius` |
+| Border on the inner sides | `Split button / Part` | `inner-border-width` |
+| Gap between parts | `Split button / Part` | `gap` |
+| `Divider` fill, width | `Split button / Part` | `divider/color`, `divider/width` |
+| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Menu | `Menu / *` | `default` |
+
+- Replace the pinned `Button size` mode with `Button / Size` modes.
+- Use one divider colour for every variant.
+- Bind every icon fill. Replace raw white fills.
+- Give every text layer the same text style as the matching Button variant, or `body/md` for menu rows.
 
 #### D4 Properties
 
-| Figma property | Type | Values | Default | Code prop (web) |
-|---|---|---|---|---|
-| `Variant` | VARIANT | `Filled` · `Tonal` · `Outlined` | `Filled` | `variant` |
-| `Color` | VARIANT | `Brand` · `Secondary` · `Neutral` | `Brand` | `color` |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` |
-| `State` | VARIANT | `Default` · `Primary hovered` · `Primary pressed` · `Trigger hovered` · `Expanded` · `Focused primary` · `Focused trigger` · `Disabled` · `Loading` | `Default` | `disabled` / `loading`; others interaction only |
-| `Language` | VARIANT | `EN` · `AR` | `EN` | — |
-| `Label` | TEXT (nested, exposed) | | `Export report` | `children` |
-| `Leading icon` · `Leading icon glyph` | BOOLEAN · INSTANCE_SWAP (nested, exposed) | | `false` | `startIcon` |
+| Figma property | Type | Values | Default | Code prop (web) | Code value |
+|---|---|---|---|---|---|
+| `Variant` | VARIANT | `filled` · `outlined` · `text` | `filled` | `variant` | `text` has no code equivalent; code also supports `tonal` |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `brand` | `color` | Only brand, secondary, neutral have code equivalents |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Label` | TEXT |  |  | `children` | text |
+| `Leading icon` | BOOLEAN |  | `false` | `startIcon` | present / absent |
+| `Show Menu Buttons` | BOOLEAN |  | `false` | — | Figma only |
 
 #### D6 States, interactions and motion
 

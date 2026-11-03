@@ -9,13 +9,15 @@ import '../button/bw_button.dart';
 import '../button/bw_button_style.dart';
 import '../icon/bw_icon.dart';
 
+enum BwIconButtonVariant { filled, tonal, outlined, transparent }
+
 /// A token-driven Material 3 icon button for tablet experiences.
 class BwIconButton extends StatelessWidget {
   const BwIconButton({
     required this.icon,
     required this.label,
     required this.onPressed,
-    this.variant = BwButtonVariant.text,
+    this.variant = BwIconButtonVariant.transparent,
     this.color = BwButtonColor.neutral,
     this.size = BwControlSize.lg,
     this.toggle = false,
@@ -35,16 +37,16 @@ class BwIconButton extends StatelessWidget {
     super.key,
   })  : assert(label.length > 0, 'BwIconButton needs a label'),
         assert(
-          variant != BwButtonVariant.tonal ||
+          variant != BwIconButtonVariant.tonal ||
               (color != BwButtonColor.neutral &&
                   color != BwButtonColor.inverse),
           'BwIconButton tonal supports brand, secondary, or error',
         ),
         assert(
           !toggle ||
-              (variant != BwButtonVariant.filled &&
-                  variant != BwButtonVariant.tonal),
-          'BwIconButton toggles support outlined or text variants',
+              (variant != BwIconButtonVariant.filled &&
+                  variant != BwIconButtonVariant.tonal),
+          'BwIconButton toggles support outlined or transparent variants',
         ),
         assert(
           !toggle || selectedIcon != null,
@@ -54,7 +56,7 @@ class BwIconButton extends StatelessWidget {
   final IconData icon;
   final String label;
   final VoidCallback? onPressed;
-  final BwButtonVariant variant;
+  final BwIconButtonVariant variant;
   final BwButtonColor color;
   final BwControlSize size;
   final bool toggle;
@@ -96,10 +98,10 @@ class BwIconButton extends StatelessWidget {
   @internal
   final bool? expanded;
 
-  BwButtonVariant get _effectiveVariant {
-    if (variant == BwButtonVariant.tonal &&
+  BwIconButtonVariant get _effectiveVariant {
+    if (variant == BwIconButtonVariant.tonal &&
         (color == BwButtonColor.neutral || color == BwButtonColor.inverse)) {
-      return BwButtonVariant.outlined;
+      return BwIconButtonVariant.outlined;
     }
     return variant;
   }
@@ -107,8 +109,8 @@ class BwIconButton extends StatelessWidget {
   bool get _effectiveToggle =>
       toggle &&
       selectedIcon != null &&
-      variant != BwButtonVariant.filled &&
-      variant != BwButtonVariant.tonal;
+      variant != BwIconButtonVariant.filled &&
+      variant != BwIconButtonVariant.tonal;
 
   bool get _effectiveSelected => _effectiveToggle && selected;
 
@@ -118,7 +120,12 @@ class BwIconButton extends StatelessWidget {
     final dimensions = BwButtonStyle.metrics(size);
     final baseStyle = BwButtonStyle.resolve(
       context,
-      effectiveVariant,
+      switch (effectiveVariant) {
+        BwIconButtonVariant.filled => BwButtonVariant.filled,
+        BwIconButtonVariant.tonal => BwButtonVariant.tonal,
+        BwIconButtonVariant.outlined => BwButtonVariant.outlined,
+        BwIconButtonVariant.transparent => BwButtonVariant.text,
+      },
       color,
       size,
     );
@@ -218,7 +225,7 @@ class BwIconButton extends StatelessWidget {
     );
 
     Widget buildButton() => switch (effectiveVariant) {
-          BwButtonVariant.filled => IconButton.filled(
+          BwIconButtonVariant.filled => IconButton.filled(
               key: const ValueKey<String>('BwIconButton.container'),
               onPressed: action,
               focusNode: focusNode,
@@ -228,7 +235,7 @@ class BwIconButton extends StatelessWidget {
               isSelected: _effectiveToggle ? _effectiveSelected : null,
               icon: content,
             ),
-          BwButtonVariant.tonal => IconButton.filledTonal(
+          BwIconButtonVariant.tonal => IconButton.filledTonal(
               key: const ValueKey<String>('BwIconButton.container'),
               onPressed: action,
               focusNode: focusNode,
@@ -238,7 +245,7 @@ class BwIconButton extends StatelessWidget {
               isSelected: _effectiveToggle ? _effectiveSelected : null,
               icon: content,
             ),
-          BwButtonVariant.outlined => IconButton.outlined(
+          BwIconButtonVariant.outlined => IconButton.outlined(
               key: const ValueKey<String>('BwIconButton.container'),
               onPressed: action,
               focusNode: focusNode,
@@ -248,7 +255,7 @@ class BwIconButton extends StatelessWidget {
               isSelected: _effectiveToggle ? _effectiveSelected : null,
               icon: content,
             ),
-          BwButtonVariant.text => IconButton(
+          BwIconButtonVariant.transparent => IconButton(
               key: const ValueKey<String>('BwIconButton.container'),
               onPressed: action,
               focusNode: focusNode,

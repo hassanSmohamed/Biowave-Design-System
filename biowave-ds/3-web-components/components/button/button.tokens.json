@@ -1,6 +1,6 @@
 {
   "$schema": "component-tokens/v1",
-  "$description": "Button component tokens (D-13). Every value aliases a SEMANTIC token from 2-foundations \u2014 never a primitive or a raw value. Same facts as spec \u00a73 (checked by npm run component-tokens). Synced to the Web Components file as local collections whose variables alias the Foundations library.",
+  "$description": "Button component tokens (D-13). Every value aliases a SEMANTIC token from 2-foundations — never a primitive or a raw value. Same facts as spec §3 (checked by npm run component-tokens). Synced to the Web Components file as local collections whose variables alias the Foundations library.",
   "button": {
     "size": {
       "$extensions": {
@@ -754,11 +754,17 @@
       "default": {
         "color": {
           "$value": "{color.border.focus}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
         }
       },
       "inverse": {
         "color": {
           "$value": "{color.border.inverse}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
         }
       }
     }

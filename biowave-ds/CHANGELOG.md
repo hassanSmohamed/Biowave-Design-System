@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-03 — Button family rebind (in progress)
+
+Added Icon button and Split button/Menu aliases and Button focus width; renamed Icon button code variant to transparent across platforms and updated Web rebind specifications. Validation and Figma execution pending. Updated through ad42e97: live preview caller migrated; library index refreshed read-only; Button, Icon button and Split button contracts regenerated on all platforms. Typecheck passes; the five previously timed-out tests pass with the requested 30-second timeout. All contracts regenerated with --all as authorized; docs:check passes (33 components, zero errors). Restricted Web token apply created seven collections and 44 variables, updated Button / Focus width, and deprecated nothing. Stopped before set mutations: embedded Scroll Bar instance 116:23651 (remote main 7:807) binds to legacy Color / Bg/Gray Bold; no matching component alias or scrollbar mapping exists in the brief. Flutter checks not run.
+
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
 ## [Tooling — Sync hash ignores line endings] — 2026-11-03

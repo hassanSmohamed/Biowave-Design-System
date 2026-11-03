@@ -41,7 +41,7 @@ void main() {
       );
 
       final subject = tester.widget<BwIconButton>(find.byType(BwIconButton));
-      expect(subject.variant, BwButtonVariant.text);
+      expect(subject.variant, BwIconButtonVariant.transparent);
       expect(subject.color, BwButtonColor.neutral);
       expect(subject.size, BwControlSize.lg);
       expect(subject.toggle, isFalse);
@@ -70,13 +70,13 @@ void main() {
             icon: Symbols.edit_rounded,
             label: 'Edit',
             onPressed: callback,
-            variant: BwButtonVariant.tonal,
+            variant: BwIconButtonVariant.tonal,
             color: color,
           ),
           throwsAssertionError,
         );
       }
-      for (final variant in [BwButtonVariant.filled, BwButtonVariant.tonal]) {
+      for (final variant in [BwIconButtonVariant.filled, BwIconButtonVariant.tonal]) {
         expect(
           () => BwIconButton(
             icon: Symbols.push_pin_rounded,
@@ -103,15 +103,15 @@ void main() {
   });
 
   group('render matrix', () {
-    final allowedColors = <BwButtonVariant, List<BwButtonColor>>{
-      BwButtonVariant.filled: BwButtonColor.values,
-      BwButtonVariant.tonal: const [
+    final allowedColors = <BwIconButtonVariant, List<BwButtonColor>>{
+      BwIconButtonVariant.filled: BwButtonColor.values,
+      BwIconButtonVariant.tonal: const [
         BwButtonColor.brand,
         BwButtonColor.secondary,
         BwButtonColor.error,
       ],
-      BwButtonVariant.outlined: BwButtonColor.values,
-      BwButtonVariant.text: BwButtonColor.values,
+      BwIconButtonVariant.outlined: BwButtonColor.values,
+      BwIconButtonVariant.transparent: BwButtonColor.values,
     };
 
     for (final brightness in Brightness.values) {
@@ -121,7 +121,7 @@ void main() {
             '${brightness.name}/${locale.languageCode}', (tester) async {
           for (final entry in allowedColors.entries) {
             final selections = switch (entry.key) {
-              BwButtonVariant.outlined || BwButtonVariant.text => const [
+              BwIconButtonVariant.outlined || BwIconButtonVariant.transparent => const [
                   false,
                   true
                 ],
@@ -192,7 +192,7 @@ void main() {
     testWidgets('selected states use the specified token branches', (
       tester,
     ) async {
-      for (final variant in [BwButtonVariant.text, BwButtonVariant.outlined]) {
+      for (final variant in [BwIconButtonVariant.transparent, BwIconButtonVariant.outlined]) {
         for (final color in BwButtonColor.values) {
           await tester.pumpWidget(
             _app(
@@ -357,7 +357,7 @@ void main() {
                 icon: Symbols.edit_rounded,
                 label: 'Edit',
                 onPressed: () {},
-                variant: BwButtonVariant.filled,
+                variant: BwIconButtonVariant.filled,
                 color: color,
                 tooltip: false,
               ),
@@ -525,15 +525,15 @@ class _GoldenBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isArabic = locale.languageCode == 'ar';
-    final allowedColors = <BwButtonVariant, List<BwButtonColor>>{
-      BwButtonVariant.filled: BwButtonColor.values,
-      BwButtonVariant.tonal: const [
+    final allowedColors = <BwIconButtonVariant, List<BwButtonColor>>{
+      BwIconButtonVariant.filled: BwButtonColor.values,
+      BwIconButtonVariant.tonal: const [
         BwButtonColor.brand,
         BwButtonColor.secondary,
         BwButtonColor.error,
       ],
-      BwButtonVariant.outlined: BwButtonColor.values,
-      BwButtonVariant.text: BwButtonColor.values,
+      BwIconButtonVariant.outlined: BwButtonColor.values,
+      BwIconButtonVariant.transparent: BwButtonColor.values,
     };
 
     return Material(
@@ -561,8 +561,8 @@ class _GoldenBoard extends StatelessWidget {
                         variant: entry.key,
                         color: color,
                       ),
-                    if (entry.key == BwButtonVariant.outlined ||
-                        entry.key == BwButtonVariant.text)
+                    if (entry.key == BwIconButtonVariant.outlined ||
+                        entry.key == BwIconButtonVariant.transparent)
                       for (final color in entry.value)
                         _goldenButton(
                           locale: locale,
@@ -594,7 +594,7 @@ class _GoldenBoard extends StatelessWidget {
 
   static Widget _goldenButton({
     required Locale locale,
-    BwButtonVariant variant = BwButtonVariant.text,
+    BwIconButtonVariant variant = BwIconButtonVariant.transparent,
     BwButtonColor color = BwButtonColor.neutral,
     BwControlSize size = BwControlSize.lg,
     bool selected = false,
@@ -609,7 +609,7 @@ class _GoldenBoard extends StatelessWidget {
       color: color,
       size: size,
       toggle:
-          variant == BwButtonVariant.outlined || variant == BwButtonVariant.text,
+          variant == BwIconButtonVariant.outlined || variant == BwIconButtonVariant.transparent,
       selected: selected,
       tooltip: false,
     );

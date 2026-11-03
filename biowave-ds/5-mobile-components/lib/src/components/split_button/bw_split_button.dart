@@ -353,7 +353,12 @@ class _BwSplitButtonState extends State<BwSplitButton> {
                 icon: Symbols.expand_more_rounded,
                 label: effectiveMenuLabel,
                 onPressed: _triggerEnabled ? _toggleMenu : null,
-                variant: _effectiveVariant,
+                variant: switch (_effectiveVariant) {
+                  BwButtonVariant.filled => BwIconButtonVariant.filled,
+                  BwButtonVariant.tonal => BwIconButtonVariant.tonal,
+                  BwButtonVariant.outlined => BwIconButtonVariant.outlined,
+                  BwButtonVariant.text => BwIconButtonVariant.transparent,
+                },
                 color: _effectiveColor,
                 size: widget.size,
                 tooltip: false,

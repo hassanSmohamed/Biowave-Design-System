@@ -668,21 +668,15 @@ Button                    ↔ horizontal · align center/center · gap {B2 gap} 
 
 ### D4 Properties
 
-This table is the source for Code Connect (D9).
-
 | Figma property | Type | Values | Default | Code prop (web) | Code value |
 |---|---|---|---|---|---|
-| `Variant` | VARIANT | `Filled` · `Tonal` · `Outlined` · `Text` | `Filled` | `variant` | `'filled'` · `'tonal'` · `'outlined'` · `'text'` |
-| `Color` | VARIANT | `Brand` · `Secondary` · `Neutral` · `Error` · `Inverse` | `Brand` | `color` | `'brand'` … `'inverse'` |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | `'sm'` · `'md'` · `'lg'` |
-| `State` | VARIANT | `Default` · `Hovered` · `Focused` · `Pressed` · `Disabled` · `Loading` | `Default` | `disabled` / `loading` | `Disabled` → `disabled`; `Loading` → `loading`; others are interaction states, not props |
-| `Language` | VARIANT | `EN` · `AR` | `EN` | — | Figma only; code takes language and direction from the provider |
-| `Label` | TEXT | | `Save changes` (AR variants: `حفظ التغييرات`) | `children` | |
-| `Leading icon` | BOOLEAN | | `false` | `startIcon` | present / absent |
-| `Leading icon glyph` | INSTANCE_SWAP | preferred: Google · Material Symbols (Rounded) | `add` | `startIcon` | `<Icon baseClassName="material-symbols-rounded">{glyph}</Icon>` |
-| `Trailing icon` | BOOLEAN | | `false` | `endIcon` | present / absent |
-| `Trailing icon glyph` | INSTANCE_SWAP | preferred: Google · Material Symbols (Rounded) | `arrow_forward` | `endIcon` | |
-| — (instance width Fill) | | | | `fullWidth` | not mapped; resizing the instance to Fill = `fullWidth` |
+| `Variant` | VARIANT | `filled` · `outlined` · `text` | `filled` | `variant` | same spelling |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `brand` | `color` | success, warning, info have no code equivalent |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Label` | TEXT |  |  | `children` | text |
+| `Leading icon` | BOOLEAN |  | `false` | `startIcon` | present / absent |
+| `Trailing icon` | BOOLEAN |  | `false` | `endIcon` | present / absent |
 
 ### D5 Variants to generate
 
@@ -1097,6 +1091,8 @@ Executor items for round 2: #1, #2, #3, #5, #6, #7, #8 (C7 AC-9).
 > Changes to this component on this platform.
 
 ### F0 Changes from previous version
+
+2026-11-03 — Changes: Web Button-family rebind brief; component token aliases, final Figma property names and retained sets. Icon button variant becomes transparent across platforms. Execution pending validation and Figma rebind.
 
 1.1 — spinner speed now uses `motion-duration-progress` and keeps turning with reduced motion; while loading the button keeps its label as its accessible name; directional icons flip once, marked with `bw-icon-directional` (or `mirrorInRtl` on a custom icon). No API change.
 

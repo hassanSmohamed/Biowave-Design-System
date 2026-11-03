@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ 62a02982260edf9b — do not edit; change the source and run: npm run contract -- web button -->
+<!-- GENERATED from button.md @ f9138c0e8c997f83 — do not edit; change the source and run: npm run contract -- web button -->
 # Button · زر — Web — code contract
 
 > **Everything you need to build Button on Web, and nothing else.** Read this file only. Generated from [`button.md`](button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-18 |
 | Source code | [`src/components/button/`](../../src/components/button/) |
 | Tokens | [`button.tokens.json`](button.tokens.json) |
-| Source | [`button.md`](button.md) @ `62a02982260edf9b` |
+| Source | [`button.md`](button.md) @ `f9138c0e8c997f83` |
 
 ## 1. What it is
 
@@ -267,6 +267,7 @@ The code token map must equal [`button.tokens.json`](button.tokens.json) (tests 
 | Button / Text | icon/default | brand: `color-icon-role-brand` · secondary: `color-icon-role-secondary` · error: `color-icon-role-error` · neutral: `color-icon-default` · inverse: `color-icon-on-brand` |
 | Button / Text | icon/disabled | brand: `color-icon-disabled` · secondary: `color-icon-disabled` · error: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
 | Button / Focus | color | default: `color-border-focus` · inverse: `color-border-inverse` |
+| Button / Focus | width | default: `border-width-focus` · inverse: `border-width-focus` |
 
 ## 5. States and transitions
 

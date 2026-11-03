@@ -9,16 +9,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'helpers/bw_test_app.dart';
 
 void main() {
-  final allowedPairs = <(BwButtonVariant, BwButtonColor)>[
-    for (final color in BwButtonColor.values) (BwButtonVariant.filled, color),
+  final allowedPairs = <(BwIconButtonVariant, BwButtonColor)>[
+    for (final color in BwButtonColor.values) (BwIconButtonVariant.filled, color),
     for (final color in <BwButtonColor>[
       BwButtonColor.brand,
       BwButtonColor.secondary,
       BwButtonColor.error,
     ])
-      (BwButtonVariant.tonal, color),
-    for (final color in BwButtonColor.values) (BwButtonVariant.outlined, color),
-    for (final color in BwButtonColor.values) (BwButtonVariant.text, color),
+      (BwIconButtonVariant.tonal, color),
+    for (final color in BwButtonColor.values) (BwIconButtonVariant.outlined, color),
+    for (final color in BwButtonColor.values) (BwIconButtonVariant.transparent, color),
   ];
 
   group('BwIconButton API', () {
@@ -29,7 +29,7 @@ void main() {
         onPressed: () {},
       );
 
-      expect(button.variant, BwButtonVariant.text);
+      expect(button.variant, BwIconButtonVariant.transparent);
       expect(button.color, BwButtonColor.neutral);
       expect(button.size, BwControlSize.lg);
       expect(button.toggle, isFalse);
@@ -49,7 +49,7 @@ void main() {
         () => BwIconButton(
           icon: Symbols.edit_rounded,
           label: 'Edit device',
-          variant: BwButtonVariant.tonal,
+          variant: BwIconButtonVariant.tonal,
           color: BwButtonColor.neutral,
           onPressed: () {},
         ),
@@ -60,7 +60,7 @@ void main() {
           icon: Symbols.push_pin_rounded,
           selectedIcon: Symbols.push_pin_rounded,
           label: 'Pin',
-          variant: BwButtonVariant.filled,
+          variant: BwIconButtonVariant.filled,
           toggle: true,
           onPressed: () {},
         ),
@@ -101,9 +101,9 @@ void main() {
     for (final brightness in Brightness.values) {
       testWidgets('selected tokens resolve in ${brightness.name}',
           (tester) async {
-        for (final variant in <BwButtonVariant>[
-          BwButtonVariant.text,
-          BwButtonVariant.outlined,
+        for (final variant in <BwIconButtonVariant>[
+          BwIconButtonVariant.transparent,
+          BwIconButtonVariant.outlined,
         ]) {
           for (final color in BwButtonColor.values) {
             await pumpBw(
@@ -160,7 +160,7 @@ void main() {
               }),
               colors.backgroundTransparentPressed,
             );
-            if (variant == BwButtonVariant.outlined) {
+            if (variant == BwIconButtonVariant.outlined) {
               expect(
                 style.side!.resolve(selectedStates),
                 BorderSide(
@@ -616,8 +616,8 @@ void main() {
 
           await expectLater(tester, meetsGuideline(textContrastGuideline));
 
-          if (variant == BwButtonVariant.text ||
-              variant == BwButtonVariant.outlined) {
+          if (variant == BwIconButtonVariant.transparent ||
+              variant == BwIconButtonVariant.outlined) {
             await pumpBw(
               tester,
               Builder(
@@ -685,9 +685,9 @@ void main() {
                                   onPressed: () {},
                                 ),
                               ),
-                            for (final variant in <BwButtonVariant>[
-                              BwButtonVariant.text,
-                              BwButtonVariant.outlined,
+                            for (final variant in <BwIconButtonVariant>[
+                              BwIconButtonVariant.transparent,
+                              BwIconButtonVariant.outlined,
                             ])
                               for (final color in BwButtonColor.values)
                                 _GoldenCell(

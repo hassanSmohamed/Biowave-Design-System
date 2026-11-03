@@ -179,6 +179,7 @@ The code token map must equal [`button.tokens.json`](button.tokens.json) (tests 
 | Button / Text | icon/default | brand: `color-icon-role-brand` · secondary: `color-icon-role-secondary` · error: `color-icon-role-error` · neutral: `color-icon-default` · inverse: `color-icon-on-brand` |
 | Button / Text | icon/disabled | brand: `color-icon-disabled` · secondary: `color-icon-disabled` · error: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
 | Button / Focus | color | default: `color-border-focus` · inverse: `color-border-inverse` |
+| Button / Focus | width | default: `border-width-focus` · inverse: `border-width-focus` |
 
 ## 5. States and transitions
 
