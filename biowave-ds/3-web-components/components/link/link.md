@@ -19,7 +19,7 @@
 | Figma build | Planned |
 | Review | Round 2 · 2026-10-24 · Approved |
 | Source code | `src/components/link/` (built) |
-| Tokens | — (no component tokens: every value is a shared semantic token, P-04) |
+| Tokens | [`link.tokens.json`](link.tokens.json) — Figma-only R-02 bridge; code continues to use shared semantic tokens directly (P-04) |
 | Contracts | [`link-contract.md`](link-contract.md) · [`figma-link-contract.md`](figma-link-contract.md) — generated, never edited |
 | Docs page | [`link.html`](link.html) |
 
@@ -291,7 +291,16 @@ Layout rules:
 
 ### B3 Tokens by part and state
 
-> No component tokens (P-04): every value is a shared semantic token, so there is no `link.tokens.json`. `label`, `underline` and both icons use the same colour (`currentColor`).
+The Web implementation continues to consume shared semantic tokens directly. The existing Web Components Figma sets use the Figma-only bridge in `link.tokens.json` so their current API and layer structure can express size and colour through explicit modes (R-02).
+
+| Figma collection | Modes | Variables |
+|---|---|---|
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
+| `Link / Color` | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `label/{default,hovered,pressed,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` · `focus-ring/{outer,inner}` |
+
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Secondary`, `Success`, `Error`, `Warning`, `Info`, `Neutral`, and `White` select the matching modes above (`White` → `inverse`). Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. D-R02-2 sets Pressed equal to Idle for Brand, Secondary, Success, Error, Warning, and Info. The AR set's existing two-effect focus ring uses `focus-ring/outer` and `focus-ring/inner`; the effect list is unchanged.
+
+In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 
 | `color` | Default | Hover | Pressed | Visited (`showVisited`) | Disabled |
 |---|---|---|---|---|---|
@@ -453,13 +462,16 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 
 ### C4 Token gaps
 
-None. All tokens exist in Foundations: `color-link-default` · `-hovered` · `-pressed` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-focus` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`. No component tokens (P-04).
+Code has no token gap: it continues to use the shared semantic tokens listed below. Figma has the R-02 bridge in `link.tokens.json`; it aliases those live semantic variables and does not change the public API.
+
+Shared code tokens: `color-link-default` · `-hovered` · `-pressed` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-focus` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`.
 
 ### C5 Files to create / change
 
 ```
 3-web-components/src/components/link/Link.tsx         new
 3-web-components/src/components/link/link.tokens.ts   new (typed map of B2–B3 → cssVars)
+3-web-components/components/link/link.tokens.json     Figma-only R-02 component-token bridge
 3-web-components/src/components/link/Link.test.tsx    new
 3-web-components/src/components/link/index.ts         new: export { Link } and types LinkProps, LinkColor, LinkSize, LinkUnderline
 3-web-components/src/index.ts                         change: export Link and its types
@@ -535,7 +547,7 @@ Fix checks: `npm run docs:check` ✓; `npm run typecheck` ✓; `npm run test:web
 
 ### D1 Rules for this build
 
-0. **Library first, no component tokens (P-04).** Link has no `link.tokens.json`, so this file gets **no** `Link / …` collection. Bind layers directly to the Foundations variables listed in the contract (§3) by key — this is intended, not a gap; do not ask for component tokens in D11. Never create, copy or detach variables or styles. Lint (`figma-read-tokens.js`) must report 0.
+0. **Library first; code remains P-04; Figma uses the R-02 bridge.** Code binds shared semantic tokens directly. The existing `.Link_en` and `.Link_ar` sets bind through local `Link / Size` and `Link / Color` variables from `link.tokens.json`, whose values alias the Foundations library. Never copy semantic variables or bind primitives/deprecated values. Lint (`figma-read-tokens.js`) must report 0 for the scoped sets.
 1. **Every value is bound.** Fills, gap, min height, radius → variables; text → text styles `action/{sm|md|lg}`; focus → the `Focus ring` layer (border.md › Figma focus ring: stroke `color/border/focus`, `color/border/inverse` on Inverse). No raw hex / px. **Only literals allowed:** the label's underline thickness and offset (Figma text decoration cannot be bound to variables) — set them to the B2 / B3 values and list them in the QA report.
 2. **Token → variable name:** replace `-` between segments with `/` — `color-link-hovered` → `1. Themes › color/link/hovered`; `spacing-xs` → `3. Spacing › spacing/xs`; `radius-xs` → `2. Radius › radius/xs`; `target-min` → `6. Grid & Layout › target/min`.
 3. **Never** bind `_Primitive/*` or `_deprecated/*`.
@@ -847,3 +859,4 @@ None — version 1.0. Filled when the version is above 1.0; it feeds Figma doc p
 | 1.0 | 2026-10-21 | Initial: MUI `Link`, semantic tokens only (no component tokens, P-04) | No | — |
 | 1.0 (wording) | 2026-10-29 | B3 / C4 prose: `color-link-hover` → `color-link-hovered` (colour tokens 2.0 name); no token or value change | No | — |
 | 1.0 (code) | 2026-11-02 | Internal code keys `hover` → `hovered` in `link.tokens.ts` (system state naming); the public `underline="hover"` value, tokens and values stay | No | — |
+| 1.0 (R-02 bridge) | 2026-11-02 | Added the Figma-only `Link / Size` and `Link / Color` component-token bridge for the existing Web sets; no public API or layer change | No | R-02 phase 1 report |

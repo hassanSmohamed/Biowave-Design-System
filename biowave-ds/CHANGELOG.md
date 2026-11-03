@@ -2,6 +2,10 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [R-02 phase 1 — Link moved onto component tokens] — 2026-11-02
+### Changed
+- R-02 phase 1 · Link moved onto component tokens; no API or layer changes. Added the Figma-only `Link / Size` and `Link / Color` bridge, including D-R02-1 (`padding-block` → `spacing-none`), D-R02-2 (Pressed = Idle for the six role colours), and D-R02-3 (live semantic role colours are authoritative); regenerated the Link contracts and marked the Web component-token snapshot synced.
+
 ## [Docs — Token naming formulas per platform] — 2026-11-02
 ### Added
 - **Figma naming guide for designers:** `figma-assets/Biowave-Figma-Token-Naming.png`, linked from the Figma formulas in `guidelines/tokens.md`.
