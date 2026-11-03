@@ -2,6 +2,10 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Rules — One workspace for every agent] — 2026-11-03
+### Added
+- `AGENTS.md` section 0: agents work only in the main project folder, use one branch per task, stop on changes they did not make, and treat Claude's branches and planning files as read-only.
+
 ## [Docs — Foundation images in guidelines] — 2026-11-02
 ### Added
 - **Visual guide** section in the Grid, Colors, Typography, Spacing, Radius, Border, Elevation, Icons and Motion guidelines. The pages show the images from `guidelines/images/` in the web docs. Size images sit in Spacing, because Size has no guideline page.
