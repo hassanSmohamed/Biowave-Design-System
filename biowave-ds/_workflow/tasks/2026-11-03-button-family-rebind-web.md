@@ -831,7 +831,8 @@ Menu tokens live here until the Menu component exists. The collection names stay
 3. Do not pin any variant to a Light or Dark mode.
 4. **No semantic, primitive or old collection bindings** in these sets. Text styles, effect styles and icons from the published library are allowed.
 5. Sync `Button / Focus › width` in the Tablet and Mobile files too if `npm run sync` requires it. Make no other change in those files.
-6. **Stop and report** if a value has no token, or a step would change anything outside this brief. Do not invent a token.
+6. **Do not run the generated apply script as it is.** It moves variables missing from `tokens.json` to `_deprecated`, which would hit `Button / Size › focus-ring-radius` while layers still use it. Apply only the new collections in section 6 and `Button / Focus › width`. Leave `success · warning · info` modes and `focus-ring-radius` untouched. If `sync:verify-tokens` then fails on these known differences, report it and continue.
+7. **Stop and report** if a value has no token, or a step would change anything outside this brief. Do not invent a token.
 
 ## 8. Done when
 
