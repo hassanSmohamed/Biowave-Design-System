@@ -81,6 +81,8 @@ Rename the Icon button variant value `text` to `transparent`. Button keeps `text
 | `inverse` | `color-icon-on-brand` |
 | Container, every colour | `color-background-transparent-default` |
 
+Also add `success`, `warning` and `info` rows to B3.2, each using its own `color-background-{role}-subtle`, `color-icon-role-{role}` and `color-border-{role}`, with the same state layers as the other rows.
+
 Run `npm run typecheck` and `npm run test:web`. If the Flutter SDK is available, run `flutter analyze` and `flutter test` in both Flutter packages. If it is not, say so in the report.
 
 ## 3. Icon button in Figma
@@ -456,6 +458,108 @@ On `.Button _en` and `.Button _ar`, bind:
         "border": {
           "selected": {
             "$value": "{color.border.inverse}"
+          },
+          "disabled": {
+            "$value": "{color.border.disabled}"
+          }
+        }
+      },
+      "success": {
+        "container": {
+          "selected": {
+            "$value": "{color.background.success.subtle}"
+          },
+          "disabled": {
+            "$value": "{color.background.disabled}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "selected": {
+            "$value": "{color.icon.role.success}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        },
+        "border": {
+          "selected": {
+            "$value": "{color.border.success}"
+          },
+          "disabled": {
+            "$value": "{color.border.disabled}"
+          }
+        }
+      },
+      "warning": {
+        "container": {
+          "selected": {
+            "$value": "{color.background.warning.subtle}"
+          },
+          "disabled": {
+            "$value": "{color.background.disabled}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "selected": {
+            "$value": "{color.icon.role.warning}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        },
+        "border": {
+          "selected": {
+            "$value": "{color.border.warning}"
+          },
+          "disabled": {
+            "$value": "{color.border.disabled}"
+          }
+        }
+      },
+      "info": {
+        "container": {
+          "selected": {
+            "$value": "{color.background.info.subtle}"
+          },
+          "disabled": {
+            "$value": "{color.background.disabled}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "selected": {
+            "$value": "{color.icon.role.info}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        },
+        "border": {
+          "selected": {
+            "$value": "{color.border.info}"
           },
           "disabled": {
             "$value": "{color.border.disabled}"
