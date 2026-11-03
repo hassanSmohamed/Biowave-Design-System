@@ -19,7 +19,7 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 | 3 | **Menu** gets general collections, `Menu / Container` and `Menu / Item`, because Menu will be a core component. |
 | 4 | Button colours come from `Button / *`. New collections hold only what is unique to a component. |
 | 5 | **Button group** is out of scope. Build nothing. |
-| 6 | **Button is the base for the family.** `Variant` is `filled · outlined · text` on Button, Icon button and Split button. **`Button / Tonal`** stays code-only: no tonal variants in Figma. |
+| 6 | **Button is the base for the family.** `Variant` is `filled · outlined · text` on Button and Split button. Icon button has the same three plus `tonal`, as in code. **`Button / Tonal`** is used by Icon button only in Figma. |
 
 ## 2. Repo changes (do these first)
 
@@ -59,16 +59,16 @@ Page `↳ Icon Button`. Keep the three sets and their nesting: `Icon Button` `11
 | `Icon Button`, `Glyph` | `Selected` | `N/A · False · True` | `false · true` (`N/A → false`) |
 | `Icon Button` | `Width` | `Narrow · Default · Wide` | Removed. Keep the `Default` variants |
 | `Icon Button` | `Shape` | `Round · Rounded square` | Removed. Keep the `Rounded square` variants |
-| `Appearance` | `Style` | `Standard · Filled · Tonal · Outlined` | `Variant`: `filled · outlined · text` (`Standard → text`) |
+| `Appearance` | `Style` | `Standard · Filled · Tonal · Outlined` | `Variant`: `filled · outlined · text · tonal` (`Standard → text`) |
 | `Appearance` | `Color` | `Default · Brand · Secondary · Neutral · Success · Error · Warning · Info` | `brand · secondary · success · error · warning · info · neutral · inverse` |
 | `Appearance` | `State` | `Default · Hovered · Focused · Pressed · Disabled` | `default · hovered · focused · pressed · disabled` |
 
 - `Size` mapping: `XS → sm`, `S → md`, `M → lg`. `L` and `XL` are deleted, and their instances move to `lg`.
 - `Color=Default` merges into `neutral`. Delete the `Default` variants and move their instances to `neutral`.
-- `Style=Tonal` is removed. Move its instances to `Variant=outlined` in the same colour.
+- `Variant=tonal` exists only with `brand · secondary · error`, as in code. Delete tonal variants in other colours and move their instances to `Variant=outlined` in the same colour.
 - Add `Color=inverse` by cloning `neutral` variants.
 
-Result: `Icon Button` has 9 variants, `Glyph` has 6 and `Appearance` has 120. Width equals height, as in Part B2.
+Result: `Icon Button` has 9 variants, `Glyph` has 6 and `Appearance` has 135, which is 27 `Variant × Color` pairs × 5 states. Width equals height, as in Part B2.
 
 ### 3.2 Bindings
 
@@ -76,6 +76,7 @@ Result: `Icon Button` has 9 variants, `Glyph` has 6 and `Appearance` has 120. Wi
 |---|---|---|
 | Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
 | `Variant=filled` | `Button / Filled` | Same name as `Color` |
+| `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
 | `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
 | `Variant=text` | `Button / Text` | Same name as `Color` |
 | `Selected=true` | `Icon button / Selected` | Same name as `Color` |
@@ -582,8 +583,8 @@ Menu tokens live here until the Menu component exists. The collection names stay
 - [ ] The collections from section 6 exist in the Web file with correct aliases: run the sync verify step for component tokens
 - [ ] A read-back script reports **0** bindings to `Color`, `Numbers`, `Button size`, `_Primitives`, `material/colors`, `1. Themes`, `2. Radius` and other library variables across the three Icon Button sets and both Split Button sets
 - [ ] Every text layer in those sets has a text style, and no solid fill or stroke is unbound
-- [ ] `Icon Button` has 9 variants, `Appearance` has 120, and each Split Button set has 360
-- [ ] No layer binds to `Button / Tonal`
+- [ ] `Icon Button` has 9 variants, `Appearance` has 135, and each Split Button set has 360
+- [ ] No Button or Split Button layer binds to `Button / Tonal`
 - [ ] Property names and values on all Button, Icon Button and Split Button sets match sections 3.1, 4.1 and 5.0
 - [ ] Split Button property names and values equal Button, plus `Show Menu Buttons`
 - [ ] EN and AR sets match, and screenshots of Light and Dark look correct
@@ -597,7 +598,7 @@ Do not mark the Figma status `Approved`. That happens in review.
 
 - Files changed and check results
 - Instances remapped, by old value
-- Icon button instances moved from `Style=Tonal` to `outlined`, per screen
+- Icon button instances moved from tonal to `outlined`, per screen
 - Figma values with no code equivalent
 - Button collections with modes in Figma that are missing from `button.tokens.json`
 - Anything left unbound, and why
