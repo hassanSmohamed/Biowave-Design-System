@@ -8,7 +8,7 @@
 
 Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNntzIWlrjmuSmZ9l`) onto component tokens only. Add the general Menu collections. Close the two Button stroke gaps. Rename properties and values on all three so Figma matches code.
 
-**Stay in Web.** Tablet and Mobile follow in a separate task after this one is reviewed.
+**Figma work stays in Web.** Tablet and Mobile Figma files follow in a separate task after review. The Icon button code rename in section 2.1 covers all three platforms.
 
 ## 1. Decisions
 
@@ -19,7 +19,8 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 | 3 | **Menu** gets general collections, `Menu / Container` and `Menu / Item`, because Menu will be a core component. |
 | 4 | Button colours come from `Button / *`. New collections hold only what is unique to a component. |
 | 5 | **Button group** is out of scope. Build nothing. |
-| 6 | **Button is the base for the family.** `Variant` is `filled · outlined · text` on Button and Split button, and `filled · outlined · tonal · transparent` on Icon button. `Color` and `State` are the same on all three. **`Button / Tonal`** is used by Icon button only in Figma. |
+| 6 | **Button is the base for the family.** `Variant` is `filled · outlined · text` on Button and Split button, and `filled · outlined · tonal · transparent` on Icon button. `Color` and `State` are the same on all three. **`Button / Tonal`** and **`Button / Icon`** are used by Icon button only in Figma. |
+| 7 | **Icon button code uses `transparent`, not `text`.** The value is renamed on Web, Tablet and Mobile so Figma and code use one name. Button keeps `text`. |
 
 ## 2. Repo changes (do these first)
 
@@ -44,7 +45,36 @@ npm run contract -- web split-button
 npm run docs:check
 ```
 
-Do not change code, semantic tokens, primitives, Tablet or Mobile files.
+Do not change semantic tokens or primitives. Do not change code except section 2.1.
+
+### 2.1 Icon button code rename
+
+Rename the Icon button variant value `text` to `transparent`. Button keeps `text`.
+
+**Web, `3-web-components/src/components/`:**
+
+| File | Change |
+|---|---|
+| `icon-button/IconButton.tsx` | `IconButtonVariant` becomes `Exclude<ButtonVariant, 'text'> \| 'transparent'`. Default becomes `transparent`. Resolve `transparent` through the existing `text` entry of the Button token table |
+| `icon-button/iconButton.tokens.ts` | `ToggleVariant` and the `text` key become `outlined \| transparent` and `transparent` |
+| `text-field/FieldAction.tsx`, `text-field/FieldLabel.tsx`, `button-group/ButtonGroup.tsx` | Icon button callers use `variant="transparent"`. Leave `Button` callers alone |
+| `icon-button/IconButton.test.tsx` | Update the values and add a test that `transparent` renders the same tokens the old `text` value did |
+
+**Flutter, `4-tablet-components` and `5-mobile-components`:** add `BwIconButtonVariant` with `filled · tonal · outlined · transparent` in `bw_icon_button.dart`, make `transparent` the default, and update `bw_split_button.dart` and every other caller. Do not rename `BwButtonVariant.text`.
+
+**Docs:**
+
+- In `icon-button.md` on all three platforms, change `text` to `transparent` in Part A and in B1. Part A must stay identical.
+- In Web Part B of `icon-button.md`, add this table under B3:
+
+| Transparent, `Color` | `icon` |
+|---|---|
+| `brand · secondary · success · error · warning · info` | `color-icon-role-brand` · `color-icon-role-secondary` · `color-icon-role-success` · `color-icon-role-error` · `color-icon-role-warning` · `color-icon-role-info` |
+| `neutral` | `color-icon-default` |
+| `inverse` | `color-icon-on-brand` |
+| Container, every colour | `color-background-transparent-default` |
+
+Run `npm run typecheck` and `npm run test:web`. If the Flutter SDK is available, run `flutter analyze` and `flutter test` in both Flutter packages. If it is not, say so in the report.
 
 ## 3. Icon button in Figma
 
@@ -65,7 +95,7 @@ Page `↳ Icon Button`. Keep the three sets and their nesting: `Icon Button` `11
 
 - `Size` mapping: `XS → sm`, `S → md`, `M → lg`. `L` and `XL` are deleted, and their instances move to `lg`.
 - `Color=Default` merges into `neutral`. Delete the `Default` variants and move their instances to `neutral`.
-- `transparent` has no fill and no border at rest, so `Standard` instances keep their look. Code value: `text`.
+- `transparent` has no fill and no border at rest, so `Standard` instances keep their look.
 - `Variant=tonal` exists only with `brand · secondary · error`, because `Button / Tonal` has only these modes. Delete tonal variants in other colours and move their instances to `Variant=outlined` in the same colour.
 - The default variant is `Variant=transparent`, `Color=neutral`, `State=default`.
 - Add `Color=inverse` by cloning `neutral` variants.
@@ -79,7 +109,7 @@ Result: `Icon Button` has 9 variants, `Glyph` has 6 and `Appearance` has 135, wh
 | Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
 | `Variant=filled` | `Button / Filled` | Same name as `Color` |
 | `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
-| `Variant=transparent` | `Button / Text` | Same name as `Color` |
+| `Variant=transparent` | `Button / Icon` | Same name as `Color` |
 | `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
 | `Selected=true` | `Icon button / Selected` | Same name as `Color` |
 | Focus ring | `Button / Focus` | `default` or `inverse` |
@@ -196,7 +226,7 @@ On `.Button _en` and `.Button _ar`, bind:
 ```json
 {
   "$schema": "component-tokens/v1",
-  "$description": "Icon button component tokens (D-13). Selected colours, sizes and the temporary tooltip. Unselected colours and focus reuse Button / * collections. Every value aliases a semantic token.",
+  "$description": "Icon button component tokens (D-13). Transparent colours, selected colours, sizes and the temporary tooltip. Filled, outlined, tonal and focus reuse Button / * collections. Every value aliases a semantic token.",
   "icon-button": {
     "size": {
       "$extensions": {
@@ -453,6 +483,222 @@ On `.Button _en` and `.Button _ar`, bind:
           "$value": "{spacing.xs}"
         }
       }
+    },
+    "transparent": {
+      "$extensions": {
+        "figma": {
+          "collection": "Button / Icon",
+          "modes": true
+        }
+      },
+      "brand": {
+        "container": {
+          "default": {
+            "$value": "{color.background.transparent.default}"
+          },
+          "disabled": {
+            "$value": "{color.background.transparent.default}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.role.brand}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        }
+      },
+      "secondary": {
+        "container": {
+          "default": {
+            "$value": "{color.background.transparent.default}"
+          },
+          "disabled": {
+            "$value": "{color.background.transparent.default}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.role.secondary}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        }
+      },
+      "success": {
+        "container": {
+          "default": {
+            "$value": "{color.background.transparent.default}"
+          },
+          "disabled": {
+            "$value": "{color.background.transparent.default}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.role.success}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        }
+      },
+      "error": {
+        "container": {
+          "default": {
+            "$value": "{color.background.transparent.default}"
+          },
+          "disabled": {
+            "$value": "{color.background.transparent.default}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.role.error}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        }
+      },
+      "warning": {
+        "container": {
+          "default": {
+            "$value": "{color.background.transparent.default}"
+          },
+          "disabled": {
+            "$value": "{color.background.transparent.default}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.role.warning}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        }
+      },
+      "info": {
+        "container": {
+          "default": {
+            "$value": "{color.background.transparent.default}"
+          },
+          "disabled": {
+            "$value": "{color.background.transparent.default}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.role.info}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        }
+      },
+      "neutral": {
+        "container": {
+          "default": {
+            "$value": "{color.background.transparent.default}"
+          },
+          "disabled": {
+            "$value": "{color.background.transparent.default}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.default}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        }
+      },
+      "inverse": {
+        "container": {
+          "default": {
+            "$value": "{color.background.transparent.default}"
+          },
+          "disabled": {
+            "$value": "{color.background.transparent.default}"
+          }
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.on.brand}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        }
+      }
     }
   }
 }
@@ -581,7 +827,8 @@ Menu tokens live here until the Menu component exists. The collection names stay
 
 ## 8. Done when
 
-- [ ] `npm run component-tokens`, `npm run docs:check` and `npm run sync` pass
+- [ ] `npm run component-tokens`, `npm run docs:check`, `npm run sync`, `npm run typecheck` and `npm run test:web` pass
+- [ ] No Icon button code or docs use the variant value `text`
 - [ ] The collections from section 6 exist in the Web file with correct aliases: run the sync verify step for component tokens
 - [ ] A read-back script reports **0** bindings to `Color`, `Numbers`, `Button size`, `_Primitives`, `material/colors`, `1. Themes`, `2. Radius` and other library variables across the three Icon Button sets and both Split Button sets
 - [ ] Every text layer in those sets has a text style, and no solid fill or stroke is unbound
@@ -601,7 +848,7 @@ Do not mark the Figma status `Approved`. That happens in review.
 - Files changed and check results
 - Instances remapped, by old value
 - Icon button instances moved from tonal to `outlined`, per screen
-- Code difference for a follow-up decision: `IconButton` calls `transparent` by the value `text`
+- Flutter checks: run or not run
 - Figma values with no code equivalent
 - Button collections with modes in Figma that are missing from `button.tokens.json`
 - Anything left unbound, and why
