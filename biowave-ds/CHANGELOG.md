@@ -4,7 +4,9 @@ Every change to the design system is logged here **in the same task**, newest fi
 
 ## [Tooling — Sync hash ignores line endings] — 2026-11-03
 ### Fixed
+- Root `.gitattributes`: text files always check out with LF, including on Windows, so generated files and hashes match on every machine.
 - `_sync/lib.mjs`: `hashFile` normalises CRLF to LF for text files. A Windows checkout no longer reports `npm run sync` as BLOCKED when the token source is unchanged.
+- `_docs/component-file.mjs`: `parse` reads CRLF files, and `_docs/contract.mjs` hashes text with LF endings, so `docs:check` works on a Windows checkout.
 
 ## [Planning — Button family rebind brief] — 2026-11-03
 ### Added
