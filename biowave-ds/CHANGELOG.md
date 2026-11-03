@@ -5,6 +5,7 @@ Every change to the design system is logged here **in the same task**, newest fi
 ## [R-02 phase 1 — Link moved onto component tokens] — 2026-11-02
 ### Changed
 - R-02 phase 1 · Link moved onto component tokens; no API or layer changes. Added the Figma-only `Link / Size` and `Link / Color` bridge, including D-R02-1 (`padding-block` → `spacing-none`), D-R02-2 (Pressed = Idle for the six role colours), and D-R02-3 (live semantic role colours are authoritative); regenerated the Link contracts and marked the Web component-token snapshot synced.
+
 ## [Docs — Foundation images in guidelines] — 2026-11-02
 ### Added
 - **Visual guide** section in the Grid, Colors, Typography, Spacing, Radius, Border, Elevation, Icons and Motion guidelines. The pages show the images from `guidelines/images/` in the web docs. Size images sit in Spacing, because Size has no guideline page.
