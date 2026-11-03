@@ -33,6 +33,8 @@ function tokenIndex() {
   for (const e of expectedFigma()) if (e.web && TOK.has(e.web)) TOK.set(e.web, { ...TOK.get(e.web), figma: e });
   return TOK;
 }
+// Text with LF endings, so a Windows checkout (CRLF) hashes the same as git.
+const readText = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8').replace(/\r\n/g, '\n');
 const show = (v) => (v == null ? '' : typeof v === 'object' ? JSON.stringify(v) : String(v));
 function tokensNamed(text) {
   const idx = tokenIndex(), out = new Set();
@@ -69,7 +71,7 @@ function inheritedWeb(plat, name, doc) {
 function codeHash(c) {
   const t = tokensFile(c.plat, c.name);
   const ids = ['A1', 'A2', 'A4', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B9', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7'];
-  return sha(JSON.stringify([c.doc.title, ids.map((i) => sec(c.doc, i)), c.doc.parts.C?.introText, t && fs.readFileSync(path.join(ROOT, t), 'utf8'), 'v1']));
+  return sha(JSON.stringify([c.doc.title, ids.map((i) => sec(c.doc, i)), c.doc.parts.C?.introText, t && readText(t), 'v1']));
 }
 function figmaHash(c, lib) {
   const t = tokensFile(c.plat, c.name);
@@ -77,8 +79,8 @@ function figmaHash(c, lib) {
   const inh = inheritedWeb(c.plat, c.name, c.doc);
   const libPart = lib ? { v: lib.variables, t: lib.textStyles, e: lib.effectStyles, c: lib.components, r: lib.reach } : null;
   const icx = readIcons(); const iconPart = [...iconNamesIn(c.doc.raw ?? JSON.stringify(ids.map((i) => sec(c.doc, i))))].sort().map((n) => [n, icx.icons[n] || icx.missing?.[n] || null]);
-  return sha(JSON.stringify([c.doc.title, c.doc.header.Figma, ids.map((i) => sec(c.doc, i)), c.doc.parts.D?.introText, t && fs.readFileSync(path.join(ROOT, t), 'utf8'),
-    inh.web ? inh.ids.map((i) => sec(inh.web.doc, i)) : null, libPart, iconPart, fs.existsSync(path.join(ROOT, DOC_KIT)) ? fs.readFileSync(path.join(ROOT, DOC_KIT), 'utf8') : '', 'v1']));
+  return sha(JSON.stringify([c.doc.title, c.doc.header.Figma, ids.map((i) => sec(c.doc, i)), c.doc.parts.D?.introText, t && readText(t),
+    inh.web ? inh.ids.map((i) => sec(inh.web.doc, i)) : null, libPart, iconPart, fs.existsSync(path.join(ROOT, DOC_KIT)) ? readText(DOC_KIT) : '', 'v1']));
 }
 const contractPaths = (plat, name) => ({
   code: `${SECTIONS[plat]}/components/${name}/${name}-contract.md`,

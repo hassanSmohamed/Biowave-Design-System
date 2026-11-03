@@ -2,6 +2,24 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Tooling — Sync hash ignores line endings] — 2026-11-03
+### Fixed
+- Root `.gitattributes`: text files always check out with LF, including on Windows, so generated files and hashes match on every machine.
+- `_sync/lib.mjs`: `hashFile` normalises CRLF to LF for text files. A Windows checkout no longer reports `npm run sync` as BLOCKED when the token source is unchanged.
+- `_docs/component-file.mjs`: `parse` reads CRLF files, and `_docs/contract.mjs` hashes text with LF endings, so `docs:check` works on a Windows checkout.
+
+## [Planning — Button family rebind brief] — 2026-11-03
+### Added
+- `_workflow/tasks/2026-11-03-button-family-rebind-web.md`: Codex brief for Icon button, Split button, general Menu collections and Button stroke bindings on Web. The token drafts passed `npm run component-tokens`.
+### Changed
+- `_audits/figma-button-family-web-2026-11-02.md`: open questions replaced with Hassan's decisions.
+
+## [Audit — Button family in the Web Figma file] — 2026-11-02
+### Added
+- `_audits/figma-button-family-web-2026-11-02.md`: read-only binding audit, findings, plan and open questions. Nothing changed in Figma.
+### Fixed
+- `_sync/build-stamp.json` refreshed so `npm run sync` reports READY. Generated token output was unchanged.
+
 ## [Rules — One workspace for every agent] — 2026-11-03
 ### Added
 - `AGENTS.md` section 0: agents work only in the main project folder, use one branch per task, stop on changes they did not make, and treat Claude's branches and planning files as read-only.

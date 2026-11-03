@@ -26,7 +26,7 @@ export function listComponents(plat) {
 }
 
 export function parse(text) {
-  const lines = text.split('\n');
+  const lines = text.replace(/\r\n/g, '\n').split('\n');
   const doc = { title: '', header: {}, headerOrder: [], parts: {}, sections: {}, order: [] };
   let part = null, sec = null, fenced = false, inHeader = true;
   for (const line of lines) {
