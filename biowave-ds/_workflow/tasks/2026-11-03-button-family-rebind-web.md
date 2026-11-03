@@ -42,7 +42,8 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 5. In the Icon button and Split button files, set the header row `Tokens` to the new `.tokens.json` file.
 6. In Part B of `split-button.md`, add `spacing-xs` as the padding of `menu`, and state that `menu` tokens come from the general Menu collections.
 7. Add a `Changes` entry to Part F of all three files, and a `CHANGELOG.md` entry.
-8. Regenerate and check:
+8. Refresh the library index before regenerating contracts. Follow `_sync/README.md` › Reading the library index. This is a read-only step in Figma. The saved index is out of date, and contract generation refuses to run until it is refreshed.
+9. Regenerate and check:
 
 ```bash
 npm run component-tokens
@@ -65,6 +66,7 @@ Rename the Icon button variant value `text` to `transparent`. Button keeps `text
 | `icon-button/IconButton.tsx` | `IconButtonVariant` becomes `Exclude<ButtonVariant, 'text'> \| 'transparent'`. Default becomes `transparent`. Resolve `transparent` through the existing `text` entry of the Button token table |
 | `icon-button/iconButton.tokens.ts` | `ToggleVariant` and the `text` key become `outlined \| transparent` and `transparent` |
 | `text-field/FieldAction.tsx`, `text-field/FieldLabel.tsx`, `button-group/ButtonGroup.tsx` | Icon button callers use `variant="transparent"`. Leave `Button` callers alone |
+| `_docs/live.tsx` (outside `src/`) | Icon button demo list and any Icon button caller use `transparent`. Leave `Button` demos alone |
 | `icon-button/IconButton.test.tsx` | Update the values and add a test that `transparent` renders the same tokens the old `text` value did |
 
 **Flutter, `4-tablet-components` and `5-mobile-components`:** add `BwIconButtonVariant` with `filled · tonal · outlined · transparent` in `bw_icon_button.dart`, make `transparent` the default, and update `bw_split_button.dart` and every other caller. Do not rename `BwButtonVariant.text`.
