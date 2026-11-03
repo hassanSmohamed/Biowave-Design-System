@@ -33,14 +33,11 @@ Read-only check on 2026-11-02 of file `7nDhsPNntzIWlrjmuSmZ9l`. Nothing changed 
 
 ## Decisions
 
-- **Colour tokens:** reuse the `Button / *` collections. Add small collections only for sizes and parts that are unique to Icon button and Split button.
+- **Colour tokens:** reuse the `Button / *` collections. Add small collections only for what is unique to Icon button and Split button.
 - **Button group:** not needed for now, so no set is built.
 - **Button / Tonal:** code only on Button. No tonal variants are added to the Button set.
+- **Icon button:** the set is reduced to `SM · MD · LG` to match code.
+- **Split button:** uses the same properties and styles as the Button set, plus `Show Menu Buttons`.
+- **Menu:** gets general collections, `Menu / Container` and `Menu / Item`.
 
-## Open questions
-
-Token work is on hold until these are answered. The existing sets differ from the spec in ways a rebind alone cannot solve.
-
-- **Icon button sizes:** Figma has XS 32, S 40, M 56, L 96 and XL 136, plus `Width` and `Shape`. The spec has sm 32, md 40 and lg 48. Semantic control heights stop at 56, and component tokens cannot use primitives.
-- **Split button `Type=Default` and `State=Ghost`:** neither exists in the spec, and no token maps to them yet.
-- **Temporary menu in both sets:** `Add Devices Menu Buttons` uses old variables and has no component tokens.
+Execution brief for Codex: `_workflow/tasks/2026-11-03-button-family-rebind-web.md`.

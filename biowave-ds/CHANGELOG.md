@@ -2,6 +2,12 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Planning — Button family rebind brief] — 2026-11-03
+### Added
+- `_workflow/tasks/2026-11-03-button-family-rebind-web.md`: Codex brief for Icon button, Split button, general Menu collections and Button stroke bindings on Web. The token drafts passed `npm run component-tokens`.
+### Changed
+- `_audits/figma-button-family-web-2026-11-02.md`: open questions replaced with Hassan's decisions.
+
 ## [Audit — Button family in the Web Figma file] — 2026-11-02
 ### Added
 - `_audits/figma-button-family-web-2026-11-02.md`: read-only binding audit, findings, plan and open questions. Nothing changed in Figma.
