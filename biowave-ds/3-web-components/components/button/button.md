@@ -756,6 +756,9 @@ Component description: "Starts an action the user chose. One filled button per a
 
 ### D11 Execution log (filled by the Figma Agent)
 
+2026-11-03 — Codex: renamed .Button _en (116:5183) and .Button _ar (116:7271) properties and variant values in place. Retained 360 variants each and original component keys. Bound all root stroke edges to Button / Size border-width and all focus-ring edges to Button / Focus width; inside stroke, no fill or effects. Read-back: zero binding errors. EN/AR focused variant screenshots inspected. No instances removed or remapped. Library publication and family-wide theme QA pending.
+
+
 | Field | Value |
 |---|---|
 | Agent / stages run | build · rtl · qa · document |
