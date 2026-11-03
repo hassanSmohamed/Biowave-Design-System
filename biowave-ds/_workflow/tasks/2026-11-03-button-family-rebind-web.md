@@ -14,7 +14,7 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 
 | # | Decision |
 |---|---|
-| 1 | **Icon button** matches code: `Size` becomes `SM · MD · LG`. Remove `Width` and `Shape`. |
+| 1 | **Icon button** matches the three code sizes: `Size` becomes `Small · Medium · XLarge`, the same names as Button and Split button. Remove `Width` and `Shape`. |
 | 2 | **Split button** uses the same properties and styles as the existing Figma Button set. The only addition is `Show Menu Buttons`. |
 | 3 | **Menu** gets general collections, `Menu / Container` and `Menu / Item`, because Menu will be a core component. |
 | 4 | Button colours come from `Button / *`. New collections hold only what is unique to a component. |
@@ -52,11 +52,13 @@ Page `↳ Icon Button`. Keep the three sets and their nesting: `Icon Button` `11
 
 | Property | Before | After |
 |---|---|---|
-| `Size` on `Icon Button` and `Glyph` | `XS · S · M · L · XL` | `SM · MD · LG` |
+| `Size` on `Icon Button` and `Glyph` | `XS · S · M · L · XL` | `Small · Medium · XLarge` |
 | `Width` | `Narrow · Default · Wide` | Removed. Keep the `Default` variants |
 | `Shape` | `Round · Rounded square` | Removed. Keep the `Rounded square` variants |
 
-`Size` mapping: `XS → SM`, `S → MD`, `M → LG`. `L` and `XL` are deleted.
+`Size` mapping: `XS → Small`, `S → Medium`, `M → XLarge`. `L` and `XL` are deleted, and their instances move to `XLarge`.
+
+Code mapping for D4 and Code Connect: `Small → sm`, `Medium → md`, `XLarge → lg`.
 
 Result: `Icon Button` has 9 variants and `Glyph` has 6. Width equals height, as in Part B2. All other properties stay as they are.
 
@@ -64,7 +66,7 @@ Result: `Icon Button` has 9 variants and `Glyph` has 6. Width equals height, as 
 
 | Part | Collection | Mode or variable |
 |---|---|---|
-| Size, icon size, radius, border width | `Icon button / Size` | `sm · md · lg` |
+| Size, icon size, radius, border width | `Icon button / Size` | Modes: `Small → sm`, `Medium → md`, `XLarge → lg` |
 | `Style=Filled` | `Button / Filled` | Same colour mode |
 | `Style=Tonal` | `Button / Tonal` | `brand · secondary · error` |
 | `Style=Outlined` | `Button / Outlined` | Same colour mode |

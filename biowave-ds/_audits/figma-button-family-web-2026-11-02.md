@@ -36,7 +36,7 @@ Read-only check on 2026-11-02 of file `7nDhsPNntzIWlrjmuSmZ9l`. Nothing changed 
 - **Colour tokens:** reuse the `Button / *` collections. Add small collections only for what is unique to Icon button and Split button.
 - **Button group:** not needed for now, so no set is built.
 - **Button / Tonal:** code only on Button. No tonal variants are added to the Button set.
-- **Icon button:** the set is reduced to `SM · MD · LG` to match code.
+- **Icon button:** the set is reduced to three sizes to match code, named `Small · Medium · XLarge` like Button and Split button.
 - **Split button:** uses the same properties and styles as the Button set, plus `Show Menu Buttons`.
 - **Menu:** gets general collections, `Menu / Container` and `Menu / Item`.
 
