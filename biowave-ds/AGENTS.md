@@ -2,6 +2,14 @@
 
 Read this file completely before doing anything. It is short on purpose.
 
+## 0. Workspace rules (apply to every agent)
+
+1. **One project folder.** All work happens in `D:\workspaces\Design System\Biowave-Design-System`. Do not clone, copy, export or create a worktree anywhere else, even for a test or a temporary task. Only Hassan can approve another location.
+2. **One task, one branch.** Start from the latest `main`. Commit and push your branch to `https://github.com/hassanSmohamed/Biowave-Design-System` before you finish, then open a PR.
+3. **One agent at a time.** Before you start, run `git status`. If there are changes you did not make, stop and report. Never stash, reset, overwrite or discard them.
+4. **Claude's work is read-only.** Do not edit, rebase, force-push, merge or delete a branch with commits carrying a `Claude-Session` line, and do not edit `_workflow/tasks/` or `_audits/`. Work on your own branch based on it. The Planner, Reviewer and Updater parts in the table below stay theirs. A task brief may name an exact file you can change; nothing else is allowed.
+5. **Stop and report** if a task needs anything outside these rules.
+
 ## 1. Read order (do not read the whole repo)
 
 1. This file.
