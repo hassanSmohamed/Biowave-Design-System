@@ -12,6 +12,10 @@ Biowave uses **Google Material Symbols** — style **Rounded**, weight 400, grad
 
 **Names:** always the Material Symbols name in snake_case (`close`, `visibility_off`, `push_pin`, `arrow_forward`). Specs, Figma `INSTANCE_SWAP` defaults and Code Connect use the same name.
 
+## Visual guide
+
+![Icon sizes, fill, colour, RTL mirroring and sources](images/icons-1-usage.png)
+
 ## Sizes
 | Token | Value | Use |
 |---|---|---|

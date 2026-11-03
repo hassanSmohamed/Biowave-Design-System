@@ -5,6 +5,26 @@ Every change to the design system is logged here **in the same task**, newest fi
 ## [R-02 phase 1 — Link moved onto component tokens] — 2026-11-02
 ### Changed
 - R-02 phase 1 · Link moved onto component tokens; no API or layer changes. Added the Figma-only `Link / Size` and `Link / Color` bridge, including D-R02-1 (`padding-block` → `spacing-none`), D-R02-2 (Pressed = Idle for the six role colours), and D-R02-3 (live semantic role colours are authoritative); regenerated the Link contracts and marked the Web component-token snapshot synced.
+## [Docs — Foundation images in guidelines] — 2026-11-02
+### Added
+- **Visual guide** section in the Grid, Colors, Typography, Spacing, Radius, Border, Elevation, Icons and Motion guidelines. The pages show the images from `guidelines/images/` in the web docs. Size images sit in Spacing, because Size has no guideline page.
+- Docs viewer: images in guideline pages open full size in a new tab.
+
+## [Tooling — Foundation image generator] — 2026-11-02
+### Added
+- **`npm run docs:images`** regenerates the 19 images in `2-foundations/guidelines/images/` from `dist/tokens.json`. Source: `2-foundations/scripts/images/` (`kit.mjs` template, `grid.mjs`, `foundations.mjs`, `build.mjs`).
+- **Automatic updates:** `npm run tokens` now regenerates the images. `docs:images` skips rendering when nothing changed.
+- **Stale check:** `docs:check` fails when `dist/tokens.json`, `guidelines/*.md` or the generator changed after the last render (`guidelines/images/source-hash.txt`).
+- Dev dependencies: `playwright`, `@fontsource/inter`, `@fontsource/ibm-plex-sans-arabic`, `@fontsource/jetbrains-mono`.
+### Changed
+- All 19 images re-rendered with the project fonts from `node_modules`, so output no longer depends on system fonts.
+
+## [Docs — Foundation image explainers] — 2026-11-02
+### Added
+- **19 visual explainers** in `2-foundations/guidelines/images/`: Grid 3, Colors 3, Typography 2, Spacing 3, Size 1, Radius 2, Border 2, Elevation 1, Icons 1, Motion 1. Values come from `dist/tokens.json`.
+### Fixed
+- `2-foundations/README.md`: Grid summary now matches `grid.md` (Mobile 4 / 16 / 16, Tablet 80 rail, end panel as a sheet). Contrast count 152 → 201, matching `contrast-pairs.json`.
+- `guidelines/elevation.md`: removed the "one control recipe" mention (no such token; `Shadow/Control` is deprecated).
 
 ## [Docs — Token naming formulas per platform] — 2026-11-02
 ### Added

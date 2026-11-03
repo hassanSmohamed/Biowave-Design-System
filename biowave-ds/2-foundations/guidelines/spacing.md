@@ -8,6 +8,16 @@ Every space answers one question: **between what and what?** The answer picks on
 | **Component** | `spacing-none · xxs · xs · sm · md · lg · xl · 2xl · 3xl` (0–24px) | No | Inside one component that has no fixed height (Badge, Tooltip, Chip, List item, card content). |
 | **Layout** | `spacing-layout-section · group · stack · container` | **Yes** — Web · Tablet · Mobile | Between components on a page, and from a container's edge to its content. |
 
+## Visual guide
+
+![The three spacing levels and how to choose one](images/spacing-1-levels.png)
+
+![Control sizes and the component spacing scale](images/spacing-2-scales.png)
+
+![Layout spacing on a settings card, Web and Mobile](images/spacing-3-layout.png)
+
+![Control heights, icon sizes and container max-widths](images/size-1-overview.png)
+
 ## Which token? Ask in this order
 1. **Am I inside a control that has a height?** → `control/*` with the **same size** as the control (a `md` Button uses `padding-inline-md` and `gap-md`).
 2. **Am I inside one component?** → the component scale (`none … 3xl`).

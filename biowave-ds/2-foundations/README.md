@@ -10,7 +10,8 @@
 | `tokens/semantic/` | Color (light/dark), elevation (light/dark), spacing, radius, border, size, motion, layer, typography families | Planner only |
 | `tokens/platform/` | web / tablet / mobile: type scale, line heights (en/ar), role weights, grid, layout, target size, breakpoints | Planner only |
 | `guidelines/` | 15 usage pages (below) | Yes, with token changes |
-| `scripts/` | `build.mjs`, `check.mjs`, `preview.mjs`, `contrast-pairs.json`, `lib/tokens.mjs` | Yes |
+| `guidelines/images/` | 19 visual explainers (PNG) for grid, colors, typography, spacing, size, radius, border, elevation, icons, motion | Yes, with token changes |
+| `scripts/` | `build.mjs`, `check.mjs`, `preview.mjs`, `contrast-pairs.json`, `lib/tokens.mjs`, `images/` (image generator) | Yes |
 | `web/` | npm `@biowave/foundations`: generated tokens + `createBiowaveTheme` (MUI) + `BiowaveProvider` | `src/mui`, `src/BiowaveProvider.tsx` only |
 | `flutter/` | Dart `biowave_foundations`: generated tokens + `BwTheme.build` (Material 3) + `context.bw` | `lib/src/theme` only |
 | `dist/tokens.json` | Flat resolved values for every mode | Generated |
@@ -25,10 +26,10 @@
 | Foundation | Key facts (full page in `guidelines/`) |
 |---|---|
 | [Tokens](guidelines/tokens.md) | DTCG format. Layers: primitive → semantic → platform → component. Naming formulas per platform. Modes: theme × platform × language. Figma scopes table. |
-| [A11y](guidelines/a11y.md) | WCAG 2.2 AA. Contrast auto-checked (152/152 pass). Focus 2px + 2px offset. Targets 24px web / 48dp touch. Reduced motion built in. |
+| [A11y](guidelines/a11y.md) | WCAG 2.2 AA. Contrast auto-checked (201/201 pass). Focus 2px + 2px offset. Targets 24px web / 48dp touch. Reduced motion built in. |
 | [Content](guidelines/content.md) | Sentence case, verb-first buttons, no "!", "…" for progress, errors = what happened + how to fix. MSA Arabic, no left/right in copy, +20–30% length. |
 | [Spacing](guidelines/spacing.md) | 4px base: none 0, xxs 2, xs 4, sm 6, md 8, lg 12, xl 16, 2xl 20, 3xl 24, 4xl 32, 5xl 40, 6xl 48, 7xl 64, 8xl 80, 9xl 96, 10xl 128, 11xl 160. Use gap; logical directions. |
-| [Grid](guidelines/grid.md) | Web ≥1200: 12 col / 24 gutter / 40 margin. Tablet 600–1199: 8 / 24 / 24. Mobile <600: 6 / 8 / 16. App bar 72/64/64. Sidebars start/end 248 (0 on mobile). |
+| [Grid](guidelines/grid.md) | Web ≥1200: 12 col / 24 gutter / 40 margin. Tablet 600–1199: 8 / 24 / 24. Mobile <600: 4 / 16 / 16. App bar 72/64/64. Start navigation 248 sidebar / 80 rail / modal drawer. End panel 248 on web, sheet on tablet and mobile. |
 | [Colors](guidelines/colors.md) | Primary navy #193351, secondary teal #0C5F79. Groups: **surface** (static containers, no states) vs **background** (interactive fills with states), text, icon (mirrors text), border, link, overlay (one token), data (charts, tags). Roles: brand, secondary, accent, success, warning, error, info, neutral. Emphasis default · subtle · subtlest; states hovered · pressed; shared `background-selected-*` and `background-disabled`. Warning uses dark text. |
 | [Typography](guidelines/typography.md) | Inter (en), IBM Plex Sans Arabic (ar), JetBrains Mono (code). 9 roles: display, heading, title, body, label, caption, action (aliased to label/title), data, code. Body 14 web / 16 touch. Figma: one `5. Typography` collection (6 modes platform × language) + 23 styles `{role}/{size}` = code class names. |
 | [Motion](guidelines/motion.md) | Material 3: xs 50, sm 100, md 200, lg 300, xl 400, 2xl 500 ms. Easing standard / emphasized (decelerate in, accelerate out). Reduced motion → 0. |
@@ -67,6 +68,7 @@
 ```bash
 npm run tokens         # build + preview + checks
 npm run tokens:check   # checks with full contrast table
+npm run docs:images    # regenerate guidelines/images (npm run tokens runs it too)
 ```
 
 ## Open decisions

@@ -2,6 +2,10 @@
 
 Motion explains change: where something came from, what it became. Biowave uses Material 3 durations and easing.
 
+## Visual guide
+
+![Motion durations, easing curves and when to use each](images/motion-1-usage.png)
+
 ## Duration
 | Token | Value | Use |
 |---|---|---|

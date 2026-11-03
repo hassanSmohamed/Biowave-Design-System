@@ -114,6 +114,7 @@ Theme and language are modes, never part of a token name. Framework names stay a
 
 ```bash
 npm run tokens          # only if tokens changed — must end with "0 error(s)"
+npm run docs:images     # after a guideline change; npm run tokens already runs it
 npm run sync            # must end with "READY for component work" (or "Everything is in sync"); exit code 0
 npm run docs:check      # structure, guidelines, status, generated pages, contracts, links
 npm run typecheck       # web
