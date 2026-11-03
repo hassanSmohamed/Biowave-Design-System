@@ -6,7 +6,7 @@
 
 ## 0. Goal
 
-Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNntzIWlrjmuSmZ9l`) onto component tokens only. Add the general Menu collections. Close the two Button stroke gaps.
+Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNntzIWlrjmuSmZ9l`) onto component tokens only. Add the general Menu collections. Close the two Button stroke gaps. Rename `Size` values on Button so all three match code.
 
 **Stay in Web.** Tablet and Mobile follow in a separate task after this one is reviewed.
 
@@ -14,7 +14,7 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 
 | # | Decision |
 |---|---|
-| 1 | **Icon button** matches the three code sizes: `Size` becomes `Small · Medium · XLarge`, the same names as Button and Split button. Remove `Width` and `Shape`. |
+| 1 | **`Size` in Figma equals code on all three components:** `sm · md · lg` on Button, Icon button and Split button. Icon button also loses `Width` and `Shape`. |
 | 2 | **Split button** uses the same properties and styles as the existing Figma Button set. The only addition is `Show Menu Buttons`. |
 | 3 | **Menu** gets general collections, `Menu / Container` and `Menu / Item`, because Menu will be a core component. |
 | 4 | Button colours come from `Button / *`. New collections hold only what is unique to a component. |
@@ -30,13 +30,15 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 3. Update Part D of `3-web-components/components/split-button/split-button.md`:
    - `Mode` becomes `**Rebind** the existing sets on page ↳ Split Button`.
    - D2 to D5 describe the sets as they will be after section 4. Remove the old legacy mapping and the instruction to compose from Button and Icon Button instances.
-4. In both files, set the header row `Tokens` to the new `.tokens.json` file.
-5. In Part B of `split-button.md`, add `spacing-xs` as the padding of `menu`, and state that `menu` tokens come from the general Menu collections.
-6. Add a `Changes` entry to Part F of both files, and a `CHANGELOG.md` entry.
-7. Regenerate and check:
+4. In Part D4 of `3-web-components/components/button/button.md`, change `Size` to `sm · md · lg`, and do the same in the Icon button and Split button D4 tables.
+5. In the Icon button and Split button files, set the header row `Tokens` to the new `.tokens.json` file.
+6. In Part B of `split-button.md`, add `spacing-xs` as the padding of `menu`, and state that `menu` tokens come from the general Menu collections.
+7. Add a `Changes` entry to Part F of all three files, and a `CHANGELOG.md` entry.
+8. Regenerate and check:
 
 ```bash
 npm run component-tokens
+npm run contract -- web button
 npm run contract -- web icon-button
 npm run contract -- web split-button
 npm run docs:check
@@ -52,13 +54,11 @@ Page `↳ Icon Button`. Keep the three sets and their nesting: `Icon Button` `11
 
 | Property | Before | After |
 |---|---|---|
-| `Size` on `Icon Button` and `Glyph` | `XS · S · M · L · XL` | `Small · Medium · XLarge` |
+| `Size` on `Icon Button` and `Glyph` | `XS · S · M · L · XL` | `sm · md · lg` |
 | `Width` | `Narrow · Default · Wide` | Removed. Keep the `Default` variants |
 | `Shape` | `Round · Rounded square` | Removed. Keep the `Rounded square` variants |
 
-`Size` mapping: `XS → Small`, `S → Medium`, `M → XLarge`. `L` and `XL` are deleted, and their instances move to `XLarge`.
-
-Code mapping for D4 and Code Connect: `Small → sm`, `Medium → md`, `XLarge → lg`.
+`Size` mapping: `XS → sm`, `S → md`, `M → lg`. `L` and `XL` are deleted, and their instances move to `lg`.
 
 Result: `Icon Button` has 9 variants and `Glyph` has 6. Width equals height, as in Part B2. All other properties stay as they are.
 
@@ -66,7 +66,7 @@ Result: `Icon Button` has 9 variants and `Glyph` has 6. Width equals height, as 
 
 | Part | Collection | Mode or variable |
 |---|---|---|
-| Size, icon size, radius, border width | `Icon button / Size` | Modes: `Small → sm`, `Medium → md`, `XLarge → lg` |
+| Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
 | `Style=Filled` | `Button / Filled` | Same colour mode |
 | `Style=Tonal` | `Button / Tonal` | `brand · secondary · error` |
 | `Style=Outlined` | `Button / Outlined` | Same colour mode |
@@ -85,7 +85,7 @@ Page `↳ Split Button`. Keep `Split Button/EN` `116:23634` and `Split Button/AR
 
 ### 4.1 Properties
 
-Read the properties from `.Button _en` `116:5183` and match them exactly.
+Read the properties from `.Button _en` `116:5183` and match them exactly, after the `Size` rename in section 5.2.
 
 | Property | Type | Values | Source |
 |---|---|---|---|
@@ -95,7 +95,7 @@ Read the properties from `.Button _en` `116:5183` and match them exactly.
 | `Type` | VARIANT | `Primary · Secondary · Tertiary` | Same as Button |
 | `Color` | VARIANT | `Primary · Secondary · Success · Error · Warning · Info · Neutral · White` | Same as Button |
 | `State` | VARIANT | `Idle · Hovered · Focused · Pressed · Disabled` | Same as Button |
-| `Size` | VARIANT | `XLarge · Medium · Small` | Same as Button |
+| `Size` | VARIANT | `sm · md · lg` | Same as Button after section 5.2 |
 
 Do not add `Trailing Icon`. The menu trigger occupies that position.
 
@@ -111,7 +111,7 @@ Result: 360 variants in each language set, the same count as Button. Clone exist
 | `State=Default` | `State=Idle` |
 | `State=Hover` | `State=Hovered` |
 | `State=Ghost` | `Type=Secondary`, `State=Idle` |
-| `Size=XL · M · SM` | `Size=XLarge · Medium · Small` |
+| `Size=SM · M · XL` | `Size=sm · md · lg` |
 
 ### 4.3 Bindings
 
@@ -131,7 +131,7 @@ Copy the binding pattern from the matching Button variant, then read it back. Fo
 
 | Part | Collection | Variable |
 |---|---|---|
-| Heights, padding, gap, icon | `Button / Size` | Modes: `Small → sm`, `Medium → md`, `XLarge → lg` |
+| Heights, padding, gap, icon | `Button / Size` | Same name as `Size` |
 | Outer corners | `Split button / Part` | `outer-radius` |
 | Inner corners | `Split button / Part` | `inner-radius` |
 | Border on the inner sides | `Split button / Part` | `inner-border-width` |
@@ -164,7 +164,7 @@ Keep effect style `Elevation/3` on the menu. Do not build a Menu component.
 
 ### 5.2 Button
 
-On `.Button _en` and `.Button _ar`, bind:
+On `.Button _en` and `.Button _ar`, rename the `Size` values in place: `Small → sm`, `Medium → md`, `XLarge → lg`. Keep the component keys and existing instances. Then bind:
 
 - root `strokeWeight` to `Button / Size › border-width`
 - the `Focus ring` stroke weight to the Foundations-derived focus width token. If no component variable exists for it, stop and report rather than binding a semantic variable
@@ -566,6 +566,7 @@ Menu tokens live here until the Menu component exists. The collection names stay
 - [ ] A read-back script reports **0** bindings to `Color`, `Numbers`, `Button size`, `_Primitives`, `material/colors`, `1. Themes`, `2. Radius` and other library variables across the three Icon Button sets and both Split Button sets
 - [ ] Every text layer in those sets has a text style, and no solid fill or stroke is unbound
 - [ ] `Icon Button` has 9 variants, and each Split Button set has 360
+- [ ] `Size` is `sm · md · lg` on all Button, Icon Button and Split Button sets, including `Glyph`
 - [ ] Split Button property names and values equal Button, plus `Show Menu Buttons`
 - [ ] EN and AR sets match, and screenshots of Light and Dark look correct
 - [ ] Library is published, then `npm run sync:library` is run and contracts are regenerated
