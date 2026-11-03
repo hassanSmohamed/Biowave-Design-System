@@ -25,6 +25,13 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 ## 2. Repo changes (do these first)
 
 1. Create the two token files from section 6, exactly as written.
+   Also add this to `button.focus-ring.default` and `button.focus-ring.inverse` in `3-web-components/components/button/button.tokens.json`:
+
+   ```json
+   "width": { "$value": "{border.width.focus}" }
+   ```
+
+   `Button / Focus › width` already exists in the Web Figma file, so this records it in the repo. Tablet and Mobile inherit it through `$extends`. Do not add `focus-ring-radius`. It exists in Figma only, and its value is a separate decision.
 2. Update Part D of `3-web-components/components/icon-button/icon-button.md`:
    - `Mode` becomes `**Rebind** the existing sets on page ↳ Icon Button`.
    - D2 to D5 describe the sets as they will be after section 3.
@@ -217,7 +224,7 @@ Keep effect style `Elevation/3` on the menu. Do not build a Menu component.
 On `.Button _en` and `.Button _ar`, bind:
 
 - root `strokeWeight` to `Button / Size › border-width`
-- the `Focus ring` stroke weight to the Foundations-derived focus width token. If no component variable exists for it, stop and report rather than binding a semantic variable
+- the `Focus ring` stroke weight to `Button / Focus › width`
 
 ## 6. Token files
 
@@ -823,7 +830,8 @@ Menu tokens live here until the Menu component exists. The collection names stay
 2. **Keep component keys** on the existing sets. Do not delete and recreate a set.
 3. Do not pin any variant to a Light or Dark mode.
 4. **No semantic, primitive or old collection bindings** in these sets. Text styles, effect styles and icons from the published library are allowed.
-5. **Stop and report** if a value has no token, or a step would change anything outside this brief. Do not invent a token.
+5. Sync `Button / Focus › width` in the Tablet and Mobile files too if `npm run sync` requires it. Make no other change in those files.
+6. **Stop and report** if a value has no token, or a step would change anything outside this brief. Do not invent a token.
 
 ## 8. Done when
 
@@ -850,5 +858,5 @@ Do not mark the Figma status `Approved`. That happens in review.
 - Icon button instances moved from tonal to `outlined`, per screen
 - Flutter checks: run or not run
 - Figma values with no code equivalent
-- Button collections with modes in Figma that are missing from `button.tokens.json`
+- Button collections with modes or variables in Figma that are missing from `button.tokens.json`, including `success · warning · info` modes and `focus-ring-radius`. Report them, and do not change them
 - Anything left unbound, and why
