@@ -6,7 +6,7 @@
 
 ## 0. Goal
 
-Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNntzIWlrjmuSmZ9l`) onto component tokens only. Add the general Menu collections. Close the two Button stroke gaps. Rename `Size` values on Button so all three match code.
+Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNntzIWlrjmuSmZ9l`) onto component tokens only. Add the general Menu collections. Close the two Button stroke gaps. Rename properties and values on all three so Figma matches code.
 
 **Stay in Web.** Tablet and Mobile follow in a separate task after this one is reviewed.
 
@@ -14,12 +14,12 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 
 | # | Decision |
 |---|---|
-| 1 | **`Size` in Figma equals code on all three components:** `sm · md · lg` on Button, Icon button and Split button. Icon button also loses `Width` and `Shape`. |
+| 1 | **Figma names equal code on all three components.** Property names follow the D4 tables, and values use the code spelling. See section 5.0. Icon button also loses `Width` and `Shape`, and its sizes reduce to `sm · md · lg`. |
 | 2 | **Split button** uses the same properties and styles as the existing Figma Button set. The only addition is `Show Menu Buttons`. |
 | 3 | **Menu** gets general collections, `Menu / Container` and `Menu / Item`, because Menu will be a core component. |
 | 4 | Button colours come from `Button / *`. New collections hold only what is unique to a component. |
 | 5 | **Button group** is out of scope. Build nothing. |
-| 6 | **`Button / Tonal`** stays code-only on Button. Do not add tonal variants to the Button set. |
+| 6 | **`Button / Tonal`** stays code-only on Button and Split button. Do not add tonal variants to those sets. |
 
 ## 2. Repo changes (do these first)
 
@@ -30,7 +30,7 @@ Bring Icon button and Split button in **Biowave DS: Web Components** (`7nDhsPNnt
 3. Update Part D of `3-web-components/components/split-button/split-button.md`:
    - `Mode` becomes `**Rebind** the existing sets on page ↳ Split Button`.
    - D2 to D5 describe the sets as they will be after section 4. Remove the old legacy mapping and the instruction to compose from Button and Icon Button instances.
-4. In Part D4 of `3-web-components/components/button/button.md`, change `Size` to `sm · md · lg`, and do the same in the Icon button and Split button D4 tables.
+4. Update the D4 tables in `button.md`, `icon-button.md` and `split-button.md` to the final names and values in sections 3, 4 and 5.0. Keep each code prop column correct, and note values with no code equivalent.
 5. In the Icon button and Split button files, set the header row `Tokens` to the new `.tokens.json` file.
 6. In Part B of `split-button.md`, add `spacing-xs` as the padding of `menu`, and state that `menu` tokens come from the general Menu collections.
 7. Add a `Changes` entry to Part F of all three files, and a `CHANGELOG.md` entry.
@@ -52,32 +52,37 @@ Page `↳ Icon Button`. Keep the three sets and their nesting: `Icon Button` `11
 
 ### 3.1 Structure
 
-| Property | Before | After |
-|---|---|---|
-| `Size` on `Icon Button` and `Glyph` | `XS · S · M · L · XL` | `sm · md · lg` |
-| `Width` | `Narrow · Default · Wide` | Removed. Keep the `Default` variants |
-| `Shape` | `Round · Rounded square` | Removed. Keep the `Rounded square` variants |
+| Set | Property | Before | After |
+|---|---|---|---|
+| `Icon Button`, `Glyph` | `Size` | `XS · S · M · L · XL` | `sm · md · lg` |
+| `Icon Button` | `Type` | `Default · Toggle` | `Toggle`: `false · true` |
+| `Icon Button`, `Glyph` | `Selected` | `N/A · False · True` | `false · true` (`N/A → false`) |
+| `Icon Button` | `Width` | `Narrow · Default · Wide` | Removed. Keep the `Default` variants |
+| `Icon Button` | `Shape` | `Round · Rounded square` | Removed. Keep the `Rounded square` variants |
+| `Appearance` | `Style` | `Standard · Filled · Tonal · Outlined` | `Variant`: `text · filled · tonal · outlined` |
+| `Appearance` | `Color` | `Default · Brand · Secondary · Neutral · Success · Error · Warning · Info` | `brand · secondary · neutral · success · error · warning · info` |
+| `Appearance` | `State` | `Default · Hovered · Focused · Pressed · Disabled` | `default · hovered · focused · pressed · disabled` |
 
-`Size` mapping: `XS → sm`, `S → md`, `M → lg`. `L` and `XL` are deleted, and their instances move to `lg`.
+- `Size` mapping: `XS → sm`, `S → md`, `M → lg`. `L` and `XL` are deleted, and their instances move to `lg`.
+- `Color=Default` merges into `neutral`. Delete the `Default` variants and move their instances to `neutral`.
 
-Result: `Icon Button` has 9 variants and `Glyph` has 6. Width equals height, as in Part B2. All other properties stay as they are.
+Result: `Icon Button` has 9 variants, `Glyph` has 6 and `Appearance` has 140. Width equals height, as in Part B2.
 
 ### 3.2 Bindings
 
 | Part | Collection | Mode or variable |
 |---|---|---|
 | Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
-| `Style=Filled` | `Button / Filled` | Same colour mode |
-| `Style=Tonal` | `Button / Tonal` | `brand · secondary · error` |
-| `Style=Outlined` | `Button / Outlined` | Same colour mode |
-| `Style=Standard` | `Button / Text` | Same colour mode |
-| `Selected=True` | `Icon button / Selected` | Same colour mode |
+| `Variant=filled` | `Button / Filled` | Same name as `Color` |
+| `Variant=tonal` | `Button / Tonal` | `brand · secondary · error` |
+| `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
+| `Variant=text` | `Button / Text` | Same name as `Color` |
+| `Selected=true` | `Icon button / Selected` | Same name as `Color` |
 | Focus ring | `Button / Focus` | `default` or `inverse` |
 | Tooltip layers | `Icon button / Tooltip` | `default` |
 | `Show Menu Buttons` layers | `Menu / *` | `default` |
 
-- `Color=Default` uses mode `neutral`.
-- `Style=Tonal` with a colour outside `brand · secondary · error` has no tonal token. Bind it to `Button / Outlined` in the same colour, following the code fallback, and list these variants in the report.
+`Variant=tonal` with a colour outside `brand · secondary · error` has no tonal token. Bind it to `Button / Outlined` in the same colour, following the code fallback, and list these variants in the report.
 
 ## 4. Split button in Figma
 
@@ -85,19 +90,19 @@ Page `↳ Split Button`. Keep `Split Button/EN` `116:23634` and `Split Button/AR
 
 ### 4.1 Properties
 
-Read the properties from `.Button _en` `116:5183` and match them exactly, after the `Size` rename in section 5.2.
+Read the properties from `.Button _en` `116:5183` and match them exactly, after the renames in section 5.0.
 
 | Property | Type | Values | Source |
 |---|---|---|---|
 | `Label` | TEXT | | Rename `Text` |
-| `Leading Icon` | BOOLEAN | | Keep |
-| `Show Menu Buttons` | BOOLEAN | | Keep, unchanged |
-| `Type` | VARIANT | `Primary · Secondary · Tertiary` | Same as Button |
-| `Color` | VARIANT | `Primary · Secondary · Success · Error · Warning · Info · Neutral · White` | Same as Button |
-| `State` | VARIANT | `Idle · Hovered · Focused · Pressed · Disabled` | Same as Button |
-| `Size` | VARIANT | `sm · md · lg` | Same as Button after section 5.2 |
+| `Leading icon` | BOOLEAN | | Rename `Leading Icon` |
+| `Show Menu Buttons` | BOOLEAN | | Keep, unchanged. Figma only |
+| `Variant` | VARIANT | `filled · outlined · text` | Same as Button after section 5.0 |
+| `Color` | VARIANT | `brand · secondary · success · error · warning · info · neutral · inverse` | Same as Button after section 5.0 |
+| `State` | VARIANT | `default · hovered · focused · pressed · disabled` | Same as Button after section 5.0 |
+| `Size` | VARIANT | `sm · md · lg` | Same as Button after section 5.0 |
 
-Do not add `Trailing Icon`. The menu trigger occupies that position.
+Do not add `Trailing icon`. The menu trigger occupies that position.
 
 Result: 360 variants in each language set, the same count as Button. Clone existing variants to fill the matrix.
 
@@ -105,29 +110,25 @@ Result: 360 variants in each language set, the same count as Button. Clone exist
 
 | Old | New |
 |---|---|
-| `Type=Brand` | `Type=Primary`, `Color=Primary` |
-| `Type=Secondary · Success · Error · Warning · Info · Neutral` | `Type=Primary`, same `Color` |
-| `Type=Default` | `Type=Primary`, `Color=Neutral` |
-| `State=Default` | `State=Idle` |
-| `State=Hover` | `State=Hovered` |
-| `State=Ghost` | `Type=Secondary`, `State=Idle` |
+| `Type=Brand` | `Variant=filled`, `Color=brand` |
+| `Type=Secondary · Success · Error · Warning · Info · Neutral` | `Variant=filled`, same `Color` in lower case |
+| `Type=Default` | `Variant=filled`, `Color=neutral` |
+| `State=Default` | `State=default` |
+| `State=Hover · Pressed · Focused · Disabled` | `State=hovered · pressed · focused · disabled` |
+| `State=Ghost` | `Variant=outlined`, `State=default` |
 | `Size=SM · M · XL` | `Size=sm · md · lg` |
 
 ### 4.3 Bindings
 
 Copy the binding pattern from the matching Button variant, then read it back. For both `Action` and `Dropdown`:
 
-| `Type` | Collection |
+| `Variant` | Collection |
 |---|---|
-| `Primary` | `Button / Filled` |
-| `Secondary` | `Button / Outlined` |
-| `Tertiary` | `Button / Text` |
+| `filled` | `Button / Filled` |
+| `outlined` | `Button / Outlined` |
+| `text` | `Button / Text` |
 
-| `Color` | Mode |
-|---|---|
-| `Primary` | `brand` |
-| `White` | `inverse` |
-| Others | Same name in lower case |
+Use the mode with the same name as `Color`.
 
 | Part | Collection | Variable |
 |---|---|---|
@@ -147,6 +148,23 @@ Copy the binding pattern from the matching Button variant, then read it back. Fo
 
 ## 5. Menu and Button
 
+### 5.0 Button names (do this first in Figma)
+
+Rename these in place on `.Button _en` and `.Button _ar`. Keep the component keys and existing instances.
+
+| Property before | Property after | Values before | Values after |
+|---|---|---|---|
+| `Type` | `Variant` | `Primary · Secondary · Tertiary` | `filled · outlined · text` |
+| `Color` | `Color` | `Primary · Secondary · Success · Error · Warning · Info · Neutral · White` | `brand · secondary · success · error · warning · info · neutral · inverse` |
+| `State` | `State` | `Idle · Hovered · Focused · Pressed · Disabled` | `default · hovered · focused · pressed · disabled` |
+| `Size` | `Size` | `Small · Medium · XLarge` | `sm · md · lg` |
+| `Leading Icon` | `Leading icon` | | |
+| `Trailing Icon` | `Trailing icon` | | |
+
+Read one variant per `Type` before renaming. If `Primary` is not on `Button / Filled`, `Secondary` on `Button / Outlined` and `Tertiary` on `Button / Text`, stop and report.
+
+`success`, `warning` and `info` are not in the code `color` prop. Keep them in Figma, and list them in the report.
+
 ### 5.1 Menu
 
 Bind the layer `Add Devices Menu Buttons` and the main component of `Row Icon`:
@@ -164,7 +182,7 @@ Keep effect style `Elevation/3` on the menu. Do not build a Menu component.
 
 ### 5.2 Button
 
-On `.Button _en` and `.Button _ar`, rename the `Size` values in place: `Small → sm`, `Medium → md`, `XLarge → lg`. Keep the component keys and existing instances. Then bind:
+On `.Button _en` and `.Button _ar`, bind:
 
 - root `strokeWeight` to `Button / Size › border-width`
 - the `Focus ring` stroke weight to the Foundations-derived focus width token. If no component variable exists for it, stop and report rather than binding a semantic variable
@@ -566,7 +584,7 @@ Menu tokens live here until the Menu component exists. The collection names stay
 - [ ] A read-back script reports **0** bindings to `Color`, `Numbers`, `Button size`, `_Primitives`, `material/colors`, `1. Themes`, `2. Radius` and other library variables across the three Icon Button sets and both Split Button sets
 - [ ] Every text layer in those sets has a text style, and no solid fill or stroke is unbound
 - [ ] `Icon Button` has 9 variants, and each Split Button set has 360
-- [ ] `Size` is `sm · md · lg` on all Button, Icon Button and Split Button sets, including `Glyph`
+- [ ] Property names and values on all Button, Icon Button and Split Button sets match sections 3.1, 4.1 and 5.0
 - [ ] Split Button property names and values equal Button, plus `Show Menu Buttons`
 - [ ] EN and AR sets match, and screenshots of Light and Dark look correct
 - [ ] Library is published, then `npm run sync:library` is run and contracts are regenerated
@@ -580,5 +598,6 @@ Do not mark the Figma status `Approved`. That happens in review.
 - Files changed and check results
 - Instances remapped, by old value
 - Tonal variants that fell back to Outlined
+- Figma values with no code equivalent
 - Button collections with modes in Figma that are missing from `button.tokens.json`
 - Anything left unbound, and why
