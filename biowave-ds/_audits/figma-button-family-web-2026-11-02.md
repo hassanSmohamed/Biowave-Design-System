@@ -35,7 +35,7 @@ Read-only check on 2026-11-02 of file `7nDhsPNntzIWlrjmuSmZ9l`. Nothing changed 
 
 - **Colour tokens:** reuse the `Button / *` collections. Add small collections only for what is unique to Icon button and Split button.
 - **Button group:** not needed for now, so no set is built.
-- **Button is the base:** `Variant` is `filled · outlined · text` on Button and Split button. Icon button adds `tonal`, as in code, with `brand · secondary · error` only.
+- **Button is the base:** `Variant` is `filled · outlined · text` on Button and Split button, and `filled · outlined · tonal` on Icon button. `Color` and `State` are the same on all three. Icon button code follows in a separate task.
 - **Names:** Figma property names and values on Button, Icon button and Split button match code. Icon button is reduced to `sm · md · lg`.
 - **Split button:** uses the same properties and styles as the Button set, plus `Show Menu Buttons`.
 - **Menu:** gets general collections, `Menu / Container` and `Menu / Item`.
