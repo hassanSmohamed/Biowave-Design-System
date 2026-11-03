@@ -832,7 +832,9 @@ Menu tokens live here until the Menu component exists. The collection names stay
 4. **No semantic, primitive or old collection bindings** in these sets. Text styles, effect styles and icons from the published library are allowed.
 5. Sync `Button / Focus › width` in the Tablet and Mobile files too if `npm run sync` requires it. Make no other change in those files.
 6. **Do not run the generated apply script as it is.** It moves variables missing from `tokens.json` to `_deprecated`, which would hit `Button / Size › focus-ring-radius` while layers still use it. Apply only the new collections in section 6 and `Button / Focus › width`. Leave `success · warning · info` modes and `focus-ring-radius` untouched. If `sync:verify-tokens` then fails on these known differences, report it and continue.
-7. **Stop and report** if a value has no token, or a step would change anything outside this brief. Do not invent a token.
+7. **Every focus ring in the family is a stroke layer.** On Button, Icon button and Split button, follow `2-foundations/guidelines/border.md` › Figma focus ring: a `Focus ring` layer with an inside stroke, bound to `Button / Focus`, and no fill. Replace any focus ring drawn with a shadow or effect.
+8. **No deprecated effect styles.** Remove `Focus/Ring`, `Focus/Ring Inverse` and `Shadow/Control`, and any local shadow effect, from these sets. The only effect style allowed is `Elevation/3` on the menu.
+9. **Stop and report** if a value has no token, or a step would change anything outside this brief. Do not invent a token.
 
 ## 8. Done when
 
@@ -841,6 +843,7 @@ Menu tokens live here until the Menu component exists. The collection names stay
 - [ ] The collections from section 6 exist in the Web file with correct aliases: run the sync verify step for component tokens
 - [ ] A read-back script reports **0** bindings to `Color`, `Numbers`, `Button size`, `_Primitives`, `material/colors`, `1. Themes`, `2. Radius` and other library variables across the three Icon Button sets and both Split Button sets
 - [ ] Every text layer in those sets has a text style, and no solid fill or stroke is unbound
+- [ ] A read-back script confirms every Button, Icon Button and Split Button focus ring is a stroke layer, and no layer has an effect except `Elevation/3` on the menu
 - [ ] `Icon Button` has 9 variants, `Appearance` has 135, and each Split Button set has 360
 - [ ] No Button or Split Button layer binds to `Button / Tonal`
 - [ ] Property names and values on all Button, Icon Button and Split Button sets match sections 3.1, 4.1 and 5.0
