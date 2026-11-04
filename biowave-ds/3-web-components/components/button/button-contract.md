@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ f9138c0e8c997f83 — do not edit; change the source and run: npm run contract -- web button -->
+<!-- GENERATED from button.md @ becbd2a7304e84e5 — do not edit; change the source and run: npm run contract -- web button -->
 # Button · زر — Web — code contract
 
 > **Everything you need to build Button on Web, and nothing else.** Read this file only. Generated from [`button.md`](button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-18 |
 | Source code | [`src/components/button/`](../../src/components/button/) |
 | Tokens | [`button.tokens.json`](button.tokens.json) |
-| Source | [`button.md`](button.md) @ `f9138c0e8c997f83` |
+| Source | [`button.md`](button.md) @ `becbd2a7304e84e5` |
 
 ## 1. What it is
 
@@ -88,7 +88,7 @@ Not supported: MUI `variant="contained"`, `color="success|warning|info|primary"`
 | `leading-icon`, `trailing-icon` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `spinner` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `label` | text style | `action-sm` (`.bw-text-action-sm`) | `action-md` | `action-lg` |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` | same | same |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` | same | same |
 
 Layout rules:
 - `display: inline-flex`, content centered on both axes. Width hugs content; `fullWidth` → 100% of the parent.
@@ -138,7 +138,7 @@ Same as `outlined` without the border.
 | Part | Property | Token |
 |---|---|---|
 | `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` |
 
 The **state layer** is a second fill painted above the container fill (web: `background-image: linear-gradient(var(--bw-color-background-transparent-hovered), var(--bw-color-background-transparent-hovered))`). Filled buttons never use a state layer; they switch to the solid `-hovered`/`-pressed` tokens.
 
@@ -205,6 +205,7 @@ Values are for checking only — never paste a value.
 | `motion-duration-xs` | `var(--bw-motion-duration-xs)` · `cssVars.motion.duration.xs` | 50 | 50 |
 | `motion-easing-linear` | `var(--bw-motion-easing-linear)` · `cssVars.motion.easing.linear` | [0,0,1,1] | [0,0,1,1] |
 | `motion-easing-standard` | `var(--bw-motion-easing-standard)` · `cssVars.motion.easing.standard` | [0.2,0,0,1] | [0.2,0,0,1] |
+| `radius-lg` | `var(--bw-radius-lg)` · `cssVars.radius.lg` | 10 | 10 |
 | `radius-md` | `var(--bw-radius-md)` · `cssVars.radius.md` | 8 | 8 |
 | `size-control-height-lg` | `var(--bw-size-control-height-lg)` · `cssVars.size.control.height.lg` | 48 | 48 |
 | `size-control-height-md` | `var(--bw-size-control-height-md)` · `cssVars.size.control.height.md` | 40 | 40 |
@@ -232,6 +233,7 @@ The code token map must equal [`button.tokens.json`](button.tokens.json) (tests 
 | Button / Size | icon | sm: `size-icon-sm` · md: `size-icon-md` · lg: `size-icon-lg` |
 | Button / Size | radius | sm: `radius-md` · md: `radius-md` · lg: `radius-md` |
 | Button / Size | border-width | sm: `border-width-default` · md: `border-width-default` · lg: `border-width-default` |
+| Button / Size | focus-ring-radius | sm: `radius-lg` · md: `radius-lg` · lg: `radius-lg` |
 | Button / Filled | container/default | brand: `color-background-brand-default` · secondary: `color-background-secondary-default` · error: `color-background-error-default` · neutral: `color-background-neutral-default` · inverse: `color-background-inverse-default` |
 | Button / Filled | container/hovered | brand: `color-background-brand-hovered` · secondary: `color-background-secondary-hovered` · error: `color-background-error-hovered` · neutral: `color-background-neutral-hovered` · inverse: `color-background-inverse-hovered` |
 | Button / Filled | container/pressed | brand: `color-background-brand-pressed` · secondary: `color-background-secondary-pressed` · error: `color-background-error-pressed` · neutral: `color-background-neutral-pressed` · inverse: `color-background-inverse-pressed` |

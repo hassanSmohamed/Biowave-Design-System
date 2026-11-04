@@ -280,7 +280,7 @@ Not supported: MUI `variant="contained"`, `color="success|warning|info|primary"`
 | `leading-icon`, `trailing-icon` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `spinner` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `label` | text style | `action-sm` (`.bw-text-action-sm`) | `action-md` | `action-lg` |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` | same | same |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` | same | same |
 
 Layout rules:
 - `display: inline-flex`, content centered on both axes. Width hugs content; `fullWidth` → 100% of the parent.
@@ -330,7 +330,7 @@ Same as `outlined` without the border.
 | Part | Property | Token |
 |---|---|---|
 | `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` |
 
 The **state layer** is a second fill painted above the container fill (web: `background-image: linear-gradient(var(--bw-color-background-transparent-hovered), var(--bw-color-background-transparent-hovered))`). Filled buttons never use a state layer; they switch to the solid `-hovered`/`-pressed` tokens.
 

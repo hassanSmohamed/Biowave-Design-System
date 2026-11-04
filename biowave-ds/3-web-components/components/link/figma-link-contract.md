@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 0044c338914be44f — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 23a18e8ae1763e89 — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Web Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `0044c338914be44f` |
+| Source | [`link.md`](link.md) @ `23a18e8ae1763e89` |
 
 ## 1. Library connections in this file
 
@@ -34,7 +34,27 @@ const set = await figma.importComponentSetByKeyAsync('<component set key>');
 
 ## 2. Component-token collections (bind layers to these)
 
-None yet — this component has no component tokens. Bind to the Foundations variables in §3 and report it in D11 so the Planner adds component tokens.
+Already in this file, created by the sync tooling from [`link.tokens.json`](link.tokens.json). **Bind component layers to these variables** and pick the option with the collection's explicit variable mode. Each value aliases the Foundations variable shown (key in §3).
+
+| Collection | Modes | Variable | Alias target per mode |
+|---|---|---|---|
+| Link / Size | lg · md · sm | `height` | lg → 4. Size › `size/control/height/lg`<br>md → 4. Size › `size/control/height/md`<br>sm → 4. Size › `size/control/height/sm` |
+| Link / Size | lg · md · sm | `padding-inline` | lg → 3. Spacing › `spacing/control/padding-inline/lg`<br>md → 3. Spacing › `spacing/control/padding-inline/md`<br>sm → 3. Spacing › `spacing/control/padding-inline/sm` |
+| Link / Size | lg · md · sm | `padding-block` | lg → 3. Spacing › `spacing/none`<br>md → 3. Spacing › `spacing/none`<br>sm → 3. Spacing › `spacing/none` |
+| Link / Size | lg · md · sm | `gap` | lg → 3. Spacing › `spacing/control/gap/lg`<br>md → 3. Spacing › `spacing/control/gap/md`<br>sm → 3. Spacing › `spacing/control/gap/sm` |
+| Link / Size | lg · md · sm | `icon` | lg → 4. Size › `size/icon/lg`<br>md → 4. Size › `size/icon/md`<br>sm → 4. Size › `size/icon/sm` |
+| Link / Size | lg · md · sm | `radius` | lg → 2. Radius › `radius/2xl`<br>md → 2. Radius › `radius/2xl`<br>sm → 2. Radius › `radius/2xl` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `label/default` | brand → 1. Themes › `color/text/role/brand`<br>secondary → 1. Themes › `color/text/role/secondary`<br>success → 1. Themes › `color/text/role/success`<br>error → 1. Themes › `color/text/role/error`<br>warning → 1. Themes › `color/text/role/warning`<br>info → 1. Themes › `color/text/role/info`<br>neutral → 1. Themes › `color/text/subtle`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `label/hovered` | brand → 1. Themes › `color/text/role/brand`<br>secondary → 1. Themes › `color/text/role/secondary`<br>success → 1. Themes › `color/text/role/success`<br>error → 1. Themes › `color/text/role/error`<br>warning → 1. Themes › `color/text/role/warning`<br>info → 1. Themes › `color/text/role/info`<br>neutral → 1. Themes › `color/text/subtle`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `label/pressed` | brand → 1. Themes › `color/text/role/brand`<br>secondary → 1. Themes › `color/text/role/secondary`<br>success → 1. Themes › `color/text/role/success`<br>error → 1. Themes › `color/text/role/error`<br>warning → 1. Themes › `color/text/role/warning`<br>info → 1. Themes › `color/text/role/info`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `label/disabled` | brand → 1. Themes › `color/text/disabled`<br>secondary → 1. Themes › `color/text/disabled`<br>success → 1. Themes › `color/text/disabled`<br>error → 1. Themes › `color/text/disabled`<br>warning → 1. Themes › `color/text/disabled`<br>info → 1. Themes › `color/text/disabled`<br>neutral → 1. Themes › `color/text/disabled`<br>inverse → 1. Themes › `color/text/disabled` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/subtle`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `icon/hovered` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/subtle`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `icon/pressed` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>success → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>warning → 1. Themes › `color/icon/disabled`<br>info → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `container` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `border` | brand → 1. Themes › `color/border/default`<br>secondary → 1. Themes › `color/border/default`<br>success → 1. Themes › `color/border/default`<br>error → 1. Themes › `color/border/default`<br>warning → 1. Themes › `color/border/default`<br>info → 1. Themes › `color/border/default`<br>neutral → 1. Themes › `color/border/default`<br>inverse → 1. Themes › `color/border/default` |
+| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `focus-ring` | brand → 1. Themes › `color/border/focus`<br>secondary → 1. Themes › `color/border/focus`<br>success → 1. Themes › `color/border/focus`<br>error → 1. Themes › `color/border/focus`<br>warning → 1. Themes › `color/border/focus`<br>info → 1. Themes › `color/border/focus`<br>neutral → 1. Themes › `color/border/focus`<br>inverse → 1. Themes › `color/border/inverse` |
 
 ## 3. Foundations variables used (keys)
 
@@ -44,18 +64,49 @@ None yet — this component has no component tokens. Bind to the Foundations var
 | `border-width-default` | 7. Border › `border/width/default` | `9b62f24ecdfc438789ce3fa296e725ac14b1e08f` | FLOAT | STROKE_FLOAT | spec |
 | `border-width-focus` | 7. Border › `border/width/focus` | `d660bcb01777958134799fe11a99a63aaf1fbfca` | FLOAT | STROKE_FLOAT | spec |
 | `border-width-strong` | 7. Border › `border/width/strong` | `71439086700175c98e9cdf1952de74427c72063e` | FLOAT | STROKE_FLOAT | spec |
-| `color-border-focus` | 1. Themes › `color/border/focus` | `ef666d3badd2b63f18cb168d9987ead7fbc21480` | COLOR | STROKE_COLOR | spec |
-| `color-border-inverse` | 1. Themes › `color/border/inverse` | `0e53944b3de77eca83b17b27c3e5d0b4fca582d8` | COLOR | STROKE_COLOR | spec |
+| `color-background-transparent-default` | 1. Themes › `color/background/transparent/default` | `7ded3d8bfead13a83fc2297ef9dc75a16f73857b` | COLOR | FRAME_FILL, SHAPE_FILL | component token |
+| `color-border-default` | 1. Themes › `color/border/default` | `ad520e82898707a0d3112a12f6f9439566c6d6c4` | COLOR | STROKE_COLOR | component token |
+| `color-border-focus` | 1. Themes › `color/border/focus` | `ef666d3badd2b63f18cb168d9987ead7fbc21480` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-inverse` | 1. Themes › `color/border/inverse` | `0e53944b3de77eca83b17b27c3e5d0b4fca582d8` | COLOR | STROKE_COLOR | spec, component token |
+| `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-disabled` | 1. Themes › `color/icon/disabled` | `708926473ca446a26d4a0891351f04692171f74f` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-inverse` | 1. Themes › `color/icon/inverse` | `f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-role-brand` | 1. Themes › `color/icon/role/brand` | `73d6989d2161d900c2070cd9b67f01653e54251d` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-role-error` | 1. Themes › `color/icon/role/error` | `e7e61106b7c9b1c60197d2c456ad055991cc545d` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-role-info` | 1. Themes › `color/icon/role/info` | `9bbd326956964ff857cb9e3a5f9e0f41883fe168` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-role-secondary` | 1. Themes › `color/icon/role/secondary` | `b3c3c18415370f381760224fd00a40f2816ffdb6` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-role-success` | 1. Themes › `color/icon/role/success` | `096b2f9e4c965c38f55d3dd051dbff93f36a33e5` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-role-warning` | 1. Themes › `color/icon/role/warning` | `3fa016bcd1409896b81681403e6a214dcc365fda` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-subtle` | 1. Themes › `color/icon/subtle` | `fc66c13d6c036489bf774535cd8dbbf749795748` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
 | `color-link-default` | 1. Themes › `color/link/default` | `39af653c9124e2888e3c1d3de9c92b3f1e4d6df0` | COLOR | TEXT_FILL | spec |
 | `color-link-hovered` | 1. Themes › `color/link/hovered` | `db406378bc33a17e0471c73076f83e3c75b4d1c3` | COLOR | TEXT_FILL | spec |
 | `color-link-pressed` | 1. Themes › `color/link/pressed` | `9dde6bdff995276bdaa7a18390b4c55082da7afa` | COLOR | TEXT_FILL | spec |
 | `color-link-visited` | 1. Themes › `color/link/visited` | `fae9e8c94ca939fe60d30119ac1e6358342c9700` | COLOR | TEXT_FILL | spec |
-| `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec |
-| `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec |
-| `color-text-inverse` | 1. Themes › `color/text/inverse` | `83e1f6c6d7ddf8376b1bc5d0b9d5f6cd13b68e9b` | COLOR | TEXT_FILL | spec |
+| `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec, component token |
+| `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec, component token |
+| `color-text-inverse` | 1. Themes › `color/text/inverse` | `83e1f6c6d7ddf8376b1bc5d0b9d5f6cd13b68e9b` | COLOR | TEXT_FILL | spec, component token |
+| `color-text-role-brand` | 1. Themes › `color/text/role/brand` | `bf6f82d7545a8ae04bb4d55ee373397e5d16c45a` | COLOR | TEXT_FILL | component token |
+| `color-text-role-error` | 1. Themes › `color/text/role/error` | `99d512c8b115971ff7f8045c6decd1cada845f37` | COLOR | TEXT_FILL | component token |
+| `color-text-role-info` | 1. Themes › `color/text/role/info` | `f4c1549db7800b52c7614f14ca0e63b586f2e061` | COLOR | TEXT_FILL | component token |
+| `color-text-role-secondary` | 1. Themes › `color/text/role/secondary` | `39d1b107af72de6e3b48156a5c5f3e7cb170b7de` | COLOR | TEXT_FILL | component token |
+| `color-text-role-success` | 1. Themes › `color/text/role/success` | `4d99dc192c15bc4d84ab06b0d7dfa29a74768030` | COLOR | TEXT_FILL | component token |
+| `color-text-role-warning` | 1. Themes › `color/text/role/warning` | `298f6713572958c933c408402deaaaefd3806679` | COLOR | TEXT_FILL | component token |
+| `color-text-subtle` | 1. Themes › `color/text/subtle` | `dac97f2fd2a80ccffd6283bcc06c623f64ebe90a` | COLOR | TEXT_FILL | component token |
+| `radius-2xl` | 2. Radius › `radius/2xl` | `be176bcdae178fc46f0c6f10d06b01a39445d6f6` | FLOAT | CORNER_RADIUS | component token |
 | `radius-xs` | 2. Radius › `radius/xs` | `213fc023e86a88779565677e47c64a4dea40c260` | FLOAT | CORNER_RADIUS | spec |
-| `size-icon-md` | 4. Size › `size/icon/md` | `eb459c673e6ca16e3c81b240f04b467717953a9a` | FLOAT | WIDTH_HEIGHT | spec |
-| `size-icon-sm` | 4. Size › `size/icon/sm` | `2aa4b1f12a5ed0745f9a8b3251dc1fd9f7dd3476` | FLOAT | WIDTH_HEIGHT | spec |
+| `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | component token |
+| `size-control-height-md` | 4. Size › `size/control/height/md` | `cb6d23a09de76b9cea37c24579dbb2a9e6e6a079` | FLOAT | WIDTH_HEIGHT | component token |
+| `size-control-height-sm` | 4. Size › `size/control/height/sm` | `1409647f4e12e37e76b49ed9ce1a78946e4250f4` | FLOAT | WIDTH_HEIGHT | component token |
+| `size-icon-lg` | 4. Size › `size/icon/lg` | `e79bd86fedcce89547674c84c9127d0149e60061` | FLOAT | WIDTH_HEIGHT | component token |
+| `size-icon-md` | 4. Size › `size/icon/md` | `eb459c673e6ca16e3c81b240f04b467717953a9a` | FLOAT | WIDTH_HEIGHT | spec, component token |
+| `size-icon-sm` | 4. Size › `size/icon/sm` | `2aa4b1f12a5ed0745f9a8b3251dc1fd9f7dd3476` | FLOAT | WIDTH_HEIGHT | spec, component token |
+| `spacing-control-gap-lg` | 3. Spacing › `spacing/control/gap/lg` | `c9e0925c6738c94acdf8f5220207a44c304e25f0` | FLOAT | GAP | component token |
+| `spacing-control-gap-md` | 3. Spacing › `spacing/control/gap/md` | `e2e6fc01e3a1245e8c3584798b5d224742a9a6bc` | FLOAT | GAP | component token |
+| `spacing-control-gap-sm` | 3. Spacing › `spacing/control/gap/sm` | `97daa7ac19168846d702cc8c210d1e162a484b41` | FLOAT | GAP | component token |
+| `spacing-control-padding-inline-lg` | 3. Spacing › `spacing/control/padding-inline/lg` | `3dddd3d0ffa2e8c03e2ee62241d0b414f9c3f5b5` | FLOAT | GAP | component token |
+| `spacing-control-padding-inline-md` | 3. Spacing › `spacing/control/padding-inline/md` | `ece071c90fd7557c56f2a8918944c46d2672718e` | FLOAT | GAP | component token |
+| `spacing-control-padding-inline-sm` | 3. Spacing › `spacing/control/padding-inline/sm` | `fb323143873973f1548553562791a9983936aa5a` | FLOAT | GAP | component token |
+| `spacing-none` | 3. Spacing › `spacing/none` | `4879183c164f25d975ac0a8664388a77a2073b80` | FLOAT | GAP | spec, component token |
 | `spacing-xs` | 3. Spacing › `spacing/xs` | `9ea993d003d5368c5100b038d51c7c8f3e95c115` | FLOAT | GAP | spec |
 | `spacing-xxs` | 3. Spacing › `spacing/xxs` | `e772baca3a3110208bb2791461b6659a6d6e9ba8` | FLOAT | GAP | spec |
 | `target-min` | 6. Grid & Layout › `target/min` | `db23ec2826d3bfa3e600e5a82801e0c7d37ba298` | FLOAT | WIDTH_HEIGHT | spec |
@@ -158,7 +209,16 @@ Layout rules:
 
 ### B3 Tokens by part and state
 
-> No component tokens (P-04): every value is a shared semantic token, so there is no `link.tokens.json`. `label`, `underline` and both icons use the same colour (`currentColor`).
+The Web implementation continues to consume shared semantic tokens directly. The existing Web Components Figma sets use the Figma-only bridge in `link.tokens.json` so their current API and layer structure can express size and colour through explicit modes (R-02).
+
+| Figma collection | Modes | Variables |
+|---|---|---|
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
+| `Link / Color` | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `label/{default,hovered,pressed,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` · `focus-ring/{outer,inner}` |
+
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Secondary`, `Success`, `Error`, `Warning`, `Info`, `Neutral`, and `White` select the matching modes above (`White` → `inverse`). Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. D-R02-2 sets Pressed equal to Idle for Brand, Secondary, Success, Error, Warning, and Info. The AR set's existing two-effect focus ring uses `focus-ring/outer` and `focus-ring/inner`; the effect list is unchanged.
+
+In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 
 | `color` | Default | Hover | Pressed | Visited (`showVisited`) | Disabled |
 |---|---|---|---|---|---|
@@ -247,7 +307,7 @@ LTR  [◆] Contact support [▸]          RTL          [◂] التواصل مع
 
 ### D1 Rules for this build
 
-0. **Library first, no component tokens (P-04).** Link has no `link.tokens.json`, so this file gets **no** `Link / …` collection. Bind layers directly to the Foundations variables listed in the contract (§3) by key — this is intended, not a gap; do not ask for component tokens in D11. Never create, copy or detach variables or styles. Lint (`figma-read-tokens.js`) must report 0.
+0. **Library first; code remains P-04; Figma uses the R-02 bridge.** Code binds shared semantic tokens directly. The existing `.Link_en` and `.Link_ar` sets bind through local `Link / Size` and `Link / Color` variables from `link.tokens.json`, whose values alias the Foundations library. Never copy semantic variables or bind primitives/deprecated values. Lint (`figma-read-tokens.js`) must report 0 for the scoped sets.
 1. **Every value is bound.** Fills, gap, min height, radius → variables; text → text styles `action/{sm|md|lg}`; focus → the `Focus ring` layer (border.md › Figma focus ring: stroke `color/border/focus`, `color/border/inverse` on Inverse). No raw hex / px. **Only literals allowed:** the label's underline thickness and offset (Figma text decoration cannot be bound to variables) — set them to the B2 / B3 values and list them in the QA report.
 2. **Token → variable name:** replace `-` between segments with `/` — `color-link-hovered` → `1. Themes › color/link/hovered`; `spacing-xs` → `3. Spacing › spacing/xs`; `radius-xs` → `2. Radius › radius/xs`; `target-min` → `6. Grid & Layout › target/min`.
 3. **Never** bind `_Primitive/*` or `_deprecated/*`.

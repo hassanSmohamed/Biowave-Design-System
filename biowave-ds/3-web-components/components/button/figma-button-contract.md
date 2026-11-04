@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ 02faf52498d90530 — do not edit; change the source and run: npm run contract -- web button -->
+<!-- GENERATED from button.md @ ca74ca7f739b4604 — do not edit; change the source and run: npm run contract -- web button -->
 # Button · زر — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-18 |
-| Source | [`button.md`](button.md) @ `02faf52498d90530` |
+| Source | [`button.md`](button.md) @ `ca74ca7f739b4604` |
 
 ## 1. Library connections in this file
 
@@ -44,6 +44,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | Button / Size | sm · md · lg | `icon` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
 | Button / Size | sm · md · lg | `radius` | sm → 2. Radius › `radius/md`<br>md → 2. Radius › `radius/md`<br>lg → 2. Radius › `radius/md` |
 | Button / Size | sm · md · lg | `border-width` | sm → 7. Border › `border/width/default`<br>md → 7. Border › `border/width/default`<br>lg → 7. Border › `border/width/default` |
+| Button / Size | sm · md · lg | `focus-ring-radius` | sm → 2. Radius › `radius/lg`<br>md → 2. Radius › `radius/lg`<br>lg → 2. Radius › `radius/lg` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/default` | brand → 1. Themes › `color/background/brand/default`<br>secondary → 1. Themes › `color/background/secondary/default`<br>error → 1. Themes › `color/background/error/default`<br>neutral → 1. Themes › `color/background/neutral/default`<br>inverse → 1. Themes › `color/background/inverse/default` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/hovered` | brand → 1. Themes › `color/background/brand/hovered`<br>secondary → 1. Themes › `color/background/secondary/hovered`<br>error → 1. Themes › `color/background/error/hovered`<br>neutral → 1. Themes › `color/background/neutral/hovered`<br>inverse → 1. Themes › `color/background/inverse/hovered` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/pressed` | brand → 1. Themes › `color/background/brand/pressed`<br>secondary → 1. Themes › `color/background/secondary/pressed`<br>error → 1. Themes › `color/background/error/pressed`<br>neutral → 1. Themes › `color/background/neutral/pressed`<br>inverse → 1. Themes › `color/background/inverse/pressed` |
@@ -133,6 +134,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | `color-text-role-brand` | 1. Themes › `color/text/role/brand` | `bf6f82d7545a8ae04bb4d55ee373397e5d16c45a` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-role-error` | 1. Themes › `color/text/role/error` | `99d512c8b115971ff7f8045c6decd1cada845f37` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-role-secondary` | 1. Themes › `color/text/role/secondary` | `39d1b107af72de6e3b48156a5c5f3e7cb170b7de` | COLOR | TEXT_FILL | spec, component token |
+| `radius-lg` | 2. Radius › `radius/lg` | `bb2122acd11d99ba9396f13390d02b70941a6cfa` | FLOAT | CORNER_RADIUS | spec, component token |
 | `radius-md` | 2. Radius › `radius/md` | `0758e506cdfd4d7a4eef6369a4851133d7eab5a4` | FLOAT | CORNER_RADIUS | spec, component token |
 | `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | spec, component token |
 | `size-control-height-md` | 4. Size › `size/control/height/md` | `cb6d23a09de76b9cea37c24579dbb2a9e6e6a079` | FLOAT | WIDTH_HEIGHT | spec, component token |
@@ -227,7 +229,7 @@ Not supported: MUI `variant="contained"`, `color="success|warning|info|primary"`
 | `leading-icon`, `trailing-icon` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `spinner` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `label` | text style | `action-sm` (`.bw-text-action-sm`) | `action-md` | `action-lg` |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` | same | same |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` | same | same |
 
 Layout rules:
 - `display: inline-flex`, content centered on both axes. Width hugs content; `fullWidth` → 100% of the parent.
@@ -277,7 +279,7 @@ Same as `outlined` without the border.
 | Part | Property | Token |
 |---|---|---|
 | `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` |
 
 The **state layer** is a second fill painted above the container fill (web: `background-image: linear-gradient(var(--bw-color-background-transparent-hovered), var(--bw-color-background-transparent-hovered))`). Filled buttons never use a state layer; they switch to the solid `-hovered`/`-pressed` tokens.
 

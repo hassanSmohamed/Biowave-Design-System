@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ daf3118a0126e505 — do not edit; change the source and run: npm run contract -- tablet button -->
+<!-- GENERATED from button.md @ 512b75067e6713c2 — do not edit; change the source and run: npm run contract -- tablet button -->
 # Button · زر — Tablet — code contract
 
 > **Everything you need to build Button on Tablet, and nothing else.** Read this file only. Generated from [`button.md`](button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-20 |
 | Source code | [`lib/src/components/button/`](../../lib/src/components/button/) |
 | Tokens | [`button.tokens.json`](button.tokens.json) |
-| Source | [`button.md`](button.md) @ `daf3118a0126e505` |
+| Source | [`button.md`](button.md) @ `512b75067e6713c2` |
 
 ## 1. What it is
 
@@ -144,6 +144,7 @@ The code token map must equal [`button.tokens.json`](button.tokens.json) (tests 
 | Button / Size | icon | sm: `size-icon-sm` · md: `size-icon-md` · lg: `size-icon-lg` · xl: `size-icon-lg` |
 | Button / Size | radius | sm: `radius-md` · md: `radius-md` · lg: `radius-md` · xl: `radius-xl` |
 | Button / Size | border-width | sm: `border-width-default` · md: `border-width-default` · lg: `border-width-default` · xl: `border-width-default` |
+| Button / Size | focus-ring-radius | sm: `radius-lg` · md: `radius-lg` · lg: `radius-lg` · xl: `radius-2xl` |
 | Button / Filled | container/default | brand: `color-background-brand-default` · secondary: `color-background-secondary-default` · error: `color-background-error-default` · neutral: `color-background-neutral-default` · inverse: `color-background-inverse-default` |
 | Button / Filled | container/hovered | brand: `color-background-brand-hovered` · secondary: `color-background-secondary-hovered` · error: `color-background-error-hovered` · neutral: `color-background-neutral-hovered` · inverse: `color-background-inverse-hovered` |
 | Button / Filled | container/pressed | brand: `color-background-brand-pressed` · secondary: `color-background-secondary-pressed` · error: `color-background-error-pressed` · neutral: `color-background-neutral-pressed` · inverse: `color-background-inverse-pressed` |

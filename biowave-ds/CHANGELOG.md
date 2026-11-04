@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-04 — Component tokens baseline
+
+Merged the Link token branch into the Button family rebind. Recorded `Button / Size › focus-ring-radius` in `button.tokens.json` and Button Part B from the values already live in Figma (radius-lg; touch `xl` radius-2xl). In the Web Figma file: renamed `Icon / Color` mode `subtlest` to `muted` and added `Text field / State › border-width`. No Foundations token or Figma variable changed.
+
 ## 2026-11-04 — Button family published typography
 
 Migrated 720 Arabic labels to existing published action styles with Web/AR mode, preserving paints and typography. Removed three unused local style duplicates after checking every consumer; Web D-13 lint passes with zero violations. Tablet and Mobile focus-width aliases verified, retaining the protected focus-ring-radius.
@@ -39,6 +43,9 @@ Every change to the design system is logged here **in the same task**, newest fi
 - `_audits/figma-button-family-web-2026-11-02.md`: read-only binding audit, findings, plan and open questions. Nothing changed in Figma.
 ### Fixed
 - `_sync/build-stamp.json` refreshed so `npm run sync` reports READY. Generated token output was unchanged.
+## [R-02 phase 1 — Link moved onto component tokens] — 2026-11-02
+### Changed
+- R-02 phase 1 · Link moved onto component tokens; no API or layer changes. Added the Figma-only `Link / Size` and `Link / Color` bridge, including D-R02-1 (`padding-block` → `spacing-none`), D-R02-2 (Pressed = Idle for the six role colours), and D-R02-3 (live semantic role colours are authoritative); regenerated the Link contracts and marked the Web component-token snapshot synced.
 
 ## [Docs — Foundation images in guidelines] — 2026-11-02
 ### Added

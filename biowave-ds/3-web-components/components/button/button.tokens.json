@@ -27,6 +27,9 @@
         },
         "border-width": {
           "$value": "{border.width.default}"
+        },
+        "focus-ring-radius": {
+          "$value": "{radius.lg}"
         }
       },
       "md": {
@@ -47,6 +50,9 @@
         },
         "border-width": {
           "$value": "{border.width.default}"
+        },
+        "focus-ring-radius": {
+          "$value": "{radius.lg}"
         }
       },
       "lg": {
@@ -67,6 +73,9 @@
         },
         "border-width": {
           "$value": "{border.width.default}"
+        },
+        "focus-ring-radius": {
+          "$value": "{radius.lg}"
         }
       }
     },

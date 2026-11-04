@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ f178b6623a08a2ad — do not edit; change the source and run: npm run contract -- tablet link -->
+<!-- GENERATED from link.md @ 9348be26e26f0ae9 — do not edit; change the source and run: npm run contract -- tablet link -->
 # Link · رابط — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `f178b6623a08a2ad` |
+| Source | [`link.md`](link.md) @ `9348be26e26f0ae9` |
 
 ## 1. Library connections in this file
 
@@ -267,7 +267,7 @@ The Tablet Part D refers to these Web sections; they are copied here so you read
 
 #### D1 Rules for this build
 
-0. **Library first, no component tokens (P-04).** Link has no `link.tokens.json`, so this file gets **no** `Link / …` collection. Bind layers directly to the Foundations variables listed in the contract (§3) by key — this is intended, not a gap; do not ask for component tokens in D11. Never create, copy or detach variables or styles. Lint (`figma-read-tokens.js`) must report 0.
+0. **Library first; code remains P-04; Figma uses the R-02 bridge.** Code binds shared semantic tokens directly. The existing `.Link_en` and `.Link_ar` sets bind through local `Link / Size` and `Link / Color` variables from `link.tokens.json`, whose values alias the Foundations library. Never copy semantic variables or bind primitives/deprecated values. Lint (`figma-read-tokens.js`) must report 0 for the scoped sets.
 1. **Every value is bound.** Fills, gap, min height, radius → variables; text → text styles `action/{sm|md|lg}`; focus → the `Focus ring` layer (border.md › Figma focus ring: stroke `color/border/focus`, `color/border/inverse` on Inverse). No raw hex / px. **Only literals allowed:** the label's underline thickness and offset (Figma text decoration cannot be bound to variables) — set them to the B2 / B3 values and list them in the QA report.
 2. **Token → variable name:** replace `-` between segments with `/` — `color-link-hovered` → `1. Themes › color/link/hovered`; `spacing-xs` → `3. Spacing › spacing/xs`; `radius-xs` → `2. Radius › radius/xs`; `target-min` → `6. Grid & Layout › target/min`.
 3. **Never** bind `_Primitive/*` or `_deprecated/*`.

@@ -87,13 +87,13 @@ export function expectedComponentTokens(file) {
 // Spec ↔ <name>.tokens.json: the same facts must appear in both (Part B2–B3 of <name>.md is the human view, the JSON the machine view).
 export function specPart(mdPath) {
   const t = fs.readFileSync(mdPath, 'utf8');
-  const m = t.match(/\n## B · Spec\n([\s\S]*?)(?=\n## [A-F] · |$)/);
+  const m = t.match(/\r?\n## B · Spec\r?\n([\s\S]*?)(?=\r?\n## [A-F] · |$)/);
   return m ? m[1] : '';
 }
 export function specConsistency(rel) {
   const warnings = [];
   const d = JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
-  if (d.$extends) return warnings; // checked on the base file
+  if (d.$extends || d.$extensions?.biowave?.figmaOnly) return warnings; // inherited or Figma-only token sources are checked structurally, not against code-facing semantic-token prose
   const spec = path.join(ROOT, rel.replace(/\.tokens\.json$/, '.md'));
   if (!fs.existsSync(spec)) return [`${rel}: no component file ${path.basename(spec)} next to it`];
   const text = specPart(spec);

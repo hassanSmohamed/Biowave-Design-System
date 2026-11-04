@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ e32fd501137ce7f2 — do not edit; change the source and run: npm run contract -- tablet button -->
+<!-- GENERATED from button.md @ 091395446389b2aa — do not edit; change the source and run: npm run contract -- tablet button -->
 # Button · زر — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-20 |
-| Source | [`button.md`](button.md) @ `e32fd501137ce7f2` |
+| Source | [`button.md`](button.md) @ `091395446389b2aa` |
 
 ## 1. Library connections in this file
 
@@ -44,6 +44,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | Button / Size | sm · md · lg · xl | `icon` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg`<br>xl → 4. Size › `size/icon/lg` |
 | Button / Size | sm · md · lg · xl | `radius` | sm → 2. Radius › `radius/md`<br>md → 2. Radius › `radius/md`<br>lg → 2. Radius › `radius/md`<br>xl → 2. Radius › `radius/xl` |
 | Button / Size | sm · md · lg · xl | `border-width` | sm → 7. Border › `border/width/default`<br>md → 7. Border › `border/width/default`<br>lg → 7. Border › `border/width/default`<br>xl → 7. Border › `border/width/default` |
+| Button / Size | sm · md · lg · xl | `focus-ring-radius` | sm → 2. Radius › `radius/lg`<br>md → 2. Radius › `radius/lg`<br>lg → 2. Radius › `radius/lg`<br>xl → 2. Radius › `radius/2xl` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/default` | brand → 1. Themes › `color/background/brand/default`<br>secondary → 1. Themes › `color/background/secondary/default`<br>error → 1. Themes › `color/background/error/default`<br>neutral → 1. Themes › `color/background/neutral/default`<br>inverse → 1. Themes › `color/background/inverse/default` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/hovered` | brand → 1. Themes › `color/background/brand/hovered`<br>secondary → 1. Themes › `color/background/secondary/hovered`<br>error → 1. Themes › `color/background/error/hovered`<br>neutral → 1. Themes › `color/background/neutral/hovered`<br>inverse → 1. Themes › `color/background/inverse/hovered` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/pressed` | brand → 1. Themes › `color/background/brand/pressed`<br>secondary → 1. Themes › `color/background/secondary/pressed`<br>error → 1. Themes › `color/background/error/pressed`<br>neutral → 1. Themes › `color/background/neutral/pressed`<br>inverse → 1. Themes › `color/background/inverse/pressed` |
@@ -133,6 +134,8 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | `color-text-role-brand` | 1. Themes › `color/text/role/brand` | `bf6f82d7545a8ae04bb4d55ee373397e5d16c45a` | COLOR | TEXT_FILL | component token |
 | `color-text-role-error` | 1. Themes › `color/text/role/error` | `99d512c8b115971ff7f8045c6decd1cada845f37` | COLOR | TEXT_FILL | component token |
 | `color-text-role-secondary` | 1. Themes › `color/text/role/secondary` | `39d1b107af72de6e3b48156a5c5f3e7cb170b7de` | COLOR | TEXT_FILL | component token |
+| `radius-2xl` | 2. Radius › `radius/2xl` | `be176bcdae178fc46f0c6f10d06b01a39445d6f6` | FLOAT | CORNER_RADIUS | component token |
+| `radius-lg` | 2. Radius › `radius/lg` | `bb2122acd11d99ba9396f13390d02b70941a6cfa` | FLOAT | CORNER_RADIUS | component token |
 | `radius-md` | 2. Radius › `radius/md` | `0758e506cdfd4d7a4eef6369a4851133d7eab5a4` | FLOAT | CORNER_RADIUS | spec, component token |
 | `radius-xl` | 2. Radius › `radius/xl` | `a5042304656c42bab9b62a4f4ab9c6b1831b487c` | FLOAT | CORNER_RADIUS | spec, component token |
 | `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | spec, component token |
