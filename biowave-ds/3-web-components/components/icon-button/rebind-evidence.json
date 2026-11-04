@@ -281,14 +281,166 @@
   },
   "split": {
     "sets": [
-      "116:23634",
-      "116:25888"
+      {
+        "id": "116:23634",
+        "key": "82c34c5c92c0cb8b8ec0890ff21330c766927daa",
+        "variants": 360,
+        "unboundRoots": [],
+        "legacy": 0,
+        "bad": [],
+        "raw": 0,
+        "rawExamples": [],
+        "texts": [],
+        "effects": [],
+        "ringErrors": [],
+        "menus": 288,
+        "props": {
+          "Label#4022:0": {
+            "type": "TEXT",
+            "defaultValue": "Button"
+          },
+          "Show Menu Buttons#4429:0": {
+            "type": "BOOLEAN",
+            "defaultValue": false
+          },
+          "Leading icon#4533:0": {
+            "type": "BOOLEAN",
+            "defaultValue": false
+          },
+          "Variant": {
+            "type": "VARIANT",
+            "defaultValue": "filled",
+            "variantOptions": [
+              "filled",
+              "outlined",
+              "text"
+            ]
+          },
+          "Color": {
+            "type": "VARIANT",
+            "defaultValue": "neutral",
+            "variantOptions": [
+              "brand",
+              "secondary",
+              "neutral",
+              "success",
+              "error",
+              "warning",
+              "info",
+              "inverse"
+            ]
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "default",
+            "variantOptions": [
+              "default",
+              "hovered",
+              "pressed",
+              "disabled",
+              "focused"
+            ]
+          },
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "lg",
+            "variantOptions": [
+              "lg",
+              "md",
+              "sm"
+            ]
+          }
+        }
+      },
+      {
+        "id": "116:25888",
+        "key": "9fc8eb0ee051a3bd0ca314403ce5f078394701f5",
+        "variants": 360,
+        "unboundRoots": [],
+        "legacy": 0,
+        "bad": [],
+        "raw": 0,
+        "rawExamples": [],
+        "texts": [],
+        "effects": [],
+        "ringErrors": [],
+        "menus": 288,
+        "props": {
+          "Label#4057:0": {
+            "type": "TEXT",
+            "defaultValue": "زر"
+          },
+          "Show Menu Buttons#4466:0": {
+            "type": "BOOLEAN",
+            "defaultValue": false
+          },
+          "Leading icon#4533:145": {
+            "type": "BOOLEAN",
+            "defaultValue": false
+          },
+          "Variant": {
+            "type": "VARIANT",
+            "defaultValue": "filled",
+            "variantOptions": [
+              "filled",
+              "outlined",
+              "text"
+            ]
+          },
+          "Color": {
+            "type": "VARIANT",
+            "defaultValue": "neutral",
+            "variantOptions": [
+              "brand",
+              "secondary",
+              "neutral",
+              "success",
+              "error",
+              "warning",
+              "info",
+              "inverse"
+            ]
+          },
+          "State": {
+            "type": "VARIANT",
+            "defaultValue": "default",
+            "variantOptions": [
+              "default",
+              "hovered",
+              "pressed",
+              "disabled",
+              "focused"
+            ]
+          },
+          "Size": {
+            "type": "VARIANT",
+            "defaultValue": "lg",
+            "variantOptions": [
+              "lg",
+              "md",
+              "sm"
+            ]
+          }
+        }
+      }
     ],
     "pending": [
-      "variant matrix",
-      "bindings",
-      "full audit",
-      "visual QA"
-    ]
+      "publication",
+      "final token/library synchronization"
+    ],
+    "remaps": {
+      "Type=Default, State=Default, Size=XL": {
+        "count": 1,
+        "screen": "_Thumb",
+        "instanceId": "116:23632"
+      }
+    },
+    "menuCleanup": {
+      "originalMenus": 210,
+      "excessRowsRemoved": 630,
+      "hiddenCheckmarksRemoved": 1050,
+      "hiddenSecondaryLabelsRemoved": 1050
+    },
+    "visualQA": "Light and Dark, EN and AR passed; temporary preview removed"
   }
 }

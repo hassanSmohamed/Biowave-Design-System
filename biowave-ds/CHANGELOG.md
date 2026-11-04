@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-04 — Web Split Button Figma rebind
+
+Completed both retained 360-variant sets with component-token bindings, joined RTL corners, five-row menus and stroke focus rings. Zero binding, paint, text-style or effect errors; Light/Dark EN/AR previews pass. One Default instance remapped safely. Removed nonspec menu decorations and legacy minimum width; remote components preserved. Family publication and final synchronization remain pending. Flutter checks not run.
+
 ## 2026-11-03 — Web Icon Button Figma rebind
 
 Completed the retained 9/6/135 variant sets with component-token bindings and verified Light/Dark appearance, size inheritance, stroke focus rings, and zero binding/style errors. Removed temporary-menu scrollbars, excess rows, hidden checkmarks and secondary labels; remote components unchanged. Full Web suite passes 226/226 with the authorized 30-second timeout; docs:check, typecheck and component-tokens pass. Flutter checks not run. Split Button and family publication continue.
