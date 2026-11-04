@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 23a18e8ae1763e89 — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 1af9e65369f9da50 — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Web Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `23a18e8ae1763e89` |
+| Source | [`link.md`](link.md) @ `1af9e65369f9da50` |
 
 ## 1. Library connections in this file
 
@@ -44,17 +44,18 @@ Already in this file, created by the sync tooling from [`link.tokens.json`](link
 | Link / Size | lg · md · sm | `gap` | lg → 3. Spacing › `spacing/control/gap/lg`<br>md → 3. Spacing › `spacing/control/gap/md`<br>sm → 3. Spacing › `spacing/control/gap/sm` |
 | Link / Size | lg · md · sm | `icon` | lg → 4. Size › `size/icon/lg`<br>md → 4. Size › `size/icon/md`<br>sm → 4. Size › `size/icon/sm` |
 | Link / Size | lg · md · sm | `radius` | lg → 2. Radius › `radius/2xl`<br>md → 2. Radius › `radius/2xl`<br>sm → 2. Radius › `radius/2xl` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `label/default` | brand → 1. Themes › `color/text/role/brand`<br>secondary → 1. Themes › `color/text/role/secondary`<br>success → 1. Themes › `color/text/role/success`<br>error → 1. Themes › `color/text/role/error`<br>warning → 1. Themes › `color/text/role/warning`<br>info → 1. Themes › `color/text/role/info`<br>neutral → 1. Themes › `color/text/subtle`<br>inverse → 1. Themes › `color/text/inverse` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `label/hovered` | brand → 1. Themes › `color/text/role/brand`<br>secondary → 1. Themes › `color/text/role/secondary`<br>success → 1. Themes › `color/text/role/success`<br>error → 1. Themes › `color/text/role/error`<br>warning → 1. Themes › `color/text/role/warning`<br>info → 1. Themes › `color/text/role/info`<br>neutral → 1. Themes › `color/text/subtle`<br>inverse → 1. Themes › `color/text/inverse` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `label/pressed` | brand → 1. Themes › `color/text/role/brand`<br>secondary → 1. Themes › `color/text/role/secondary`<br>success → 1. Themes › `color/text/role/success`<br>error → 1. Themes › `color/text/role/error`<br>warning → 1. Themes › `color/text/role/warning`<br>info → 1. Themes › `color/text/role/info`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `label/disabled` | brand → 1. Themes › `color/text/disabled`<br>secondary → 1. Themes › `color/text/disabled`<br>success → 1. Themes › `color/text/disabled`<br>error → 1. Themes › `color/text/disabled`<br>warning → 1. Themes › `color/text/disabled`<br>info → 1. Themes › `color/text/disabled`<br>neutral → 1. Themes › `color/text/disabled`<br>inverse → 1. Themes › `color/text/disabled` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/subtle`<br>inverse → 1. Themes › `color/icon/inverse` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `icon/hovered` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/subtle`<br>inverse → 1. Themes › `color/icon/inverse` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `icon/pressed` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>success → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>warning → 1. Themes › `color/icon/disabled`<br>info → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `container` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `border` | brand → 1. Themes › `color/border/default`<br>secondary → 1. Themes › `color/border/default`<br>success → 1. Themes › `color/border/default`<br>error → 1. Themes › `color/border/default`<br>warning → 1. Themes › `color/border/default`<br>info → 1. Themes › `color/border/default`<br>neutral → 1. Themes › `color/border/default`<br>inverse → 1. Themes › `color/border/default` |
-| Link / Color | brand · secondary · success · error · warning · info · neutral · inverse | `focus-ring` | brand → 1. Themes › `color/border/focus`<br>secondary → 1. Themes › `color/border/focus`<br>success → 1. Themes › `color/border/focus`<br>error → 1. Themes › `color/border/focus`<br>warning → 1. Themes › `color/border/focus`<br>info → 1. Themes › `color/border/focus`<br>neutral → 1. Themes › `color/border/focus`<br>inverse → 1. Themes › `color/border/inverse` |
+| Link / Color | brand · neutral · inverse | `label/default` | brand → 1. Themes › `color/link/default`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · neutral · inverse | `label/hovered` | brand → 1. Themes › `color/link/hovered`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · neutral · inverse | `label/pressed` | brand → 1. Themes › `color/link/pressed`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · neutral · inverse | `label/visited` | brand → 1. Themes › `color/link/visited`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · neutral · inverse | `label/disabled` | brand → 1. Themes › `color/text/disabled`<br>neutral → 1. Themes › `color/text/disabled`<br>inverse → 1. Themes › `color/text/disabled` |
+| Link / Color | brand · neutral · inverse | `icon/default` | brand → 1. Themes › `color/link/default`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · neutral · inverse | `icon/hovered` | brand → 1. Themes › `color/link/hovered`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · neutral · inverse | `icon/pressed` | brand → 1. Themes › `color/link/pressed`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
+| Link / Color | brand · neutral · inverse | `container` | brand → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
+| Link / Color | brand · neutral · inverse | `border` | brand → 1. Themes › `color/border/default`<br>neutral → 1. Themes › `color/border/default`<br>inverse → 1. Themes › `color/border/default` |
+| Link / Color | brand · neutral · inverse | `focus-ring` | brand → 1. Themes › `color/border/focus`<br>neutral → 1. Themes › `color/border/focus`<br>inverse → 1. Themes › `color/border/inverse` |
 
 ## 3. Foundations variables used (keys)
 
@@ -71,27 +72,13 @@ Already in this file, created by the sync tooling from [`link.tokens.json`](link
 | `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
 | `color-icon-disabled` | 1. Themes › `color/icon/disabled` | `708926473ca446a26d4a0891351f04692171f74f` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
 | `color-icon-inverse` | 1. Themes › `color/icon/inverse` | `f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
-| `color-icon-role-brand` | 1. Themes › `color/icon/role/brand` | `73d6989d2161d900c2070cd9b67f01653e54251d` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
-| `color-icon-role-error` | 1. Themes › `color/icon/role/error` | `e7e61106b7c9b1c60197d2c456ad055991cc545d` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
-| `color-icon-role-info` | 1. Themes › `color/icon/role/info` | `9bbd326956964ff857cb9e3a5f9e0f41883fe168` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
-| `color-icon-role-secondary` | 1. Themes › `color/icon/role/secondary` | `b3c3c18415370f381760224fd00a40f2816ffdb6` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
-| `color-icon-role-success` | 1. Themes › `color/icon/role/success` | `096b2f9e4c965c38f55d3dd051dbff93f36a33e5` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
-| `color-icon-role-warning` | 1. Themes › `color/icon/role/warning` | `3fa016bcd1409896b81681403e6a214dcc365fda` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
-| `color-icon-subtle` | 1. Themes › `color/icon/subtle` | `fc66c13d6c036489bf774535cd8dbbf749795748` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
-| `color-link-default` | 1. Themes › `color/link/default` | `39af653c9124e2888e3c1d3de9c92b3f1e4d6df0` | COLOR | TEXT_FILL | spec |
-| `color-link-hovered` | 1. Themes › `color/link/hovered` | `db406378bc33a17e0471c73076f83e3c75b4d1c3` | COLOR | TEXT_FILL | spec |
-| `color-link-pressed` | 1. Themes › `color/link/pressed` | `9dde6bdff995276bdaa7a18390b4c55082da7afa` | COLOR | TEXT_FILL | spec |
-| `color-link-visited` | 1. Themes › `color/link/visited` | `fae9e8c94ca939fe60d30119ac1e6358342c9700` | COLOR | TEXT_FILL | spec |
+| `color-link-default` | 1. Themes › `color/link/default` | `39af653c9124e2888e3c1d3de9c92b3f1e4d6df0` | COLOR | TEXT_FILL | spec, component token |
+| `color-link-hovered` | 1. Themes › `color/link/hovered` | `db406378bc33a17e0471c73076f83e3c75b4d1c3` | COLOR | TEXT_FILL | spec, component token |
+| `color-link-pressed` | 1. Themes › `color/link/pressed` | `9dde6bdff995276bdaa7a18390b4c55082da7afa` | COLOR | TEXT_FILL | spec, component token |
+| `color-link-visited` | 1. Themes › `color/link/visited` | `fae9e8c94ca939fe60d30119ac1e6358342c9700` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-inverse` | 1. Themes › `color/text/inverse` | `83e1f6c6d7ddf8376b1bc5d0b9d5f6cd13b68e9b` | COLOR | TEXT_FILL | spec, component token |
-| `color-text-role-brand` | 1. Themes › `color/text/role/brand` | `bf6f82d7545a8ae04bb4d55ee373397e5d16c45a` | COLOR | TEXT_FILL | component token |
-| `color-text-role-error` | 1. Themes › `color/text/role/error` | `99d512c8b115971ff7f8045c6decd1cada845f37` | COLOR | TEXT_FILL | component token |
-| `color-text-role-info` | 1. Themes › `color/text/role/info` | `f4c1549db7800b52c7614f14ca0e63b586f2e061` | COLOR | TEXT_FILL | component token |
-| `color-text-role-secondary` | 1. Themes › `color/text/role/secondary` | `39d1b107af72de6e3b48156a5c5f3e7cb170b7de` | COLOR | TEXT_FILL | component token |
-| `color-text-role-success` | 1. Themes › `color/text/role/success` | `4d99dc192c15bc4d84ab06b0d7dfa29a74768030` | COLOR | TEXT_FILL | component token |
-| `color-text-role-warning` | 1. Themes › `color/text/role/warning` | `298f6713572958c933c408402deaaaefd3806679` | COLOR | TEXT_FILL | component token |
-| `color-text-subtle` | 1. Themes › `color/text/subtle` | `dac97f2fd2a80ccffd6283bcc06c623f64ebe90a` | COLOR | TEXT_FILL | component token |
 | `radius-2xl` | 2. Radius › `radius/2xl` | `be176bcdae178fc46f0c6f10d06b01a39445d6f6` | FLOAT | CORNER_RADIUS | component token |
 | `radius-xs` | 2. Radius › `radius/xs` | `213fc023e86a88779565677e47c64a4dea40c260` | FLOAT | CORNER_RADIUS | spec |
 | `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | component token |
@@ -214,9 +201,9 @@ The Web implementation continues to consume shared semantic tokens directly. The
 | Figma collection | Modes | Variables |
 |---|---|---|
 | `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
-| `Link / Color` | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `label/{default,hovered,pressed,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` · `focus-ring/{outer,inner}` |
+| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,pressed,visited,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` |
 
-`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Secondary`, `Success`, `Error`, `Warning`, `Info`, `Neutral`, and `White` select the matching modes above (`White` → `inverse`). Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. D-R02-2 sets Pressed equal to Idle for Brand, Secondary, Success, Error, Warning, and Info. The AR set's existing two-effect focus ring uses `focus-ring/outer` and `focus-ring/inner`; the effect list is unchanged.
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. `label/visited` has no Figma variant yet.
 
 In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 

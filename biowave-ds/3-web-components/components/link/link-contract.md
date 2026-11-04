@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ b74eeb28d4f841e1 — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 7647de68acbafe0f — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — code contract
 
 > **Everything you need to build Link on Web, and nothing else.** Read this file only. Generated from [`link.md`](link.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](link.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-10-21 |
 | Source code | `src/components/link/` (built) |
 | Tokens | [`link.tokens.json`](link.tokens.json) |
-| Source | [`link.md`](link.md) @ `b74eeb28d4f841e1` |
+| Source | [`link.md`](link.md) @ `7647de68acbafe0f` |
 
 ## 1. What it is
 
@@ -110,9 +110,9 @@ The Web implementation continues to consume shared semantic tokens directly. The
 | Figma collection | Modes | Variables |
 |---|---|---|
 | `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
-| `Link / Color` | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `label/{default,hovered,pressed,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` · `focus-ring/{outer,inner}` |
+| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,pressed,visited,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` |
 
-`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Secondary`, `Success`, `Error`, `Warning`, `Info`, `Neutral`, and `White` select the matching modes above (`White` → `inverse`). Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. D-R02-2 sets Pressed equal to Idle for Brand, Secondary, Success, Error, Warning, and Info. The AR set's existing two-effect focus ring uses `focus-ring/outer` and `focus-ring/inner`; the effect list is unchanged.
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. `label/visited` has no Figma variant yet.
 
 In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 
@@ -177,17 +177,18 @@ The code token map must equal [`link.tokens.json`](link.tokens.json) (tests comp
 | Link / Size | gap | lg: `spacing-control-gap-lg` · md: `spacing-control-gap-md` · sm: `spacing-control-gap-sm` |
 | Link / Size | icon | lg: `size-icon-lg` · md: `size-icon-md` · sm: `size-icon-sm` |
 | Link / Size | radius | lg: `radius-2xl` · md: `radius-2xl` · sm: `radius-2xl` |
-| Link / Color | label/default | brand: `color-text-role-brand` · secondary: `color-text-role-secondary` · success: `color-text-role-success` · error: `color-text-role-error` · warning: `color-text-role-warning` · info: `color-text-role-info` · neutral: `color-text-subtle` · inverse: `color-text-inverse` |
-| Link / Color | label/hovered | brand: `color-text-role-brand` · secondary: `color-text-role-secondary` · success: `color-text-role-success` · error: `color-text-role-error` · warning: `color-text-role-warning` · info: `color-text-role-info` · neutral: `color-text-subtle` · inverse: `color-text-inverse` |
-| Link / Color | label/pressed | brand: `color-text-role-brand` · secondary: `color-text-role-secondary` · success: `color-text-role-success` · error: `color-text-role-error` · warning: `color-text-role-warning` · info: `color-text-role-info` · neutral: `color-text-default` · inverse: `color-text-inverse` |
-| Link / Color | label/disabled | brand: `color-text-disabled` · secondary: `color-text-disabled` · success: `color-text-disabled` · error: `color-text-disabled` · warning: `color-text-disabled` · info: `color-text-disabled` · neutral: `color-text-disabled` · inverse: `color-text-disabled` |
-| Link / Color | icon/default | brand: `color-icon-role-brand` · secondary: `color-icon-role-secondary` · success: `color-icon-role-success` · error: `color-icon-role-error` · warning: `color-icon-role-warning` · info: `color-icon-role-info` · neutral: `color-icon-subtle` · inverse: `color-icon-inverse` |
-| Link / Color | icon/hovered | brand: `color-icon-role-brand` · secondary: `color-icon-role-secondary` · success: `color-icon-role-success` · error: `color-icon-role-error` · warning: `color-icon-role-warning` · info: `color-icon-role-info` · neutral: `color-icon-subtle` · inverse: `color-icon-inverse` |
-| Link / Color | icon/pressed | brand: `color-icon-role-brand` · secondary: `color-icon-role-secondary` · success: `color-icon-role-success` · error: `color-icon-role-error` · warning: `color-icon-role-warning` · info: `color-icon-role-info` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
-| Link / Color | icon/disabled | brand: `color-icon-disabled` · secondary: `color-icon-disabled` · success: `color-icon-disabled` · error: `color-icon-disabled` · warning: `color-icon-disabled` · info: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
-| Link / Color | container | brand: `color-background-transparent-default` · secondary: `color-background-transparent-default` · success: `color-background-transparent-default` · error: `color-background-transparent-default` · warning: `color-background-transparent-default` · info: `color-background-transparent-default` · neutral: `color-background-transparent-default` · inverse: `color-background-transparent-default` |
-| Link / Color | border | brand: `color-border-default` · secondary: `color-border-default` · success: `color-border-default` · error: `color-border-default` · warning: `color-border-default` · info: `color-border-default` · neutral: `color-border-default` · inverse: `color-border-default` |
-| Link / Color | focus-ring | brand: `color-border-focus` · secondary: `color-border-focus` · success: `color-border-focus` · error: `color-border-focus` · warning: `color-border-focus` · info: `color-border-focus` · neutral: `color-border-focus` · inverse: `color-border-inverse` |
+| Link / Color | label/default | brand: `color-link-default` · neutral: `color-text-default` · inverse: `color-text-inverse` |
+| Link / Color | label/hovered | brand: `color-link-hovered` · neutral: `color-text-default` · inverse: `color-text-inverse` |
+| Link / Color | label/pressed | brand: `color-link-pressed` · neutral: `color-text-default` · inverse: `color-text-inverse` |
+| Link / Color | label/visited | brand: `color-link-visited` · neutral: `color-text-default` · inverse: `color-text-inverse` |
+| Link / Color | label/disabled | brand: `color-text-disabled` · neutral: `color-text-disabled` · inverse: `color-text-disabled` |
+| Link / Color | icon/default | brand: `color-link-default` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
+| Link / Color | icon/hovered | brand: `color-link-hovered` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
+| Link / Color | icon/pressed | brand: `color-link-pressed` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
+| Link / Color | icon/disabled | brand: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
+| Link / Color | container | brand: `color-background-transparent-default` · neutral: `color-background-transparent-default` · inverse: `color-background-transparent-default` |
+| Link / Color | border | brand: `color-border-default` · neutral: `color-border-default` · inverse: `color-border-default` |
+| Link / Color | focus-ring | brand: `color-border-focus` · neutral: `color-border-focus` · inverse: `color-border-inverse` |
 
 ## 5. States and transitions
 

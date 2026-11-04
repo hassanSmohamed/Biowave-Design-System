@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-04 — Link reduced to three colours
+
+Removed Secondary, Success, Error, Warning and Info from `.Link_en` and `.Link_ar` (120 → 45 variants each) and renamed `White` to `Inverse`. `Link / Color` now has `brand`, `neutral` and `inverse`, matching the spec and code: `label` and `icon` follow `color/link/*`, `label/visited` is added, and `focus-ring/outer` and `focus-ring/inner` are removed so EN and AR share one focus-ring colour. Supersedes D-R02-2 and D-R02-3. No Foundations token or Figma variable changed.
+
 ## 2026-11-04 — Component tokens baseline
 
 Merged the Link token branch into the Button family rebind. Recorded `Button / Size › focus-ring-radius` in `button.tokens.json` and Button Part B from the values already live in Figma (radius-lg; touch `xl` radius-2xl). In the Web Figma file: renamed `Icon / Color` mode `subtlest` to `muted` and added `Text field / State › border-width`. No Foundations token or Figma variable changed.

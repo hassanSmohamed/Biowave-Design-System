@@ -85,13 +85,16 @@
       "brand": {
         "label": {
           "default": {
-            "$value": "{color.text.role.brand}"
+            "$value": "{color.link.default}"
           },
           "hovered": {
-            "$value": "{color.text.role.brand}"
+            "$value": "{color.link.hovered}"
           },
           "pressed": {
-            "$value": "{color.text.role.brand}"
+            "$value": "{color.link.pressed}"
+          },
+          "visited": {
+            "$value": "{color.link.visited}"
           },
           "disabled": {
             "$value": "{color.text.disabled}"
@@ -99,13 +102,13 @@
         },
         "icon": {
           "default": {
-            "$value": "{color.icon.role.brand}"
+            "$value": "{color.link.default}"
           },
           "hovered": {
-            "$value": "{color.icon.role.brand}"
+            "$value": "{color.link.hovered}"
           },
           "pressed": {
-            "$value": "{color.icon.role.brand}"
+            "$value": "{color.link.pressed}"
           },
           "disabled": {
             "$value": "{color.icon.disabled}"
@@ -118,249 +121,21 @@
           "$value": "{color.border.default}"
         },
         "focus-ring": {
-          "$value": "{color.border.focus}",
-          "outer": {
-            "$value": "{color.text.role.brand}"
-          },
-          "inner": {
-            "$value": "{color.text.on.brand}"
-          }
-        }
-      },
-      "secondary": {
-        "label": {
-          "default": {
-            "$value": "{color.text.role.secondary}"
-          },
-          "hovered": {
-            "$value": "{color.text.role.secondary}"
-          },
-          "pressed": {
-            "$value": "{color.text.role.secondary}"
-          },
-          "disabled": {
-            "$value": "{color.text.disabled}"
-          }
-        },
-        "icon": {
-          "default": {
-            "$value": "{color.icon.role.secondary}"
-          },
-          "hovered": {
-            "$value": "{color.icon.role.secondary}"
-          },
-          "pressed": {
-            "$value": "{color.icon.role.secondary}"
-          },
-          "disabled": {
-            "$value": "{color.icon.disabled}"
-          }
-        },
-        "container": {
-          "$value": "{color.background.transparent.default}"
-        },
-        "border": {
-          "$value": "{color.border.default}"
-        },
-        "focus-ring": {
-          "$value": "{color.border.focus}",
-          "outer": {
-            "$value": "{color.text.role.secondary}"
-          },
-          "inner": {
-            "$value": "{color.text.on.brand}"
-          }
-        }
-      },
-      "success": {
-        "label": {
-          "default": {
-            "$value": "{color.text.role.success}"
-          },
-          "hovered": {
-            "$value": "{color.text.role.success}"
-          },
-          "pressed": {
-            "$value": "{color.text.role.success}"
-          },
-          "disabled": {
-            "$value": "{color.text.disabled}"
-          }
-        },
-        "icon": {
-          "default": {
-            "$value": "{color.icon.role.success}"
-          },
-          "hovered": {
-            "$value": "{color.icon.role.success}"
-          },
-          "pressed": {
-            "$value": "{color.icon.role.success}"
-          },
-          "disabled": {
-            "$value": "{color.icon.disabled}"
-          }
-        },
-        "container": {
-          "$value": "{color.background.transparent.default}"
-        },
-        "border": {
-          "$value": "{color.border.default}"
-        },
-        "focus-ring": {
-          "$value": "{color.border.focus}",
-          "outer": {
-            "$value": "{color.text.role.success}"
-          },
-          "inner": {
-            "$value": "{color.text.on.brand}"
-          }
-        }
-      },
-      "error": {
-        "label": {
-          "default": {
-            "$value": "{color.text.role.error}"
-          },
-          "hovered": {
-            "$value": "{color.text.role.error}"
-          },
-          "pressed": {
-            "$value": "{color.text.role.error}"
-          },
-          "disabled": {
-            "$value": "{color.text.disabled}"
-          }
-        },
-        "icon": {
-          "default": {
-            "$value": "{color.icon.role.error}"
-          },
-          "hovered": {
-            "$value": "{color.icon.role.error}"
-          },
-          "pressed": {
-            "$value": "{color.icon.role.error}"
-          },
-          "disabled": {
-            "$value": "{color.icon.disabled}"
-          }
-        },
-        "container": {
-          "$value": "{color.background.transparent.default}"
-        },
-        "border": {
-          "$value": "{color.border.default}"
-        },
-        "focus-ring": {
-          "$value": "{color.border.focus}",
-          "outer": {
-            "$value": "{color.text.role.error}"
-          },
-          "inner": {
-            "$value": "{color.text.on.brand}"
-          }
-        }
-      },
-      "warning": {
-        "label": {
-          "default": {
-            "$value": "{color.text.role.warning}"
-          },
-          "hovered": {
-            "$value": "{color.text.role.warning}"
-          },
-          "pressed": {
-            "$value": "{color.text.role.warning}"
-          },
-          "disabled": {
-            "$value": "{color.text.disabled}"
-          }
-        },
-        "icon": {
-          "default": {
-            "$value": "{color.icon.role.warning}"
-          },
-          "hovered": {
-            "$value": "{color.icon.role.warning}"
-          },
-          "pressed": {
-            "$value": "{color.icon.role.warning}"
-          },
-          "disabled": {
-            "$value": "{color.icon.disabled}"
-          }
-        },
-        "container": {
-          "$value": "{color.background.transparent.default}"
-        },
-        "border": {
-          "$value": "{color.border.default}"
-        },
-        "focus-ring": {
-          "$value": "{color.border.focus}",
-          "outer": {
-            "$value": "{color.background.warning.pressed}"
-          },
-          "inner": {
-            "$value": "{color.text.on.brand}"
-          }
-        }
-      },
-      "info": {
-        "label": {
-          "default": {
-            "$value": "{color.text.role.info}"
-          },
-          "hovered": {
-            "$value": "{color.text.role.info}"
-          },
-          "pressed": {
-            "$value": "{color.text.role.info}"
-          },
-          "disabled": {
-            "$value": "{color.text.disabled}"
-          }
-        },
-        "icon": {
-          "default": {
-            "$value": "{color.icon.role.info}"
-          },
-          "hovered": {
-            "$value": "{color.icon.role.info}"
-          },
-          "pressed": {
-            "$value": "{color.icon.role.info}"
-          },
-          "disabled": {
-            "$value": "{color.icon.disabled}"
-          }
-        },
-        "container": {
-          "$value": "{color.background.transparent.default}"
-        },
-        "border": {
-          "$value": "{color.border.default}"
-        },
-        "focus-ring": {
-          "$value": "{color.border.focus}",
-          "outer": {
-            "$value": "{color.text.role.info}"
-          },
-          "inner": {
-            "$value": "{color.text.on.brand}"
-          }
+          "$value": "{color.border.focus}"
         }
       },
       "neutral": {
         "label": {
           "default": {
-            "$value": "{color.text.subtle}"
+            "$value": "{color.text.default}"
           },
           "hovered": {
-            "$value": "{color.text.subtle}"
+            "$value": "{color.text.default}"
           },
           "pressed": {
+            "$value": "{color.text.default}"
+          },
+          "visited": {
             "$value": "{color.text.default}"
           },
           "disabled": {
@@ -369,10 +144,10 @@
         },
         "icon": {
           "default": {
-            "$value": "{color.icon.subtle}"
+            "$value": "{color.icon.default}"
           },
           "hovered": {
-            "$value": "{color.icon.subtle}"
+            "$value": "{color.icon.default}"
           },
           "pressed": {
             "$value": "{color.icon.default}"
@@ -388,13 +163,7 @@
           "$value": "{color.border.default}"
         },
         "focus-ring": {
-          "$value": "{color.border.focus}",
-          "outer": {
-            "$value": "{color.text.subtle}"
-          },
-          "inner": {
-            "$value": "{color.text.on.brand}"
-          }
+          "$value": "{color.border.focus}"
         }
       },
       "inverse": {
@@ -406,6 +175,9 @@
             "$value": "{color.text.inverse}"
           },
           "pressed": {
+            "$value": "{color.text.inverse}"
+          },
+          "visited": {
             "$value": "{color.text.inverse}"
           },
           "disabled": {
@@ -433,13 +205,7 @@
           "$value": "{color.border.default}"
         },
         "focus-ring": {
-          "$value": "{color.border.inverse}",
-          "outer": {
-            "$value": "{color.text.on.brand}"
-          },
-          "inner": {
-            "$value": "{color.text.default}"
-          }
+          "$value": "{color.border.inverse}"
         }
       }
     }

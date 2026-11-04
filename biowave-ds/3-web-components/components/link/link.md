@@ -296,9 +296,9 @@ The Web implementation continues to consume shared semantic tokens directly. The
 | Figma collection | Modes | Variables |
 |---|---|---|
 | `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
-| `Link / Color` | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `label/{default,hovered,pressed,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` · `focus-ring/{outer,inner}` |
+| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,pressed,visited,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` |
 
-`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Secondary`, `Success`, `Error`, `Warning`, `Info`, `Neutral`, and `White` select the matching modes above (`White` → `inverse`). Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. D-R02-2 sets Pressed equal to Idle for Brand, Secondary, Success, Error, Warning, and Info. The AR set's existing two-effect focus ring uses `focus-ring/outer` and `focus-ring/inner`; the effect list is unchanged.
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. `label/visited` has no Figma variant yet.
 
 In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 
