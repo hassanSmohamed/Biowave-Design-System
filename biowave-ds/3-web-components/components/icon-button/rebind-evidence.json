@@ -7,7 +7,22 @@
     ],
     "variantsEach": 360,
     "strokeBindingErrors": 0,
-    "commit": "703e127"
+    "commit": "703e127",
+    "finalVerification": {
+      "errors": [],
+      "rings": 720,
+      "sample": {
+        "id": "116:7721",
+        "label": "زر",
+        "font": {
+          "family": "IBM Plex Sans Arabic",
+          "style": "Medium"
+        },
+        "style": "S:6dec13ffdefd6ebe1bcad745d715cf13b7a2a66a,5321:773",
+        "width": 277.5,
+        "height": 40
+      }
+    }
   },
   "scrollbars": {
     "split": 241,
@@ -441,6 +456,172 @@
       "hiddenCheckmarksRemoved": 1050,
       "hiddenSecondaryLabelsRemoved": 1050
     },
-    "visualQA": "Light and Dark, EN and AR passed; temporary preview removed"
+    "visualQA": "Light and Dark, EN and AR passed; temporary preview removed",
+    "finalVerification": {
+      "verified": [
+        {
+          "id": "116:23634",
+          "key": "82c34c5c92c0cb8b8ec0890ff21330c766927daa",
+          "variants": 360,
+          "unboundRoots": [],
+          "legacy": 0,
+          "bad": [],
+          "raw": 0,
+          "rawExamples": [],
+          "texts": [],
+          "effects": [],
+          "ringErrors": [],
+          "menus": 288,
+          "props": {
+            "Label#4022:0": {
+              "type": "TEXT",
+              "defaultValue": "Button"
+            },
+            "Show Menu Buttons#4429:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "Leading icon#4533:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "Variant": {
+              "type": "VARIANT",
+              "defaultValue": "filled",
+              "variantOptions": [
+                "filled",
+                "outlined",
+                "text"
+              ]
+            },
+            "Color": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "variantOptions": [
+                "brand",
+                "secondary",
+                "neutral",
+                "success",
+                "error",
+                "warning",
+                "info",
+                "inverse"
+              ]
+            },
+            "State": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "variantOptions": [
+                "default",
+                "hovered",
+                "pressed",
+                "disabled",
+                "focused"
+              ]
+            },
+            "Size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "variantOptions": [
+                "lg",
+                "md",
+                "sm"
+              ]
+            }
+          }
+        },
+        {
+          "id": "116:25888",
+          "key": "9fc8eb0ee051a3bd0ca314403ce5f078394701f5",
+          "variants": 360,
+          "unboundRoots": [],
+          "legacy": 0,
+          "bad": [],
+          "raw": 0,
+          "rawExamples": [],
+          "texts": [],
+          "effects": [],
+          "ringErrors": [],
+          "menus": 288,
+          "props": {
+            "Label#4057:0": {
+              "type": "TEXT",
+              "defaultValue": "زر"
+            },
+            "Show Menu Buttons#4466:0": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "Leading icon#4533:145": {
+              "type": "BOOLEAN",
+              "defaultValue": false
+            },
+            "Variant": {
+              "type": "VARIANT",
+              "defaultValue": "filled",
+              "variantOptions": [
+                "filled",
+                "outlined",
+                "text"
+              ]
+            },
+            "Color": {
+              "type": "VARIANT",
+              "defaultValue": "neutral",
+              "variantOptions": [
+                "brand",
+                "secondary",
+                "neutral",
+                "success",
+                "error",
+                "warning",
+                "info",
+                "inverse"
+              ]
+            },
+            "State": {
+              "type": "VARIANT",
+              "defaultValue": "default",
+              "variantOptions": [
+                "default",
+                "hovered",
+                "pressed",
+                "disabled",
+                "focused"
+              ]
+            },
+            "Size": {
+              "type": "VARIANT",
+              "defaultValue": "lg",
+              "variantOptions": [
+                "lg",
+                "md",
+                "sm"
+              ]
+            }
+          }
+        }
+      ],
+      "sample": {
+        "id": "116:27842",
+        "font": {
+          "family": "IBM Plex Sans Arabic",
+          "style": "Medium"
+        },
+        "style": "S:6dec13ffdefd6ebe1bcad745d715cf13b7a2a66a,5321:773",
+        "width": 74,
+        "height": 40
+      }
+    }
+  },
+  "typography": {
+    "migratedLabels": 720,
+    "localStyleConsumersOutsideFamily": 0,
+    "removedUnusedLocalStyles": [
+      "AR/action/sm",
+      "AR/action/md",
+      "AR/action/lg"
+    ],
+    "webLintViolations": 0
   }
 }

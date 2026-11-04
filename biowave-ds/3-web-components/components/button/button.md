@@ -756,6 +756,8 @@ Component description: "Starts an action the user chose. One filled button per a
 
 ### D11 Execution log (filled by the Figma Agent)
 
+2026-11-04 — Final typography verification: migrated 360 Arabic labels to the published action styles in Web/AR typography mode; preserved their paints and appearance. Removed the three local AR/action duplicates only after confirming zero remaining consumers across the file. Web D-13 lint now reports zero violations.
+
 2026-11-03 — Codex: renamed .Button _en (116:5183) and .Button _ar (116:7271) properties and variant values in place. Retained 360 variants each and original component keys. Bound all root stroke edges to Button / Size border-width and all focus-ring edges to Button / Focus width; inside stroke, no fill or effects. Read-back: zero binding errors. EN/AR focused variant screenshots inspected. No instances removed or remapped. Library publication and family-wide theme QA pending.
 
 

@@ -523,6 +523,8 @@ Component description: "Main action plus a menu of related alternatives. Spec: 3
 
 ### D11 Execution log (filled by the Figma Agent)
 
+2026-11-04 — Final typography verification: migrated 360 Arabic labels to the published action styles in Web/AR typography mode; preserved their paints and appearance. Removed the three local AR/action duplicates only after confirming zero remaining consumers across the file. Web D-13 lint now reports zero violations.
+
 2026-11-04 — Codex completed the retained EN and AR sets (360 variants each). Both keys are preserved. Remapped one _Thumb instance from Type=Default, State=Default, Size=XL to filled/neutral/default/lg before removing obsolete variants. All 720 roots and both joined segments use component tokens; focus rings use inside strokes without fills or effects. Read-back: zero legacy bindings, unbound solid paints, missing text styles, invalid effects, or focus-ring errors. Light/Dark EN/AR previews passed and were removed.
 
 Removed 241 scrollbar instances from the Split Button page as authorized. Cleaned 210 original temporary menus before cloning: removed 630 excess hidden rows, 1,050 hidden checkmarks and 1,050 secondary labels; remote row and scrollbar components unchanged. Final sets contain 576 five-row menus. Detached only local temporary row instances to remove nonspec decorations. Removed the obsolete 200-pixel minimum width so labels and joined controls hug content; retained component-token height and RTL menu alignment.

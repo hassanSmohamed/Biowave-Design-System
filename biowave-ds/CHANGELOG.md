@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-04 — Button family published typography
+
+Migrated 720 Arabic labels to existing published action styles with Web/AR mode, preserving paints and typography. Removed three unused local style duplicates after checking every consumer; Web D-13 lint passes with zero violations. Tablet and Mobile focus-width aliases verified, retaining the protected focus-ring-radius.
+
 ## 2026-11-04 — Web Split Button Figma rebind
 
 Completed both retained 360-variant sets with component-token bindings, joined RTL corners, five-row menus and stroke focus rings. Zero binding, paint, text-style or effect errors; Light/Dark EN/AR previews pass. One Default instance remapped safely. Removed nonspec menu decorations and legacy minimum width; remote components preserved. Family publication and final synchronization remain pending. Flutter checks not run.
