@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 1af9e65369f9da50 — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 77c2ce8c26002913 — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Web Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `1af9e65369f9da50` |
+| Source | [`link.md`](link.md) @ `77c2ce8c26002913` |
 
 ## 1. Library connections in this file
 
@@ -46,12 +46,11 @@ Already in this file, created by the sync tooling from [`link.tokens.json`](link
 | Link / Size | lg · md · sm | `radius` | lg → 2. Radius › `radius/2xl`<br>md → 2. Radius › `radius/2xl`<br>sm → 2. Radius › `radius/2xl` |
 | Link / Color | brand · neutral · inverse | `label/default` | brand → 1. Themes › `color/link/default`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
 | Link / Color | brand · neutral · inverse | `label/hovered` | brand → 1. Themes › `color/link/hovered`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
-| Link / Color | brand · neutral · inverse | `label/pressed` | brand → 1. Themes › `color/link/pressed`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
 | Link / Color | brand · neutral · inverse | `label/visited` | brand → 1. Themes › `color/link/visited`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
 | Link / Color | brand · neutral · inverse | `label/disabled` | brand → 1. Themes › `color/text/disabled`<br>neutral → 1. Themes › `color/text/disabled`<br>inverse → 1. Themes › `color/text/disabled` |
 | Link / Color | brand · neutral · inverse | `icon/default` | brand → 1. Themes › `color/link/default`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
 | Link / Color | brand · neutral · inverse | `icon/hovered` | brand → 1. Themes › `color/link/hovered`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
-| Link / Color | brand · neutral · inverse | `icon/pressed` | brand → 1. Themes › `color/link/pressed`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · neutral · inverse | `icon/visited` | brand → 1. Themes › `color/link/visited`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
 | Link / Color | brand · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
 | Link / Color | brand · neutral · inverse | `container` | brand → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
 | Link / Color | brand · neutral · inverse | `border` | brand → 1. Themes › `color/border/default`<br>neutral → 1. Themes › `color/border/default`<br>inverse → 1. Themes › `color/border/default` |
@@ -74,7 +73,7 @@ Already in this file, created by the sync tooling from [`link.tokens.json`](link
 | `color-icon-inverse` | 1. Themes › `color/icon/inverse` | `f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
 | `color-link-default` | 1. Themes › `color/link/default` | `39af653c9124e2888e3c1d3de9c92b3f1e4d6df0` | COLOR | TEXT_FILL | spec, component token |
 | `color-link-hovered` | 1. Themes › `color/link/hovered` | `db406378bc33a17e0471c73076f83e3c75b4d1c3` | COLOR | TEXT_FILL | spec, component token |
-| `color-link-pressed` | 1. Themes › `color/link/pressed` | `9dde6bdff995276bdaa7a18390b4c55082da7afa` | COLOR | TEXT_FILL | spec, component token |
+| `color-link-pressed` | 1. Themes › `color/link/pressed` | `9dde6bdff995276bdaa7a18390b4c55082da7afa` | COLOR | TEXT_FILL | spec |
 | `color-link-visited` | 1. Themes › `color/link/visited` | `fae9e8c94ca939fe60d30119ac1e6358342c9700` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec, component token |
@@ -201,9 +200,9 @@ The Web implementation continues to consume shared semantic tokens directly. The
 | Figma collection | Modes | Variables |
 |---|---|---|
 | `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
-| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,pressed,visited,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` |
+| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
 
-`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. `label/visited` has no Figma variant yet.
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. The Figma `State` property has Visited in place of Pressed. In code, Pressed still uses `color-link-pressed`.
 
 In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 

@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 7647de68acbafe0f — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 6d8e175d33094a3a — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — code contract
 
 > **Everything you need to build Link on Web, and nothing else.** Read this file only. Generated from [`link.md`](link.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](link.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-10-21 |
 | Source code | `src/components/link/` (built) |
 | Tokens | [`link.tokens.json`](link.tokens.json) |
-| Source | [`link.md`](link.md) @ `7647de68acbafe0f` |
+| Source | [`link.md`](link.md) @ `6d8e175d33094a3a` |
 
 ## 1. What it is
 
@@ -110,9 +110,9 @@ The Web implementation continues to consume shared semantic tokens directly. The
 | Figma collection | Modes | Variables |
 |---|---|---|
 | `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
-| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,pressed,visited,disabled}` · `icon/{default,hovered,pressed,disabled}` · `container` · `border` · `focus-ring` |
+| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
 
-`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Pressed, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. `label/visited` has no Figma variant yet.
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. The Figma `State` property has Visited in place of Pressed. In code, Pressed still uses `color-link-pressed`.
 
 In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 
@@ -179,12 +179,11 @@ The code token map must equal [`link.tokens.json`](link.tokens.json) (tests comp
 | Link / Size | radius | lg: `radius-2xl` · md: `radius-2xl` · sm: `radius-2xl` |
 | Link / Color | label/default | brand: `color-link-default` · neutral: `color-text-default` · inverse: `color-text-inverse` |
 | Link / Color | label/hovered | brand: `color-link-hovered` · neutral: `color-text-default` · inverse: `color-text-inverse` |
-| Link / Color | label/pressed | brand: `color-link-pressed` · neutral: `color-text-default` · inverse: `color-text-inverse` |
 | Link / Color | label/visited | brand: `color-link-visited` · neutral: `color-text-default` · inverse: `color-text-inverse` |
 | Link / Color | label/disabled | brand: `color-text-disabled` · neutral: `color-text-disabled` · inverse: `color-text-disabled` |
 | Link / Color | icon/default | brand: `color-link-default` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
 | Link / Color | icon/hovered | brand: `color-link-hovered` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
-| Link / Color | icon/pressed | brand: `color-link-pressed` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
+| Link / Color | icon/visited | brand: `color-link-visited` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
 | Link / Color | icon/disabled | brand: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
 | Link / Color | container | brand: `color-background-transparent-default` · neutral: `color-background-transparent-default` · inverse: `color-background-transparent-default` |
 | Link / Color | border | brand: `color-border-default` · neutral: `color-border-default` · inverse: `color-border-default` |

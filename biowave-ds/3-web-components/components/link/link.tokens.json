@@ -90,9 +90,6 @@
           "hovered": {
             "$value": "{color.link.hovered}"
           },
-          "pressed": {
-            "$value": "{color.link.pressed}"
-          },
           "visited": {
             "$value": "{color.link.visited}"
           },
@@ -107,8 +104,8 @@
           "hovered": {
             "$value": "{color.link.hovered}"
           },
-          "pressed": {
-            "$value": "{color.link.pressed}"
+          "visited": {
+            "$value": "{color.link.visited}"
           },
           "disabled": {
             "$value": "{color.icon.disabled}"
@@ -132,9 +129,6 @@
           "hovered": {
             "$value": "{color.text.default}"
           },
-          "pressed": {
-            "$value": "{color.text.default}"
-          },
           "visited": {
             "$value": "{color.text.default}"
           },
@@ -149,7 +143,7 @@
           "hovered": {
             "$value": "{color.icon.default}"
           },
-          "pressed": {
+          "visited": {
             "$value": "{color.icon.default}"
           },
           "disabled": {
@@ -174,9 +168,6 @@
           "hovered": {
             "$value": "{color.text.inverse}"
           },
-          "pressed": {
-            "$value": "{color.text.inverse}"
-          },
           "visited": {
             "$value": "{color.text.inverse}"
           },
@@ -191,7 +182,7 @@
           "hovered": {
             "$value": "{color.icon.inverse}"
           },
-          "pressed": {
+          "visited": {
             "$value": "{color.icon.inverse}"
           },
           "disabled": {

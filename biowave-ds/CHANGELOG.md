@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-04 — Link Figma Pressed replaced by Visited
+
+Renamed `State=Pressed` to `State=Visited` on `.Link_en` and `.Link_ar` and rebound text and icons to `label/visited` and the new `icon/visited` (brand: `color/link/visited`, error 700). Removed `label/pressed` and `icon/pressed` from `Link / Color`. Code is unchanged. No Foundations token or Figma variable changed.
+
 ## 2026-11-04 — Link reduced to three colours
 
 Removed Secondary, Success, Error, Warning and Info from `.Link_en` and `.Link_ar` (120 → 45 variants each) and renamed `White` to `Inverse`. `Link / Color` now has `brand`, `neutral` and `inverse`, matching the spec and code: `label` and `icon` follow `color/link/*`, `label/visited` is added, and `focus-ring/outer` and `focus-ring/inner` are removed so EN and AR share one focus-ring colour. Supersedes D-R02-2 and D-R02-3. No Foundations token or Figma variable changed.
