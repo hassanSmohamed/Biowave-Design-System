@@ -140,7 +140,7 @@ On for links in long content and help pages, where people benefit from seeing wh
 | Default | At rest | Link colour; underline per `underline` |
 | Hover | Pointer over (web, tablet with a pointer) | Darker link colour (`brand`), thicker underline; `hover` links show their underline |
 | Focus | Keyboard focus | Focus ring around the whole link (see [a11y](../../../2-foundations/guidelines/a11y.md)); `hover` links show their underline |
-| Pressed | Click, tap, Enter | Darkest link colour (`brand`), thicker underline |
+| Pressed | Tap (Tablet and Mobile only) | Darkest link colour (`brand`), thicker underline. Web has no Pressed state |
 | Visited | Web with `show-visited`, page already opened | Visited link colour |
 | Disabled | The destination is not available yet | Disabled text colour, no underline, not focusable. Prefer hiding the link or explaining why in text next to it |
 

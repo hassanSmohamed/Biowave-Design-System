@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 77c2ce8c26002913 — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 929a3712dbcda47e — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Web Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `77c2ce8c26002913` |
+| Source | [`link.md`](link.md) @ `929a3712dbcda47e` |
 
 ## 1. Library connections in this file
 
@@ -73,7 +73,6 @@ Already in this file, created by the sync tooling from [`link.tokens.json`](link
 | `color-icon-inverse` | 1. Themes › `color/icon/inverse` | `f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
 | `color-link-default` | 1. Themes › `color/link/default` | `39af653c9124e2888e3c1d3de9c92b3f1e4d6df0` | COLOR | TEXT_FILL | spec, component token |
 | `color-link-hovered` | 1. Themes › `color/link/hovered` | `db406378bc33a17e0471c73076f83e3c75b4d1c3` | COLOR | TEXT_FILL | spec, component token |
-| `color-link-pressed` | 1. Themes › `color/link/pressed` | `9dde6bdff995276bdaa7a18390b4c55082da7afa` | COLOR | TEXT_FILL | spec |
 | `color-link-visited` | 1. Themes › `color/link/visited` | `fae9e8c94ca939fe60d30119ac1e6358342c9700` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec, component token |
@@ -97,7 +96,7 @@ Already in this file, created by the sync tooling from [`link.tokens.json`](link
 | `spacing-xxs` | 3. Spacing › `spacing/xxs` | `e772baca3a3110208bb2791461b6659a6d6e9ba8` | FLOAT | GAP | spec |
 | `target-min` | 6. Grid & Layout › `target/min` | `db23ec2826d3bfa3e600e5a82801e0c7d37ba298` | FLOAT | WIDTH_HEIGHT | spec |
 
-Code-only tokens (no Figma variable by design — motion, layers): `motion-duration-instant` · `motion-duration-sm` · `motion-duration-xs` · `motion-easing-standard`. Use them only as written values in prototype settings and docs.
+Code-only tokens (no Figma variable by design — motion, layers): `motion-duration-instant` · `motion-duration-sm` · `motion-easing-standard`. Use them only as written values in prototype settings and docs.
 
 ## 4. Text styles used (keys)
 
@@ -185,7 +184,7 @@ Not supported: MUI `underline="none"`, MUI `color` palette values, `variant` typ
 | root | gap between parts | `spacing-xs` | `spacing-xs` | `spacing-xs` | `spacing-xs` |
 | root | min block size | — (inline exception) | `target-min` | `target-min` | `target-min` |
 | root | padding | none | none | none | none |
-| `underline` | thickness · offset | `border-width-default` · `spacing-xxs` (hover / pressed: `border-width-strong`) | same | same | same |
+| `underline` | thickness · offset | `border-width-default` · `spacing-xxs` (hover: `border-width-strong`) | same | same | same |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` | same | same | same |
 
 Layout rules:
@@ -202,35 +201,33 @@ The Web implementation continues to consume shared semantic tokens directly. The
 | `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
 | `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
 
-`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. The Figma `State` property has Visited in place of Pressed. In code, Pressed still uses `color-link-pressed`.
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. Web Link has no Pressed state in Figma or code.
 
 In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 
-| `color` | Default | Hover | Pressed | Visited (`showVisited`) | Disabled |
-|---|---|---|---|---|---|
-| `brand` | `color-link-default` | `color-link-hovered` | `color-link-pressed` | `color-link-visited` | `color-text-disabled` |
-| `neutral` | `color-text-default` | `color-text-default` | `color-text-default` | — | `color-text-disabled` |
-| `inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-inverse` | — | `color-text-disabled` |
+| `color` | Default | Hover | Visited (`showVisited`) | Disabled |
+|---|---|---|---|---|
+| `brand` | `color-link-default` | `color-link-hovered` | `color-link-visited` | `color-text-disabled` |
+| `neutral` | `color-text-default` | `color-text-default` | — | `color-text-disabled` |
+| `inverse` | `color-text-inverse` | `color-text-inverse` | — | `color-text-disabled` |
 
-| Part | `underline` | Default | Hover | Pressed | Focus | Disabled |
-|---|---|---|---|---|---|---|
-| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-strong` | `border-width-default` | none |
-| `underline` | `hover` | none | `border-width-default` | `border-width-default` | `border-width-default` | none |
+| Part | `underline` | Default | Hover | Focus | Disabled |
+|---|---|---|---|---|---|
+| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-default` | none |
+| `underline` | `hover` | none | `border-width-default` | `border-width-default` | none |
 
 | Part | Property | Token |
 |---|---|---|
 | `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` |
 
-Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` and `-pressed` are darker in light and lighter in dark, so they keep at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
+Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` is darker in light and lighter in dark, so it keeps at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
 
 ### B4 States and transitions
 
 | From → To | Trigger | Animated properties | Duration | Easing |
 |---|---|---|---|---|
 | Default → Hover | pointer enter | colour, underline thickness / appearance | `motion-duration-sm` | `motion-easing-standard` |
-| Hover → Pressed | pointer down · Enter down | colour, underline thickness | `motion-duration-xs` | `motion-easing-standard` |
-| Pressed → Hover / Default | release | colour, underline thickness | `motion-duration-sm` | `motion-easing-standard` |
 | Any → Focus | keyboard focus (`:focus-visible`) | focus ring appears | `motion-duration-instant` | — |
 | Enabled ↔ Disabled | `disabled` changes | colour, underline | `motion-duration-instant` | — |
 | Default → Visited | browser history | colour (no transition: `:visited` allows colour only) | — | — |
@@ -336,7 +333,7 @@ This table is the source for Code Connect (D9).
 | `Color` | VARIANT | `Brand` · `Neutral` · `Inverse` | `Brand` | `color` | `'brand'` · `'neutral'` · `'inverse'` |
 | `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | `'sm'` · `'md'` · `'lg'` (`'inherit'` has no Figma variant — see D8 page 03) |
 | `Underline` | VARIANT | `Always` · `Hover` | `Always` | `underline` | `'always'` · `'hover'` |
-| `State` | VARIANT | `Default` · `Hover` · `Focused` · `Pressed` · `Visited` · `Disabled` | `Default` | `disabled` / `showVisited` | `Disabled` → `disabled`; `Visited` → `showVisited` (shown visited); others are interaction states |
+| `State` | VARIANT | `Default` · `Hover` · `Focused` · `Visited` · `Disabled` | `Default` | `disabled` / `showVisited` | `Disabled` → `disabled`; `Visited` → `showVisited` (shown visited); others are interaction states |
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | Figma only; code takes language and direction from the provider |
 | `Label` | TEXT | | `Contact support` (AR variants: `التواصل مع الدعم`) | `children` | |
 | `Leading icon` | BOOLEAN | | `false` | `startIcon` | present / absent |
@@ -357,7 +354,6 @@ This table is the source for Code Connect (D9).
 | Interaction | From → To | Animation |
 |---|---|---|
 | While hovering | Default → Hover | Smart animate · `motion-duration-sm` · standard easing (B4) |
-| While pressing | Hover → Pressed | Smart animate · `motion-duration-xs` |
 
 `Focused` shows the ring for docs and handoff; it is not a prototype interaction. `Visited` is a static variant.
 

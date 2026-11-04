@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-04 — Web Link has no Pressed state
+
+Removed the `:active` styles, the `pressed` colour tokens and `pressedDuration` from Web Link, its tests and its spec. Tablet and Mobile specs keep Pressed as their only tap feedback; A5 notes the difference. `color-link-pressed` stays in Foundations, unchanged and now unused by Web Link.
+
 ## 2026-11-04 — Link Figma Pressed replaced by Visited
 
 Renamed `State=Pressed` to `State=Visited` on `.Link_en` and `.Link_ar` and rebound text and icons to `label/visited` and the new `icon/visited` (brand: `color/link/visited`, error 700). Removed `label/pressed` and `icon/pressed` from `Link / Color`. Code is unchanged. No Foundations token or Figma variable changed.

@@ -147,18 +147,6 @@ const LinkRoot = styled(MuiLink, {
             : linkUnderlineTokens.defaultWidth,
       },
     },
-    '&:active:not([aria-disabled="true"])': {
-      color: visual.pressed,
-      transitionDuration: linkMotionTokens.pressedDuration,
-      '& .bw-link__label': {
-        textDecorationLine: 'underline',
-        textDecorationThickness:
-          $underline === 'always'
-            ? linkUnderlineTokens.strongWidth
-            : linkUnderlineTokens.defaultWidth,
-        transitionDuration: linkMotionTokens.pressedDuration,
-      },
-    },
     '&:focus': {
       outline: 'none',
     },
