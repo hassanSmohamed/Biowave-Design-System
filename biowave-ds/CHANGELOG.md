@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05 — Component token rules
+
+Added the component token rules to `tokens.md` and `AGENTS.md`. `component-tokens` now fails when a name is both a token and a group, and reports names outside the rules; `--strict` fails on them after the renames. Updated the Foundations guidelines, README and focus image to say Button and Link rings follow the element colour. No token changed.
+
 ## 2026-11-05 — A11y guideline: focus colour
 
 Updated the Visible focus row in `2-foundations/guidelines/a11y.md`: Button and Link focus rings follow the element colour. Documentation only; no token changed.

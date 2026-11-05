@@ -20,5 +20,5 @@ Light shadows are tinted navy (`primary/900`); dark shadows are black.
 - Pair elevation with surface: `elevation-3/4` sit on `color-surface-raised`. In dark mode the lighter surface does most of the work.
 - Use the whole token; never copy individual shadow values.
 - Do not stack elevation inside elevation (no shadowed card inside a dialog).
-- **Shadows never draw borders or focus rings.** Elevation tokens are only for lift. An outline is a `border` with a `color-border-*` token; a focus ring is an `outline` with `color-border-focus` (inset rings use a negative `outline-offset`). Shadows disappear in Windows forced-colors mode, borders and outlines do not.
+- **Shadows never draw borders or focus rings.** Elevation tokens are only for lift. An outline is a `border` with a `color-border-*` token; a focus ring is an `outline` with a `color-border-*` token (inset rings use a negative `outline-offset`). Shadows disappear in Windows forced-colors mode, borders and outlines do not.
 - Overlays behind dialogs: `color-overlay-default`.

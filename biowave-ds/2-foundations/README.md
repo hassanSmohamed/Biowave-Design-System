@@ -51,7 +51,7 @@
 | Body text | `.bw-text-body-md` · `<Typography variant="bodyMd">` | `context.bw.text.bodyMd` |
 | Secondary text | `--bw-color-text-subtlest` | `colors.textSubtlest` |
 | Input border | `--bw-color-border-bold` | `colors.borderBold` |
-| Focus ring | `--bw-color-border-focus`, `--bw-border-width-focus`, `--bw-border-focus-offset` | `colors.borderFocus`, `BwBorder.widthFocus` |
+| Focus ring | `--bw-color-border-focus` or a role border, `--bw-border-width-focus`, `--bw-border-focus-offset` | `colors.borderFocus` or a role border, `BwBorder.widthFocus` |
 | Gap 8 / padding 16 | `--bw-spacing-md` / `--bw-spacing-xl` | `BwSpacing.md` / `BwSpacing.xl` |
 | Menu shadow | `--bw-elevation-3` | `context.bw.elevation.elevation3` |
 | Transition | `var(--bw-motion-duration-sm) var(--bw-motion-easing-standard)` | `BwDuration.sm`, `BwEasing.standard` |

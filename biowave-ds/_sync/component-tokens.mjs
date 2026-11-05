@@ -48,7 +48,11 @@ export function figmaModel(rel) {
     for (const m of modes) {
       const flat = {};
       (function walkT(node, p) {
-        if ('$value' in node) { flat[p.join('/')] = node.$value; return; }
+        if ('$value' in node) {
+          if (Object.entries(node).some(([k, v]) => !k.startsWith('$') && isObj(v))) errors.push(`${rel}: ${comp}.${gk}.${m}.${p.join('.')} is both a token and a group`);
+          flat[p.join('/')] = node.$value;
+          return;
+        }
         for (const [k, v] of Object.entries(node)) if (!k.startsWith('$') && isObj(v)) walkT(v, [...p, k]);
       })(group[m], []);
       for (const [name, val] of Object.entries(flat)) {
@@ -69,6 +73,26 @@ export function figmaModel(rel) {
     collections.push({ collection: fx.collection, component: comp, modes, vars });
   }
   return { collections, errors, refs };
+}
+
+// Naming rules: 2-foundations/guidelines/tokens.md › Component token rules.
+const GROUPS = new Set(['Size', 'Color', 'State', 'Focus', 'Filled', 'Tonal', 'Outlined', 'Text', 'Transparent', 'Selected', 'Container', 'Item', 'Segment']);
+const DIMENSIONS = ['size', 'height', 'width', 'padding', 'padding-inline', 'padding-block', 'gap', 'offset', 'inset', 'icon-size', 'radius', 'border-width'];
+const STATES = new Set(['default', 'hovered', 'pressed', 'focused', 'visited', 'disabled', 'selected']);
+const isDimension = (name) => DIMENSIONS.some((d) => name === d || name.endsWith(`-${d}`));
+
+export function namingIssues({ collection, vars }) {
+  const issues = [];
+  const group = collection.split(' / ')[1];
+  if (!GROUPS.has(group)) issues.push(`collection "${collection}": "${group}" is not an allowed Group`);
+  for (const name of Object.keys(vars)) {
+    const at = `${collection} › ${name}`;
+    const [part, ...rest] = name.split('/');
+    if (rest.length && !(rest.length === 1 && STATES.has(rest[0]))) issues.push(`${at}: use {part}/{state}`);
+    if (/(^|-)(background|text)$/.test(part)) issues.push(`${at}: use container or label`);
+    if (group === 'Size' && !isDimension(name)) issues.push(`${at}: a Size variable must be {dimension} or {part}-{dimension}`);
+  }
+  return issues;
 }
 
 export const tokenFiles = (file) => walk(path.join(ROOT, SECTION[file]), (f) => /\/components\/([^/]+)\/\1\.tokens\.json$/.test(f));
@@ -108,12 +132,16 @@ export function specConsistency(rel) {
 // CLI: node _sync/component-tokens.mjs check
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   let bad = 0;
+  const strict = process.argv.includes('--strict');
   for (const file of Object.keys(SECTION)) {
     const { collections, errors } = expectedComponentTokens(file);
     const nv = collections.reduce((n, c) => n + Object.keys(c.vars).length * c.modes.length, 0);
     console.log(`${file}: ${tokenFiles(file).length} tokens.json · ${collections.length} collection(s) · ${nv} mode values${errors.length ? ` · ✗ ${errors.length} error(s)` : ' · ✓'}`);
     errors.forEach((e) => console.log('  ✗ ' + e)); bad += errors.length;
     for (const rel of tokenFiles(file)) for (const w of specConsistency(rel)) { console.log("  ✗ spec drift: " + w); bad++; }
+    const naming = collections.flatMap(namingIssues);
+    naming.forEach((n) => console.log(`  ${strict ? '✗' : '⚠'} naming: ${n}`));
+    if (strict) bad += naming.length;
   }
   process.exit(bad ? 1 : 0);
 }

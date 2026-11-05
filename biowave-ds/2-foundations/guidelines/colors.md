@@ -218,7 +218,7 @@ Same names and values as Text.
 | `color-border-strong` | `#BDBDBD` · neutral.300 | `#545454` · neutral.600 | Emphasised decorative line: strong Divider, Outlined button outline (the label identifies the button), selected neutral Icon button outline. |
 | `color-border-bold` | `#707070` · neutral.500 | `#969696` · neutral.400 | Boundary that identifies a control (≥ 3:1): Text field, Select, Checkbox, Radio, Switch track outline, unselected Segmented control. Hover keeps this border and changes the fill to background/base/hovered. |
 | `color-border-disabled` | `#DBDBDB` · neutral.200 | `#404040` · neutral.700 | Outline of a disabled control. |
-| `color-border-focus` | `#254471` · primary.500 | `#90A3BC` · primary.200 | Keyboard focus ring (2px, 2px offset) on every focusable element. ≥ 3:1 against surfaces. |
+| `color-border-focus` | `#254471` · primary.500 | `#90A3BC` · primary.200 | Keyboard focus ring (2px, 2px offset) on controls with no colour of their own, such as text fields and menus. Button and Link rings use role borders. ≥ 3:1 against surfaces. |
 | `color-border-inverse` | `#FFFFFF` · neutral.0 | `#0A0A0A` · neutral.950 | Outline and focus ring of controls placed on brand or inverse areas (navy Side navigation, brand App bar), where border/focus would disappear. |
 | `color-border-brand` | `#254471` · primary.500 | `#607D9F` · primary.300 | Selected outline (selected Icon button, selected Card), brand emphasis. ≥ 3:1 against surfaces. |
 | `color-border-secondary` | `#1A7596` · secondary.500 | `#5DA8C2` · secondary.300 | Secondary accent outline. ≥ 3:1 against surfaces. |

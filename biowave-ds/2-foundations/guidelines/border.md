@@ -18,7 +18,7 @@ Border = width token + color token. Widths are new in v1.0.
 | Outline buttons | `color-border-strong` (the label identifies the button) | decorative |
 | Selected / state outlines | `color-border-brand`, role borders | ≥ 3:1 |
 | Status outlines | `color-border-{role}` | decorative (pair with text/icon) |
-| Keyboard focus | `color-border-focus` | ≥ 3:1 |
+| Keyboard focus | Button and Link: the element colour through role borders (`neutral`: `color-border-bold`). Text fields, menus and other controls with no colour: `color-border-focus` | ≥ 3:1 |
 
 ## Visual guide
 
@@ -27,7 +27,7 @@ Border = width token + color token. Widths are new in v1.0.
 ![Focus ring anatomy and the rule against shadow borders](images/border-2-focus.png)
 
 ## Focus ring (all platforms)
-- 2px (`border-width-focus`) solid `color-border-focus`, offset 2px (`border-focus-offset`), following the control's radius.
+- 2px (`border-width-focus`) solid, in the element colour for Button and Link, otherwise `color-border-focus`; offset 2px (`border-focus-offset`), following the control's radius.
 - Web: show on `:focus-visible` only. Flutter: use `FocusableActionDetector` / `WidgetStateProperty` focused state.
 - Never remove focus styles without an equivalent replacement.
 
