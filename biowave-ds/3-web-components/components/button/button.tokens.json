@@ -1,6 +1,6 @@
 {
   "$schema": "component-tokens/v1",
-  "$description": "Button component tokens (D-13). Every value aliases a SEMANTIC token from 2-foundations \u2014 never a primitive or a raw value. Same facts as spec \u00a73 (checked by npm run component-tokens). Synced to the Web Components file as local collections whose variables alias the Foundations library.",
+  "$description": "Button component tokens (D-13). Every value aliases a SEMANTIC token from 2-foundations — never a primitive or a raw value. Same facts as spec §3 (checked by npm run component-tokens). Synced to the Web Components file as local collections whose variables alias the Foundations library.",
   "button": {
     "size": {
       "$extensions": {
@@ -27,6 +27,9 @@
         },
         "border-width": {
           "$value": "{border.width.default}"
+        },
+        "focus-ring-radius": {
+          "$value": "{radius.lg}"
         }
       },
       "md": {
@@ -47,6 +50,9 @@
         },
         "border-width": {
           "$value": "{border.width.default}"
+        },
+        "focus-ring-radius": {
+          "$value": "{radius.lg}"
         }
       },
       "lg": {
@@ -67,6 +73,9 @@
         },
         "border-width": {
           "$value": "{border.width.default}"
+        },
+        "focus-ring-radius": {
+          "$value": "{radius.lg}"
         }
       }
     },
@@ -751,14 +760,68 @@
           "modes": true
         }
       },
-      "default": {
+      "brand": {
         "color": {
-          "$value": "{color.border.focus}"
+          "$value": "{color.border.brand}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "secondary": {
+        "color": {
+          "$value": "{color.border.secondary}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "neutral": {
+        "color": {
+          "$value": "{color.border.bold}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "success": {
+        "color": {
+          "$value": "{color.border.success}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "error": {
+        "color": {
+          "$value": "{color.border.error}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "warning": {
+        "color": {
+          "$value": "{color.border.warning}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "info": {
+        "color": {
+          "$value": "{color.border.info}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
         }
       },
       "inverse": {
         "color": {
           "$value": "{color.border.inverse}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
         }
       }
     }

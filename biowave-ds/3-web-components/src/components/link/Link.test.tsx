@@ -85,20 +85,17 @@ describe('Link token contract', () => {
       brand: {
         default: 'var(--bw-color-link-default)',
         hovered: 'var(--bw-color-link-hovered)',
-        pressed: 'var(--bw-color-link-pressed)',
         visited: 'var(--bw-color-link-visited)',
         disabled: 'var(--bw-color-text-disabled)',
       },
       neutral: {
         default: 'var(--bw-color-text-default)',
         hovered: 'var(--bw-color-text-default)',
-        pressed: 'var(--bw-color-text-default)',
         disabled: 'var(--bw-color-text-disabled)',
       },
       inverse: {
         default: 'var(--bw-color-text-inverse)',
         hovered: 'var(--bw-color-text-inverse)',
-        pressed: 'var(--bw-color-text-inverse)',
         disabled: 'var(--bw-color-text-disabled)',
       },
     });
@@ -113,14 +110,16 @@ describe('Link token contract', () => {
       offset: 'var(--bw-spacing-xxs)',
     });
     expect(linkFocusTokens).toEqual({
-      default: 'var(--bw-color-border-focus)',
-      inverse: 'var(--bw-color-border-inverse)',
+      color: {
+        brand: 'var(--bw-color-border-info)',
+        neutral: 'var(--bw-color-border-bold)',
+        inverse: 'var(--bw-color-border-inverse)',
+      },
       width: 'var(--bw-border-width-focus)',
       offset: 'var(--bw-border-focus-offset)',
     });
     expect(linkMotionTokens).toEqual({
       defaultDuration: 'var(--bw-motion-duration-sm)',
-      pressedDuration: 'var(--bw-motion-duration-xs)',
       instantDuration: 'var(--bw-motion-duration-instant)',
       easing: 'var(--bw-motion-easing-standard)',
     });
@@ -177,7 +176,6 @@ describe('Link rendered variants', () => {
 
           expect(rules).toContain(visual.default);
           expect(rules).toContain(visual.hovered);
-          expect(rules).toContain(visual.pressed);
           expect(rules).toContain(visual.disabled);
           expect(rootRule).toContain(size === 'inherit' ? 'display: inline' : 'display: inline-flex');
           expect(rootRule).toContain('text-decoration: none');
@@ -208,7 +206,7 @@ describe('Link rendered variants', () => {
 });
 
 describe('Link states and underline', () => {
-  it('uses the specified hover, pressed, focus, disabled, visited, and motion rules', () => {
+  it('uses the specified hover, focus, disabled, visited, and motion rules', () => {
     const view = renderWithBiowave(
       <Link href="/states" size="md" underline="hover" showVisited>
         States
@@ -221,16 +219,12 @@ describe('Link states and underline', () => {
     expect(ruleList.find((rule) => rule.includes(':hover') && !rule.includes('__label'))).toContain(
       linkColorTokens.brand.hovered,
     );
-    const activeRoot = ruleList.find(
-      (rule) => rule.includes(':active') && !rule.includes('__label'),
-    );
-    expect(activeRoot).toContain(linkColorTokens.brand.pressed);
-    expect(activeRoot).toContain(linkMotionTokens.pressedDuration);
+    expect(rules).not.toContain(':active');
     const focusRoot = ruleList.find(
       (rule) => rule.includes(':focus-visible') && !rule.includes('__label'),
     );
     expect(focusRoot).toContain(linkFocusTokens.width);
-    expect(focusRoot).toContain(linkFocusTokens.default);
+    expect(focusRoot).toContain(linkFocusTokens.color.brand);
     expect(focusRoot).toContain(linkFocusTokens.offset);
     const disabledRoot = ruleList.find(
       (rule) =>
@@ -261,7 +255,7 @@ describe('Link states and underline', () => {
     const inverseFocus = cssRulesFor(screen.getByRole('link', { name: 'Inverse' }))
       .split('\n')
       .find((rule) => rule.includes(':focus-visible') && !rule.includes('__label'));
-    expect(inverseFocus).toContain(linkFocusTokens.inverse);
+    expect(inverseFocus).toContain(linkFocusTokens.color.inverse);
     inverse.unmount();
   });
 
@@ -284,9 +278,6 @@ describe('Link states and underline', () => {
     expect(alwaysBase).toContain(linkUnderlineTokens.offset);
     expect(
       alwaysRules.find((rule) => rule.includes(':hover') && rule.includes('__label')),
-    ).toContain(linkUnderlineTokens.strongWidth);
-    expect(
-      alwaysRules.find((rule) => rule.includes(':active') && rule.includes('__label')),
     ).toContain(linkUnderlineTokens.strongWidth);
     expect(rootCssRuleFor(always)).toContain('text-decoration: none');
     expect(descendantCssRuleFor(always, '.bw-link__icon')).not.toContain('text-decoration');

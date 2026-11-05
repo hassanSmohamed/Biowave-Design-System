@@ -338,7 +338,7 @@ void main() {
             final radius = decoration.borderRadius! as BorderRadius;
             expect(border.top.width, BwBorder.widthFocus);
             expect(border.top.color,
-                BwColors.of(tester.element(ringFinder)).borderFocus);
+                BwColors.of(tester.element(ringFinder)).borderBrand);
             expect(
               radius.topLeft.x,
               _radius(entry.key) + inset,

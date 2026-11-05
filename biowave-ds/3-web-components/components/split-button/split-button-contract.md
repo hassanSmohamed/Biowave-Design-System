@@ -1,4 +1,4 @@
-<!-- GENERATED from split-button.md @ c66597faf443e9c9 — do not edit; change the source and run: npm run contract -- web split-button -->
+<!-- GENERATED from split-button.md @ 647972de08278996 — do not edit; change the source and run: npm run contract -- web split-button -->
 # Split button · زر مقسّم — Web — code contract
 
 > **Everything you need to build Split button on Web, and nothing else.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](split-button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -11,8 +11,8 @@
 | Import | `import { SplitButton } from '@biowave/web'` |
 | Version | 1.2 · 2026-10-31 |
 | Source code | `src/components/split-button/` — not built yet (the Executor creates it) |
-| Tokens | — |
-| Source | [`split-button.md`](split-button.md) @ `c66597faf443e9c9` |
+| Tokens | [`split-button.tokens.json`](split-button.tokens.json) |
+| Source | [`split-button.md`](split-button.md) @ `647972de08278996` |
 
 ## 1. What it is
 
@@ -82,6 +82,8 @@ A split button joins a main action with a menu of related alternatives: "Export"
 | `menu` item | height · padding-inline · icon–label gap · icon · text style · text color | `size-control-height-md` · `spacing-lg` · `spacing-sm` · `size-icon-md` · `body-md` · `color-text-default` (menu rows use the component spacing scale, not `spacing-control-*` — spacing.md) |
 | `menu` | offset from container | `spacing-xs` |
 
+Menu padding is `spacing-xs`. Menu tokens come from the general `Menu / Container` and `Menu / Item` collections.
+
 ## 4. Tokens by part and state
 
 - `primary-action`: [Button B3](../button/button.md#b3-tokens-by-part-and-state) for the same `variant` × `color`.
@@ -118,6 +120,33 @@ Values are for checking only — never paste a value.
 | `spacing-none` | `var(--bw-spacing-none)` · `cssVars.spacing.none` | 0 | 0 |
 | `spacing-sm` | `var(--bw-spacing-sm)` · `cssVars.spacing.sm` | 6 | 6 |
 | `spacing-xs` | `var(--bw-spacing-xs)` · `cssVars.spacing.xs` | 4 | 4 |
+
+### 4.2 Component tokens
+
+The code token map must equal [`split-button.tokens.json`](split-button.tokens.json) (tests compare them).
+
+| Collection | Variable | Modes → semantic token |
+|---|---|---|
+| Split button / Part | gap | default: `spacing-none` |
+| Split button / Part | inner-radius | default: `radius-none` |
+| Split button / Part | outer-radius | default: `radius-md` |
+| Split button / Part | inner-border-width | default: `border-width-none` |
+| Split button / Part | divider/width | default: `border-width-default` |
+| Split button / Part | divider/color | default: `color-border-default` |
+| Menu / Container | background | default: `color-surface-raised` |
+| Menu / Container | radius | default: `radius-lg` |
+| Menu / Container | padding | default: `spacing-xs` |
+| Menu / Container | offset | default: `spacing-xs` |
+| Menu / Item | height | default: `size-control-height-md` |
+| Menu / Item | padding-inline | default: `spacing-lg` |
+| Menu / Item | gap | default: `spacing-sm` |
+| Menu / Item | icon-size | default: `size-icon-md` |
+| Menu / Item | state-layer/hovered | default: `color-background-transparent-hovered` |
+| Menu / Item | state-layer/pressed | default: `color-background-transparent-pressed` |
+| Menu / Item | label/default | default: `color-text-default` |
+| Menu / Item | label/disabled | default: `color-text-disabled` |
+| Menu / Item | icon/default | default: `color-icon-subtle` |
+| Menu / Item | focus-ring | default: `color-border-focus` |
 
 ## 5. States and transitions
 

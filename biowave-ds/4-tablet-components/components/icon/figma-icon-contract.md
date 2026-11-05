@@ -1,7 +1,7 @@
-<!-- GENERATED from icon.md @ 62072f0dd52b1257 — do not edit; change the source and run: npm run contract -- tablet icon -->
+<!-- GENERATED from icon.md @ b6d7cef73e3e358c — do not edit; change the source and run: npm run contract -- tablet icon -->
 # Icon · أيقونة — Tablet — Figma contract
 
-> **Everything the Figma Agent needs to build Icon in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`icon.md`](icon.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-10-29). Questions go to [D11 Execution log](icon.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Icon in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`icon.md`](icon.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](icon.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Icon · أيقونة |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-10-18 |
-| Source | [`icon.md`](icon.md) @ `62072f0dd52b1257` |
+| Source | [`icon.md`](icon.md) @ `b6d7cef73e3e358c` |
 
 ## 1. Library connections in this file
 

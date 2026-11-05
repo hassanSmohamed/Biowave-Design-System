@@ -1,5 +1,53 @@
 # Changelog
 
+## 2026-11-05 — A11y guideline: focus colour
+
+Updated the Visible focus row in `2-foundations/guidelines/a11y.md`: Button and Link focus rings follow the element colour. Documentation only; no token changed.
+
+## 2026-11-05 — Focus ring follows the element colour
+
+Button, Icon button, Split button and Link now use a focus ring in the element colour on every platform: `color-border-brand`, `-secondary`, `-error`, `-success`, `-warning`, `-info`, `-inverse`, and `-bold` for neutral. Link brand uses `color-border-info`, which matches `color-link-default`. `Button / Focus` has one mode per colour and all focused Web variants pin it. Link focused variants use a real stroke on the `Border` layer, bound to the new `Link / Size › focus-ring-width`, and Link variants hug their width. No Foundations token or Figma variable changed.
+
+## 2026-11-05 — Link has no Pressed state on any platform
+
+Removed Pressed from the Tablet and Mobile Link specs and from A5 on all platforms. Link tap feedback on touch is now left to the app.
+
+## 2026-11-04 — Web Link has no Pressed state
+
+Removed the `:active` styles, the `pressed` colour tokens and `pressedDuration` from Web Link, its tests and its spec. Tablet and Mobile specs keep Pressed as their only tap feedback; A5 notes the difference. `color-link-pressed` stays in Foundations, unchanged and now unused by Web Link.
+
+## 2026-11-04 — Link Figma Pressed replaced by Visited
+
+Renamed `State=Pressed` to `State=Visited` on `.Link_en` and `.Link_ar` and rebound text and icons to `label/visited` and the new `icon/visited` (brand: `color/link/visited`, error 700). Removed `label/pressed` and `icon/pressed` from `Link / Color`. Code is unchanged. No Foundations token or Figma variable changed.
+
+## 2026-11-04 — Link reduced to three colours
+
+Removed Secondary, Success, Error, Warning and Info from `.Link_en` and `.Link_ar` (120 → 45 variants each) and renamed `White` to `Inverse`. `Link / Color` now has `brand`, `neutral` and `inverse`, matching the spec and code: `label` and `icon` follow `color/link/*`, `label/visited` is added, and `focus-ring/outer` and `focus-ring/inner` are removed so EN and AR share one focus-ring colour. Supersedes D-R02-2 and D-R02-3. No Foundations token or Figma variable changed.
+
+## 2026-11-04 — Component tokens baseline
+
+Merged the Link token branch into the Button family rebind. Recorded `Button / Size › focus-ring-radius` in `button.tokens.json` and Button Part B from the values already live in Figma (radius-lg; touch `xl` radius-2xl). In the Web Figma file: renamed `Icon / Color` mode `subtlest` to `muted` and added `Text field / State › border-width`. No Foundations token or Figma variable changed.
+
+## 2026-11-04 — Button family published typography
+
+Migrated 720 Arabic labels to existing published action styles with Web/AR mode, preserving paints and typography. Removed three unused local style duplicates after checking every consumer; Web D-13 lint passes with zero violations. Tablet and Mobile focus-width aliases verified, retaining the protected focus-ring-radius.
+
+## 2026-11-04 — Web Split Button Figma rebind
+
+Completed both retained 360-variant sets with component-token bindings, joined RTL corners, five-row menus and stroke focus rings. Zero binding, paint, text-style or effect errors; Light/Dark EN/AR previews pass. One Default instance remapped safely. Removed nonspec menu decorations and legacy minimum width; remote components preserved. Family publication and final synchronization remain pending. Flutter checks not run.
+
+## 2026-11-03 — Web Icon Button Figma rebind
+
+Completed the retained 9/6/135 variant sets with component-token bindings and verified Light/Dark appearance, size inheritance, stroke focus rings, and zero binding/style errors. Removed temporary-menu scrollbars, excess rows, hidden checkmarks and secondary labels; remote components unchanged. Full Web suite passes 226/226 with the authorized 30-second timeout; docs:check, typecheck and component-tokens pass. Flutter checks not run. Split Button and family publication continue.
+
+## 2026-11-03 — Web Button Figma rebind
+
+Renamed both Button sets in place, preserved their 720 variants and keys, and verified root/focus stroke bindings. Removed 241 Split Button and 218 Icon Button page menu scrollbar instances as authorized; remote scrollbar components unchanged. Family work continues.
+
+## 2026-11-03 — Button family rebind (in progress)
+
+Added Icon button and Split button/Menu aliases and Button focus width; renamed Icon button code variant to transparent across platforms and updated Web rebind specifications. Validation and Figma execution pending. Updated through ad42e97: live preview caller migrated; library index refreshed read-only; Button, Icon button and Split button contracts regenerated on all platforms. Typecheck passes; the five previously timed-out tests pass with the requested 30-second timeout. All contracts regenerated with --all as authorized; docs:check passes (33 components, zero errors). Restricted Web token apply created seven collections and 44 variables, updated Button / Focus width, and deprecated nothing. Stopped before set mutations: embedded Scroll Bar instance 116:23651 (remote main 7:807) binds to legacy Color / Bg/Gray Bold; no matching component alias or scrollbar mapping exists in the brief. Flutter checks not run.
+
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
 ## [Tooling — Sync hash ignores line endings] — 2026-11-03
@@ -19,6 +67,9 @@ Every change to the design system is logged here **in the same task**, newest fi
 - `_audits/figma-button-family-web-2026-11-02.md`: read-only binding audit, findings, plan and open questions. Nothing changed in Figma.
 ### Fixed
 - `_sync/build-stamp.json` refreshed so `npm run sync` reports READY. Generated token output was unchanged.
+## [R-02 phase 1 — Link moved onto component tokens] — 2026-11-02
+### Changed
+- R-02 phase 1 · Link moved onto component tokens; no API or layer changes. Added the Figma-only `Link / Size` and `Link / Color` bridge, including D-R02-1 (`padding-block` → `spacing-none`), D-R02-2 (Pressed = Idle for the six role colours), and D-R02-3 (live semantic role colours are authoritative); regenerated the Link contracts and marked the Web component-token snapshot synced.
 
 ## [Rules — One workspace for every agent] — 2026-11-03
 ### Added

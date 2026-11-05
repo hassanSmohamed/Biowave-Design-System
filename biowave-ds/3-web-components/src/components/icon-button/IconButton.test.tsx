@@ -30,7 +30,7 @@ const allowedColors: Record<IconButtonVariant, ButtonColor[]> = {
   filled: ['brand', 'secondary', 'neutral', 'error', 'inverse'],
   tonal: ['brand', 'secondary', 'error'],
   outlined: ['brand', 'secondary', 'neutral', 'error', 'inverse'],
-  text: ['brand', 'secondary', 'neutral', 'error', 'inverse'],
+  transparent: ['brand', 'secondary', 'neutral', 'error', 'inverse'],
 };
 
 afterEach(() => {
@@ -104,6 +104,10 @@ function tooltipTransitionStyle(): string {
 }
 
 describe('IconButton rendering and tokens', () => {
+  it('renders transparent with the former text variant tokens', () => {
+    const view = renderWithBiowave(<IconButton icon={<Icon name="edit" />} label="Transparent" variant="transparent" color="brand" tooltip={false} />);
+    expectVisualTokens(cssRulesFor(view.getByRole('button')), resolveButtonTokens('text', 'brand'));
+  });
   for (const theme of themes) {
     for (const locale of locales) {
       it(`renders every supported variant, color, and size with its unselected tokens in ${theme}/${locale}`, () => {
@@ -137,7 +141,7 @@ describe('IconButton rendering and tokens', () => {
           const buttonRules = cssRulesFor(button, rules);
           expect(buttonRules).toContain(buttonSizeTokens[current.size].height);
           expect(buttonRules).toContain(buttonSizeTokens[current.size].icon);
-          expectVisualTokens(buttonRules, resolveButtonTokens(current.variant, current.color));
+          expectVisualTokens(buttonRules, resolveButtonTokens(current.variant === 'transparent' ? 'text' : current.variant, current.color));
         });
         expect(document.documentElement.dir).toBe(locale === 'ar' ? 'rtl' : 'ltr');
         view.unmount();
@@ -146,7 +150,7 @@ describe('IconButton rendering and tokens', () => {
   }
 
   it('uses every selected toggle token map, including disabled-selected states', () => {
-    const cases = (['text', 'outlined'] as const).flatMap((variant) =>
+    const cases = (['transparent', 'outlined'] as const).flatMap((variant) =>
       allowedColors[variant].flatMap((color) =>
         [false, true].map((disabled) => ({ variant, color, disabled })),
       ),

@@ -77,7 +77,7 @@ const LinkRoot = styled(MuiLink, {
   const visual: LinkVisualTokens = linkColorTokens[$color];
   const size = linkSizeTokens[$size];
   const inline = $size === 'inherit';
-  const focusColor = $color === 'inverse' ? linkFocusTokens.inverse : linkFocusTokens.default;
+  const focusColor = linkFocusTokens.color[$color];
 
   return {
     ...size.typography,
@@ -145,18 +145,6 @@ const LinkRoot = styled(MuiLink, {
           $underline === 'always'
             ? linkUnderlineTokens.strongWidth
             : linkUnderlineTokens.defaultWidth,
-      },
-    },
-    '&:active:not([aria-disabled="true"])': {
-      color: visual.pressed,
-      transitionDuration: linkMotionTokens.pressedDuration,
-      '& .bw-link__label': {
-        textDecorationLine: 'underline',
-        textDecorationThickness:
-          $underline === 'always'
-            ? linkUnderlineTokens.strongWidth
-            : linkUnderlineTokens.defaultWidth,
-        transitionDuration: linkMotionTokens.pressedDuration,
       },
     },
     '&:focus': {

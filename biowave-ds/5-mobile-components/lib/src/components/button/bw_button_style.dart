@@ -9,6 +9,15 @@ import 'bw_segment_border.dart';
 
 /// Token-only style resolver for [BwButton].
 abstract final class BwButtonStyle {
+  static Color focusRingColor(BwColors colors, BwButtonColor color) =>
+      switch (color) {
+        BwButtonColor.brand => colors.borderBrand,
+        BwButtonColor.secondary => colors.borderSecondary,
+        BwButtonColor.error => colors.borderError,
+        BwButtonColor.neutral => colors.borderBold,
+        BwButtonColor.inverse => colors.borderInverse,
+      };
+
   static ButtonStyle resolve(
     BuildContext context,
     BwButtonVariant variant,
@@ -130,9 +139,7 @@ abstract final class BwButtonStyle {
           BwFocusRing(
         focused: states.contains(WidgetState.focused),
         borderRadius: radius,
-        color: color == BwButtonColor.inverse
-            ? colors.borderInverse
-            : colors.borderFocus,
+        color: focusRingColor(colors, color),
         ringKey: focusRingKey,
         child: child ?? const SizedBox.shrink(),
       ),

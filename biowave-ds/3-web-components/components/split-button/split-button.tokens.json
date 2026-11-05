@@ -1,0 +1,106 @@
+{
+  "$schema": "component-tokens/v1",
+  "$description": "Split button component tokens (D-13) plus the general Menu collections. Menu tokens stay here until the Menu component owns them; the collection names do not change when they move. Every value aliases a semantic token.",
+  "split-button": {
+    "part": {
+      "$extensions": {
+        "figma": {
+          "collection": "Split button / Part",
+          "modes": true
+        }
+      },
+      "default": {
+        "gap": {
+          "$value": "{spacing.none}"
+        },
+        "inner-radius": {
+          "$value": "{radius.none}"
+        },
+        "outer-radius": {
+          "$value": "{radius.md}"
+        },
+        "inner-border-width": {
+          "$value": "{border.width.none}"
+        },
+        "divider": {
+          "width": {
+            "$value": "{border.width.default}"
+          },
+          "color": {
+            "$value": "{color.border.default}"
+          }
+        }
+      }
+    }
+  },
+  "menu": {
+    "container": {
+      "$extensions": {
+        "figma": {
+          "collection": "Menu / Container",
+          "modes": true
+        }
+      },
+      "default": {
+        "background": {
+          "$value": "{color.surface.raised}"
+        },
+        "radius": {
+          "$value": "{radius.lg}"
+        },
+        "padding": {
+          "$value": "{spacing.xs}"
+        },
+        "offset": {
+          "$value": "{spacing.xs}"
+        }
+      }
+    },
+    "item": {
+      "$extensions": {
+        "figma": {
+          "collection": "Menu / Item",
+          "modes": true
+        }
+      },
+      "default": {
+        "height": {
+          "$value": "{size.control.height.md}"
+        },
+        "padding-inline": {
+          "$value": "{spacing.lg}"
+        },
+        "gap": {
+          "$value": "{spacing.sm}"
+        },
+        "icon-size": {
+          "$value": "{size.icon.md}"
+        },
+        "state-layer": {
+          "hovered": {
+            "$value": "{color.background.transparent.hovered}"
+          },
+          "pressed": {
+            "$value": "{color.background.transparent.pressed}"
+          }
+        },
+        "label": {
+          "default": {
+            "$value": "{color.text.default}"
+          },
+          "disabled": {
+            "$value": "{color.text.disabled}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.subtle}"
+          }
+        },
+        "focus-ring": {
+          "$value": "{color.border.focus}"
+        }
+      }
+    }
+  }
+}

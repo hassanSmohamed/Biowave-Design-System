@@ -1,7 +1,7 @@
-<!-- GENERATED from split-button.md @ a9423d69ad50e39d — do not edit; change the source and run: npm run contract -- web split-button -->
+<!-- GENERATED from split-button.md @ 3421b86b97817ae2 — do not edit; change the source and run: npm run contract -- web split-button -->
 # Split button · زر مقسّم — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Split button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-10-29). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Split button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Split button · زر مقسّم |
 | Platform | Web · React + MUI |
 | Version | 1.2 · 2026-10-31 |
-| Source | [`split-button.md`](split-button.md) @ `a9423d69ad50e39d` |
+| Source | [`split-button.md`](split-button.md) @ `3421b86b97817ae2` |
 
 ## 1. Library connections in this file
 
@@ -34,41 +34,68 @@ const set = await figma.importComponentSetByKeyAsync('<component set key>');
 
 ## 2. Component-token collections (bind layers to these)
 
-None yet — this component has no component tokens. Bind to the Foundations variables in §3 and report it in D11 so the Planner adds component tokens.
+Already in this file, created by the sync tooling from [`split-button.tokens.json`](split-button.tokens.json). **Bind component layers to these variables** and pick the option with the collection's explicit variable mode. Each value aliases the Foundations variable shown (key in §3).
+
+| Collection | Modes | Variable | Alias target per mode |
+|---|---|---|---|
+| Split button / Part | default | `gap` | default → 3. Spacing › `spacing/none` |
+| Split button / Part | default | `inner-radius` | default → 2. Radius › `radius/none` |
+| Split button / Part | default | `outer-radius` | default → 2. Radius › `radius/md` |
+| Split button / Part | default | `inner-border-width` | default → 7. Border › `border/width/none` |
+| Split button / Part | default | `divider/width` | default → 7. Border › `border/width/default` |
+| Split button / Part | default | `divider/color` | default → 1. Themes › `color/border/default` |
+| Menu / Container | default | `background` | default → 1. Themes › `color/surface/raised` |
+| Menu / Container | default | `radius` | default → 2. Radius › `radius/lg` |
+| Menu / Container | default | `padding` | default → 3. Spacing › `spacing/xs` |
+| Menu / Container | default | `offset` | default → 3. Spacing › `spacing/xs` |
+| Menu / Item | default | `height` | default → 4. Size › `size/control/height/md` |
+| Menu / Item | default | `padding-inline` | default → 3. Spacing › `spacing/lg` |
+| Menu / Item | default | `gap` | default → 3. Spacing › `spacing/sm` |
+| Menu / Item | default | `icon-size` | default → 4. Size › `size/icon/md` |
+| Menu / Item | default | `state-layer/hovered` | default → 1. Themes › `color/background/transparent/hovered` |
+| Menu / Item | default | `state-layer/pressed` | default → 1. Themes › `color/background/transparent/pressed` |
+| Menu / Item | default | `label/default` | default → 1. Themes › `color/text/default` |
+| Menu / Item | default | `label/disabled` | default → 1. Themes › `color/text/disabled` |
+| Menu / Item | default | `icon/default` | default → 1. Themes › `color/icon/subtle` |
+| Menu / Item | default | `focus-ring` | default → 1. Themes › `color/border/focus` |
 
 ## 3. Foundations variables used (keys)
 
 | Token | Figma variable | Key | Type | Scopes | Used by |
 |---|---|---|---|---|---|
-| `border-width-default` | 7. Border › `border/width/default` | `9b62f24ecdfc438789ce3fa296e725ac14b1e08f` | FLOAT | STROKE_FLOAT | spec |
-| `border-width-none` | 7. Border › `border/width/none` | `2c42465da57090152416ef36c1c3c0c3c2d5092c` | FLOAT | STROKE_FLOAT | spec |
-| `color-background-transparent-hovered` | 1. Themes › `color/background/transparent/hovered` | `51354205cb02a343717bc6e5ca84b0e151af3de8` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
-| `color-background-transparent-pressed` | 1. Themes › `color/background/transparent/pressed` | `830ae424ad770312d061208a89f7452569d643d8` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
-| `color-border-default` | 1. Themes › `color/border/default` | `ad520e82898707a0d3112a12f6f9439566c6d6c4` | COLOR | STROKE_COLOR | spec |
-| `color-border-focus` | 1. Themes › `color/border/focus` | `ef666d3badd2b63f18cb168d9987ead7fbc21480` | COLOR | STROKE_COLOR | spec |
-| `color-icon-subtle` | 1. Themes › `color/icon/subtle` | `fc66c13d6c036489bf774535cd8dbbf749795748` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
-| `color-surface-raised` | 1. Themes › `color/surface/raised` | `92b71ada5e0cffef4eec84e17092c1f3d81da69f` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
-| `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec |
-| `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec |
-| `radius-lg` | 2. Radius › `radius/lg` | `bb2122acd11d99ba9396f13390d02b70941a6cfa` | FLOAT | CORNER_RADIUS | spec |
-| `radius-md` | 2. Radius › `radius/md` | `0758e506cdfd4d7a4eef6369a4851133d7eab5a4` | FLOAT | CORNER_RADIUS | spec |
-| `radius-none` | 2. Radius › `radius/none` | `e8421984adf95aa6c48895673eac13c0a62604e1` | FLOAT | CORNER_RADIUS | spec |
-| `size-control-height-md` | 4. Size › `size/control/height/md` | `cb6d23a09de76b9cea37c24579dbb2a9e6e6a079` | FLOAT | WIDTH_HEIGHT | spec |
-| `size-icon-md` | 4. Size › `size/icon/md` | `eb459c673e6ca16e3c81b240f04b467717953a9a` | FLOAT | WIDTH_HEIGHT | spec |
-| `spacing-lg` | 3. Spacing › `spacing/lg` | `6976021b7dd1218f670faa6dd403943fbe7b2638` | FLOAT | GAP | spec |
-| `spacing-none` | 3. Spacing › `spacing/none` | `4879183c164f25d975ac0a8664388a77a2073b80` | FLOAT | GAP | spec |
-| `spacing-sm` | 3. Spacing › `spacing/sm` | `8332b62aa90dea8417383c59a11eee680e0f1db5` | FLOAT | GAP | spec |
-| `spacing-xs` | 3. Spacing › `spacing/xs` | `9ea993d003d5368c5100b038d51c7c8f3e95c115` | FLOAT | GAP | spec |
+| `border-width-default` | 7. Border › `border/width/default` | `9b62f24ecdfc438789ce3fa296e725ac14b1e08f` | FLOAT | STROKE_FLOAT | spec, component token |
+| `border-width-none` | 7. Border › `border/width/none` | `2c42465da57090152416ef36c1c3c0c3c2d5092c` | FLOAT | STROKE_FLOAT | spec, component token |
+| `color-background-transparent-hovered` | 1. Themes › `color/background/transparent/hovered` | `51354205cb02a343717bc6e5ca84b0e151af3de8` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
+| `color-background-transparent-pressed` | 1. Themes › `color/background/transparent/pressed` | `830ae424ad770312d061208a89f7452569d643d8` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
+| `color-border-default` | 1. Themes › `color/border/default` | `ad520e82898707a0d3112a12f6f9439566c6d6c4` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-focus` | 1. Themes › `color/border/focus` | `ef666d3badd2b63f18cb168d9987ead7fbc21480` | COLOR | STROKE_COLOR | spec, component token |
+| `color-icon-subtle` | 1. Themes › `color/icon/subtle` | `fc66c13d6c036489bf774535cd8dbbf749795748` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
+| `color-surface-raised` | 1. Themes › `color/surface/raised` | `92b71ada5e0cffef4eec84e17092c1f3d81da69f` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
+| `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec, component token |
+| `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec, component token |
+| `radius-lg` | 2. Radius › `radius/lg` | `bb2122acd11d99ba9396f13390d02b70941a6cfa` | FLOAT | CORNER_RADIUS | spec, component token |
+| `radius-md` | 2. Radius › `radius/md` | `0758e506cdfd4d7a4eef6369a4851133d7eab5a4` | FLOAT | CORNER_RADIUS | spec, component token |
+| `radius-none` | 2. Radius › `radius/none` | `e8421984adf95aa6c48895673eac13c0a62604e1` | FLOAT | CORNER_RADIUS | spec, component token |
+| `size-control-height-md` | 4. Size › `size/control/height/md` | `cb6d23a09de76b9cea37c24579dbb2a9e6e6a079` | FLOAT | WIDTH_HEIGHT | spec, component token |
+| `size-icon-md` | 4. Size › `size/icon/md` | `eb459c673e6ca16e3c81b240f04b467717953a9a` | FLOAT | WIDTH_HEIGHT | spec, component token |
+| `spacing-lg` | 3. Spacing › `spacing/lg` | `6976021b7dd1218f670faa6dd403943fbe7b2638` | FLOAT | GAP | spec, component token |
+| `spacing-none` | 3. Spacing › `spacing/none` | `4879183c164f25d975ac0a8664388a77a2073b80` | FLOAT | GAP | spec, component token |
+| `spacing-sm` | 3. Spacing › `spacing/sm` | `8332b62aa90dea8417383c59a11eee680e0f1db5` | FLOAT | GAP | spec, component token |
+| `spacing-xs` | 3. Spacing › `spacing/xs` | `9ea993d003d5368c5100b038d51c7c8f3e95c115` | FLOAT | GAP | spec, component token |
 
 Code-only tokens (no Figma variable by design — motion, layers): `elevation-3` · `motion-duration-md` · `motion-duration-sm` · `motion-easing-standard-accelerate` · `motion-easing-standard-decelerate`. Use them only as written values in prototype settings and docs.
 
 ## 4. Text styles used (keys)
 
-None named in B/D.
+| Style | Key |
+|---|---|
+| `body/md` | `87a12277da6eb5157d262a0d847b277747f73b69` |
 
 ## 5. Effect styles used (keys)
 
-None named in B/D.
+| Style | Key |
+|---|---|
+| `Elevation/3` | `a6ffc0d435b5e225dd534e3df14eee3e2dba22b0` |
 
 ## 6. Components to instance (keys)
 
@@ -126,6 +153,8 @@ No icon named in this spec. Icons come only from the Google · Material Symbols 
 | `menu` (temporary) | min-width · background · elevation · radius | width of `container` · `color-surface-raised` · `elevation-3` · `radius-lg` |
 | `menu` item | height · padding-inline · icon–label gap · icon · text style · text color | `size-control-height-md` · `spacing-lg` · `spacing-sm` · `size-icon-md` · `body-md` · `color-text-default` (menu rows use the component spacing scale, not `spacing-control-*` — spacing.md) |
 | `menu` | offset from container | `spacing-xs` |
+
+Menu padding is `spacing-xs`. Menu tokens come from the general `Menu / Container` and `Menu / Item` collections.
 
 ### B3 Tokens by part and state
 
@@ -187,60 +216,65 @@ RTL  │ [⌄] │ │ تصدير التقرير [◆] │
 | Component | Split button |
 | Figma file | **Biowave DS — Web Components** (`_sync/figma-files.json` › `web`) |
 | Page / section | `↳ Split Button` |
-| Mode | **Create new.** Legacy reference (read only): Foundations file › `↳ Split Button` › `Split Button/EN` `4298:3591`, `Split Button/AR` `4298:3881` |
+| Mode | **Rebind** the existing sets on page ↳ Split Button |
 | Depends on | Button and Icon button (Web) `Built` in the same file |
 | Plan version | 1 · 2026-10-16 |
 
 ### D1 Rules for this build
 
-Same as [Button D1](../button/button.md#d1-rules-for-this-build). The two parts **must be instances** of `Button` and `Icon Button` (rule 6), with only their inner corner radii (bound to `radius/none`) and inner-side stroke weight (bound to `border/width/none`) overridden; a `Divider` instance (Vertical · Default) sits between them. Build Divider before this set.
+Follow Button component-token rules; rebind the existing parts in place.
 
 ### D2 Component structure
 
-```
-❖ Split Button         ← published set
-   contains instances of ❖ Button and ❖ Icon Button — no own drawing
-```
+Keep Split Button/EN (116:23634) and Split Button/AR (116:25888), preserving their keys and existing Action, Dropdown, Divider and menu layers. Do not compose replacement Button or Icon Button instances.
 
 ### D3 Layer tree and auto layout
 
-```
-Split Button            ↔ horizontal · gap spacing/none · hug · counter-axis stretch
-├── primary-action      ◇ Button instance · Variant/Color/Size/Language follow the set · inner corners radius/none · inline-end stroke weight border/width/none · exposed: Label, Leading icon, Leading icon glyph
-├── divider             ◇ Divider instance · Orientation=Vertical · Emphasis=Default · Inset=None · height fill (decorative)
-└── menu-trigger        ◇ Icon Button instance · same Variant/Color/Size · inner corners radius/none · inline-start stroke weight border/width/none · Icon = expand_more · Tooltip label = "More options"
-```
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
 
-**Icons used:** `expand_more` — menu trigger chevron, Google · Material Symbols Rounded (D-18)
+Copy the binding pattern from the matching Button variant, then read it back. For both `Action` and `Dropdown`:
+
+| `Variant` | Collection |
+|---|---|
+| `filled` | `Button / Filled` |
+| `outlined` | `Button / Outlined` |
+| `text` | `Button / Text` |
+
+Use the mode with the same name as `Color`.
+
+| Part | Collection | Variable |
+|---|---|---|
+| Heights, padding, gap, icon | `Button / Size` | Same name as `Size` |
+| Outer corners | `Split button / Part` | `outer-radius` |
+| Inner corners | `Split button / Part` | `inner-radius` |
+| Border on the inner sides | `Split button / Part` | `inner-border-width` |
+| Gap between parts | `Split button / Part` | `gap` |
+| `Divider` fill, width | `Split button / Part` | `divider/color`, `divider/width` |
+| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Menu | `Menu / *` | `default` |
+
+- Replace the pinned `Button size` mode with `Button / Size` modes.
+- Use one divider colour for every variant.
+- Bind every icon fill. Replace raw white fills.
+- Give every text layer the same text style as the matching Button variant, or `body/md` for menu rows.
 
 ### D4 Properties
 
-| Figma property | Type | Values | Default | Code prop (web) |
-|---|---|---|---|---|
-| `Variant` | VARIANT | `Filled` · `Tonal` · `Outlined` | `Filled` | `variant` |
-| `Color` | VARIANT | `Brand` · `Secondary` · `Neutral` | `Brand` | `color` |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` |
-| `State` | VARIANT | `Default` · `Primary hovered` · `Primary pressed` · `Trigger hovered` · `Expanded` · `Focused primary` · `Focused trigger` · `Disabled` · `Loading` | `Default` | `disabled` / `loading`; others interaction only |
-| `Language` | VARIANT | `EN` · `AR` | `EN` | — |
-| `Label` | TEXT (nested, exposed) | | `Export report` | `children` |
-| `Leading icon` · `Leading icon glyph` | BOOLEAN · INSTANCE_SWAP (nested, exposed) | | `false` | `startIcon` |
+| Figma property | Type | Values | Default | Code prop (web) | Code value |
+|---|---|---|---|---|---|
+| `Variant` | VARIANT | `filled` · `outlined` · `text` | `filled` | `variant` | `text` has no code equivalent; code also supports `tonal` |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `brand` | `color` | Only brand, secondary, neutral have code equivalents |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Label` | TEXT |  |  | `children` | text |
+| `Leading icon` | BOOLEAN |  | `false` | `startIcon` | present / absent |
+| `Show Menu Buttons` | BOOLEAN |  | `false` | — | Figma only |
 
 ### D5 Variants to generate
 
-Allowed `Variant × Color`: Filled/Outlined × 3 + Tonal × 2 = 8 × 3 sizes × 9 states × 2 languages = **432**.
+Each language set: 360 variants (3 variants × 8 colours × 5 states × 3 sizes). Clone existing variants to complete the matrix. Type maps to filled and its lowercase colour (Default → neutral); Ghost maps to outlined/default; SM/M/XL maps to sm/md/lg.
 
-### Legacy mapping (legacy sets are not edited)
-| Legacy | New |
-|---|---|
-| `Type` Brand · Secondary · Neutral · Default | `Color` Brand · Secondary · Neutral (`Default` ≈ `Neutral`, report) |
-| `Type` Success · Error · Warning · Info | removed |
-| `State=Ghost` | `Variant=Outlined` (verify visually) |
-| `Show Menu Buttons` + embedded menu | removed (Menu component) |
-| `Size` SM · M · XL | `SM` · `MD` · `LG` |
-| `/EN` · `/AR` sets | `Language` EN · AR |
-
-### After `Approved`
-Report instances of `4298:3591` / `4298:3881` in the Foundations file; move them to `_Deprecation Ground` once product files use the new library.
+List and remap all affected instances before removing variants. Never delete and recreate a set.
 
 ### D6 States, interactions and motion
 

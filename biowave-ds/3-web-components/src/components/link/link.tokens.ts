@@ -7,7 +7,6 @@ export type LinkUnderline = 'always' | 'hover';
 export interface LinkVisualTokens {
   default: string;
   hovered: string;
-  pressed: string;
   visited?: string;
   disabled: string;
 }
@@ -18,20 +17,17 @@ export const linkColorTokens = {
   brand: {
     default: cssVars.color.link.default,
     hovered: cssVars.color.link.hovered,
-    pressed: cssVars.color.link.pressed,
     visited: cssVars.color.link.visited,
     disabled: disabledColor,
   },
   neutral: {
     default: cssVars.color.text.default,
     hovered: cssVars.color.text.default,
-    pressed: cssVars.color.text.default,
     disabled: disabledColor,
   },
   inverse: {
     default: cssVars.color.text.inverse,
     hovered: cssVars.color.text.inverse,
-    pressed: cssVars.color.text.inverse,
     disabled: disabledColor,
   },
 } as const satisfies Record<LinkColor, LinkVisualTokens>;
@@ -68,15 +64,17 @@ export const linkUnderlineTokens = {
 } as const;
 
 export const linkFocusTokens = {
-  default: cssVars.color.border.focus,
-  inverse: cssVars.color.border.inverse,
+  color: {
+    brand: cssVars.color.border.info,
+    neutral: cssVars.color.border.bold,
+    inverse: cssVars.color.border.inverse,
+  } satisfies Record<LinkColor, string>,
   width: cssVars.border.width.focus,
   offset: cssVars.border.focus.offset,
 } as const;
 
 export const linkMotionTokens = {
   defaultDuration: cssVars.motion.duration.sm,
-  pressedDuration: cssVars.motion.duration.xs,
   instantDuration: cssVars.motion.duration.instant,
   easing: cssVars.motion.easing.standard,
 } as const;

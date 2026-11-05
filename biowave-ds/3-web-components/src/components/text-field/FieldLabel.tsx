@@ -181,7 +181,7 @@ export function FieldLabel({
               className="bw-text-field__help-icon"
               icon={<Icon name="help" />}
               label={helpLabel}
-              variant="text"
+              variant="transparent"
               color="neutral"
               size="sm"
               tooltip={false}

@@ -19,7 +19,7 @@
 | Figma build | Planned |
 | Review | Round 3 · 2026-10-21 · Approved |
 | Source code | `src/components/split-button/` — not built yet (the Executor creates it) |
-| Tokens | — (no component tokens yet) |
+| Tokens | [split-button.tokens.json](split-button.tokens.json) |
 | Contracts | [`split-button-contract.md`](split-button-contract.md) · [`figma-split-button-contract.md`](figma-split-button-contract.md) — generated, never edited |
 | Docs page | [`split-button.html`](split-button.html) |
 
@@ -204,6 +204,8 @@ Each part has its own states, the same as [Button A5](../button/button.md#a5-sta
 | `menu` (temporary) | min-width · background · elevation · radius | width of `container` · `color-surface-raised` · `elevation-3` · `radius-lg` |
 | `menu` item | height · padding-inline · icon–label gap · icon · text style · text color | `size-control-height-md` · `spacing-lg` · `spacing-sm` · `size-icon-md` · `body-md` · `color-text-default` (menu rows use the component spacing scale, not `spacing-control-*` — spacing.md) |
 | `menu` | offset from container | `spacing-xs` |
+
+Menu padding is `spacing-xs`. Menu tokens come from the general `Menu / Container` and `Menu / Item` collections.
 
 ### B3 Tokens by part and state
 
@@ -429,60 +431,67 @@ Foundations Spacing 2.0 alignment, decided with Hassan: the parts touch and a Di
 | Component | Split button |
 | Figma file | **Biowave DS — Web Components** (`_sync/figma-files.json` › `web`) |
 | Page / section | `↳ Split Button` |
-| Mode | **Create new.** Legacy reference (read only): Foundations file › `↳ Split Button` › `Split Button/EN` `4298:3591`, `Split Button/AR` `4298:3881` |
+| Mode | **Rebind** the existing sets on page ↳ Split Button |
 | Depends on | Button and Icon button (Web) `Built` in the same file |
 | Plan version | 1 · 2026-10-16 |
 
 ### D1 Rules for this build
 
-Same as [Button D1](../button/button.md#d1-rules-for-this-build). The two parts **must be instances** of `Button` and `Icon Button` (rule 6), with only their inner corner radii (bound to `radius/none`) and inner-side stroke weight (bound to `border/width/none`) overridden; a `Divider` instance (Vertical · Default) sits between them. Build Divider before this set.
+Follow Button component-token rules; rebind the existing parts in place.
 
 ### D2 Component structure
 
-```
-❖ Split Button         ← published set
-   contains instances of ❖ Button and ❖ Icon Button — no own drawing
-```
+Keep Split Button/EN (116:23634) and Split Button/AR (116:25888), preserving their keys and existing Action, Dropdown, Divider and menu layers. Do not compose replacement Button or Icon Button instances.
 
 ### D3 Layer tree and auto layout
 
-```
-Split Button            ↔ horizontal · gap spacing/none · hug · counter-axis stretch
-├── primary-action      ◇ Button instance · Variant/Color/Size/Language follow the set · inner corners radius/none · inline-end stroke weight border/width/none · exposed: Label, Leading icon, Leading icon glyph
-├── divider             ◇ Divider instance · Orientation=Vertical · Emphasis=Default · Inset=None · height fill (decorative)
-└── menu-trigger        ◇ Icon Button instance · same Variant/Color/Size · inner corners radius/none · inline-start stroke weight border/width/none · Icon = expand_more · Tooltip label = "More options"
-```
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
 
-**Icons used:** `expand_more` — menu trigger chevron, Google · Material Symbols Rounded (D-18)
+
+Copy the binding pattern from the matching Button variant, then read it back. For both `Action` and `Dropdown`:
+
+| `Variant` | Collection |
+|---|---|
+| `filled` | `Button / Filled` |
+| `outlined` | `Button / Outlined` |
+| `text` | `Button / Text` |
+
+Use the mode with the same name as `Color`.
+
+| Part | Collection | Variable |
+|---|---|---|
+| Heights, padding, gap, icon | `Button / Size` | Same name as `Size` |
+| Outer corners | `Split button / Part` | `outer-radius` |
+| Inner corners | `Split button / Part` | `inner-radius` |
+| Border on the inner sides | `Split button / Part` | `inner-border-width` |
+| Gap between parts | `Split button / Part` | `gap` |
+| `Divider` fill, width | `Split button / Part` | `divider/color`, `divider/width` |
+| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Menu | `Menu / *` | `default` |
+
+- Replace the pinned `Button size` mode with `Button / Size` modes.
+- Use one divider colour for every variant.
+- Bind every icon fill. Replace raw white fills.
+- Give every text layer the same text style as the matching Button variant, or `body/md` for menu rows.
+
 
 ### D4 Properties
 
-| Figma property | Type | Values | Default | Code prop (web) |
-|---|---|---|---|---|
-| `Variant` | VARIANT | `Filled` · `Tonal` · `Outlined` | `Filled` | `variant` |
-| `Color` | VARIANT | `Brand` · `Secondary` · `Neutral` | `Brand` | `color` |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` |
-| `State` | VARIANT | `Default` · `Primary hovered` · `Primary pressed` · `Trigger hovered` · `Expanded` · `Focused primary` · `Focused trigger` · `Disabled` · `Loading` | `Default` | `disabled` / `loading`; others interaction only |
-| `Language` | VARIANT | `EN` · `AR` | `EN` | — |
-| `Label` | TEXT (nested, exposed) | | `Export report` | `children` |
-| `Leading icon` · `Leading icon glyph` | BOOLEAN · INSTANCE_SWAP (nested, exposed) | | `false` | `startIcon` |
+| Figma property | Type | Values | Default | Code prop (web) | Code value |
+|---|---|---|---|---|---|
+| `Variant` | VARIANT | `filled` · `outlined` · `text` | `filled` | `variant` | `text` has no code equivalent; code also supports `tonal` |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `brand` | `color` | Only brand, secondary, neutral have code equivalents |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Label` | TEXT |  |  | `children` | text |
+| `Leading icon` | BOOLEAN |  | `false` | `startIcon` | present / absent |
+| `Show Menu Buttons` | BOOLEAN |  | `false` | — | Figma only |
 
 ### D5 Variants to generate
 
-Allowed `Variant × Color`: Filled/Outlined × 3 + Tonal × 2 = 8 × 3 sizes × 9 states × 2 languages = **432**.
+Each language set: 360 variants (3 variants × 8 colours × 5 states × 3 sizes). Clone existing variants to complete the matrix. Type maps to filled and its lowercase colour (Default → neutral); Ghost maps to outlined/default; SM/M/XL maps to sm/md/lg.
 
-#### Legacy mapping (legacy sets are not edited)
-| Legacy | New |
-|---|---|
-| `Type` Brand · Secondary · Neutral · Default | `Color` Brand · Secondary · Neutral (`Default` ≈ `Neutral`, report) |
-| `Type` Success · Error · Warning · Info | removed |
-| `State=Ghost` | `Variant=Outlined` (verify visually) |
-| `Show Menu Buttons` + embedded menu | removed (Menu component) |
-| `Size` SM · M · XL | `SM` · `MD` · `LG` |
-| `/EN` · `/AR` sets | `Language` EN · AR |
-
-#### After `Approved`
-Report instances of `4298:3591` / `4298:3881` in the Foundations file; move them to `_Deprecation Ground` once product files use the new library.
+List and remap all affected instances before removing variants. Never delete and recreate a set.
 
 ### D6 States, interactions and motion
 
@@ -514,14 +523,15 @@ Component description: "Main action plus a menu of related alternatives. Spec: 3
 
 ### D11 Execution log (filled by the Figma Agent)
 
-| Field | Value |
-|---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
+2026-11-04 — Final typography verification: migrated 360 Arabic labels to the published action styles in Web/AR typography mode; preserved their paints and appearance. Removed the three local AR/action duplicates only after confirming zero remaining consumers across the file. Web D-13 lint now reports zero violations.
 
-**Deviations:** none
-**Questions for the Planner:** none
+2026-11-04 — Codex completed the retained EN and AR sets (360 variants each). Both keys are preserved. Remapped one _Thumb instance from Type=Default, State=Default, Size=XL to filled/neutral/default/lg before removing obsolete variants. All 720 roots and both joined segments use component tokens; focus rings use inside strokes without fills or effects. Read-back: zero legacy bindings, unbound solid paints, missing text styles, invalid effects, or focus-ring errors. Light/Dark EN/AR previews passed and were removed.
+
+Removed 241 scrollbar instances from the Split Button page as authorized. Cleaned 210 original temporary menus before cloning: removed 630 excess hidden rows, 1,050 hidden checkmarks and 1,050 secondary labels; remote row and scrollbar components unchanged. Final sets contain 576 five-row menus. Detached only local temporary row instances to remove nonspec decorations. Removed the obsolete 200-pixel minimum width so labels and joined controls hug content; retained component-token height and RTL menu alignment.
+
+**Remaining:** family publication and final token/library synchronization. Flutter checks not run as requested.
+
+**Questions for the Planner:** none.
 
 ---
 
@@ -795,6 +805,10 @@ vitest split-button only ✓ 11/11 — keyboard test 4.7 s (limit 5 s), axe 9.0 
 > Changes to this component on this platform.
 
 ### F0 Changes from previous version
+
+2026-11-04 — Changes: completed the Web EN/AR Figma rebind, retained keys, remapped the Default instance, rebound all variants, and removed nonspec temporary-menu decorations. Both themes and languages visually verified.
+
+2026-11-03 — Changes: Web Button-family rebind brief; component token aliases, final Figma property names and retained sets. Icon button variant becomes transparent across platforms. Execution pending validation and Figma rebind.
 
 1.2 — the two parts touch and a vertical Divider (`color-border-default`) separates them; inner corners square (`radius-none`); menu rows use the component spacing scale (same values). No API change.
 

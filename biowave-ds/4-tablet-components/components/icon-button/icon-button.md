@@ -88,7 +88,7 @@ Same scale as [Button A4.1](../button/button.md#41-variant--emphasis).
 | `filled` | `[■◆■]` | Rare: the single main action shown as an icon (e.g. send in a message box) |
 | `tonal` | `[▒◆▒]` | A prominent icon action that must not compete with a filled Button |
 | `outlined` | `[─◆─]` | Icon actions next to outlined Buttons, or on busy backgrounds that need a boundary |
-| `text` | ` ◆ ` | **Default.** App bars, table rows, card headers (Material calls this "standard") |
+| `transparent` | ` ◆ ` | **Default.** App bars, table rows, card headers (Material calls this "standard") |
 
 #### 4.2 `color`
 Same values and rules as [Button A4.2](../button/button.md#42-color): `brand` · `secondary` · `neutral` · `error` · `inverse`. **Default for icon buttons: `neutral`**: most icon actions are utilities. Use `error` for delete in a row only when it isn't followed by a confirmation; otherwise `neutral`.
@@ -104,7 +104,7 @@ Same scale as [Button A4.3](../button/button.md#43-size), so icon buttons line u
 
 **Combination rules**
 - `tonal` is not available with `neutral` or `inverse`.
-- `toggle` is available with `text` and `outlined` only (filled and tonal already look selected).
+- `toggle` is available with `transparent` and `outlined` only (filled and tonal already look selected).
 - `xl` is not available on web.
 - A label is always required (accessible name and tooltip), even though it isn't shown.
 
@@ -184,7 +184,7 @@ Same states as [Button A5](../button/button.md#a5-states-and-behavior), plus:
 | `icon` | `IconData` | `Symbols.*_rounded` (D-18; re-exported by `biowave_foundations`) | — | ✓ | `icon` |
 | `label` | `String` | | — | ✓ | Semantics label and tooltip |
 | `onPressed` | `VoidCallback?` | | — | ✓ | `null` = disabled |
-| `variant` | `BwButtonVariant` | `filled` · `tonal` · `outlined` · `text` | `text` | | A4.1 |
+| `variant` | `BwButtonVariant` | `filled` · `tonal` · `outlined` · `transparent` | `transparent` | | A4.1 |
 | `color` | `BwButtonColor` | `brand` · `secondary` · `neutral` · `error` · `inverse` | `neutral` | | A4.2 |
 | `size` | `BwControlSize` | `sm` · `md` · `lg` · `xl` | `lg` | | A4.3 |
 | `toggle` · `selected` | `bool` · `bool` | | `false` · `false` | | A4.4 |

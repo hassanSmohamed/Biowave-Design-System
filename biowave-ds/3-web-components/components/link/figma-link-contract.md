@@ -1,7 +1,7 @@
-<!-- GENERATED from link.md @ 3c9ec613f6274264 — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 99dec1f1059ec805 — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Link in the Web Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-10-29). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Link in the Web Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `3c9ec613f6274264` |
+| Source | [`link.md`](link.md) @ `99dec1f1059ec805` |
 
 ## 1. Library connections in this file
 
@@ -34,7 +34,28 @@ const set = await figma.importComponentSetByKeyAsync('<component set key>');
 
 ## 2. Component-token collections (bind layers to these)
 
-None yet — this component has no component tokens. Bind to the Foundations variables in §3 and report it in D11 so the Planner adds component tokens.
+Already in this file, created by the sync tooling from [`link.tokens.json`](link.tokens.json). **Bind component layers to these variables** and pick the option with the collection's explicit variable mode. Each value aliases the Foundations variable shown (key in §3).
+
+| Collection | Modes | Variable | Alias target per mode |
+|---|---|---|---|
+| Link / Size | lg · md · sm | `height` | lg → 4. Size › `size/control/height/lg`<br>md → 4. Size › `size/control/height/md`<br>sm → 4. Size › `size/control/height/sm` |
+| Link / Size | lg · md · sm | `padding-inline` | lg → 3. Spacing › `spacing/control/padding-inline/lg`<br>md → 3. Spacing › `spacing/control/padding-inline/md`<br>sm → 3. Spacing › `spacing/control/padding-inline/sm` |
+| Link / Size | lg · md · sm | `padding-block` | lg → 3. Spacing › `spacing/none`<br>md → 3. Spacing › `spacing/none`<br>sm → 3. Spacing › `spacing/none` |
+| Link / Size | lg · md · sm | `gap` | lg → 3. Spacing › `spacing/control/gap/lg`<br>md → 3. Spacing › `spacing/control/gap/md`<br>sm → 3. Spacing › `spacing/control/gap/sm` |
+| Link / Size | lg · md · sm | `icon` | lg → 4. Size › `size/icon/lg`<br>md → 4. Size › `size/icon/md`<br>sm → 4. Size › `size/icon/sm` |
+| Link / Size | lg · md · sm | `radius` | lg → 2. Radius › `radius/2xl`<br>md → 2. Radius › `radius/2xl`<br>sm → 2. Radius › `radius/2xl` |
+| Link / Size | lg · md · sm | `focus-ring-width` | lg → 7. Border › `border/width/focus`<br>md → 7. Border › `border/width/focus`<br>sm → 7. Border › `border/width/focus` |
+| Link / Color | brand · neutral · inverse | `label/default` | brand → 1. Themes › `color/link/default`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · neutral · inverse | `label/hovered` | brand → 1. Themes › `color/link/hovered`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · neutral · inverse | `label/visited` | brand → 1. Themes › `color/link/visited`<br>neutral → 1. Themes › `color/text/default`<br>inverse → 1. Themes › `color/text/inverse` |
+| Link / Color | brand · neutral · inverse | `label/disabled` | brand → 1. Themes › `color/text/disabled`<br>neutral → 1. Themes › `color/text/disabled`<br>inverse → 1. Themes › `color/text/disabled` |
+| Link / Color | brand · neutral · inverse | `icon/default` | brand → 1. Themes › `color/link/default`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · neutral · inverse | `icon/hovered` | brand → 1. Themes › `color/link/hovered`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · neutral · inverse | `icon/visited` | brand → 1. Themes › `color/link/visited`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/inverse` |
+| Link / Color | brand · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
+| Link / Color | brand · neutral · inverse | `container` | brand → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
+| Link / Color | brand · neutral · inverse | `border` | brand → 1. Themes › `color/border/default`<br>neutral → 1. Themes › `color/border/default`<br>inverse → 1. Themes › `color/border/default` |
+| Link / Color | brand · neutral · inverse | `focus-ring` | brand → 1. Themes › `color/border/info`<br>neutral → 1. Themes › `color/border/bold`<br>inverse → 1. Themes › `color/border/inverse` |
 
 ## 3. Foundations variables used (keys)
 
@@ -42,25 +63,42 @@ None yet — this component has no component tokens. Bind to the Foundations var
 |---|---|---|---|---|---|
 | `border-focus-offset` | 7. Border › `border/focus/offset` | `b90b6264cf3202aa473578d22cb211167afe775d` | FLOAT | GAP | spec |
 | `border-width-default` | 7. Border › `border/width/default` | `9b62f24ecdfc438789ce3fa296e725ac14b1e08f` | FLOAT | STROKE_FLOAT | spec |
-| `border-width-focus` | 7. Border › `border/width/focus` | `d660bcb01777958134799fe11a99a63aaf1fbfca` | FLOAT | STROKE_FLOAT | spec |
+| `border-width-focus` | 7. Border › `border/width/focus` | `d660bcb01777958134799fe11a99a63aaf1fbfca` | FLOAT | STROKE_FLOAT | spec, component token |
 | `border-width-strong` | 7. Border › `border/width/strong` | `71439086700175c98e9cdf1952de74427c72063e` | FLOAT | STROKE_FLOAT | spec |
-| `color-border-focus` | 1. Themes › `color/border/focus` | `ef666d3badd2b63f18cb168d9987ead7fbc21480` | COLOR | STROKE_COLOR | spec |
-| `color-border-inverse` | 1. Themes › `color/border/inverse` | `0e53944b3de77eca83b17b27c3e5d0b4fca582d8` | COLOR | STROKE_COLOR | spec |
-| `color-link-default` | 1. Themes › `color/link/default` | `39af653c9124e2888e3c1d3de9c92b3f1e4d6df0` | COLOR | TEXT_FILL | spec |
-| `color-link-hovered` | 1. Themes › `color/link/hovered` | `db406378bc33a17e0471c73076f83e3c75b4d1c3` | COLOR | TEXT_FILL | spec |
-| `color-link-pressed` | 1. Themes › `color/link/pressed` | `9dde6bdff995276bdaa7a18390b4c55082da7afa` | COLOR | TEXT_FILL | spec |
-| `color-link-visited` | 1. Themes › `color/link/visited` | `fae9e8c94ca939fe60d30119ac1e6358342c9700` | COLOR | TEXT_FILL | spec |
-| `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec |
-| `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec |
-| `color-text-inverse` | 1. Themes › `color/text/inverse` | `83e1f6c6d7ddf8376b1bc5d0b9d5f6cd13b68e9b` | COLOR | TEXT_FILL | spec |
+| `color-background-transparent-default` | 1. Themes › `color/background/transparent/default` | `7ded3d8bfead13a83fc2297ef9dc75a16f73857b` | COLOR | FRAME_FILL, SHAPE_FILL | component token |
+| `color-border-bold` | 1. Themes › `color/border/bold` | `ab8b644249ebef8ab1b6a1efc54e0b4e504d3979` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-default` | 1. Themes › `color/border/default` | `ad520e82898707a0d3112a12f6f9439566c6d6c4` | COLOR | STROKE_COLOR | component token |
+| `color-border-info` | 1. Themes › `color/border/info` | `df6d00488697e55fe6bd439d9ef9888d85c9a3d7` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-inverse` | 1. Themes › `color/border/inverse` | `0e53944b3de77eca83b17b27c3e5d0b4fca582d8` | COLOR | STROKE_COLOR | spec, component token |
+| `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-disabled` | 1. Themes › `color/icon/disabled` | `708926473ca446a26d4a0891351f04692171f74f` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-icon-inverse` | 1. Themes › `color/icon/inverse` | `f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
+| `color-link-default` | 1. Themes › `color/link/default` | `39af653c9124e2888e3c1d3de9c92b3f1e4d6df0` | COLOR | TEXT_FILL | spec, component token |
+| `color-link-hovered` | 1. Themes › `color/link/hovered` | `db406378bc33a17e0471c73076f83e3c75b4d1c3` | COLOR | TEXT_FILL | spec, component token |
+| `color-link-visited` | 1. Themes › `color/link/visited` | `fae9e8c94ca939fe60d30119ac1e6358342c9700` | COLOR | TEXT_FILL | spec, component token |
+| `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec, component token |
+| `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec, component token |
+| `color-text-inverse` | 1. Themes › `color/text/inverse` | `83e1f6c6d7ddf8376b1bc5d0b9d5f6cd13b68e9b` | COLOR | TEXT_FILL | spec, component token |
+| `radius-2xl` | 2. Radius › `radius/2xl` | `be176bcdae178fc46f0c6f10d06b01a39445d6f6` | FLOAT | CORNER_RADIUS | component token |
 | `radius-xs` | 2. Radius › `radius/xs` | `213fc023e86a88779565677e47c64a4dea40c260` | FLOAT | CORNER_RADIUS | spec |
-| `size-icon-md` | 4. Size › `size/icon/md` | `eb459c673e6ca16e3c81b240f04b467717953a9a` | FLOAT | WIDTH_HEIGHT | spec |
-| `size-icon-sm` | 4. Size › `size/icon/sm` | `2aa4b1f12a5ed0745f9a8b3251dc1fd9f7dd3476` | FLOAT | WIDTH_HEIGHT | spec |
+| `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | component token |
+| `size-control-height-md` | 4. Size › `size/control/height/md` | `cb6d23a09de76b9cea37c24579dbb2a9e6e6a079` | FLOAT | WIDTH_HEIGHT | component token |
+| `size-control-height-sm` | 4. Size › `size/control/height/sm` | `1409647f4e12e37e76b49ed9ce1a78946e4250f4` | FLOAT | WIDTH_HEIGHT | component token |
+| `size-icon-lg` | 4. Size › `size/icon/lg` | `e79bd86fedcce89547674c84c9127d0149e60061` | FLOAT | WIDTH_HEIGHT | component token |
+| `size-icon-md` | 4. Size › `size/icon/md` | `eb459c673e6ca16e3c81b240f04b467717953a9a` | FLOAT | WIDTH_HEIGHT | spec, component token |
+| `size-icon-sm` | 4. Size › `size/icon/sm` | `2aa4b1f12a5ed0745f9a8b3251dc1fd9f7dd3476` | FLOAT | WIDTH_HEIGHT | spec, component token |
+| `spacing-control-gap-lg` | 3. Spacing › `spacing/control/gap/lg` | `c9e0925c6738c94acdf8f5220207a44c304e25f0` | FLOAT | GAP | component token |
+| `spacing-control-gap-md` | 3. Spacing › `spacing/control/gap/md` | `e2e6fc01e3a1245e8c3584798b5d224742a9a6bc` | FLOAT | GAP | component token |
+| `spacing-control-gap-sm` | 3. Spacing › `spacing/control/gap/sm` | `97daa7ac19168846d702cc8c210d1e162a484b41` | FLOAT | GAP | component token |
+| `spacing-control-padding-inline-lg` | 3. Spacing › `spacing/control/padding-inline/lg` | `3dddd3d0ffa2e8c03e2ee62241d0b414f9c3f5b5` | FLOAT | GAP | component token |
+| `spacing-control-padding-inline-md` | 3. Spacing › `spacing/control/padding-inline/md` | `ece071c90fd7557c56f2a8918944c46d2672718e` | FLOAT | GAP | component token |
+| `spacing-control-padding-inline-sm` | 3. Spacing › `spacing/control/padding-inline/sm` | `fb323143873973f1548553562791a9983936aa5a` | FLOAT | GAP | component token |
+| `spacing-none` | 3. Spacing › `spacing/none` | `4879183c164f25d975ac0a8664388a77a2073b80` | FLOAT | GAP | spec, component token |
 | `spacing-xs` | 3. Spacing › `spacing/xs` | `9ea993d003d5368c5100b038d51c7c8f3e95c115` | FLOAT | GAP | spec |
 | `spacing-xxs` | 3. Spacing › `spacing/xxs` | `e772baca3a3110208bb2791461b6659a6d6e9ba8` | FLOAT | GAP | spec |
 | `target-min` | 6. Grid & Layout › `target/min` | `db23ec2826d3bfa3e600e5a82801e0c7d37ba298` | FLOAT | WIDTH_HEIGHT | spec |
 
-Code-only tokens (no Figma variable by design — motion, layers): `motion-duration-instant` · `motion-duration-sm` · `motion-duration-xs` · `motion-easing-standard`. Use them only as written values in prototype settings and docs.
+Code-only tokens (no Figma variable by design — motion, layers): `motion-duration-instant` · `motion-duration-sm` · `motion-easing-standard`. Use them only as written values in prototype settings and docs.
 
 ## 4. Text styles used (keys)
 
@@ -148,7 +186,7 @@ Not supported: MUI `underline="none"`, MUI `color` palette values, `variant` typ
 | root | gap between parts | `spacing-xs` | `spacing-xs` | `spacing-xs` | `spacing-xs` |
 | root | min block size | — (inline exception) | `target-min` | `target-min` | `target-min` |
 | root | padding | none | none | none | none |
-| `underline` | thickness · offset | `border-width-default` · `spacing-xxs` (hover / pressed: `border-width-strong`) | same | same | same |
+| `underline` | thickness · offset | `border-width-default` · `spacing-xxs` (hover: `border-width-strong`) | same | same | same |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` | same | same | same |
 
 Layout rules:
@@ -158,33 +196,40 @@ Layout rules:
 
 ### B3 Tokens by part and state
 
-> No component tokens (P-04): every value is a shared semantic token, so there is no `link.tokens.json`. `label`, `underline` and both icons use the same colour (`currentColor`).
+The Web implementation continues to consume shared semantic tokens directly. The existing Web Components Figma sets use the Figma-only bridge in `link.tokens.json` so their current API and layer structure can express size and colour through explicit modes (R-02).
 
-| `color` | Default | Hover | Pressed | Visited (`showVisited`) | Disabled |
+| Figma collection | Modes | Variables |
+|---|---|---|
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` · `focus-ring-width` |
+| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
+
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and the focus ring is a real stroke on the `Border` layer in the link colour. Web Link has no Pressed state in Figma or code.
+
+In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
+
+| `color` | Default | Hover | Visited (`showVisited`) | Disabled |
+|---|---|---|---|---|
+| `brand` | `color-link-default` | `color-link-hovered` | `color-link-visited` | `color-text-disabled` |
+| `neutral` | `color-text-default` | `color-text-default` | — | `color-text-disabled` |
+| `inverse` | `color-text-inverse` | `color-text-inverse` | — | `color-text-disabled` |
+
+| Part | `underline` | Default | Hover | Focus | Disabled |
 |---|---|---|---|---|---|
-| `brand` | `color-link-default` | `color-link-hovered` | `color-link-pressed` | `color-link-visited` | `color-text-disabled` |
-| `neutral` | `color-text-default` | `color-text-default` | `color-text-default` | — | `color-text-disabled` |
-| `inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-inverse` | — | `color-text-disabled` |
-
-| Part | `underline` | Default | Hover | Pressed | Focus | Disabled |
-|---|---|---|---|---|---|---|
-| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-strong` | `border-width-default` | none |
-| `underline` | `hover` | none | `border-width-default` | `border-width-default` | `border-width-default` | none |
+| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-default` | none |
+| `underline` | `hover` | none | `border-width-default` | `border-width-default` | none |
 
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
+| `focus-ring` | color | Follows `color`: `brand` `color-border-info` · `neutral` `color-border-bold` · `inverse` `color-border-inverse` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` |
 
-Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` and `-pressed` are darker in light and lighter in dark, so they keep at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
+Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` is darker in light and lighter in dark, so it keeps at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
 
 ### B4 States and transitions
 
 | From → To | Trigger | Animated properties | Duration | Easing |
 |---|---|---|---|---|
 | Default → Hover | pointer enter | colour, underline thickness / appearance | `motion-duration-sm` | `motion-easing-standard` |
-| Hover → Pressed | pointer down · Enter down | colour, underline thickness | `motion-duration-xs` | `motion-easing-standard` |
-| Pressed → Hover / Default | release | colour, underline thickness | `motion-duration-sm` | `motion-easing-standard` |
 | Any → Focus | keyboard focus (`:focus-visible`) | focus ring appears | `motion-duration-instant` | — |
 | Enabled ↔ Disabled | `disabled` changes | colour, underline | `motion-duration-instant` | — |
 | Default → Visited | browser history | colour (no transition: `:visited` allows colour only) | — | — |
@@ -217,7 +262,7 @@ LTR  [◆] Contact support [▸]          RTL          [◂] التواصل مع
 | Accessible name | `children` text. Icons are decorative (`Icon` without `label` → `aria-hidden="true"`). `external`: a visually hidden span with `externalLabel` inside the link, after the label (shared helper `src/internal/visuallyHidden.ts`) |
 | External | `target="_blank"` + `rel="noopener noreferrer"` |
 | Disabled | `<a>` **without** `href`, `role="link"`, `aria-disabled="true"`; not in the tab order; `onClick` not called |
-| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid `color-border-focus` (`inverse`: `color-border-inverse`), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
+| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid the `color` focus token (B3), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
 | Target size | Standalone: `min-block-size: target-min` (24) · inline: WCAG 2.5.8 inline exception |
 | Non-colour cue | Inline and `neutral` links always underlined (WCAG 1.4.1, B1 fallbacks) |
 | Cursor | `pointer`; disabled: `default` |
@@ -247,7 +292,7 @@ LTR  [◆] Contact support [▸]          RTL          [◂] التواصل مع
 
 ### D1 Rules for this build
 
-0. **Library first, no component tokens (P-04).** Link has no `link.tokens.json`, so this file gets **no** `Link / …` collection. Bind layers directly to the Foundations variables listed in the contract (§3) by key — this is intended, not a gap; do not ask for component tokens in D11. Never create, copy or detach variables or styles. Lint (`figma-read-tokens.js`) must report 0.
+0. **Library first; code remains P-04; Figma uses the R-02 bridge.** Code binds shared semantic tokens directly. The existing `.Link_en` and `.Link_ar` sets bind through local `Link / Size` and `Link / Color` variables from `link.tokens.json`, whose values alias the Foundations library. Never copy semantic variables or bind primitives/deprecated values. Lint (`figma-read-tokens.js`) must report 0 for the scoped sets.
 1. **Every value is bound.** Fills, gap, min height, radius → variables; text → text styles `action/{sm|md|lg}`; focus → the `Focus ring` layer (border.md › Figma focus ring: stroke `color/border/focus`, `color/border/inverse` on Inverse). No raw hex / px. **Only literals allowed:** the label's underline thickness and offset (Figma text decoration cannot be bound to variables) — set them to the B2 / B3 values and list them in the QA report.
 2. **Token → variable name:** replace `-` between segments with `/` — `color-link-hovered` → `1. Themes › color/link/hovered`; `spacing-xs` → `3. Spacing › spacing/xs`; `radius-xs` → `2. Radius › radius/xs`; `target-min` → `6. Grid & Layout › target/min`.
 3. **Never** bind `_Primitive/*` or `_deprecated/*`.
@@ -290,7 +335,7 @@ This table is the source for Code Connect (D9).
 | `Color` | VARIANT | `Brand` · `Neutral` · `Inverse` | `Brand` | `color` | `'brand'` · `'neutral'` · `'inverse'` |
 | `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | `'sm'` · `'md'` · `'lg'` (`'inherit'` has no Figma variant — see D8 page 03) |
 | `Underline` | VARIANT | `Always` · `Hover` | `Always` | `underline` | `'always'` · `'hover'` |
-| `State` | VARIANT | `Default` · `Hover` · `Focused` · `Pressed` · `Visited` · `Disabled` | `Default` | `disabled` / `showVisited` | `Disabled` → `disabled`; `Visited` → `showVisited` (shown visited); others are interaction states |
+| `State` | VARIANT | `Default` · `Hover` · `Focused` · `Visited` · `Disabled` | `Default` | `disabled` / `showVisited` | `Disabled` → `disabled`; `Visited` → `showVisited` (shown visited); others are interaction states |
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | Figma only; code takes language and direction from the provider |
 | `Label` | TEXT | | `Contact support` (AR variants: `التواصل مع الدعم`) | `children` | |
 | `Leading icon` | BOOLEAN | | `false` | `startIcon` | present / absent |
@@ -311,7 +356,6 @@ This table is the source for Code Connect (D9).
 | Interaction | From → To | Animation |
 |---|---|---|
 | While hovering | Default → Hover | Smart animate · `motion-duration-sm` · standard easing (B4) |
-| While pressing | Hover → Pressed | Smart animate · `motion-duration-xs` |
 
 `Focused` shows the ring for docs and handoff; it is not a prototype interaction. `Visited` is a static variant.
 

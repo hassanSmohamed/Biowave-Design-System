@@ -1,0 +1,213 @@
+{
+  "$schema": "component-tokens/v1",
+  "$description": "Figma-only Link component-token bridge for R-02. Every value aliases a semantic Foundations token; the Web implementation continues to consume shared semantic tokens directly.",
+  "$extensions": {
+    "biowave": {
+      "figmaOnly": true
+    }
+  },
+  "link": {
+    "size": {
+      "$extensions": {
+        "figma": {
+          "collection": "Link / Size",
+          "modes": true
+        }
+      },
+      "lg": {
+        "height": {
+          "$value": "{size.control.height.lg}"
+        },
+        "padding-inline": {
+          "$value": "{spacing.control.padding-inline.lg}"
+        },
+        "padding-block": {
+          "$value": "{spacing.none}"
+        },
+        "gap": {
+          "$value": "{spacing.control.gap.lg}"
+        },
+        "icon": {
+          "$value": "{size.icon.lg}"
+        },
+        "radius": {
+          "$value": "{radius.2xl}"
+        },
+        "focus-ring-width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "md": {
+        "height": {
+          "$value": "{size.control.height.md}"
+        },
+        "padding-inline": {
+          "$value": "{spacing.control.padding-inline.md}"
+        },
+        "padding-block": {
+          "$value": "{spacing.none}"
+        },
+        "gap": {
+          "$value": "{spacing.control.gap.md}"
+        },
+        "icon": {
+          "$value": "{size.icon.md}"
+        },
+        "radius": {
+          "$value": "{radius.2xl}"
+        },
+        "focus-ring-width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "sm": {
+        "height": {
+          "$value": "{size.control.height.sm}"
+        },
+        "padding-inline": {
+          "$value": "{spacing.control.padding-inline.sm}"
+        },
+        "padding-block": {
+          "$value": "{spacing.none}"
+        },
+        "gap": {
+          "$value": "{spacing.control.gap.sm}"
+        },
+        "icon": {
+          "$value": "{size.icon.sm}"
+        },
+        "radius": {
+          "$value": "{radius.2xl}"
+        },
+        "focus-ring-width": {
+          "$value": "{border.width.focus}"
+        }
+      }
+    },
+    "color": {
+      "$extensions": {
+        "figma": {
+          "collection": "Link / Color",
+          "modes": true
+        }
+      },
+      "brand": {
+        "label": {
+          "default": {
+            "$value": "{color.link.default}"
+          },
+          "hovered": {
+            "$value": "{color.link.hovered}"
+          },
+          "visited": {
+            "$value": "{color.link.visited}"
+          },
+          "disabled": {
+            "$value": "{color.text.disabled}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.link.default}"
+          },
+          "hovered": {
+            "$value": "{color.link.hovered}"
+          },
+          "visited": {
+            "$value": "{color.link.visited}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        },
+        "container": {
+          "$value": "{color.background.transparent.default}"
+        },
+        "border": {
+          "$value": "{color.border.default}"
+        },
+        "focus-ring": {
+          "$value": "{color.border.info}"
+        }
+      },
+      "neutral": {
+        "label": {
+          "default": {
+            "$value": "{color.text.default}"
+          },
+          "hovered": {
+            "$value": "{color.text.default}"
+          },
+          "visited": {
+            "$value": "{color.text.default}"
+          },
+          "disabled": {
+            "$value": "{color.text.disabled}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.default}"
+          },
+          "hovered": {
+            "$value": "{color.icon.default}"
+          },
+          "visited": {
+            "$value": "{color.icon.default}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        },
+        "container": {
+          "$value": "{color.background.transparent.default}"
+        },
+        "border": {
+          "$value": "{color.border.default}"
+        },
+        "focus-ring": {
+          "$value": "{color.border.bold}"
+        }
+      },
+      "inverse": {
+        "label": {
+          "default": {
+            "$value": "{color.text.inverse}"
+          },
+          "hovered": {
+            "$value": "{color.text.inverse}"
+          },
+          "visited": {
+            "$value": "{color.text.inverse}"
+          },
+          "disabled": {
+            "$value": "{color.text.disabled}"
+          }
+        },
+        "icon": {
+          "default": {
+            "$value": "{color.icon.inverse}"
+          },
+          "hovered": {
+            "$value": "{color.icon.inverse}"
+          },
+          "visited": {
+            "$value": "{color.icon.inverse}"
+          },
+          "disabled": {
+            "$value": "{color.icon.disabled}"
+          }
+        },
+        "container": {
+          "$value": "{color.background.transparent.default}"
+        },
+        "border": {
+          "$value": "{color.border.default}"
+        },
+        "focus-ring": {
+          "$value": "{color.border.inverse}"
+        }
+      }
+    }
+  }
+}

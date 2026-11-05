@@ -19,7 +19,7 @@
 | Figma build | Planned |
 | Review | Round 2 · 2026-10-24 · Approved |
 | Source code | `src/components/link/` (built) |
-| Tokens | — (no component tokens: every value is a shared semantic token, P-04) |
+| Tokens | [`link.tokens.json`](link.tokens.json) — Figma-only R-02 bridge; code continues to use shared semantic tokens directly (P-04) |
 | Contracts | [`link-contract.md`](link-contract.md) · [`figma-link-contract.md`](figma-link-contract.md) — generated, never edited |
 | Docs page | [`link.html`](link.html) |
 
@@ -110,7 +110,7 @@ A link takes people somewhere else: another page or screen, a help article, a po
 | Value | Looks like | Pick it when |
 |---|---|---|
 | `always` | `Contact support` with a line under it | **Default.** Required for inline links and for `neutral` |
-| `hover` | No line until hovered, pressed or focused | Standalone links whose place already says "link": card header "View all", a list of links, a footer. On touch screens the line shows while pressed or focused |
+| `hover` | No line until hovered or focused | Standalone links whose place already says "link": card header "View all", a list of links, a footer. On touch screens the line shows when focused |
 
 #### 4.4 `leading-icon`
 
@@ -140,7 +140,6 @@ On for links in long content and help pages, where people benefit from seeing wh
 | Default | At rest | Link colour; underline per `underline` |
 | Hover | Pointer over (web, tablet with a pointer) | Darker link colour (`brand`), thicker underline; `hover` links show their underline |
 | Focus | Keyboard focus | Focus ring around the whole link (see [a11y](../../../2-foundations/guidelines/a11y.md)); `hover` links show their underline |
-| Pressed | Click, tap, Enter | Darkest link colour (`brand`), thicker underline |
 | Visited | Web with `show-visited`, page already opened | Visited link colour |
 | Disabled | The destination is not available yet | Disabled text colour, no underline, not focusable. Prefer hiding the link or explaining why in text next to it |
 
@@ -281,7 +280,7 @@ Not supported: MUI `underline="none"`, MUI `color` palette values, `variant` typ
 | root | gap between parts | `spacing-xs` | `spacing-xs` | `spacing-xs` | `spacing-xs` |
 | root | min block size | — (inline exception) | `target-min` | `target-min` | `target-min` |
 | root | padding | none | none | none | none |
-| `underline` | thickness · offset | `border-width-default` · `spacing-xxs` (hover / pressed: `border-width-strong`) | same | same | same |
+| `underline` | thickness · offset | `border-width-default` · `spacing-xxs` (hover: `border-width-strong`) | same | same | same |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` | same | same | same |
 
 Layout rules:
@@ -291,33 +290,40 @@ Layout rules:
 
 ### B3 Tokens by part and state
 
-> No component tokens (P-04): every value is a shared semantic token, so there is no `link.tokens.json`. `label`, `underline` and both icons use the same colour (`currentColor`).
+The Web implementation continues to consume shared semantic tokens directly. The existing Web Components Figma sets use the Figma-only bridge in `link.tokens.json` so their current API and layer structure can express size and colour through explicit modes (R-02).
 
-| `color` | Default | Hover | Pressed | Visited (`showVisited`) | Disabled |
+| Figma collection | Modes | Variables |
+|---|---|---|
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` · `focus-ring-width` |
+| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
+
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and the focus ring is a real stroke on the `Border` layer in the link colour. Web Link has no Pressed state in Figma or code.
+
+In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
+
+| `color` | Default | Hover | Visited (`showVisited`) | Disabled |
+|---|---|---|---|---|
+| `brand` | `color-link-default` | `color-link-hovered` | `color-link-visited` | `color-text-disabled` |
+| `neutral` | `color-text-default` | `color-text-default` | — | `color-text-disabled` |
+| `inverse` | `color-text-inverse` | `color-text-inverse` | — | `color-text-disabled` |
+
+| Part | `underline` | Default | Hover | Focus | Disabled |
 |---|---|---|---|---|---|
-| `brand` | `color-link-default` | `color-link-hovered` | `color-link-pressed` | `color-link-visited` | `color-text-disabled` |
-| `neutral` | `color-text-default` | `color-text-default` | `color-text-default` | — | `color-text-disabled` |
-| `inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-inverse` | — | `color-text-disabled` |
-
-| Part | `underline` | Default | Hover | Pressed | Focus | Disabled |
-|---|---|---|---|---|---|---|
-| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-strong` | `border-width-default` | none |
-| `underline` | `hover` | none | `border-width-default` | `border-width-default` | `border-width-default` | none |
+| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-default` | none |
+| `underline` | `hover` | none | `border-width-default` | `border-width-default` | none |
 
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
+| `focus-ring` | color | Follows `color`: `brand` `color-border-info` · `neutral` `color-border-bold` · `inverse` `color-border-inverse` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` |
 
-Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` and `-pressed` are darker in light and lighter in dark, so they keep at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
+Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` is darker in light and lighter in dark, so it keeps at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
 
 ### B4 States and transitions
 
 | From → To | Trigger | Animated properties | Duration | Easing |
 |---|---|---|---|---|
 | Default → Hover | pointer enter | colour, underline thickness / appearance | `motion-duration-sm` | `motion-easing-standard` |
-| Hover → Pressed | pointer down · Enter down | colour, underline thickness | `motion-duration-xs` | `motion-easing-standard` |
-| Pressed → Hover / Default | release | colour, underline thickness | `motion-duration-sm` | `motion-easing-standard` |
 | Any → Focus | keyboard focus (`:focus-visible`) | focus ring appears | `motion-duration-instant` | — |
 | Enabled ↔ Disabled | `disabled` changes | colour, underline | `motion-duration-instant` | — |
 | Default → Visited | browser history | colour (no transition: `:visited` allows colour only) | — | — |
@@ -350,7 +356,7 @@ LTR  [◆] Contact support [▸]          RTL          [◂] التواصل مع
 | Accessible name | `children` text. Icons are decorative (`Icon` without `label` → `aria-hidden="true"`). `external`: a visually hidden span with `externalLabel` inside the link, after the label (shared helper `src/internal/visuallyHidden.ts`) |
 | External | `target="_blank"` + `rel="noopener noreferrer"` |
 | Disabled | `<a>` **without** `href`, `role="link"`, `aria-disabled="true"`; not in the tab order; `onClick` not called |
-| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid `color-border-focus` (`inverse`: `color-border-inverse`), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
+| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid the `color` focus token (B3), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
 | Target size | Standalone: `min-block-size: target-min` (24) · inline: WCAG 2.5.8 inline exception |
 | Non-colour cue | Inline and `neutral` links always underlined (WCAG 1.4.1, B1 fallbacks) |
 | Cursor | `pointer`; disabled: `default` |
@@ -439,7 +445,7 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 ### C3 Approach
 
 - **Base:** wrap MUI `Link` (`@mui/material/Link`) with `underline="none"` and `color="inherit"`, so MUI adds no colour, underline or typography of its own. All styling comes from one `styled()` wrapper that reads transient props (`$color`, `$size`, `$underline`, `$showVisited`) — never forwarded to the DOM.
-- **Token map:** `link.tokens.ts` exports typed tables `color → { default, hover, pressed, visited?, disabled }` and `size → { typography, icon }` whose values are `cssVars.*` references (B2–B3). The styled wrapper reads only these tables.
+- **Token map:** `link.tokens.ts` exports typed tables `color → { default, hover, visited?, disabled }` and `size → { typography, icon }` whose values are `cssVars.*` references (B2–B3). The styled wrapper reads only these tables.
 - **Label and underline:** render the children inside `<span class="bw-link__label">`. The underline is `text-decoration-line: underline` on that span with `text-decoration-thickness: cssVars.border.width.default` (hover / active: `.strong`), `text-underline-offset: cssVars.spacing.xxs`, `text-decoration-color: currentColor`. `underline="hover"` sets `text-decoration-line: none` at rest and `underline` on `:hover`, `:active`, `:focus-visible`.
 - **Typography:** `sm`/`md`/`lg` use `actionSm|actionMd|actionLg` from `biowaveVariants` (size and line height are CSS variables, so Arabic switches automatically); `inherit` sets `font: inherit` and `display: inline`.
 - **Icons:** `startIcon` is wrapped in `<span class="bw-link__icon" aria-hidden="true">` whose `font-size` is the B2 icon token (the Icon without `size` follows it; for `inherit` the wrapper uses `1em`). The external icon is `<Icon name="open_in_new" directional />` in the same wrapper. Link never adds `bw-icon-directional` to a wrapper (the Icon flips itself once, B5).
@@ -453,13 +459,16 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 
 ### C4 Token gaps
 
-None. All tokens exist in Foundations: `color-link-default` · `-hovered` · `-pressed` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-focus` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`. No component tokens (P-04).
+Code has no token gap: it continues to use the shared semantic tokens listed below. Figma has the R-02 bridge in `link.tokens.json`; it aliases those live semantic variables and does not change the public API.
+
+Shared code tokens: `color-link-default` · `-hovered` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-info` · `-bold` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`.
 
 ### C5 Files to create / change
 
 ```
 3-web-components/src/components/link/Link.tsx         new
 3-web-components/src/components/link/link.tokens.ts   new (typed map of B2–B3 → cssVars)
+3-web-components/components/link/link.tokens.json     Figma-only R-02 component-token bridge
 3-web-components/src/components/link/Link.test.tsx    new
 3-web-components/src/components/link/index.ts         new: export { Link } and types LinkProps, LinkColor, LinkSize, LinkUnderline
 3-web-components/src/index.ts                         change: export Link and its types
@@ -535,7 +544,7 @@ Fix checks: `npm run docs:check` ✓; `npm run typecheck` ✓; `npm run test:web
 
 ### D1 Rules for this build
 
-0. **Library first, no component tokens (P-04).** Link has no `link.tokens.json`, so this file gets **no** `Link / …` collection. Bind layers directly to the Foundations variables listed in the contract (§3) by key — this is intended, not a gap; do not ask for component tokens in D11. Never create, copy or detach variables or styles. Lint (`figma-read-tokens.js`) must report 0.
+0. **Library first; code remains P-04; Figma uses the R-02 bridge.** Code binds shared semantic tokens directly. The existing `.Link_en` and `.Link_ar` sets bind through local `Link / Size` and `Link / Color` variables from `link.tokens.json`, whose values alias the Foundations library. Never copy semantic variables or bind primitives/deprecated values. Lint (`figma-read-tokens.js`) must report 0 for the scoped sets.
 1. **Every value is bound.** Fills, gap, min height, radius → variables; text → text styles `action/{sm|md|lg}`; focus → the `Focus ring` layer (border.md › Figma focus ring: stroke `color/border/focus`, `color/border/inverse` on Inverse). No raw hex / px. **Only literals allowed:** the label's underline thickness and offset (Figma text decoration cannot be bound to variables) — set them to the B2 / B3 values and list them in the QA report.
 2. **Token → variable name:** replace `-` between segments with `/` — `color-link-hovered` → `1. Themes › color/link/hovered`; `spacing-xs` → `3. Spacing › spacing/xs`; `radius-xs` → `2. Radius › radius/xs`; `target-min` → `6. Grid & Layout › target/min`.
 3. **Never** bind `_Primitive/*` or `_deprecated/*`.
@@ -578,7 +587,7 @@ This table is the source for Code Connect (D9).
 | `Color` | VARIANT | `Brand` · `Neutral` · `Inverse` | `Brand` | `color` | `'brand'` · `'neutral'` · `'inverse'` |
 | `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | `'sm'` · `'md'` · `'lg'` (`'inherit'` has no Figma variant — see D8 page 03) |
 | `Underline` | VARIANT | `Always` · `Hover` | `Always` | `underline` | `'always'` · `'hover'` |
-| `State` | VARIANT | `Default` · `Hover` · `Focused` · `Pressed` · `Visited` · `Disabled` | `Default` | `disabled` / `showVisited` | `Disabled` → `disabled`; `Visited` → `showVisited` (shown visited); others are interaction states |
+| `State` | VARIANT | `Default` · `Hover` · `Focused` · `Visited` · `Disabled` | `Default` | `disabled` / `showVisited` | `Disabled` → `disabled`; `Visited` → `showVisited` (shown visited); others are interaction states |
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | Figma only; code takes language and direction from the provider |
 | `Label` | TEXT | | `Contact support` (AR variants: `التواصل مع الدعم`) | `children` | |
 | `Leading icon` | BOOLEAN | | `false` | `startIcon` | present / absent |
@@ -599,7 +608,6 @@ This table is the source for Code Connect (D9).
 | Interaction | From → To | Animation |
 |---|---|---|
 | While hovering | Default → Hover | Smart animate · `motion-duration-sm` · standard easing (B4) |
-| While pressing | Hover → Pressed | Smart animate · `motion-duration-xs` |
 
 `Focused` shows the ring for docs and handoff; it is not a prototype interaction. `Visited` is a static variant.
 
@@ -847,3 +855,4 @@ None — version 1.0. Filled when the version is above 1.0; it feeds Figma doc p
 | 1.0 | 2026-10-21 | Initial: MUI `Link`, semantic tokens only (no component tokens, P-04) | No | — |
 | 1.0 (wording) | 2026-10-29 | B3 / C4 prose: `color-link-hover` → `color-link-hovered` (colour tokens 2.0 name); no token or value change | No | — |
 | 1.0 (code) | 2026-11-02 | Internal code keys `hover` → `hovered` in `link.tokens.ts` (system state naming); the public `underline="hover"` value, tokens and values stay | No | — |
+| 1.0 (R-02 bridge) | 2026-11-02 | Added the Figma-only `Link / Size` and `Link / Color` component-token bridge for the existing Web sets; no public API or layer change | No | R-02 phase 1 report |

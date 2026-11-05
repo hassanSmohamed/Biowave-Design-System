@@ -1,7 +1,7 @@
 import { base, cssVars } from '@biowave/foundations';
-import type { ButtonColor, ButtonVariant, ButtonVisualTokens } from '../button/button.tokens';
+import type { ButtonColor, ButtonVisualTokens } from '../button/button.tokens';
 
-type ToggleVariant = Extract<ButtonVariant, 'outlined' | 'text'>;
+type ToggleVariant = 'outlined' | 'transparent';
 
 const disabledBackground = cssVars.color.background.disabled;
 const disabledBorder = cssVars.color.border.disabled;
@@ -53,7 +53,7 @@ const selectedBorders = {
 } as const;
 
 export const iconButtonSelectedTokens = {
-  text: {
+  transparent: {
     brand: selected(selectedBackgrounds.brand, selectedIcons.brand),
     secondary: selected(selectedBackgrounds.secondary, selectedIcons.secondary),
     neutral: selected(selectedBackgrounds.neutral, selectedIcons.neutral),

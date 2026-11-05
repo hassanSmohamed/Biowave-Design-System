@@ -280,7 +280,7 @@ Not supported: MUI `variant="contained"`, `color="success|warning|info|primary"`
 | `leading-icon`, `trailing-icon` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `spinner` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `label` | text style | `action-sm` (`.bw-text-action-sm`) | `action-md` | `action-lg` |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` | same | same |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` | same | same |
 
 Layout rules:
 - `display: inline-flex`, content centered on both axes. Width hugs content; `fullWidth` → 100% of the parent.
@@ -329,8 +329,8 @@ Same as `outlined` without the border.
 #### 3.5 Focus
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` |
+| `focus-ring` | color | Follows `color`: `color-border-brand` · `color-border-secondary` · `color-border-error` · `color-border-success` · `color-border-warning` · `color-border-info` · `color-border-inverse`; `neutral`: `color-border-bold` |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` |
 
 The **state layer** is a second fill painted above the container fill (web: `background-image: linear-gradient(var(--bw-color-background-transparent-hovered), var(--bw-color-background-transparent-hovered))`). Filled buttons never use a state layer; they switch to the solid `-hovered`/`-pressed` tokens.
 
@@ -372,7 +372,7 @@ RTL  │          إضافة جهاز  [◆]  │      │  [◂]  التالي 
 | Accessible name | `children` text. Icons get `aria-hidden="true"` |
 | Loading | `aria-busy="true"` + `aria-disabled="true"` (stays focusable, click ignored). A visually hidden `role="status"` region announces `loadingLabel` once |
 | Disabled | Native `disabled` (removed from tab order). With `href`: `aria-disabled="true"`, `tabIndex=-1`, no navigation |
-| Focus | `:focus-visible` outline: `border-width-focus` solid `color-border-focus`, `outline-offset: border-focus-offset`; follows the container radius |
+| Focus | `:focus-visible` outline: `border-width-focus` solid the `color` focus token (B3.5), `outline-offset: border-focus-offset`; follows the container radius |
 | Target size | Every size ≥ `target-min` (24) — `sm` is the smallest at 32 |
 | Contrast | All label/background pairs in B3 are in `contrast-pairs.json` (4.5:1); outlines and focus 3:1 |
 | Screen reader output | "Save changes, button" · loading: "Save changes, button, busy" + "Saving…" |
@@ -668,21 +668,15 @@ Button                    ↔ horizontal · align center/center · gap {B2 gap} 
 
 ### D4 Properties
 
-This table is the source for Code Connect (D9).
-
 | Figma property | Type | Values | Default | Code prop (web) | Code value |
 |---|---|---|---|---|---|
-| `Variant` | VARIANT | `Filled` · `Tonal` · `Outlined` · `Text` | `Filled` | `variant` | `'filled'` · `'tonal'` · `'outlined'` · `'text'` |
-| `Color` | VARIANT | `Brand` · `Secondary` · `Neutral` · `Error` · `Inverse` | `Brand` | `color` | `'brand'` … `'inverse'` |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | `'sm'` · `'md'` · `'lg'` |
-| `State` | VARIANT | `Default` · `Hovered` · `Focused` · `Pressed` · `Disabled` · `Loading` | `Default` | `disabled` / `loading` | `Disabled` → `disabled`; `Loading` → `loading`; others are interaction states, not props |
-| `Language` | VARIANT | `EN` · `AR` | `EN` | — | Figma only; code takes language and direction from the provider |
-| `Label` | TEXT | | `Save changes` (AR variants: `حفظ التغييرات`) | `children` | |
-| `Leading icon` | BOOLEAN | | `false` | `startIcon` | present / absent |
-| `Leading icon glyph` | INSTANCE_SWAP | preferred: Google · Material Symbols (Rounded) | `add` | `startIcon` | `<Icon baseClassName="material-symbols-rounded">{glyph}</Icon>` |
-| `Trailing icon` | BOOLEAN | | `false` | `endIcon` | present / absent |
-| `Trailing icon glyph` | INSTANCE_SWAP | preferred: Google · Material Symbols (Rounded) | `arrow_forward` | `endIcon` | |
-| — (instance width Fill) | | | | `fullWidth` | not mapped; resizing the instance to Fill = `fullWidth` |
+| `Variant` | VARIANT | `filled` · `outlined` · `text` | `filled` | `variant` | same spelling |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `brand` | `color` | success, warning, info have no code equivalent |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Label` | TEXT |  |  | `children` | text |
+| `Leading icon` | BOOLEAN |  | `false` | `startIcon` | present / absent |
+| `Trailing icon` | BOOLEAN |  | `false` | `endIcon` | present / absent |
 
 ### D5 Variants to generate
 
@@ -761,6 +755,11 @@ Component description: "Starts an action the user chose. One filled button per a
 ---
 
 ### D11 Execution log (filled by the Figma Agent)
+
+2026-11-04 — Final typography verification: migrated 360 Arabic labels to the published action styles in Web/AR typography mode; preserved their paints and appearance. Removed the three local AR/action duplicates only after confirming zero remaining consumers across the file. Web D-13 lint now reports zero violations.
+
+2026-11-03 — Codex: renamed .Button _en (116:5183) and .Button _ar (116:7271) properties and variant values in place. Retained 360 variants each and original component keys. Bound all root stroke edges to Button / Size border-width and all focus-ring edges to Button / Focus width; inside stroke, no fill or effects. Read-back: zero binding errors. EN/AR focused variant screenshots inspected. No instances removed or remapped. Library publication and family-wide theme QA pending.
+
 
 | Field | Value |
 |---|---|
@@ -1097,6 +1096,8 @@ Executor items for round 2: #1, #2, #3, #5, #6, #7, #8 (C7 AC-9).
 > Changes to this component on this platform.
 
 ### F0 Changes from previous version
+
+2026-11-03 — Changes: Web Button-family rebind brief; component token aliases, final Figma property names and retained sets. Icon button variant becomes transparent across platforms. Execution pending validation and Figma rebind.
 
 1.1 — spinner speed now uses `motion-duration-progress` and keeps turning with reduced motion; while loading the button keeps its label as its accessible name; directional icons flip once, marked with `bw-icon-directional` (or `mirrorInRtl` on a custom icon). No API change.
 

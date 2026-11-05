@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 4fdfeaa7cd6afe3a — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ a9d6a0d8a5c73bab — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — code contract
 
 > **Everything you need to build Link on Web, and nothing else.** Read this file only. Generated from [`link.md`](link.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](link.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -11,8 +11,8 @@
 | Import | `import { Link } from '@biowave/web'` |
 | Version | 1.0 · 2026-10-21 |
 | Source code | `src/components/link/` (built) |
-| Tokens | — |
-| Source | [`link.md`](link.md) @ `4fdfeaa7cd6afe3a` |
+| Tokens | [`link.tokens.json`](link.tokens.json) |
+| Source | [`link.md`](link.md) @ `a9d6a0d8a5c73bab` |
 
 ## 1. What it is
 
@@ -95,7 +95,7 @@ Not supported: MUI `underline="none"`, MUI `color` palette values, `variant` typ
 | root | gap between parts | `spacing-xs` | `spacing-xs` | `spacing-xs` | `spacing-xs` |
 | root | min block size | — (inline exception) | `target-min` | `target-min` | `target-min` |
 | root | padding | none | none | none | none |
-| `underline` | thickness · offset | `border-width-default` · `spacing-xxs` (hover / pressed: `border-width-strong`) | same | same | same |
+| `underline` | thickness · offset | `border-width-default` · `spacing-xxs` (hover: `border-width-strong`) | same | same | same |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` | same | same | same |
 
 Layout rules:
@@ -105,25 +105,34 @@ Layout rules:
 
 ## 4. Tokens by part and state
 
-> No component tokens (P-04): every value is a shared semantic token, so there is no `link.tokens.json`. `label`, `underline` and both icons use the same colour (`currentColor`).
+The Web implementation continues to consume shared semantic tokens directly. The existing Web Components Figma sets use the Figma-only bridge in `link.tokens.json` so their current API and layer structure can express size and colour through explicit modes (R-02).
 
-| `color` | Default | Hover | Pressed | Visited (`showVisited`) | Disabled |
+| Figma collection | Modes | Variables |
+|---|---|---|
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` · `focus-ring-width` |
+| `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
+
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and the focus ring is a real stroke on the `Border` layer in the link colour. Web Link has no Pressed state in Figma or code.
+
+In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
+
+| `color` | Default | Hover | Visited (`showVisited`) | Disabled |
+|---|---|---|---|---|
+| `brand` | `color-link-default` | `color-link-hovered` | `color-link-visited` | `color-text-disabled` |
+| `neutral` | `color-text-default` | `color-text-default` | — | `color-text-disabled` |
+| `inverse` | `color-text-inverse` | `color-text-inverse` | — | `color-text-disabled` |
+
+| Part | `underline` | Default | Hover | Focus | Disabled |
 |---|---|---|---|---|---|
-| `brand` | `color-link-default` | `color-link-hovered` | `color-link-pressed` | `color-link-visited` | `color-text-disabled` |
-| `neutral` | `color-text-default` | `color-text-default` | `color-text-default` | — | `color-text-disabled` |
-| `inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-inverse` | — | `color-text-disabled` |
-
-| Part | `underline` | Default | Hover | Pressed | Focus | Disabled |
-|---|---|---|---|---|---|---|
-| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-strong` | `border-width-default` | none |
-| `underline` | `hover` | none | `border-width-default` | `border-width-default` | `border-width-default` | none |
+| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-default` | none |
+| `underline` | `hover` | none | `border-width-default` | `border-width-default` | none |
 
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
+| `focus-ring` | color | Follows `color`: `brand` `color-border-info` · `neutral` `color-border-bold` · `inverse` `color-border-inverse` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` |
 
-Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` and `-pressed` are darker in light and lighter in dark, so they keep at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
+Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` is darker in light and lighter in dark, so it keeps at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
 
 ### 4.1 How to use each token on Web
 
@@ -135,33 +144,56 @@ Values are for checking only — never paste a value.
 | `border-width-default` | `var(--bw-border-width-default)` · `cssVars.border.width.default` | 1 | 1 |
 | `border-width-focus` | `var(--bw-border-width-focus)` · `cssVars.border.width.focus` | 2 | 2 |
 | `border-width-strong` | `var(--bw-border-width-strong)` · `cssVars.border.width.strong` | 2 | 2 |
-| `color-border-focus` | `var(--bw-color-border-focus)` · `cssVars.color.border.focus` | #254471 | #90A3BC |
+| `color-border-bold` | `var(--bw-color-border-bold)` · `cssVars.color.border.bold` | #707070 | #969696 |
+| `color-border-info` | `var(--bw-color-border-info)` · `cssVars.color.border.info` | #2559D4 | #6D9CE8 |
 | `color-border-inverse` | `var(--bw-color-border-inverse)` · `cssVars.color.border.inverse` | #FFFFFF | #0A0A0A |
 | `color-link-default` | `var(--bw-color-link-default)` · `cssVars.color.link.default` | #2559D4 | #6D9CE8 |
 | `color-link-hovered` | `var(--bw-color-link-hovered)` · `cssVars.color.link.hovered` | #1D48AD | #9CBCF2 |
-| `color-link-pressed` | `var(--bw-color-link-pressed)` · `cssVars.color.link.pressed` | #153786 | #CBDCFA |
 | `color-link-visited` | `var(--bw-color-link-visited)` · `cssVars.color.link.visited` | #D42222 | #FF7676 |
 | `color-text-default` | `var(--bw-color-text-default)` · `cssVars.color.text.default` | #0A0A0A | #F7F7F7 |
 | `color-text-disabled` | `var(--bw-color-text-disabled)` · `cssVars.color.text.disabled` | #969696 | #707070 |
 | `color-text-inverse` | `var(--bw-color-text-inverse)` · `cssVars.color.text.inverse` | #FFFFFF | #0A0A0A |
 | `motion-duration-instant` | `var(--bw-motion-duration-instant)` · `cssVars.motion.duration.instant` | 0 | 0 |
 | `motion-duration-sm` | `var(--bw-motion-duration-sm)` · `cssVars.motion.duration.sm` | 100 | 100 |
-| `motion-duration-xs` | `var(--bw-motion-duration-xs)` · `cssVars.motion.duration.xs` | 50 | 50 |
 | `motion-easing-standard` | `var(--bw-motion-easing-standard)` · `cssVars.motion.easing.standard` | [0.2,0,0,1] | [0.2,0,0,1] |
 | `radius-xs` | `var(--bw-radius-xs)` · `cssVars.radius.xs` | 4 | 4 |
 | `size-icon-md` | `var(--bw-size-icon-md)` · `cssVars.size.icon.md` | 20 | 20 |
 | `size-icon-sm` | `var(--bw-size-icon-sm)` · `cssVars.size.icon.sm` | 16 | 16 |
+| `spacing-none` | `var(--bw-spacing-none)` · `cssVars.spacing.none` | 0 | 0 |
 | `spacing-xs` | `var(--bw-spacing-xs)` · `cssVars.spacing.xs` | 4 | 4 |
 | `spacing-xxs` | `var(--bw-spacing-xxs)` · `cssVars.spacing.xxs` | 2 | 2 |
 | `target-min` | `var(--bw-target-min)` · `cssVars.target.min` |  |  |
+
+### 4.2 Component tokens
+
+The code token map must equal [`link.tokens.json`](link.tokens.json) (tests compare them).
+
+| Collection | Variable | Modes → semantic token |
+|---|---|---|
+| Link / Size | height | lg: `size-control-height-lg` · md: `size-control-height-md` · sm: `size-control-height-sm` |
+| Link / Size | padding-inline | lg: `spacing-control-padding-inline-lg` · md: `spacing-control-padding-inline-md` · sm: `spacing-control-padding-inline-sm` |
+| Link / Size | padding-block | lg: `spacing-none` · md: `spacing-none` · sm: `spacing-none` |
+| Link / Size | gap | lg: `spacing-control-gap-lg` · md: `spacing-control-gap-md` · sm: `spacing-control-gap-sm` |
+| Link / Size | icon | lg: `size-icon-lg` · md: `size-icon-md` · sm: `size-icon-sm` |
+| Link / Size | radius | lg: `radius-2xl` · md: `radius-2xl` · sm: `radius-2xl` |
+| Link / Size | focus-ring-width | lg: `border-width-focus` · md: `border-width-focus` · sm: `border-width-focus` |
+| Link / Color | label/default | brand: `color-link-default` · neutral: `color-text-default` · inverse: `color-text-inverse` |
+| Link / Color | label/hovered | brand: `color-link-hovered` · neutral: `color-text-default` · inverse: `color-text-inverse` |
+| Link / Color | label/visited | brand: `color-link-visited` · neutral: `color-text-default` · inverse: `color-text-inverse` |
+| Link / Color | label/disabled | brand: `color-text-disabled` · neutral: `color-text-disabled` · inverse: `color-text-disabled` |
+| Link / Color | icon/default | brand: `color-link-default` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
+| Link / Color | icon/hovered | brand: `color-link-hovered` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
+| Link / Color | icon/visited | brand: `color-link-visited` · neutral: `color-icon-default` · inverse: `color-icon-inverse` |
+| Link / Color | icon/disabled | brand: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
+| Link / Color | container | brand: `color-background-transparent-default` · neutral: `color-background-transparent-default` · inverse: `color-background-transparent-default` |
+| Link / Color | border | brand: `color-border-default` · neutral: `color-border-default` · inverse: `color-border-default` |
+| Link / Color | focus-ring | brand: `color-border-info` · neutral: `color-border-bold` · inverse: `color-border-inverse` |
 
 ## 5. States and transitions
 
 | From → To | Trigger | Animated properties | Duration | Easing |
 |---|---|---|---|---|
 | Default → Hover | pointer enter | colour, underline thickness / appearance | `motion-duration-sm` | `motion-easing-standard` |
-| Hover → Pressed | pointer down · Enter down | colour, underline thickness | `motion-duration-xs` | `motion-easing-standard` |
-| Pressed → Hover / Default | release | colour, underline thickness | `motion-duration-sm` | `motion-easing-standard` |
 | Any → Focus | keyboard focus (`:focus-visible`) | focus ring appears | `motion-duration-instant` | — |
 | Enabled ↔ Disabled | `disabled` changes | colour, underline | `motion-duration-instant` | — |
 | Default → Visited | browser history | colour (no transition: `:visited` allows colour only) | — | — |
@@ -194,7 +226,7 @@ LTR  [◆] Contact support [▸]          RTL          [◂] التواصل مع
 | Accessible name | `children` text. Icons are decorative (`Icon` without `label` → `aria-hidden="true"`). `external`: a visually hidden span with `externalLabel` inside the link, after the label (shared helper `src/internal/visuallyHidden.ts`) |
 | External | `target="_blank"` + `rel="noopener noreferrer"` |
 | Disabled | `<a>` **without** `href`, `role="link"`, `aria-disabled="true"`; not in the tab order; `onClick` not called |
-| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid `color-border-focus` (`inverse`: `color-border-inverse`), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
+| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid the `color` focus token (B3), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
 | Target size | Standalone: `min-block-size: target-min` (24) · inline: WCAG 2.5.8 inline exception |
 | Non-colour cue | Inline and `neutral` links always underlined (WCAG 1.4.1, B1 fallbacks) |
 | Cursor | `pointer`; disabled: `default` |
@@ -250,7 +282,7 @@ import { Link as RouterLink } from 'react-router-dom';
 ### Approach
 
 - **Base:** wrap MUI `Link` (`@mui/material/Link`) with `underline="none"` and `color="inherit"`, so MUI adds no colour, underline or typography of its own. All styling comes from one `styled()` wrapper that reads transient props (`$color`, `$size`, `$underline`, `$showVisited`) — never forwarded to the DOM.
-- **Token map:** `link.tokens.ts` exports typed tables `color → { default, hover, pressed, visited?, disabled }` and `size → { typography, icon }` whose values are `cssVars.*` references (B2–B3). The styled wrapper reads only these tables.
+- **Token map:** `link.tokens.ts` exports typed tables `color → { default, hover, visited?, disabled }` and `size → { typography, icon }` whose values are `cssVars.*` references (B2–B3). The styled wrapper reads only these tables.
 - **Label and underline:** render the children inside `<span class="bw-link__label">`. The underline is `text-decoration-line: underline` on that span with `text-decoration-thickness: cssVars.border.width.default` (hover / active: `.strong`), `text-underline-offset: cssVars.spacing.xxs`, `text-decoration-color: currentColor`. `underline="hover"` sets `text-decoration-line: none` at rest and `underline` on `:hover`, `:active`, `:focus-visible`.
 - **Typography:** `sm`/`md`/`lg` use `actionSm|actionMd|actionLg` from `biowaveVariants` (size and line height are CSS variables, so Arabic switches automatically); `inherit` sets `font: inherit` and `display: inline`.
 - **Icons:** `startIcon` is wrapped in `<span class="bw-link__icon" aria-hidden="true">` whose `font-size` is the B2 icon token (the Icon without `size` follows it; for `inherit` the wrapper uses `1em`). The external icon is `<Icon name="open_in_new" directional />` in the same wrapper. Link never adds `bw-icon-directional` to a wrapper (the Icon flips itself once, B5).
@@ -264,13 +296,16 @@ import { Link as RouterLink } from 'react-router-dom';
 
 ### Token gaps
 
-None. All tokens exist in Foundations: `color-link-default` · `-hovered` · `-pressed` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-focus` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`. No component tokens (P-04).
+Code has no token gap: it continues to use the shared semantic tokens listed below. Figma has the R-02 bridge in `link.tokens.json`; it aliases those live semantic variables and does not change the public API.
+
+Shared code tokens: `color-link-default` · `-hovered` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-info` · `-bold` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`.
 
 ### Files to create / change
 
 ```
 3-web-components/src/components/link/Link.tsx         new
 3-web-components/src/components/link/link.tokens.ts   new (typed map of B2–B3 → cssVars)
+3-web-components/components/link/link.tokens.json     Figma-only R-02 component-token bridge
 3-web-components/src/components/link/Link.test.tsx    new
 3-web-components/src/components/link/index.ts         new: export { Link } and types LinkProps, LinkColor, LinkSize, LinkUnderline
 3-web-components/src/index.ts                         change: export Link and its types

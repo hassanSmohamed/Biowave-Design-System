@@ -1,7 +1,7 @@
-<!-- GENERATED from button.md @ 057bae1166279351 — do not edit; change the source and run: npm run contract -- web button -->
+<!-- GENERATED from button.md @ 91b0cecd215b6f9c — do not edit; change the source and run: npm run contract -- web button -->
 # Button · زر — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-10-29). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-18 |
-| Source | [`button.md`](button.md) @ `057bae1166279351` |
+| Source | [`button.md`](button.md) @ `91b0cecd215b6f9c` |
 
 ## 1. Library connections in this file
 
@@ -44,6 +44,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | Button / Size | sm · md · lg | `icon` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
 | Button / Size | sm · md · lg | `radius` | sm → 2. Radius › `radius/md`<br>md → 2. Radius › `radius/md`<br>lg → 2. Radius › `radius/md` |
 | Button / Size | sm · md · lg | `border-width` | sm → 7. Border › `border/width/default`<br>md → 7. Border › `border/width/default`<br>lg → 7. Border › `border/width/default` |
+| Button / Size | sm · md · lg | `focus-ring-radius` | sm → 2. Radius › `radius/lg`<br>md → 2. Radius › `radius/lg`<br>lg → 2. Radius › `radius/lg` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/default` | brand → 1. Themes › `color/background/brand/default`<br>secondary → 1. Themes › `color/background/secondary/default`<br>error → 1. Themes › `color/background/error/default`<br>neutral → 1. Themes › `color/background/neutral/default`<br>inverse → 1. Themes › `color/background/inverse/default` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/hovered` | brand → 1. Themes › `color/background/brand/hovered`<br>secondary → 1. Themes › `color/background/secondary/hovered`<br>error → 1. Themes › `color/background/error/hovered`<br>neutral → 1. Themes › `color/background/neutral/hovered`<br>inverse → 1. Themes › `color/background/inverse/hovered` |
 | Button / Filled | brand · secondary · error · neutral · inverse | `container/pressed` | brand → 1. Themes › `color/background/brand/pressed`<br>secondary → 1. Themes › `color/background/secondary/pressed`<br>error → 1. Themes › `color/background/error/pressed`<br>neutral → 1. Themes › `color/background/neutral/pressed`<br>inverse → 1. Themes › `color/background/inverse/pressed` |
@@ -78,7 +79,8 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | Button / Text | brand · secondary · error · neutral · inverse | `label/disabled` | brand → 1. Themes › `color/text/disabled`<br>secondary → 1. Themes › `color/text/disabled`<br>error → 1. Themes › `color/text/disabled`<br>neutral → 1. Themes › `color/text/disabled`<br>inverse → 1. Themes › `color/text/disabled` |
 | Button / Text | brand · secondary · error · neutral · inverse | `icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>error → 1. Themes › `color/icon/role/error`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/on/brand` |
 | Button / Text | brand · secondary · error · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
-| Button / Focus | default · inverse | `color` | default → 1. Themes › `color/border/focus`<br>inverse → 1. Themes › `color/border/inverse` |
+| Button / Focus | brand · secondary · neutral · success · error · warning · info · inverse | `color` | brand → 1. Themes › `color/border/brand`<br>secondary → 1. Themes › `color/border/secondary`<br>neutral → 1. Themes › `color/border/bold`<br>success → 1. Themes › `color/border/success`<br>error → 1. Themes › `color/border/error`<br>warning → 1. Themes › `color/border/warning`<br>info → 1. Themes › `color/border/info`<br>inverse → 1. Themes › `color/border/inverse` |
+| Button / Focus | brand · secondary · neutral · success · error · warning · info · inverse | `width` | brand → 7. Border › `border/width/focus`<br>secondary → 7. Border › `border/width/focus`<br>neutral → 7. Border › `border/width/focus`<br>success → 7. Border › `border/width/focus`<br>error → 7. Border › `border/width/focus`<br>warning → 7. Border › `border/width/focus`<br>info → 7. Border › `border/width/focus`<br>inverse → 7. Border › `border/width/focus` |
 
 ## 3. Foundations variables used (keys)
 
@@ -86,7 +88,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 |---|---|---|---|---|---|
 | `border-focus-offset` | 7. Border › `border/focus/offset` | `b90b6264cf3202aa473578d22cb211167afe775d` | FLOAT | GAP | spec |
 | `border-width-default` | 7. Border › `border/width/default` | `9b62f24ecdfc438789ce3fa296e725ac14b1e08f` | FLOAT | STROKE_FLOAT | spec, component token |
-| `border-width-focus` | 7. Border › `border/width/focus` | `d660bcb01777958134799fe11a99a63aaf1fbfca` | FLOAT | STROKE_FLOAT | spec |
+| `border-width-focus` | 7. Border › `border/width/focus` | `d660bcb01777958134799fe11a99a63aaf1fbfca` | FLOAT | STROKE_FLOAT | spec, component token |
 | `color-background-brand-default` | 1. Themes › `color/background/brand/default` | `bdd7bfecb9dd5c41ac657e880d4d2efe36909e3f` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
 | `color-background-brand-hovered` | 1. Themes › `color/background/brand/hovered` | `8c4a115738de9afc5cc82e97aa2aa38763e937ed` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
 | `color-background-brand-pressed` | 1. Themes › `color/background/brand/pressed` | `53e9e1b8df7612fbd2878471501d6b72fd3b12be` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
@@ -109,13 +111,16 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | `color-background-transparent-default` | 1. Themes › `color/background/transparent/default` | `7ded3d8bfead13a83fc2297ef9dc75a16f73857b` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
 | `color-background-transparent-hovered` | 1. Themes › `color/background/transparent/hovered` | `51354205cb02a343717bc6e5ca84b0e151af3de8` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
 | `color-background-transparent-pressed` | 1. Themes › `color/background/transparent/pressed` | `830ae424ad770312d061208a89f7452569d643d8` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
+| `color-border-bold` | 1. Themes › `color/border/bold` | `ab8b644249ebef8ab1b6a1efc54e0b4e504d3979` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-brand` | 1. Themes › `color/border/brand` | `50ddd3d7028ede7c14f73576869a28588b0c3b7d` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-disabled` | 1. Themes › `color/border/disabled` | `a6d557c3fa0bcb0e2e6b6592234d737ef80936bf` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-error` | 1. Themes › `color/border/error` | `28b0f15306faf6c8113f5acdf14ed8fc66e02c57` | COLOR | STROKE_COLOR | spec, component token |
-| `color-border-focus` | 1. Themes › `color/border/focus` | `ef666d3badd2b63f18cb168d9987ead7fbc21480` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-info` | 1. Themes › `color/border/info` | `df6d00488697e55fe6bd439d9ef9888d85c9a3d7` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-inverse` | 1. Themes › `color/border/inverse` | `0e53944b3de77eca83b17b27c3e5d0b4fca582d8` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-secondary` | 1. Themes › `color/border/secondary` | `7466169e60102e31827f59ddfe6eb94a9bbee577` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-strong` | 1. Themes › `color/border/strong` | `a12934eff6a447ebe30a4507b223c76e583e2701` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-success` | 1. Themes › `color/border/success` | `a6bc4e451961378013cbf0f536417a2a9fba0daa` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-warning` | 1. Themes › `color/border/warning` | `d327d60eda883f8a19982118ed7843d57671a416` | COLOR | STROKE_COLOR | spec, component token |
 | `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
 | `color-icon-disabled` | 1. Themes › `color/icon/disabled` | `708926473ca446a26d4a0891351f04692171f74f` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
 | `color-icon-on-brand` | 1. Themes › `color/icon/on/brand` | `7adf0bdf71942294bcca707ea3b88ab778741004` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
@@ -132,6 +137,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | `color-text-role-brand` | 1. Themes › `color/text/role/brand` | `bf6f82d7545a8ae04bb4d55ee373397e5d16c45a` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-role-error` | 1. Themes › `color/text/role/error` | `99d512c8b115971ff7f8045c6decd1cada845f37` | COLOR | TEXT_FILL | spec, component token |
 | `color-text-role-secondary` | 1. Themes › `color/text/role/secondary` | `39d1b107af72de6e3b48156a5c5f3e7cb170b7de` | COLOR | TEXT_FILL | spec, component token |
+| `radius-lg` | 2. Radius › `radius/lg` | `bb2122acd11d99ba9396f13390d02b70941a6cfa` | FLOAT | CORNER_RADIUS | spec, component token |
 | `radius-md` | 2. Radius › `radius/md` | `0758e506cdfd4d7a4eef6369a4851133d7eab5a4` | FLOAT | CORNER_RADIUS | spec, component token |
 | `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | spec, component token |
 | `size-control-height-md` | 4. Size › `size/control/height/md` | `cb6d23a09de76b9cea37c24579dbb2a9e6e6a079` | FLOAT | WIDTH_HEIGHT | spec, component token |
@@ -172,7 +178,6 @@ Library file **Google · Material Symbols** · key `RXlnhYgUKBBE6HveEr7e9C` — 
 | Icon | Set key | Rounded (unfilled) | Rounded (filled) |
 |---|---|---|---|
 | `add` | `7d426edec81a6ef6e44ffdcc37eab6863c7943a7` | `d20bdb7a3a61cd1a31b9e9dddf5c46330cc9bbff` | `cbadf0df7af23f20cf573e9b3856c059d146c57d` |
-| `arrow_forward` | `90a6ad2ece86bb88d2f44286bd9efd3a60a5c815` | `48427bac81c0253cee4049d8ad243a4fb4da643d` | `1df1f77448d6e530948cc17302f5ae41c6fa453c` |
 
 ## 7. Phase 1 — values (from Part B)
 
@@ -227,7 +232,7 @@ Not supported: MUI `variant="contained"`, `color="success|warning|info|primary"`
 | `leading-icon`, `trailing-icon` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `spinner` | size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `label` | text style | `action-sm` (`.bw-text-action-sm`) | `action-md` | `action-lg` |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` | same | same |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` | same | same |
 
 Layout rules:
 - `display: inline-flex`, content centered on both axes. Width hugs content; `fullWidth` → 100% of the parent.
@@ -276,8 +281,8 @@ Same as `outlined` without the border.
 ### 3.5 Focus
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
-| `focus-ring` | width · offset | `border-width-focus` · `border-focus-offset` |
+| `focus-ring` | color | Follows `color`: `color-border-brand` · `color-border-secondary` · `color-border-error` · `color-border-success` · `color-border-warning` · `color-border-info` · `color-border-inverse`; `neutral`: `color-border-bold` |
+| `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` |
 
 The **state layer** is a second fill painted above the container fill (web: `background-image: linear-gradient(var(--bw-color-background-transparent-hovered), var(--bw-color-background-transparent-hovered))`). Filled buttons never use a state layer; they switch to the solid `-hovered`/`-pressed` tokens.
 
@@ -319,7 +324,7 @@ RTL  │          إضافة جهاز  [◆]  │      │  [◂]  التالي 
 | Accessible name | `children` text. Icons get `aria-hidden="true"` |
 | Loading | `aria-busy="true"` + `aria-disabled="true"` (stays focusable, click ignored). A visually hidden `role="status"` region announces `loadingLabel` once |
 | Disabled | Native `disabled` (removed from tab order). With `href`: `aria-disabled="true"`, `tabIndex=-1`, no navigation |
-| Focus | `:focus-visible` outline: `border-width-focus` solid `color-border-focus`, `outline-offset: border-focus-offset`; follows the container radius |
+| Focus | `:focus-visible` outline: `border-width-focus` solid the `color` focus token (B3.5), `outline-offset: border-focus-offset`; follows the container radius |
 | Target size | Every size ≥ `target-min` (24) — `sm` is the smallest at 32 |
 | Contrast | All label/background pairs in B3 are in `contrast-pairs.json` (4.5:1); outlines and focus 3:1 |
 | Screen reader output | "Save changes, button" · loading: "Save changes, button, busy" + "Saving…" |
@@ -387,21 +392,15 @@ Button                    ↔ horizontal · align center/center · gap {B2 gap} 
 
 ### D4 Properties
 
-This table is the source for Code Connect (D9).
-
 | Figma property | Type | Values | Default | Code prop (web) | Code value |
 |---|---|---|---|---|---|
-| `Variant` | VARIANT | `Filled` · `Tonal` · `Outlined` · `Text` | `Filled` | `variant` | `'filled'` · `'tonal'` · `'outlined'` · `'text'` |
-| `Color` | VARIANT | `Brand` · `Secondary` · `Neutral` · `Error` · `Inverse` | `Brand` | `color` | `'brand'` … `'inverse'` |
-| `Size` | VARIANT | `SM` · `MD` · `LG` | `MD` | `size` | `'sm'` · `'md'` · `'lg'` |
-| `State` | VARIANT | `Default` · `Hovered` · `Focused` · `Pressed` · `Disabled` · `Loading` | `Default` | `disabled` / `loading` | `Disabled` → `disabled`; `Loading` → `loading`; others are interaction states, not props |
-| `Language` | VARIANT | `EN` · `AR` | `EN` | — | Figma only; code takes language and direction from the provider |
-| `Label` | TEXT | | `Save changes` (AR variants: `حفظ التغييرات`) | `children` | |
-| `Leading icon` | BOOLEAN | | `false` | `startIcon` | present / absent |
-| `Leading icon glyph` | INSTANCE_SWAP | preferred: Google · Material Symbols (Rounded) | `add` | `startIcon` | `<Icon baseClassName="material-symbols-rounded">{glyph}</Icon>` |
-| `Trailing icon` | BOOLEAN | | `false` | `endIcon` | present / absent |
-| `Trailing icon glyph` | INSTANCE_SWAP | preferred: Google · Material Symbols (Rounded) | `arrow_forward` | `endIcon` | |
-| — (instance width Fill) | | | | `fullWidth` | not mapped; resizing the instance to Fill = `fullWidth` |
+| `Variant` | VARIANT | `filled` · `outlined` · `text` | `filled` | `variant` | same spelling |
+| `Color` | VARIANT | `brand` · `secondary` · `success` · `error` · `warning` · `info` · `neutral` · `inverse` | `brand` | `color` | success, warning, info have no code equivalent |
+| `State` | VARIANT | `default` · `hovered` · `focused` · `pressed` · `disabled` | `default` | `disabled` | Other values are interaction states |
+| `Size` | VARIANT | `sm` · `md` · `lg` | `md` | `size` | same spelling |
+| `Label` | TEXT |  |  | `children` | text |
+| `Leading icon` | BOOLEAN |  | `false` | `startIcon` | present / absent |
+| `Trailing icon` | BOOLEAN |  | `false` | `endIcon` | present / absent |
 
 ### D5 Variants to generate
 
