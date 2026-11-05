@@ -84,7 +84,7 @@ Allowed names:
 - **A component owns only its own tokens.** Tooltip values live in `Tooltip / *`, not in the component that shows it.
 - **A name is never both a token and a group.** `npm run component-tokens` fails on it.
 
-`npm run component-tokens` reports names outside these rules. Use `npm run component-tokens -- --strict` to fail on them.
+`npm run component-tokens` fails on any name outside these rules.
 
 ### Web (CSS, TypeScript, MUI)
 | Use | Formula | Example |
