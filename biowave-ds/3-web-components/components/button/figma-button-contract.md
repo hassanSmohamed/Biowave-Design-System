@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ fe7929262cc649b8 — do not edit; change the source and run: npm run contract -- web button -->
+<!-- GENERATED from button.md @ 91b0cecd215b6f9c — do not edit; change the source and run: npm run contract -- web button -->
 # Button · زر — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-18 |
-| Source | [`button.md`](button.md) @ `fe7929262cc649b8` |
+| Source | [`button.md`](button.md) @ `91b0cecd215b6f9c` |
 
 ## 1. Library connections in this file
 
@@ -115,12 +115,12 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | `color-border-brand` | 1. Themes › `color/border/brand` | `50ddd3d7028ede7c14f73576869a28588b0c3b7d` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-disabled` | 1. Themes › `color/border/disabled` | `a6d557c3fa0bcb0e2e6b6592234d737ef80936bf` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-error` | 1. Themes › `color/border/error` | `28b0f15306faf6c8113f5acdf14ed8fc66e02c57` | COLOR | STROKE_COLOR | spec, component token |
-| `color-border-info` | 1. Themes › `color/border/info` | `df6d00488697e55fe6bd439d9ef9888d85c9a3d7` | COLOR | STROKE_COLOR | component token |
+| `color-border-info` | 1. Themes › `color/border/info` | `df6d00488697e55fe6bd439d9ef9888d85c9a3d7` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-inverse` | 1. Themes › `color/border/inverse` | `0e53944b3de77eca83b17b27c3e5d0b4fca582d8` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-secondary` | 1. Themes › `color/border/secondary` | `7466169e60102e31827f59ddfe6eb94a9bbee577` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-strong` | 1. Themes › `color/border/strong` | `a12934eff6a447ebe30a4507b223c76e583e2701` | COLOR | STROKE_COLOR | spec, component token |
-| `color-border-success` | 1. Themes › `color/border/success` | `a6bc4e451961378013cbf0f536417a2a9fba0daa` | COLOR | STROKE_COLOR | component token |
-| `color-border-warning` | 1. Themes › `color/border/warning` | `d327d60eda883f8a19982118ed7843d57671a416` | COLOR | STROKE_COLOR | component token |
+| `color-border-success` | 1. Themes › `color/border/success` | `a6bc4e451961378013cbf0f536417a2a9fba0daa` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-warning` | 1. Themes › `color/border/warning` | `d327d60eda883f8a19982118ed7843d57671a416` | COLOR | STROKE_COLOR | spec, component token |
 | `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
 | `color-icon-disabled` | 1. Themes › `color/icon/disabled` | `708926473ca446a26d4a0891351f04692171f74f` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
 | `color-icon-on-brand` | 1. Themes › `color/icon/on/brand` | `7adf0bdf71942294bcca707ea3b88ab778741004` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
@@ -281,7 +281,7 @@ Same as `outlined` without the border.
 ### 3.5 Focus
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | Follows `color`: `color-border-brand` · `-secondary` · `-error` · `-success` · `-warning` · `-info` · `-inverse`; `neutral`: `color-border-bold` |
+| `focus-ring` | color | Follows `color`: `color-border-brand` · `color-border-secondary` · `color-border-error` · `color-border-success` · `color-border-warning` · `color-border-info` · `color-border-inverse`; `neutral`: `color-border-bold` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` |
 
 The **state layer** is a second fill painted above the container fill (web: `background-image: linear-gradient(var(--bw-color-background-transparent-hovered), var(--bw-color-background-transparent-hovered))`). Filled buttons never use a state layer; they switch to the solid `-hovered`/`-pressed` tokens.

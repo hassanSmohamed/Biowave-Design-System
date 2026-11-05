@@ -329,7 +329,7 @@ Same as `outlined` without the border.
 #### 3.5 Focus
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | Follows `color`: `color-border-brand` · `-secondary` · `-error` · `-success` · `-warning` · `-info` · `-inverse`; `neutral`: `color-border-bold` |
+| `focus-ring` | color | Follows `color`: `color-border-brand` · `color-border-secondary` · `color-border-error` · `color-border-success` · `color-border-warning` · `color-border-info` · `color-border-inverse`; `neutral`: `color-border-bold` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` |
 
 The **state layer** is a second fill painted above the container fill (web: `background-image: linear-gradient(var(--bw-color-background-transparent-hovered), var(--bw-color-background-transparent-hovered))`). Filled buttons never use a state layer; they switch to the solid `-hovered`/`-pressed` tokens.
