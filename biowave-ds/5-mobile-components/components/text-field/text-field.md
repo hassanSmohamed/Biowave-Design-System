@@ -355,7 +355,7 @@ Same as [Web B5](../../../3-web-components/components/text-field/text-field.md#b
 | Hint / error / counter | Through `InputDecoration.helper` / `error` / `counter` so TalkBack and VoiceOver read them with the field; `error-icon` `ExcludeSemantics` |
 | Prefix / suffix | Read as part of the field value hint (e.g. “Hourly rate, SAR”) |
 | Help icon | `BwIconButton` (`text`, `neutral`) with `helpLabel`; M3 `Tooltip(triggerMode: TooltipTriggerMode.tap, message: helpText)`; stays enabled when the field is disabled |
-| Trailing action | `BwIconButton` (`text`, `neutral`) sized to B2 `action-box`; `onPressed: null` when the field is disabled; clear returns focus to the field; password toggle exposes `toggled` with “Show password” / “Hide password” |
+| Trailing action | `BwIconButton` (`text`, `neutral`) sized to B2 `action-size`; `onPressed: null` when the field is disabled; clear returns focus to the field; password toggle exposes `toggled` with “Show password” / “Hide password” |
 | End button | `BwButton` (`outlined`, `neutral`, field size); `onPressed: null` when the field is disabled |
 | Focus | **Field exception** (as Web): the outline becomes `border-width-focus` in `color-border-focus` whenever the field has focus (touch or keyboard); error keeps `color-border-error`. Buttons inside use `BwFocusRing` (keyboard only) |
 | Disabled / read-only | `enabled: false` removes the field and its controls from focus traversal; `readOnly: true` stays focusable and selectable, clear hidden |
@@ -398,7 +398,7 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 
 - [ ] Renders every allowed size, single line and multiline, in light + dark × en + ar (`pumpBw`)
 - [ ] Goldens for Default, Focus, Error, Disabled, Read-only, prefix/suffix, end button, help icon, trailing action
-- [ ] Exact field height per size (`tester.getSize`); trailing action box = B2 `action-box`, inset `BwSpacing.xs`, inside the outline
+- [ ] Exact field height per size (`tester.getSize`); trailing action box = B2 `action-size`, inset `BwSpacing.xs`, inside the outline
 - [ ] Semantics: one text-field node named by `label` (+ required), helper/error/counter read with it; trailing action, help icon and end button are separate nodes with their names (`matchesSemantics`)
 - [ ] Disabled: field, trailing action and end button not focusable; help icon still reachable
 - [ ] Clear: hidden when empty / read-only / disabled; clears, keeps focus, calls `onChanged('')` and `onCleared`

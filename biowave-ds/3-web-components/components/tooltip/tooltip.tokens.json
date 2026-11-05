@@ -1,0 +1,39 @@
+{
+  "$schema": "component-tokens/v1",
+  "$description": "Figma-only Tooltip component tokens. Every value aliases a semantic token; code consumes the semantic tokens directly.",
+  "$extensions": {
+    "biowave": {
+      "figmaOnly": true
+    }
+  },
+  "tooltip": {
+    "container": {
+      "$extensions": {
+        "figma": {
+          "collection": "Tooltip / Container",
+          "modes": true
+        }
+      },
+      "default": {
+        "container": {
+          "$value": "{color.surface.inverse}"
+        },
+        "label": {
+          "$value": "{color.text.inverse}"
+        },
+        "radius": {
+          "$value": "{radius.sm}"
+        },
+        "padding-block": {
+          "$value": "{spacing.xs}"
+        },
+        "padding-inline": {
+          "$value": "{spacing.md}"
+        },
+        "offset": {
+          "$value": "{spacing.xs}"
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<!-- GENERATED from text-field.md @ 59c3c94a25803991 — do not edit; change the source and run: npm run contract -- web text-field -->
+<!-- GENERATED from text-field.md @ 87d81a9ece396a32 — do not edit; change the source and run: npm run contract -- web text-field -->
 # Text field · حقل نص — Web — code contract
 
 > **Everything you need to build Text field on Web, and nothing else.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](text-field.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.2 · 2026-10-21 |
 | Source code | [`src/components/text-field/`](../../src/components/text-field/) |
 | Tokens | [`text-field.tokens.json`](text-field.tokens.json) |
-| Source | [`text-field.md`](text-field.md) @ `59c3c94a25803991` |
+| Source | [`text-field.md`](text-field.md) @ `87d81a9ece396a32` |
 
 ## 1. What it is
 
@@ -126,7 +126,7 @@ A text field lets a user enter or edit text. It uses a static label above an out
 | `leading-icon` · `trailing-icon` | glyph | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `trailing-action` | box (inline + block) | `size-icon-lg` (24) | `size-control-height-sm` (32) | `size-control-height-md` (40) |
 | `trailing-action` | glyph | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
-| `trailing-action` | multiline margin-block-start | `max(action-inset − spacing-control-gap-sm, (body-sm line-height − action-box) / 2)` | `max(action-inset − spacing-control-gap-md, (body-md line-height − action-box) / 2)` | `max(action-inset − spacing-control-gap-lg, (body-lg line-height − action-box) / 2)` |
+| `trailing-action` | multiline margin-block-start | `max(action-inset − spacing-control-gap-sm, (body-sm line-height − action-size) / 2)` | `max(action-inset − spacing-control-gap-md, (body-md line-height − action-size) / 2)` | `max(action-inset − spacing-control-gap-lg, (body-lg line-height − action-size) / 2)` |
 | `trailing-action` | multiline offset from the field's top edge (resolved, EN and AR) | `spacing-xs` (margin 0) | `spacing-xs` (margin `spacing-xs` − `spacing-control-gap-md`) | `spacing-xs` (margin `spacing-xs` − `spacing-control-gap-lg`) |
 | `trailing-action` | pointer target | ≥ `target-min`, extended invisibly around the box; never changes layout | same | same |
 | `prefix` · `suffix` | padding-inline | = field padding-inline | same | same |
@@ -144,7 +144,7 @@ Layout rules:
 - Root fills the available inline size by default; `fullWidth=false` hugs the MUI intrinsic width
 - The single-line height includes the border. Input, icons and add-ons center on the block axis
 - The trailing action is inset by `spacing-xs` from the border on the top, bottom and inline end, so it never covers the border at any size. A decorative trailing icon sits at the normal padding, mirroring the leading icon
-- Multiline: icons top-align. **One rule for the trailing action:** `margin-block-start = max(action-inset − padding-block, (line-height − action-box) / 2)`, where `padding-block` = `spacing-control-gap-*` and `line-height` = the input text style's line height for the current size and language. The action box is centred on the first text line when that leaves at least `spacing-xs` above it; otherwise it starts `spacing-xs` below the field's top edge, the same inset as single-line. It is never closer than `spacing-xs` to the top border at any size. With today's tokens the second term is always smaller, so at `sm`, `md` and `lg` (EN and AR) the action box starts exactly `spacing-xs` from the top edge and its centre sits slightly below the first-line centre (by 2 / 3 / 4 in EN, 1 / 2 / 3 in AR for sm / md / lg). This replaces the v1.1 rule "centre aligns with the first text line", which put the box 2 / 1 / 0 from the top edge
+- Multiline: icons top-align. **One rule for the trailing action:** `margin-block-start = max(action-inset − padding-block, (line-height − action-size) / 2)`, where `padding-block` = `spacing-control-gap-*` and `line-height` = the input text style's line height for the current size and language. The action box is centred on the first text line when that leaves at least `spacing-xs` above it; otherwise it starts `spacing-xs` below the field's top edge, the same inset as single-line. It is never closer than `spacing-xs` to the top border at any size. With today's tokens the second term is always smaller, so at `sm`, `md` and `lg` (EN and AR) the action box starts exactly `spacing-xs` from the top edge and its centre sits slightly below the first-line centre (by 2 / 3 / 4 in EN, 1 / 2 / 3 in AR for sm / md / lg). This replaces the v1.1 rule "centre aligns with the first text line", which put the box 2 / 1 / 0 from the top edge
 - `prefix`/`suffix` are part of the field (one outer border, one focus indicator). With `end-button`, the field's inline-end corners are square and the Button's inline-start corners are square; they share one border
 - Label, helper text and counter can wrap. The helper grows first; the counter stays at inline end and does not overlap it
 
@@ -163,7 +163,7 @@ Layout rules:
 | `field` | radius | `radius-md` | `radius-md` | `radius-md` |
 | `field` | border | `border-width-default` | `border-width-default` | `border-width-default` |
 | icons | icon size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
-| `trailing-action` | action-box | `size-icon-lg` | `size-control-height-sm` | `size-control-height-md` |
+| `trailing-action` | action-size | `size-icon-lg` | `size-control-height-sm` | `size-control-height-md` |
 
 ### 3.2 State tokens
 
@@ -240,12 +240,12 @@ The code token map must equal [`text-field.tokens.json`](text-field.tokens.json)
 | Text field / Size | gap | sm: `spacing-control-gap-sm` · md: `spacing-control-gap-md` · lg: `spacing-control-gap-lg` |
 | Text field / Size | label-gap | sm: `spacing-sm` · md: `spacing-sm` · lg: `spacing-sm` |
 | Text field / Size | supporting-gap | sm: `spacing-xs` · md: `spacing-xs` · lg: `spacing-xs` |
-| Text field / Size | icon | sm: `size-icon-sm` · md: `size-icon-md` · lg: `size-icon-lg` |
+| Text field / Size | icon-size | sm: `size-icon-sm` · md: `size-icon-md` · lg: `size-icon-lg` |
 | Text field / Size | radius | sm: `radius-md` · md: `radius-md` · lg: `radius-md` |
 | Text field / Size | border-width | sm: `border-width-default` · md: `border-width-default` · lg: `border-width-default` |
-| Text field / Size | action-box | sm: `size-icon-lg` · md: `size-control-height-sm` · lg: `size-control-height-md` |
+| Text field / Size | action-size | sm: `size-icon-lg` · md: `size-control-height-sm` · lg: `size-control-height-md` |
 | Text field / Size | action-inset | sm: `spacing-xs` · md: `spacing-xs` · lg: `spacing-xs` |
-| Text field / State | background | default: `color-background-base-default` · hovered: `color-background-base-hovered` · focused: `color-background-base-default` · error: `color-background-base-default` · disabled: `color-background-disabled` · read-only: `color-background-base-subtlest` |
+| Text field / State | container | default: `color-background-base-default` · hovered: `color-background-base-hovered` · focused: `color-background-base-default` · error: `color-background-base-default` · disabled: `color-background-disabled` · read-only: `color-background-base-subtlest` |
 | Text field / State | border | default: `color-border-bold` · hovered: `color-border-bold` · focused: `color-border-focus` · error: `color-border-error` · disabled: `color-border-disabled` · read-only: `color-border-default` |
 | Text field / State | border-width | default: `border-width-default` · hovered: `border-width-default` · focused: `border-width-focus` · error: `border-width-default` · disabled: `border-width-default` · read-only: `border-width-default` |
 | Text field / State | label | default: `color-text-default` · hovered: `color-text-default` · focused: `color-text-default` · error: `color-text-default` · disabled: `color-text-disabled` · read-only: `color-text-default` |
@@ -255,8 +255,8 @@ The code token map must equal [`text-field.tokens.json`](text-field.tokens.json)
 | Text field / State | supporting | default: `color-text-subtlest` · hovered: `color-text-subtlest` · focused: `color-text-subtlest` · error: `color-text-role-error` · disabled: `color-text-disabled` · read-only: `color-text-subtlest` |
 | Text field / State | counter | default: `color-text-subtlest` · hovered: `color-text-subtlest` · focused: `color-text-subtlest` · error: `color-text-role-error` · disabled: `color-text-disabled` · read-only: `color-text-subtlest` |
 | Text field / State | required | default: `color-text-role-error` · hovered: `color-text-role-error` · focused: `color-text-role-error` · error: `color-text-role-error` · disabled: `color-text-disabled` · read-only: `color-text-role-error` |
-| Text field / State | addon-background | default: `color-background-neutral-default` · hovered: `color-background-neutral-default` · focused: `color-background-neutral-default` · error: `color-background-neutral-default` · disabled: `color-background-disabled` · read-only: `color-background-neutral-default` |
-| Text field / State | addon-text | default: `color-text-subtle` · hovered: `color-text-subtle` · focused: `color-text-subtle` · error: `color-text-subtle` · disabled: `color-text-disabled` · read-only: `color-text-subtle` |
+| Text field / State | addon-container | default: `color-background-neutral-default` · hovered: `color-background-neutral-default` · focused: `color-background-neutral-default` · error: `color-background-neutral-default` · disabled: `color-background-disabled` · read-only: `color-background-neutral-default` |
+| Text field / State | addon-label | default: `color-text-subtle` · hovered: `color-text-subtle` · focused: `color-text-subtle` · error: `color-text-subtle` · disabled: `color-text-disabled` · read-only: `color-text-subtle` |
 | Text field / State | error-icon | default: `color-icon-role-error` · hovered: `color-icon-role-error` · focused: `color-icon-role-error` · error: `color-icon-role-error` · disabled: `color-icon-disabled` · read-only: `color-icon-role-error` |
 
 ## 5. States and transitions
@@ -370,7 +370,7 @@ import { TextField, Icon } from '@biowave/web';   // Icon = Material Symbols Rou
 - **Base:** compose MUI `FormControl` and `OutlinedInput`. Keep the label outside the outline and do not pass MUI's floating/notched label. Use the native input/textarea that `OutlinedInput` creates
 - **Token map:** `text-field.tokens.ts` exports typed size and state maps using `cssVars.*`; its semantic references equal `text-field.tokens.json`. Styling reads this map only
 - **Structure:** root form control → `FieldLabel` (label, required indicator, help icon) → field row (`FieldAddon` prefix · styled `OutlinedInput` · `FieldAddon` suffix) + attached `Button` → `FieldSupportingText` (error icon, text, counter). Private pieces are not package exports
-- **Trailing action (fixes AD-1 … AD-3):** remove the `target-min` box from the slot. `FieldAction` renders the Biowave `IconButton` (`variant="text"`, `color="neutral"`, `disabled={disabled}`) and overrides its box to the B3 `action-box` with the field's icon size through a scoped class; the pointer target is extended with a `::before` of at least `target-min`, centred, so layout never changes. Field `padding-inline-end` becomes `action-inset` when an action exists. A decorative `endAdornment` keeps only the icon size at the normal padding
+- **Trailing action (fixes AD-1 … AD-3):** remove the `target-min` box from the slot. `FieldAction` renders the Biowave `IconButton` (`variant="text"`, `color="neutral"`, `disabled={disabled}`) and overrides its box to the B3 `action-size` with the field's icon size through a scoped class; the pointer target is extended with a `::before` of at least `target-min`, centred, so layout never changes. Field `padding-inline-end` becomes `action-inset` when an action exists. A decorative `endAdornment` keeps only the icon size at the normal padding
 - **Clear and password:** clear writes an empty value through a native input event so `onChange` fires for controlled and uncontrolled fields, then focuses the input and calls `onClear`. Password toggle keeps internal `visible` state, swaps `type` and restores the caret
 - **Help icon:** `IconButton` (`text`, `neutral`) + tooltip. Reuse the private tooltip wrapper styling (`iconButtonTooltipTokens`) with tooltip content = `helpText`, name = `helpLabel`; replace with the shared Tooltip on Day 4 (TODO comment). It is never disabled
 - **Add-ons:** `FieldAddon` is a non-interactive segment inside the outlined border (`startAdornment`/`endAdornment` of `OutlinedInput` with negative inline margin equal to the padding so it reaches the border), divider on the inner edge, `aria-hidden` visual + id text in `aria-describedby`
@@ -380,14 +380,14 @@ import { TextField, Icon } from '@biowave/web';   // Icon = Material Symbols Rou
 - **Error colour (AD-4):** only border, supporting text and error icon change colour in error
 - **State priority:** native MUI classes plus transient props implement Disabled → Error → Focus → Hover → Default. Read-only has its background and border tokens and still receives focus styling
 - **Focus exception:** style only `.MuiOutlinedInput-notchedOutline`; never add an exterior outline or shadow to the field. Controls inside keep their own focus ring
-- **Multiline:** pass `multiline`, row props and textarea semantics to MUI; `resize` maps to CSS `resize: vertical | none`. Top-align icons. Trailing action (E4 finding 9): `align-self: flex-start` and `margin-block-start: max(calc(action-inset − gap), calc((input line-height − action-box) / 2))` from the size token map and the input typography line height (locale-aware), so the box is never closer than `spacing-xs` to the top edge. Resolved offset from the top edge = `spacing-xs` at `sm` · `md` · `lg` (B2). Single-line is unchanged
+- **Multiline:** pass `multiline`, row props and textarea semantics to MUI; `resize` maps to CSS `resize: vertical | none`. Top-align icons. Trailing action (E4 finding 9): `align-self: flex-start` and `margin-block-start: max(calc(action-inset − gap), calc((input line-height − action-size) / 2))` from the size token map and the input typography line height (locale-aware), so the box is never closer than `spacing-xs` to the top edge. Resolved offset from the top edge = `spacing-xs` at `sm` · `md` · `lg` (B2). Single-line is unchanged
 - **Counter:** unchanged; additionally reset the uncontrolled mirror on the owning form's `reset` event (E2 finding 8)
 - **Ids and aria:** `useId()` id; route every `aria-*` prop to `inputProps` and merge `aria-describedby` (finding 3)
 - **Warnings:** existing `warnOnce` helper for every B1 invalid combination; never throw
 
 ### Token gaps
 
-None in Foundations. New component tokens in `text-field.tokens.json`: `size.*.action-box`, `size.*.action-inset`, `state.*.addon-background`, `state.*.addon-text`, `state.*.error-icon`, and changed `state.error.icon`, `state.read-only.border`, `state.disabled.required` — all alias existing semantic tokens (B3).
+None in Foundations. New component tokens in `text-field.tokens.json`: `size.*.action-size`, `size.*.action-inset`, `state.*.addon-container`, `state.*.addon-label`, `state.*.error-icon`, and changed `state.error.icon`, `state.read-only.border`, `state.disabled.required` — all alias existing semantic tokens (B3).
 
 ### Files to create / change
 
@@ -411,7 +411,7 @@ CHANGELOG.md
 - [ ] Associates visible and visually hidden labels with the native control; caller `aria-*` lands on the input
 - [ ] Required, error, helper, counter, prefix and suffix ids/semantics match B6; error icon is shown with error text and is `aria-hidden`
 - [ ] Default, hover, focus, error, disabled and read-only use the B3 token map; leading icon keeps its neutral colour in error; read-only border differs from default
-- [ ] Trailing action box equals the B3 action-box per size, is inset `spacing-xs` and stays inside the field border at viewport widths below and above the web breakpoint, for single-line **and multiline** fields
+- [ ] Trailing action box equals the B3 action-size per size, is inset `spacing-xs` and stays inside the field border at viewport widths below and above the web breakpoint, for single-line **and multiline** fields
 - [ ] Disabled field: trailing action and end button are disabled and skipped by Tab; help icon is still reachable
 - [ ] Clear: hidden when empty, read-only or disabled; clears, keeps focus, fires `onChange` and `onClear`
 - [ ] Password toggle switches `type`, `aria-pressed` and label; keeps caret position

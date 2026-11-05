@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ ee93164674edccfc — do not edit; change the source and run: npm run contract -- mobile button -->
+<!-- GENERATED from button.md @ 0fb4caab0080714f — do not edit; change the source and run: npm run contract -- mobile button -->
 # Button · زر — Mobile — code contract
 
 > **Everything you need to build Button on Mobile, and nothing else.** Read this file only. Generated from [`button.md`](button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-20 |
 | Source code | [`lib/src/components/button/bw_button.dart`](../../lib/src/components/button/bw_button.dart) |
 | Tokens | [`button.tokens.json`](button.tokens.json) |
-| Source | [`button.md`](button.md) @ `ee93164674edccfc` |
+| Source | [`button.md`](button.md) @ `0fb4caab0080714f` |
 
 ## 1. What it is
 
@@ -139,7 +139,7 @@ The code token map must equal [`button.tokens.json`](button.tokens.json) (tests 
 | Button / Size | height | sm: `size-control-height-sm` · md: `size-control-height-md` · lg: `size-control-height-lg` · xl: `size-control-height-xl` |
 | Button / Size | padding-inline | sm: `spacing-control-padding-inline-sm` · md: `spacing-control-padding-inline-md` · lg: `spacing-control-padding-inline-lg` · xl: `spacing-control-padding-inline-xl` |
 | Button / Size | gap | sm: `spacing-control-gap-sm` · md: `spacing-control-gap-md` · lg: `spacing-control-gap-lg` · xl: `spacing-control-gap-xl` |
-| Button / Size | icon | sm: `size-icon-sm` · md: `size-icon-md` · lg: `size-icon-lg` · xl: `size-icon-lg` |
+| Button / Size | icon-size | sm: `size-icon-sm` · md: `size-icon-md` · lg: `size-icon-lg` · xl: `size-icon-lg` |
 | Button / Size | radius | sm: `radius-md` · md: `radius-md` · lg: `radius-md` · xl: `radius-xl` |
 | Button / Size | border-width | sm: `border-width-default` · md: `border-width-default` · lg: `border-width-default` · xl: `border-width-default` |
 | Button / Size | focus-ring-radius | sm: `radius-lg` · md: `radius-lg` · lg: `radius-lg` · xl: `radius-2xl` |

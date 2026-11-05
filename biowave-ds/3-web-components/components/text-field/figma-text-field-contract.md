@@ -1,7 +1,7 @@
-<!-- GENERATED from text-field.md @ 1c8ba99e2cf2cbab — do not edit; change the source and run: npm run contract -- web text-field -->
+<!-- GENERATED from text-field.md @ 3ea99f9873987e28 — do not edit; change the source and run: npm run contract -- web text-field -->
 # Text field · حقل نص — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Text field in the Web Components file, with our variables and styles.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](text-field.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Text field in the Web Components file, with our variables and styles.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](text-field.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Text field · حقل نص |
 | Platform | Web · React + MUI |
 | Version | 1.2 · 2026-10-21 |
-| Source | [`text-field.md`](text-field.md) @ `1c8ba99e2cf2cbab` |
+| Source | [`text-field.md`](text-field.md) @ `3ea99f9873987e28` |
 
 ## 1. Library connections in this file
 
@@ -21,7 +21,7 @@
 | Library | **Biowave DS — Foundations** · library key `lk-e00b31b21f924b36eeea820da99c4b306c460986c83e894f415a1c194ba5a2e670f3142c2fccca81280a80bcaee6a87bc47c9a9505d186d7b693aa9805ad7031` |
 | Library file | Foundations · key `AyFaSmfDUlTax3GpKhRdHI` |
 | Doc Kit library (Phase 2) | **Annotation (Biowave Doc Kit)** · file key `cBPWg6YZNqK8UIzgMQIpXl` — must be enabled in this file (Assets → Libraries) |
-| Enabled here | ✓ verified from a component file: 7 collections, 281 variables reachable |
+| Enabled here | ✓ verified from a component file: 7 collections, 282 variables reachable |
 
 Import by key — never search by name, never copy:
 
@@ -43,12 +43,12 @@ Already in this file, created by the sync tooling from [`text-field.tokens.json`
 | Text field / Size | sm · md · lg | `gap` | sm → 3. Spacing › `spacing/control/gap/sm`<br>md → 3. Spacing › `spacing/control/gap/md`<br>lg → 3. Spacing › `spacing/control/gap/lg` |
 | Text field / Size | sm · md · lg | `label-gap` | sm → 3. Spacing › `spacing/sm`<br>md → 3. Spacing › `spacing/sm`<br>lg → 3. Spacing › `spacing/sm` |
 | Text field / Size | sm · md · lg | `supporting-gap` | sm → 3. Spacing › `spacing/xs`<br>md → 3. Spacing › `spacing/xs`<br>lg → 3. Spacing › `spacing/xs` |
-| Text field / Size | sm · md · lg | `icon` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
+| Text field / Size | sm · md · lg | `icon-size` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
 | Text field / Size | sm · md · lg | `radius` | sm → 2. Radius › `radius/md`<br>md → 2. Radius › `radius/md`<br>lg → 2. Radius › `radius/md` |
 | Text field / Size | sm · md · lg | `border-width` | sm → 7. Border › `border/width/default`<br>md → 7. Border › `border/width/default`<br>lg → 7. Border › `border/width/default` |
-| Text field / Size | sm · md · lg | `action-box` | sm → 4. Size › `size/icon/lg`<br>md → 4. Size › `size/control/height/sm`<br>lg → 4. Size › `size/control/height/md` |
+| Text field / Size | sm · md · lg | `action-size` | sm → 4. Size › `size/icon/lg`<br>md → 4. Size › `size/control/height/sm`<br>lg → 4. Size › `size/control/height/md` |
 | Text field / Size | sm · md · lg | `action-inset` | sm → 3. Spacing › `spacing/xs`<br>md → 3. Spacing › `spacing/xs`<br>lg → 3. Spacing › `spacing/xs` |
-| Text field / State | default · hovered · focused · error · disabled · read-only | `background` | default → 1. Themes › `color/background/base/default`<br>hovered → 1. Themes › `color/background/base/hovered`<br>focused → 1. Themes › `color/background/base/default`<br>error → 1. Themes › `color/background/base/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/base/subtlest` |
+| Text field / State | default · hovered · focused · error · disabled · read-only | `container` | default → 1. Themes › `color/background/base/default`<br>hovered → 1. Themes › `color/background/base/hovered`<br>focused → 1. Themes › `color/background/base/default`<br>error → 1. Themes › `color/background/base/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/base/subtlest` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `border` | default → 1. Themes › `color/border/bold`<br>hovered → 1. Themes › `color/border/bold`<br>focused → 1. Themes › `color/border/focus`<br>error → 1. Themes › `color/border/error`<br>disabled → 1. Themes › `color/border/disabled`<br>read-only → 1. Themes › `color/border/default` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `border-width` | default → 7. Border › `border/width/default`<br>hovered → 7. Border › `border/width/default`<br>focused → 7. Border › `border/width/focus`<br>error → 7. Border › `border/width/default`<br>disabled → 7. Border › `border/width/default`<br>read-only → 7. Border › `border/width/default` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `label` | default → 1. Themes › `color/text/default`<br>hovered → 1. Themes › `color/text/default`<br>focused → 1. Themes › `color/text/default`<br>error → 1. Themes › `color/text/default`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/default` |
@@ -58,8 +58,8 @@ Already in this file, created by the sync tooling from [`text-field.tokens.json`
 | Text field / State | default · hovered · focused · error · disabled · read-only | `supporting` | default → 1. Themes › `color/text/subtlest`<br>hovered → 1. Themes › `color/text/subtlest`<br>focused → 1. Themes › `color/text/subtlest`<br>error → 1. Themes › `color/text/role/error`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/subtlest` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `counter` | default → 1. Themes › `color/text/subtlest`<br>hovered → 1. Themes › `color/text/subtlest`<br>focused → 1. Themes › `color/text/subtlest`<br>error → 1. Themes › `color/text/role/error`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/subtlest` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `required` | default → 1. Themes › `color/text/role/error`<br>hovered → 1. Themes › `color/text/role/error`<br>focused → 1. Themes › `color/text/role/error`<br>error → 1. Themes › `color/text/role/error`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/role/error` |
-| Text field / State | default · hovered · focused · error · disabled · read-only | `addon-background` | default → 1. Themes › `color/background/neutral/default`<br>hovered → 1. Themes › `color/background/neutral/default`<br>focused → 1. Themes › `color/background/neutral/default`<br>error → 1. Themes › `color/background/neutral/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/neutral/default` |
-| Text field / State | default · hovered · focused · error · disabled · read-only | `addon-text` | default → 1. Themes › `color/text/subtle`<br>hovered → 1. Themes › `color/text/subtle`<br>focused → 1. Themes › `color/text/subtle`<br>error → 1. Themes › `color/text/subtle`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/subtle` |
+| Text field / State | default · hovered · focused · error · disabled · read-only | `addon-container` | default → 1. Themes › `color/background/neutral/default`<br>hovered → 1. Themes › `color/background/neutral/default`<br>focused → 1. Themes › `color/background/neutral/default`<br>error → 1. Themes › `color/background/neutral/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/neutral/default` |
+| Text field / State | default · hovered · focused · error · disabled · read-only | `addon-label` | default → 1. Themes › `color/text/subtle`<br>hovered → 1. Themes › `color/text/subtle`<br>focused → 1. Themes › `color/text/subtle`<br>error → 1. Themes › `color/text/subtle`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/subtle` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `error-icon` | default → 1. Themes › `color/icon/role/error`<br>hovered → 1. Themes › `color/icon/role/error`<br>focused → 1. Themes › `color/icon/role/error`<br>error → 1. Themes › `color/icon/role/error`<br>disabled → 1. Themes › `color/icon/disabled`<br>read-only → 1. Themes › `color/icon/role/error` |
 
 ## 3. Foundations variables used (keys)
@@ -212,7 +212,7 @@ Library file **Google · Material Symbols** · key `RXlnhYgUKBBE6HveEr7e9C` — 
 | `leading-icon` · `trailing-icon` | glyph | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `trailing-action` | box (inline + block) | `size-icon-lg` (24) | `size-control-height-sm` (32) | `size-control-height-md` (40) |
 | `trailing-action` | glyph | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
-| `trailing-action` | multiline margin-block-start | `max(action-inset − spacing-control-gap-sm, (body-sm line-height − action-box) / 2)` | `max(action-inset − spacing-control-gap-md, (body-md line-height − action-box) / 2)` | `max(action-inset − spacing-control-gap-lg, (body-lg line-height − action-box) / 2)` |
+| `trailing-action` | multiline margin-block-start | `max(action-inset − spacing-control-gap-sm, (body-sm line-height − action-size) / 2)` | `max(action-inset − spacing-control-gap-md, (body-md line-height − action-size) / 2)` | `max(action-inset − spacing-control-gap-lg, (body-lg line-height − action-size) / 2)` |
 | `trailing-action` | multiline offset from the field's top edge (resolved, EN and AR) | `spacing-xs` (margin 0) | `spacing-xs` (margin `spacing-xs` − `spacing-control-gap-md`) | `spacing-xs` (margin `spacing-xs` − `spacing-control-gap-lg`) |
 | `trailing-action` | pointer target | ≥ `target-min`, extended invisibly around the box; never changes layout | same | same |
 | `prefix` · `suffix` | padding-inline | = field padding-inline | same | same |
@@ -230,7 +230,7 @@ Layout rules:
 - Root fills the available inline size by default; `fullWidth=false` hugs the MUI intrinsic width
 - The single-line height includes the border. Input, icons and add-ons center on the block axis
 - The trailing action is inset by `spacing-xs` from the border on the top, bottom and inline end, so it never covers the border at any size. A decorative trailing icon sits at the normal padding, mirroring the leading icon
-- Multiline: icons top-align. **One rule for the trailing action:** `margin-block-start = max(action-inset − padding-block, (line-height − action-box) / 2)`, where `padding-block` = `spacing-control-gap-*` and `line-height` = the input text style's line height for the current size and language. The action box is centred on the first text line when that leaves at least `spacing-xs` above it; otherwise it starts `spacing-xs` below the field's top edge, the same inset as single-line. It is never closer than `spacing-xs` to the top border at any size. With today's tokens the second term is always smaller, so at `sm`, `md` and `lg` (EN and AR) the action box starts exactly `spacing-xs` from the top edge and its centre sits slightly below the first-line centre (by 2 / 3 / 4 in EN, 1 / 2 / 3 in AR for sm / md / lg). This replaces the v1.1 rule "centre aligns with the first text line", which put the box 2 / 1 / 0 from the top edge
+- Multiline: icons top-align. **One rule for the trailing action:** `margin-block-start = max(action-inset − padding-block, (line-height − action-size) / 2)`, where `padding-block` = `spacing-control-gap-*` and `line-height` = the input text style's line height for the current size and language. The action box is centred on the first text line when that leaves at least `spacing-xs` above it; otherwise it starts `spacing-xs` below the field's top edge, the same inset as single-line. It is never closer than `spacing-xs` to the top border at any size. With today's tokens the second term is always smaller, so at `sm`, `md` and `lg` (EN and AR) the action box starts exactly `spacing-xs` from the top edge and its centre sits slightly below the first-line centre (by 2 / 3 / 4 in EN, 1 / 2 / 3 in AR for sm / md / lg). This replaces the v1.1 rule "centre aligns with the first text line", which put the box 2 / 1 / 0 from the top edge
 - `prefix`/`suffix` are part of the field (one outer border, one focus indicator). With `end-button`, the field's inline-end corners are square and the Button's inline-start corners are square; they share one border
 - Label, helper text and counter can wrap. The helper grows first; the counter stays at inline end and does not overlap it
 
@@ -249,7 +249,7 @@ Layout rules:
 | `field` | radius | `radius-md` | `radius-md` | `radius-md` |
 | `field` | border | `border-width-default` | `border-width-default` | `border-width-default` |
 | icons | icon size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
-| `trailing-action` | action-box | `size-icon-lg` | `size-control-height-sm` | `size-control-height-md` |
+| `trailing-action` | action-size | `size-icon-lg` | `size-control-height-sm` | `size-control-height-md` |
 
 ### 3.2 State tokens
 
@@ -355,7 +355,7 @@ No physical left/right properties are permitted.
   ├─ ◇ .Field/Label            label · required-indicator · help-icon
   ├─ ◇ .Field/Container        field box with slots
   ├─ ◇ .Field/Add-on           prefix / suffix segment
-  ├─ ◇ .Field/Action           Icon button instance sized to action-box
+  ├─ ◇ .Field/Action           Icon button instance sized to action-size
   └─ ◇ .Field/Supporting text  error-icon · supporting-text · counter
 
 ❖ Text area

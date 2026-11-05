@@ -1,4 +1,4 @@
-<!-- GENERATED from text-field.md @ aefdfbbe127ec16f — do not edit; change the source and run: npm run contract -- tablet text-field -->
+<!-- GENERATED from text-field.md @ 3811e131d917663e — do not edit; change the source and run: npm run contract -- tablet text-field -->
 # Text field · حقل نص — Tablet — code contract
 
 > **Everything you need to build Text field on Tablet, and nothing else.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](text-field.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-18 (first Tablet version; same guidelines version as Web 1.1) |
 | Source code | `lib/src/components/text_field/` — not built yet (the Executor creates it) |
 | Tokens | [`text-field.tokens.json`](text-field.tokens.json) |
-| Source | [`text-field.md`](text-field.md) @ `aefdfbbe127ec16f` |
+| Source | [`text-field.md`](text-field.md) @ `3811e131d917663e` |
 
 ## 1. What it is
 
@@ -167,12 +167,12 @@ The code token map must equal [`text-field.tokens.json`](text-field.tokens.json)
 | Text field / Size | gap | sm: `spacing-control-gap-sm` · md: `spacing-control-gap-md` · lg: `spacing-control-gap-lg` |
 | Text field / Size | label-gap | sm: `spacing-sm` · md: `spacing-sm` · lg: `spacing-sm` |
 | Text field / Size | supporting-gap | sm: `spacing-xs` · md: `spacing-xs` · lg: `spacing-xs` |
-| Text field / Size | icon | sm: `size-icon-sm` · md: `size-icon-md` · lg: `size-icon-lg` |
+| Text field / Size | icon-size | sm: `size-icon-sm` · md: `size-icon-md` · lg: `size-icon-lg` |
 | Text field / Size | radius | sm: `radius-md` · md: `radius-md` · lg: `radius-md` |
 | Text field / Size | border-width | sm: `border-width-default` · md: `border-width-default` · lg: `border-width-default` |
-| Text field / Size | action-box | sm: `size-icon-lg` · md: `size-control-height-sm` · lg: `size-control-height-md` |
+| Text field / Size | action-size | sm: `size-icon-lg` · md: `size-control-height-sm` · lg: `size-control-height-md` |
 | Text field / Size | action-inset | sm: `spacing-xs` · md: `spacing-xs` · lg: `spacing-xs` |
-| Text field / State | background | default: `color-background-base-default` · hovered: `color-background-base-hovered` · focused: `color-background-base-default` · error: `color-background-base-default` · disabled: `color-background-disabled` · read-only: `color-background-base-subtlest` |
+| Text field / State | container | default: `color-background-base-default` · hovered: `color-background-base-hovered` · focused: `color-background-base-default` · error: `color-background-base-default` · disabled: `color-background-disabled` · read-only: `color-background-base-subtlest` |
 | Text field / State | border | default: `color-border-bold` · hovered: `color-border-bold` · focused: `color-border-focus` · error: `color-border-error` · disabled: `color-border-disabled` · read-only: `color-border-default` |
 | Text field / State | border-width | default: `border-width-default` · hovered: `border-width-default` · focused: `border-width-focus` · error: `border-width-default` · disabled: `border-width-default` · read-only: `border-width-default` |
 | Text field / State | label | default: `color-text-default` · hovered: `color-text-default` · focused: `color-text-default` · error: `color-text-default` · disabled: `color-text-disabled` · read-only: `color-text-default` |
@@ -182,8 +182,8 @@ The code token map must equal [`text-field.tokens.json`](text-field.tokens.json)
 | Text field / State | supporting | default: `color-text-subtlest` · hovered: `color-text-subtlest` · focused: `color-text-subtlest` · error: `color-text-role-error` · disabled: `color-text-disabled` · read-only: `color-text-subtlest` |
 | Text field / State | counter | default: `color-text-subtlest` · hovered: `color-text-subtlest` · focused: `color-text-subtlest` · error: `color-text-role-error` · disabled: `color-text-disabled` · read-only: `color-text-subtlest` |
 | Text field / State | required | default: `color-text-role-error` · hovered: `color-text-role-error` · focused: `color-text-role-error` · error: `color-text-role-error` · disabled: `color-text-disabled` · read-only: `color-text-role-error` |
-| Text field / State | addon-background | default: `color-background-neutral-default` · hovered: `color-background-neutral-default` · focused: `color-background-neutral-default` · error: `color-background-neutral-default` · disabled: `color-background-disabled` · read-only: `color-background-neutral-default` |
-| Text field / State | addon-text | default: `color-text-subtle` · hovered: `color-text-subtle` · focused: `color-text-subtle` · error: `color-text-subtle` · disabled: `color-text-disabled` · read-only: `color-text-subtle` |
+| Text field / State | addon-container | default: `color-background-neutral-default` · hovered: `color-background-neutral-default` · focused: `color-background-neutral-default` · error: `color-background-neutral-default` · disabled: `color-background-disabled` · read-only: `color-background-neutral-default` |
+| Text field / State | addon-label | default: `color-text-subtle` · hovered: `color-text-subtle` · focused: `color-text-subtle` · error: `color-text-subtle` · disabled: `color-text-disabled` · read-only: `color-text-subtle` |
 | Text field / State | error-icon | default: `color-icon-role-error` · hovered: `color-icon-role-error` · focused: `color-icon-role-error` · error: `color-icon-role-error` · disabled: `color-icon-disabled` · read-only: `color-icon-role-error` |
 
 ## 5. States and transitions
@@ -202,7 +202,7 @@ Same as [Web B5](../../../3-web-components/components/text-field/text-field.md#b
 | Hint / error / counter | Through `InputDecoration.helper` / `error` / `counter` so TalkBack and VoiceOver read them with the field; `error-icon` `ExcludeSemantics` |
 | Prefix / suffix | Read as part of the field value hint (e.g. “Hourly rate, SAR”) |
 | Help icon | `BwIconButton` (`text`, `neutral`) with `helpLabel`; M3 `Tooltip(triggerMode: TooltipTriggerMode.tap, message: helpText)`; stays enabled when the field is disabled |
-| Trailing action | `BwIconButton` (`text`, `neutral`) sized to B2 `action-box`; `onPressed: null` when the field is disabled; clear returns focus to the field; password toggle exposes `toggled` with “Show password” / “Hide password” |
+| Trailing action | `BwIconButton` (`text`, `neutral`) sized to B2 `action-size`; `onPressed: null` when the field is disabled; clear returns focus to the field; password toggle exposes `toggled` with “Show password” / “Hide password” |
 | End button | `BwButton` (`outlined`, `neutral`, field size); `onPressed: null` when the field is disabled |
 | Focus | **Field exception** (as Web): the outline becomes `border-width-focus` in `color-border-focus` whenever the field has focus (touch or keyboard); error keeps `color-border-error`. Buttons inside use `BwFocusRing` (keyboard only) |
 | Disabled / read-only | `enabled: false` removes the field and its controls from focus traversal; `readOnly: true` stays focusable and selectable, clear hidden |
@@ -288,7 +288,7 @@ CHANGELOG.md                                                        change
 
 - [ ] Renders every allowed size, single line and multiline, in light + dark × en + ar (`pumpBw`)
 - [ ] Goldens for Default, Focus, Error, Disabled, Read-only, prefix/suffix, end button, help icon, trailing action
-- [ ] Exact field height per size (`tester.getSize`); trailing action box = B2 `action-box`, inset `BwSpacing.xs`, inside the outline
+- [ ] Exact field height per size (`tester.getSize`); trailing action box = B2 `action-size`, inset `BwSpacing.xs`, inside the outline
 - [ ] Semantics: one text-field node named by `label` (+ required), helper/error/counter read with it; trailing action, help icon and end button are separate nodes with their names (`matchesSemantics`)
 - [ ] Disabled: field, trailing action and end button not focusable; help icon still reachable
 - [ ] Clear: hidden when empty / read-only / disabled; clears, keeps focus, calls `onChanged('')` and `onCleared`

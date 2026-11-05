@@ -245,12 +245,7 @@ Exactly [Button B3.1–B3.5](../button/button.md#b3-tokens-by-part-and-state) fo
 As Button B3.5: the ring follows `color`.
 
 #### 3.4 Tooltip (temporary, until Tooltip component)
-| Part | Property | Token |
-|---|---|---|
-| `tooltip` | background · text | `color-surface-inverse` · `color-text-inverse` |
-| `tooltip` | text style · radius | `label-sm` · `radius-sm` |
-| `tooltip` | padding-block · padding-inline | `spacing-xs` · `spacing-md` |
-| `tooltip` | offset from button | `spacing-xs` |
+As [Tooltip B3](../tooltip/tooltip.md). Figma uses the `Tooltip / Container` collection; the offset from the button is its `offset` variable.
 
 ### B4 States and transitions
 
@@ -508,11 +503,11 @@ Keep existing nesting and auto layout. Bind dimensions from B2 and colours from 
 | Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
 | `Variant=filled` | `Button / Filled` | Same name as `Color` |
 | `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
-| `Variant=transparent` | `Button / Icon` | Same name as `Color` |
+| `Variant=transparent` | `Button / Transparent` | Same name as `Color` |
 | `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
 | `Selected=true` | `Icon button / Selected` | Same name as `Color` |
 | Focus ring | `Button / Focus` | `default` or `inverse` |
-| Tooltip layers | `Icon button / Tooltip` | `default` |
+| Tooltip layers | `Tooltip / Container` | `default` |
 | `Show Menu Buttons` layers | `Menu / *` | `default` |
 
 

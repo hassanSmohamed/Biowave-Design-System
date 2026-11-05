@@ -2,10 +2,10 @@
   "$schema": "component-tokens/v1",
   "$description": "Split button component tokens (D-13) plus the general Menu collections. Menu tokens stay here until the Menu component owns them; the collection names do not change when they move. Every value aliases a semantic token.",
   "split-button": {
-    "part": {
+    "segment": {
       "$extensions": {
         "figma": {
-          "collection": "Split button / Part",
+          "collection": "Split button / Segment",
           "modes": true
         }
       },
@@ -22,13 +22,11 @@
         "inner-border-width": {
           "$value": "{border.width.none}"
         },
+        "divider-width": {
+          "$value": "{border.width.default}"
+        },
         "divider": {
-          "width": {
-            "$value": "{border.width.default}"
-          },
-          "color": {
-            "$value": "{color.border.default}"
-          }
+          "$value": "{color.border.default}"
         }
       }
     }
@@ -42,7 +40,7 @@
         }
       },
       "default": {
-        "background": {
+        "container": {
           "$value": "{color.surface.raised}"
         },
         "radius": {

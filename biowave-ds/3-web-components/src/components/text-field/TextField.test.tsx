@@ -53,16 +53,16 @@ type SourceSizeTokens = Record<
   | 'gap'
   | 'label-gap'
   | 'supporting-gap'
-  | 'icon'
+  | 'icon-size'
   | 'radius'
   | 'border-width'
-  | 'action-box'
+  | 'action-size'
   | 'action-inset',
   TokenLeaf
 >;
 
 type SourceStateTokens = Record<
-  | 'background'
+  | 'container'
   | 'border'
   | 'border-width'
   | 'label'
@@ -72,8 +72,8 @@ type SourceStateTokens = Record<
   | 'supporting'
   | 'counter'
   | 'required'
-  | 'addon-background'
-  | 'addon-text'
+  | 'addon-container'
+  | 'addon-label'
   | 'error-icon',
   TokenLeaf
 >;
@@ -109,10 +109,10 @@ describe('TextField token contract', () => {
         gap: cssVariable(expected.gap),
         labelGap: cssVariable(expected['label-gap']),
         supportingGap: cssVariable(expected['supporting-gap']),
-        icon: cssVariable(expected.icon),
+        icon: cssVariable(expected['icon-size']),
         radius: cssVariable(expected.radius),
         borderWidth: cssVariable(expected['border-width']),
-        actionBox: cssVariable(expected['action-box']),
+        actionBox: cssVariable(expected['action-size']),
         actionInset: cssVariable(expected['action-inset']),
       });
     }
@@ -120,7 +120,7 @@ describe('TextField token contract', () => {
     for (const state of states) {
       const expected = source.state[state];
       expect(textFieldStateTokens[state]).toEqual({
-        background: cssVariable(expected.background),
+        background: cssVariable(expected.container),
         border: cssVariable(expected.border),
         borderWidth: cssVariable(expected['border-width']),
         label: cssVariable(expected.label),
@@ -130,8 +130,8 @@ describe('TextField token contract', () => {
         supporting: cssVariable(expected.supporting),
         counter: cssVariable(expected.counter),
         required: cssVariable(expected.required),
-        addonBackground: cssVariable(expected['addon-background']),
-        addonText: cssVariable(expected['addon-text']),
+        addonBackground: cssVariable(expected['addon-container']),
+        addonText: cssVariable(expected['addon-label']),
         errorIcon: cssVariable(expected['error-icon']),
       });
     }

@@ -19,7 +19,7 @@
 | Figma build | Planned |
 | Review | Round 2 · 2026-10-24 · Approved |
 | Source code | [`src/components/tooltip/`](../../src/components/tooltip/) |
-| Tokens | — (no component tokens: every value is an existing semantic token, P-04) |
+| Tokens | [`tooltip.tokens.json`](tooltip.tokens.json) |
 | Contracts | [`tooltip-contract.md`](tooltip-contract.md) · [`figma-tooltip-contract.md`](figma-tooltip-contract.md) — generated, never edited |
 | Docs page | [`tooltip.html`](tooltip.html) |
 
@@ -234,7 +234,7 @@ Layout rules: the tooltip renders in a portal above all page content and never c
 
 ### B3 Tokens by part and state
 
-Every value is a semantic token; there are no component tokens (P-04 — the same set Icon button B3.4 uses for its temporary tooltip, plus the max width).
+Every value is a semantic token. Figma uses the `Tooltip / Container` collection from `tooltip.tokens.json`; code reads the semantic tokens directly (the same set Icon button B3.4 uses for its temporary tooltip, plus the max width).
 
 | Part | Property | Shown | Entering / exiting |
 |---|---|---|---|
