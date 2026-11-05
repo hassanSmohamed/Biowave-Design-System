@@ -14,6 +14,7 @@ for (const c of cols) {
   for (const id of c.variableIds) {
     const v = await figma.variables.getVariableByIdAsync(id);
     if (!v || v.name.startsWith('_deprecated/')) continue;
+    if (!v.description) out.push(`X|${c.name} › ${v.name}: no description`);
     if (FOUNDATION_NAMES.has(v.name)) out.push(`X|${c.name} › ${v.name}: same name as a Foundations variable (copied semantic variable) — semantic variables live only in the Foundations file`);
     const vals = [];
     for (const m of c.modes) {

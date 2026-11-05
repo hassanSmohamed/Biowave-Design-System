@@ -9,6 +9,18 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "height": "Control height. Bind to: frame height.",
+        "padding-inline": "Start and end padding, mirrored in RTL. Bind to: left and right padding.",
+        "gap": "Space between items. Bind to: auto-layout gap.",
+        "label-gap": "Space between label and field. Bind to: gap of the stack that holds them.",
+        "supporting-gap": "Space between field and supporting text. Bind to: gap of the stack that holds them.",
+        "icon-size": "Icon size. Bind to: icon width and height.",
+        "radius": "Corner radius. Bind to: frame corner radius.",
+        "border-width": "Base border width for this size. Bind Text field / State › border-width on the container instead.",
+        "action-size": "Hit box of the trailing action. Bind to: action frame width and height.",
+        "action-inset": "Space between the trailing action and the field end. Bind to: end padding when an action shows."
+      },
       "sm": {
         "height": {
           "$value": "{size.control.height.sm}"
@@ -112,6 +124,21 @@
           "collection": "Text field / State",
           "modes": true
         }
+      },
+      "$descriptions": {
+        "container": "Field fill per state. Bind to: field container fill.",
+        "border": "Field border colour per state. Always a real stroke, never a shadow. Bind to: field container stroke.",
+        "border-width": "Field border width per state. Bind to: field container stroke weight.",
+        "label": "Label colour above the field. Bind to: label text fill.",
+        "input": "Typed value colour. Bind to: input text fill.",
+        "placeholder": "Placeholder colour. Never use a placeholder as the label. Bind to: placeholder text fill.",
+        "icon": "Colour of leading and trailing icons. Bind to: icon fill.",
+        "supporting": "Helper text colour; turns error in the error state. Bind to: supporting text fill.",
+        "counter": "Character counter colour. Bind to: counter text fill.",
+        "required": "Required marker colour. Bind to: required text fill.",
+        "addon-container": "Prefix or suffix fill. Bind to: add-on frame fill.",
+        "addon-label": "Prefix or suffix text colour. Bind to: add-on text fill.",
+        "error-icon": "Error icon colour. Bind to: error icon fill."
       },
       "default": {
         "container": {

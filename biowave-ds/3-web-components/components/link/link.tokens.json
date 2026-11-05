@@ -14,6 +14,15 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "height": "Link height. Bind to: variant min and max height.",
+        "padding-inline": "Start and end padding, mirrored in RTL. Bind to: left and right padding.",
+        "padding-block": "Top and bottom padding. Bind to: top and bottom padding.",
+        "gap": "Space between items. Bind to: auto-layout gap.",
+        "icon-size": "Icon size. Bind to: icon width and height.",
+        "radius": "Corner radius. Bind to: frame corner radius.",
+        "focus-ring-width": "Focus ring width. Bind to: Border stroke weight in Focused variants."
+      },
       "lg": {
         "height": {
           "$value": "{size.control.height.lg}"
@@ -90,6 +99,19 @@
           "collection": "Link / Color",
           "modes": true
         }
+      },
+      "$descriptions": {
+        "label/default": "Label colour at rest and when focused. Bind to: label text fill.",
+        "label/hovered": "Label colour on hover. Bind to: label text fill in Hovered variants.",
+        "label/visited": "Label colour for a visited link. Brand only; neutral and inverse keep their default colour. Bind to: label text fill in Visited variants.",
+        "label/disabled": "Label colour when disabled. Bind to: label text fill in Disabled variants.",
+        "icon/default": "Icon colour at rest and when focused. Bind to: icon fill.",
+        "icon/hovered": "Icon colour on hover. Bind to: icon fill in Hovered variants.",
+        "icon/visited": "Icon colour for a visited link. Matches label. Bind to: icon fill in Visited variants.",
+        "icon/disabled": "Icon colour when disabled. Bind to: icon fill in Disabled variants.",
+        "container": "Transparent link container. Bind to: variant and icon wrapper fills.",
+        "border": "Border colour. Bind to: Border layer stroke.",
+        "focus-ring": "Focus ring colour. Follows the link colour. Bind to: Border stroke in Focused variants. Mode driven by: Color."
       },
       "brand": {
         "label": {

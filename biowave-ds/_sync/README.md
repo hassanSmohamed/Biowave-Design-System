@@ -27,7 +27,7 @@ Variables and styles are synced into **Foundations** only; the component files u
 | Foundations file | Primitive (hidden) and **semantic** variables, text/effect styles | component tokens |
 | Web / Tablet / Mobile Components files | **Component tokens only**: collections `<Component> / <Group>`, every value an alias to a Foundations semantic variable, hidden from publishing, code syntax copied from the semantic variable (Dev Mode shows the real code token) | semantic variables, primitives, raw values, local styles |
 
-Component tokens come from `<3|4|5>-*/components/<name>/<name>.tokens.json` (Tablet/Mobile may `"$extends"` the Web file and add e.g. size `xl`). Each group declares its Figma collection in `$extensions.figma.collection`; its keys become the collection's modes and every mode must define the same variables.
+Component tokens come from `<3|4|5>-*/components/<name>/<name>.tokens.json` (Tablet/Mobile may `"$extends"` the Web file and add e.g. size `xl`). Each group declares its Figma collection in `$extensions.figma.collection`; its keys become the collection's modes and every mode must define the same variables. Each group also holds `$descriptions`, one line per variable, which the sync tooling writes to Figma.
 
 ## Commands
 

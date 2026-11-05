@@ -83,6 +83,7 @@ Allowed names:
 - **A family shares collections.** Icon button and Split button reuse `Button / *`.
 - **A component owns only its own tokens.** Tooltip values live in `Tooltip / *`, not in the component that shows it.
 - **A name is never both a token and a group.** `npm run component-tokens` fails on it.
+- **Every variable has a description** in the group's `$descriptions`: what it is and where to bind it. `tokens.json` is the source; never edit a description in Figma.
 
 `npm run component-tokens` fails on any name outside these rules.
 

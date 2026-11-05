@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05 — Component token descriptions
+
+Every component variable now has a description in `$descriptions` in `tokens.json`, and the sync tooling writes them to Figma. Filled the 44 missing descriptions, shortened the rest to what it is and where to bind it, and removed the `Source:` lists because the alias already shows them. `component-tokens` fails on a missing description. No Foundations token or Figma variable changed.
+
 ## 2026-11-05 — Component token renames
 
 Renamed 25 component variables across the Web, Tablet and Mobile Figma files and in `tokens.json`, keeping variable IDs: `icon` → `icon-size` on Size collections; `background` → `container`, `text` → `label`; `addon-background` → `addon-container`; `addon-text` → `addon-label`; `action-box` → `action-size`; `divider/width` → `divider-width`; `divider/color` → `divider`. Renamed three collections: `Icon button / Tooltip` → `Tooltip / Container`, `Split button / Part` → `Split button / Segment`, `Button / Icon` → `Button / Transparent`. Tooltip tokens moved to `tooltip.tokens.json`. `component-tokens --strict` now passes. No Foundations token or Figma variable changed.

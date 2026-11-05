@@ -1,4 +1,4 @@
-<!-- GENERATED from text-field.md @ 87d81a9ece396a32 — do not edit; change the source and run: npm run contract -- web text-field -->
+<!-- GENERATED from text-field.md @ 5757488a53e075cc — do not edit; change the source and run: npm run contract -- web text-field -->
 # Text field · حقل نص — Web — code contract
 
 > **Everything you need to build Text field on Web, and nothing else.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](text-field.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.2 · 2026-10-21 |
 | Source code | [`src/components/text-field/`](../../src/components/text-field/) |
 | Tokens | [`text-field.tokens.json`](text-field.tokens.json) |
-| Source | [`text-field.md`](text-field.md) @ `87d81a9ece396a32` |
+| Source | [`text-field.md`](text-field.md) @ `5757488a53e075cc` |
 
 ## 1. What it is
 

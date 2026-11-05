@@ -14,6 +14,14 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "container": "Tooltip fill. Bind to: tooltip frame fill.",
+        "label": "Tooltip text colour. Bind to: tooltip text fill.",
+        "radius": "Corner radius. Bind to: frame corner radius.",
+        "padding-block": "Top and bottom padding. Bind to: top and bottom padding.",
+        "padding-inline": "Start and end padding, mirrored in RTL. Bind to: left and right padding.",
+        "offset": "Distance from the anchor. Use for: tooltip position."
+      },
       "default": {
         "container": {
           "$value": "{color.surface.inverse}"

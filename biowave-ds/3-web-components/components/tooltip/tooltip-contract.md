@@ -1,4 +1,4 @@
-<!-- GENERATED from tooltip.md @ 6016113377008546 — do not edit; change the source and run: npm run contract -- web tooltip -->
+<!-- GENERATED from tooltip.md @ dd514bf68d5962e0 — do not edit; change the source and run: npm run contract -- web tooltip -->
 # Tooltip · تلميح — Web — code contract
 
 > **Everything you need to build Tooltip on Web, and nothing else.** Read this file only. Generated from [`tooltip.md`](tooltip.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](tooltip.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-24 |
 | Source code | [`src/components/tooltip/`](../../src/components/tooltip/) |
 | Tokens | [`tooltip.tokens.json`](tooltip.tokens.json) |
-| Source | [`tooltip.md`](tooltip.md) @ `6016113377008546` |
+| Source | [`tooltip.md`](tooltip.md) @ `dd514bf68d5962e0` |
 
 ## 1. What it is
 

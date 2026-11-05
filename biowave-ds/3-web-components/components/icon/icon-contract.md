@@ -1,4 +1,4 @@
-<!-- GENERATED from icon.md @ 04c7f6b1d3fb8140 — do not edit; change the source and run: npm run contract -- web icon -->
+<!-- GENERATED from icon.md @ e82064be2af59136 — do not edit; change the source and run: npm run contract -- web icon -->
 # Icon · أيقونة — Web — code contract
 
 > **Everything you need to build Icon on Web, and nothing else.** Read this file only. Generated from [`icon.md`](icon.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](icon.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-20 |
 | Source code | [`src/components/icon/`](../../src/components/icon/) |
 | Tokens | [`icon.tokens.json`](icon.tokens.json) |
-| Source | [`icon.md`](icon.md) @ `04c7f6b1d3fb8140` |
+| Source | [`icon.md`](icon.md) @ `e82064be2af59136` |
 
 ## 1. What it is
 

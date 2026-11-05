@@ -9,6 +9,12 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "size": "Square button size. Bind to: frame width and height.",
+        "icon-size": "Icon size. Bind to: icon width and height.",
+        "radius": "Corner radius. Bind to: frame corner radius.",
+        "border-width": "Border width. Bind to: frame stroke weight."
+      },
       "sm": {
         "size": {
           "$value": "{size.control.height.sm}"
@@ -58,6 +64,16 @@
           "collection": "Icon button / Selected",
           "modes": true
         }
+      },
+      "$descriptions": {
+        "container/selected": "Fill when selected. Bind to: frame fill in Selected variants.",
+        "container/disabled": "Fill when disabled. Bind to: frame fill in Disabled variants.",
+        "state-layer/hovered": "Translucent overlay on hover (pointer only). Bind to: State layer fill.",
+        "state-layer/pressed": "Translucent overlay while pressed. Bind to: State layer fill.",
+        "icon/selected": "Icon colour when selected. Bind to: icon fill in Selected variants.",
+        "icon/disabled": "Icon colour when disabled. Bind to: icon fill in Disabled variants.",
+        "border/selected": "Border colour when selected. Bind to: frame stroke in Selected variants.",
+        "border/disabled": "Border colour when disabled. Bind to: frame stroke in Disabled variants."
       },
       "brand": {
         "container": {
@@ -338,6 +354,14 @@
           "collection": "Button / Transparent",
           "modes": true
         }
+      },
+      "$descriptions": {
+        "container/default": "Fill at rest and when focused. Bind to: frame fill.",
+        "container/disabled": "Fill when disabled. Bind to: frame fill in Disabled variants.",
+        "state-layer/hovered": "Translucent overlay on hover (pointer only). Bind to: State layer fill.",
+        "state-layer/pressed": "Translucent overlay while pressed. Bind to: State layer fill.",
+        "icon/default": "Icon colour at rest and when focused. Bind to: icon fill.",
+        "icon/disabled": "Icon colour when disabled. Bind to: icon fill in Disabled variants."
       },
       "brand": {
         "container": {
