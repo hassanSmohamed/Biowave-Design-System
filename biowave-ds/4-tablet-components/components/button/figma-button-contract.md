@@ -1,7 +1,7 @@
-<!-- GENERATED from button.md @ b1aaf470802d0849 — do not edit; change the source and run: npm run contract -- tablet button -->
+<!-- GENERATED from button.md @ 3e881832f43c41e9 — do not edit; change the source and run: npm run contract -- tablet button -->
 # Button · زر — Tablet — Figma contract
 
-> **Everything the Figma Agent needs to build Button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-10-29). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-20 |
-| Source | [`button.md`](button.md) @ `b1aaf470802d0849` |
+| Source | [`button.md`](button.md) @ `3e881832f43c41e9` |
 
 ## 1. Library connections in this file
 
@@ -21,7 +21,7 @@
 | Library | **Biowave DS — Foundations** · library key `lk-e00b31b21f924b36eeea820da99c4b306c460986c83e894f415a1c194ba5a2e670f3142c2fccca81280a80bcaee6a87bc47c9a9505d186d7b693aa9805ad7031` |
 | Library file | Foundations · key `AyFaSmfDUlTax3GpKhRdHI` |
 | Doc Kit library (Phase 2) | **Annotation (Biowave Doc Kit)** · file key `cBPWg6YZNqK8UIzgMQIpXl` — must be enabled in this file (Assets → Libraries) |
-| Enabled here | ✓ verified from a component file: 7 collections, 281 variables reachable |
+| Enabled here | ✓ verified from a component file: 7 collections, 282 variables reachable |
 
 Import by key — never search by name, never copy:
 

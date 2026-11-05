@@ -12,8 +12,9 @@ Every change to the design system is logged here **in the same task**, newest fi
 - `Grid/With sidebar` stays the only sidebar grid style and is applied to the main content area, so open and collapsed states share it. Updated its Figma description, `guidelines/grid.md` and the grid image source (`scripts/images/grid.mjs`).
 ### Fixed
 - Figma Flutter code syntax in `6. Grid & Layout` now matches the `BwLayout` fields: `columns`, `gutter`, `appBarHeight`, `systemStatusHeight`, `sidebarStart`, `sidebarEnd`, `minTarget`. No values changed.
+- `_sync/figma-library.json` refreshed after the Foundations library was published: 282 published variables, all reachable from the Web Components file. All 33 Figma contracts regenerated; only their source hash and reachable count changed.
 ### Notes
-- Foundation images rebuilt with the same scripts in a temporary copy, with Hassan's approval, because the browser was not available in the main folder. The Foundations library must be published, then `npm run sync:library` and `npm run contract -- --all`.
+- Foundation images rebuilt with the same scripts in a temporary copy, with Hassan's approval, because the browser was not available in the main folder.
 
 ## [Tooling — Sync hash ignores line endings] — 2026-11-03
 ### Fixed
