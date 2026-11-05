@@ -1,4 +1,4 @@
-<!-- GENERATED from button-group.md @ 026eed7ca612cab1 — do not edit; change the source and run: npm run contract -- mobile button-group -->
+<!-- GENERATED from button-group.md @ afa48fec50999d2f — do not edit; change the source and run: npm run contract -- mobile button-group -->
 # Button group · مجموعة أزرار — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Button group in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`button-group.md`](button-group.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](button-group.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Button group · مجموعة أزرار |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.0 · 2026-10-16 |
-| Source | [`button-group.md`](button-group.md) @ `026eed7ca612cab1` |
+| Source | [`button-group.md`](button-group.md) @ `afa48fec50999d2f` |
 
 ## 1. Library connections in this file
 

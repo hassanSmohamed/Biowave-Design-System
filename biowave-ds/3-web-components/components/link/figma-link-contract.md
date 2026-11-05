@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 68e57596e94dd745 — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 5689f8b25e0f5701 — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Web Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `68e57596e94dd745` |
+| Source | [`link.md`](link.md) @ `5689f8b25e0f5701` |
 
 ## 1. Library connections in this file
 

@@ -1,4 +1,4 @@
-<!-- GENERATED from avatar.md @ dfb2090255d4ceca — do not edit; change the source and run: npm run contract -- mobile avatar -->
+<!-- GENERATED from avatar.md @ a4e7ec02e2e4d856 — do not edit; change the source and run: npm run contract -- mobile avatar -->
 # Avatar · صورة رمزية — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Avatar in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`avatar.md`](avatar.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](avatar.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Avatar · صورة رمزية |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`avatar.md`](avatar.md) @ `dfb2090255d4ceca` |
+| Source | [`avatar.md`](avatar.md) @ `a4e7ec02e2e4d856` |
 
 ## 1. Library connections in this file
 

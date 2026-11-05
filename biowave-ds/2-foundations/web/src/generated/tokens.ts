@@ -770,6 +770,7 @@ export const platforms = {
       },
       width: {
         "sidebar-start": 248,
+        "sidebar-start-collapsed": 96,
         "sidebar-end": 248
       }
     },
@@ -958,6 +959,7 @@ export const platforms = {
       },
       width: {
         "sidebar-start": 80,
+        "sidebar-start-collapsed": 80,
         "sidebar-end": 0
       }
     },
@@ -1146,6 +1148,7 @@ export const platforms = {
       },
       width: {
         "sidebar-start": 0,
+        "sidebar-start-collapsed": 0,
         "sidebar-end": 0
       }
     },
@@ -1630,6 +1633,7 @@ export const cssVars = {
     },
     width: {
       "sidebar-start": "var(--bw-layout-width-sidebar-start)",
+      "sidebar-start-collapsed": "var(--bw-layout-width-sidebar-start-collapsed)",
       "sidebar-end": "var(--bw-layout-width-sidebar-end)"
     }
   },

@@ -1,4 +1,4 @@
-<!-- GENERATED from text-field.md @ 37f194f6d3b89a11 — do not edit; change the source and run: npm run contract -- web text-field -->
+<!-- GENERATED from text-field.md @ 56a1f639efbf8a83 — do not edit; change the source and run: npm run contract -- web text-field -->
 # Text field · حقل نص — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Text field in the Web Components file, with our variables and styles.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](text-field.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Text field · حقل نص |
 | Platform | Web · React + MUI |
 | Version | 1.2 · 2026-10-21 |
-| Source | [`text-field.md`](text-field.md) @ `37f194f6d3b89a11` |
+| Source | [`text-field.md`](text-field.md) @ `56a1f639efbf8a83` |
 
 ## 1. Library connections in this file
 

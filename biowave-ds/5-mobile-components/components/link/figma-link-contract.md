@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 83b9ff13bd87fe55 — do not edit; change the source and run: npm run contract -- mobile link -->
+<!-- GENERATED from link.md @ 38702e38a044bef7 — do not edit; change the source and run: npm run contract -- mobile link -->
 # Link · رابط — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `83b9ff13bd87fe55` |
+| Source | [`link.md`](link.md) @ `38702e38a044bef7` |
 
 ## 1. Library connections in this file
 

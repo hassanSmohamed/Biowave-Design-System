@@ -494,7 +494,12 @@
         "sidebar-start": {
           "$type": "dimension",
           "$value": "{primitive.dimension.0}",
-          "$description": "Start-side navigation width (left in LTR, right in RTL): web 248 persistent sidebar; tablet 80 navigation rail (icons + short labels); mobile 0 — navigation opens as a modal drawer."
+          "$description": "Start-side navigation width (left in LTR, right in RTL): web 248 persistent sidebar when open (collapsed width: layout-width-sidebar-start-collapsed); tablet 80 navigation rail (icons + short labels); mobile 0 — navigation opens as a modal drawer."
+        },
+        "sidebar-start-collapsed": {
+          "$type": "dimension",
+          "$value": "{primitive.dimension.0}",
+          "$description": "Start-side navigation width when collapsed to icons only (left in LTR, right in RTL): web 96, item names move to a Tooltip; tablet 80, the rail does not collapse; mobile 0, navigation opens as a modal drawer."
         },
         "sidebar-end": {
           "$type": "dimension",

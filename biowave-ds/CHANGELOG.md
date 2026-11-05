@@ -62,6 +62,20 @@ Added Icon button and Split button/Menu aliases and Button focus width; renamed 
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Foundations — Collapsed start sidebar] — 2026-11-05
+### Added
+- `layout-width-sidebar-start-collapsed`: Web 96 (icons only, item names in a Tooltip), Tablet 80 (the rail does not collapse), Mobile 0 (modal drawer). Aliases `primitive.dimension.96`, `.80` and `.0`.
+- `BwLayout.sidebarStartCollapsed` in the generated Flutter code.
+- Figma Foundations: `layout/width/sidebar-start-collapsed` in `6. Grid & Layout`, with description and `WIDTH_HEIGHT` scope.
+### Changed
+- `layout-width-sidebar-start` description now points to the collapsed width.
+- `Grid/With sidebar` stays the only sidebar grid style and is applied to the main content area, so open and collapsed states share it. Updated its Figma description, `guidelines/grid.md` and the grid image source (`scripts/images/grid.mjs`).
+### Fixed
+- Figma Flutter code syntax in `6. Grid & Layout` now matches the `BwLayout` fields: `columns`, `gutter`, `appBarHeight`, `systemStatusHeight`, `sidebarStart`, `sidebarEnd`, `minTarget`. No values changed.
+- `_sync/figma-library.json` refreshed after the Foundations library was published: 282 published variables, all reachable from the Web Components file. All 33 Figma contracts regenerated; only their source hash and reachable count changed.
+### Notes
+- Foundation images rebuilt with the same scripts in a temporary copy, with Hassan's approval, because the browser was not available in the main folder.
+
 ## [Tooling — Sync hash ignores line endings] — 2026-11-03
 ### Fixed
 - Root `.gitattributes`: text files always check out with LF, including on Windows, so generated files and hashes match on every machine.

@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ f4558a07cf35810c — do not edit; change the source and run: npm run contract -- tablet button -->
+<!-- GENERATED from button.md @ d0d1875c8fc414fb — do not edit; change the source and run: npm run contract -- tablet button -->
 # Button · زر — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-20 |
-| Source | [`button.md`](button.md) @ `f4558a07cf35810c` |
+| Source | [`button.md`](button.md) @ `d0d1875c8fc414fb` |
 
 ## 1. Library connections in this file
 
