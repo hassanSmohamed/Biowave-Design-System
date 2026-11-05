@@ -25,7 +25,7 @@
         "supporting-gap": {
           "$value": "{spacing.xs}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.sm}"
         },
         "radius": {
@@ -34,7 +34,7 @@
         "border-width": {
           "$value": "{border.width.default}"
         },
-        "action-box": {
+        "action-size": {
           "$value": "{size.icon.lg}"
         },
         "action-inset": {
@@ -57,7 +57,7 @@
         "supporting-gap": {
           "$value": "{spacing.xs}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.md}"
         },
         "radius": {
@@ -66,7 +66,7 @@
         "border-width": {
           "$value": "{border.width.default}"
         },
-        "action-box": {
+        "action-size": {
           "$value": "{size.control.height.sm}"
         },
         "action-inset": {
@@ -89,7 +89,7 @@
         "supporting-gap": {
           "$value": "{spacing.xs}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.lg}"
         },
         "radius": {
@@ -98,7 +98,7 @@
         "border-width": {
           "$value": "{border.width.default}"
         },
-        "action-box": {
+        "action-size": {
           "$value": "{size.control.height.md}"
         },
         "action-inset": {
@@ -114,7 +114,7 @@
         }
       },
       "default": {
-        "background": {
+        "container": {
           "$value": "{color.background.base.default}"
         },
         "border": {
@@ -144,10 +144,10 @@
         "required": {
           "$value": "{color.text.role.error}"
         },
-        "addon-background": {
+        "addon-container": {
           "$value": "{color.background.neutral.default}"
         },
-        "addon-text": {
+        "addon-label": {
           "$value": "{color.text.subtle}"
         },
         "error-icon": {
@@ -155,7 +155,7 @@
         }
       },
       "hovered": {
-        "background": {
+        "container": {
           "$value": "{color.background.base.hovered}"
         },
         "border": {
@@ -185,10 +185,10 @@
         "required": {
           "$value": "{color.text.role.error}"
         },
-        "addon-background": {
+        "addon-container": {
           "$value": "{color.background.neutral.default}"
         },
-        "addon-text": {
+        "addon-label": {
           "$value": "{color.text.subtle}"
         },
         "error-icon": {
@@ -196,7 +196,7 @@
         }
       },
       "focused": {
-        "background": {
+        "container": {
           "$value": "{color.background.base.default}"
         },
         "border": {
@@ -226,10 +226,10 @@
         "required": {
           "$value": "{color.text.role.error}"
         },
-        "addon-background": {
+        "addon-container": {
           "$value": "{color.background.neutral.default}"
         },
-        "addon-text": {
+        "addon-label": {
           "$value": "{color.text.subtle}"
         },
         "error-icon": {
@@ -237,7 +237,7 @@
         }
       },
       "error": {
-        "background": {
+        "container": {
           "$value": "{color.background.base.default}"
         },
         "border": {
@@ -267,10 +267,10 @@
         "required": {
           "$value": "{color.text.role.error}"
         },
-        "addon-background": {
+        "addon-container": {
           "$value": "{color.background.neutral.default}"
         },
-        "addon-text": {
+        "addon-label": {
           "$value": "{color.text.subtle}"
         },
         "error-icon": {
@@ -278,7 +278,7 @@
         }
       },
       "disabled": {
-        "background": {
+        "container": {
           "$value": "{color.background.disabled}"
         },
         "border": {
@@ -308,10 +308,10 @@
         "required": {
           "$value": "{color.text.disabled}"
         },
-        "addon-background": {
+        "addon-container": {
           "$value": "{color.background.disabled}"
         },
-        "addon-text": {
+        "addon-label": {
           "$value": "{color.text.disabled}"
         },
         "error-icon": {
@@ -319,7 +319,7 @@
         }
       },
       "read-only": {
-        "background": {
+        "container": {
           "$value": "{color.background.base.subtlest}"
         },
         "border": {
@@ -349,10 +349,10 @@
         "required": {
           "$value": "{color.text.role.error}"
         },
-        "addon-background": {
+        "addon-container": {
           "$value": "{color.background.neutral.default}"
         },
-        "addon-text": {
+        "addon-label": {
           "$value": "{color.text.subtle}"
         },
         "error-icon": {

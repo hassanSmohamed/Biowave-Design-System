@@ -461,11 +461,11 @@ Use the mode with the same name as `Color`.
 | Part | Collection | Variable |
 |---|---|---|
 | Heights, padding, gap, icon | `Button / Size` | Same name as `Size` |
-| Outer corners | `Split button / Part` | `outer-radius` |
-| Inner corners | `Split button / Part` | `inner-radius` |
-| Border on the inner sides | `Split button / Part` | `inner-border-width` |
-| Gap between parts | `Split button / Part` | `gap` |
-| `Divider` fill, width | `Split button / Part` | `divider/color`, `divider/width` |
+| Outer corners | `Split button / Segment` | `outer-radius` |
+| Inner corners | `Split button / Segment` | `inner-radius` |
+| Border on the inner sides | `Split button / Segment` | `inner-border-width` |
+| Gap between parts | `Split button / Segment` | `gap` |
+| `Divider` fill, width | `Split button / Segment` | `divider`, `divider-width` |
 | Focus ring | `Button / Focus` | `default` or `inverse` |
 | Menu | `Menu / *` | `default` |
 
@@ -513,7 +513,7 @@ Component description: "Main action plus a menu of related alternatives. Spec: 3
 
 ### D10 Acceptance criteria
 
-- [ ] F-AC-1 Parts are instances of Button / Icon Button (no detached or drawn parts)
+- [ ] F-AC-1 Parts are instances of Button / Transparent Button (no detached or drawn parts)
 - [ ] F-AC-2 Properties D4 exactly; F-AC-3 432 variants
 - [ ] F-AC-4 Zero raw values; F-AC-5 Light/Dark by mode
 - [ ] F-AC-6 AR per D7; F-AC-7 zero local variables/styles; legacy mapping in the review

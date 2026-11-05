@@ -1,7 +1,7 @@
-<!-- GENERATED from split-button.md @ 3421b86b97817ae2 — do not edit; change the source and run: npm run contract -- web split-button -->
+<!-- GENERATED from split-button.md @ 4475a5884549b038 — do not edit; change the source and run: npm run contract -- web split-button -->
 # Split button · زر مقسّم — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Split button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Split button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Split button · زر مقسّم |
 | Platform | Web · React + MUI |
 | Version | 1.2 · 2026-10-31 |
-| Source | [`split-button.md`](split-button.md) @ `3421b86b97817ae2` |
+| Source | [`split-button.md`](split-button.md) @ `4475a5884549b038` |
 
 ## 1. Library connections in this file
 
@@ -21,7 +21,7 @@
 | Library | **Biowave DS — Foundations** · library key `lk-e00b31b21f924b36eeea820da99c4b306c460986c83e894f415a1c194ba5a2e670f3142c2fccca81280a80bcaee6a87bc47c9a9505d186d7b693aa9805ad7031` |
 | Library file | Foundations · key `AyFaSmfDUlTax3GpKhRdHI` |
 | Doc Kit library (Phase 2) | **Annotation (Biowave Doc Kit)** · file key `cBPWg6YZNqK8UIzgMQIpXl` — must be enabled in this file (Assets → Libraries) |
-| Enabled here | ✓ verified from a component file: 7 collections, 281 variables reachable |
+| Enabled here | ✓ verified from a component file: 7 collections, 282 variables reachable |
 
 Import by key — never search by name, never copy:
 
@@ -38,13 +38,13 @@ Already in this file, created by the sync tooling from [`split-button.tokens.jso
 
 | Collection | Modes | Variable | Alias target per mode |
 |---|---|---|---|
-| Split button / Part | default | `gap` | default → 3. Spacing › `spacing/none` |
-| Split button / Part | default | `inner-radius` | default → 2. Radius › `radius/none` |
-| Split button / Part | default | `outer-radius` | default → 2. Radius › `radius/md` |
-| Split button / Part | default | `inner-border-width` | default → 7. Border › `border/width/none` |
-| Split button / Part | default | `divider/width` | default → 7. Border › `border/width/default` |
-| Split button / Part | default | `divider/color` | default → 1. Themes › `color/border/default` |
-| Menu / Container | default | `background` | default → 1. Themes › `color/surface/raised` |
+| Split button / Segment | default | `gap` | default → 3. Spacing › `spacing/none` |
+| Split button / Segment | default | `inner-radius` | default → 2. Radius › `radius/none` |
+| Split button / Segment | default | `outer-radius` | default → 2. Radius › `radius/md` |
+| Split button / Segment | default | `inner-border-width` | default → 7. Border › `border/width/none` |
+| Split button / Segment | default | `divider-width` | default → 7. Border › `border/width/default` |
+| Split button / Segment | default | `divider` | default → 1. Themes › `color/border/default` |
+| Menu / Container | default | `container` | default → 1. Themes › `color/surface/raised` |
 | Menu / Container | default | `radius` | default → 2. Radius › `radius/lg` |
 | Menu / Container | default | `padding` | default → 3. Spacing › `spacing/xs` |
 | Menu / Container | default | `offset` | default → 3. Spacing › `spacing/xs` |
@@ -245,11 +245,11 @@ Use the mode with the same name as `Color`.
 | Part | Collection | Variable |
 |---|---|---|
 | Heights, padding, gap, icon | `Button / Size` | Same name as `Size` |
-| Outer corners | `Split button / Part` | `outer-radius` |
-| Inner corners | `Split button / Part` | `inner-radius` |
-| Border on the inner sides | `Split button / Part` | `inner-border-width` |
-| Gap between parts | `Split button / Part` | `gap` |
-| `Divider` fill, width | `Split button / Part` | `divider/color`, `divider/width` |
+| Outer corners | `Split button / Segment` | `outer-radius` |
+| Inner corners | `Split button / Segment` | `inner-radius` |
+| Border on the inner sides | `Split button / Segment` | `inner-border-width` |
+| Gap between parts | `Split button / Segment` | `gap` |
+| `Divider` fill, width | `Split button / Segment` | `divider`, `divider-width` |
 | Focus ring | `Button / Focus` | `default` or `inverse` |
 | Menu | `Menu / *` | `default` |
 
@@ -501,7 +501,7 @@ All rules in **D1** (§8), plus:
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 
-- [ ] F-AC-1 Parts are instances of Button / Icon Button (no detached or drawn parts)
+- [ ] F-AC-1 Parts are instances of Button / Transparent Button (no detached or drawn parts)
 - [ ] F-AC-2 Properties D4 exactly; F-AC-3 432 variants
 - [ ] F-AC-4 Zero raw values; F-AC-5 Light/Dark by mode
 - [ ] F-AC-6 AR per D7; F-AC-7 zero local variables/styles; legacy mapping in the review

@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ a9d6a0d8a5c73bab — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ f7e8a98bed93f563 — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — code contract
 
 > **Everything you need to build Link on Web, and nothing else.** Read this file only. Generated from [`link.md`](link.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](link.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-10-21 |
 | Source code | `src/components/link/` (built) |
 | Tokens | [`link.tokens.json`](link.tokens.json) |
-| Source | [`link.md`](link.md) @ `a9d6a0d8a5c73bab` |
+| Source | [`link.md`](link.md) @ `f7e8a98bed93f563` |
 
 ## 1. What it is
 
@@ -109,7 +109,7 @@ The Web implementation continues to consume shared semantic tokens directly. The
 
 | Figma collection | Modes | Variables |
 |---|---|---|
-| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` · `focus-ring-width` |
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon-size` · `radius` · `focus-ring-width` |
 | `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
 
 `XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and the focus ring is a real stroke on the `Border` layer in the link colour. Web Link has no Pressed state in Figma or code.
@@ -174,7 +174,7 @@ The code token map must equal [`link.tokens.json`](link.tokens.json) (tests comp
 | Link / Size | padding-inline | lg: `spacing-control-padding-inline-lg` · md: `spacing-control-padding-inline-md` · sm: `spacing-control-padding-inline-sm` |
 | Link / Size | padding-block | lg: `spacing-none` · md: `spacing-none` · sm: `spacing-none` |
 | Link / Size | gap | lg: `spacing-control-gap-lg` · md: `spacing-control-gap-md` · sm: `spacing-control-gap-sm` |
-| Link / Size | icon | lg: `size-icon-lg` · md: `size-icon-md` · sm: `size-icon-sm` |
+| Link / Size | icon-size | lg: `size-icon-lg` · md: `size-icon-md` · sm: `size-icon-sm` |
 | Link / Size | radius | lg: `radius-2xl` · md: `radius-2xl` · sm: `radius-2xl` |
 | Link / Size | focus-ring-width | lg: `border-width-focus` · md: `border-width-focus` · sm: `border-width-focus` |
 | Link / Color | label/default | brand: `color-link-default` · neutral: `color-text-default` · inverse: `color-text-inverse` |

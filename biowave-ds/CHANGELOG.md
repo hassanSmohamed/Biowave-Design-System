@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05 — Component token renames
+
+Renamed 25 component variables across the Web, Tablet and Mobile Figma files and in `tokens.json`, keeping variable IDs: `icon` → `icon-size` on Size collections; `background` → `container`, `text` → `label`; `addon-background` → `addon-container`; `addon-text` → `addon-label`; `action-box` → `action-size`; `divider/width` → `divider-width`; `divider/color` → `divider`. Renamed three collections: `Icon button / Tooltip` → `Tooltip / Container`, `Split button / Part` → `Split button / Segment`, `Button / Icon` → `Button / Transparent`. Tooltip tokens moved to `tooltip.tokens.json`. `component-tokens --strict` now passes. No Foundations token or Figma variable changed.
+
 ## 2026-11-05 — Component token rules
 
 Added the component token rules to `tokens.md` and `AGENTS.md`. `component-tokens` now fails when a name is both a token and a group, and reports names outside the rules; `--strict` fails on them after the renames. Updated the Foundations guidelines, README and focus image to say Button and Link rings follow the element colour. No token changed.

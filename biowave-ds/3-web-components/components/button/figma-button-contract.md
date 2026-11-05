@@ -1,7 +1,7 @@
-<!-- GENERATED from button.md @ 91b0cecd215b6f9c — do not edit; change the source and run: npm run contract -- web button -->
+<!-- GENERATED from button.md @ dad61060d6c9733a — do not edit; change the source and run: npm run contract -- web button -->
 # Button · زر — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-18 |
-| Source | [`button.md`](button.md) @ `91b0cecd215b6f9c` |
+| Source | [`button.md`](button.md) @ `dad61060d6c9733a` |
 
 ## 1. Library connections in this file
 
@@ -21,7 +21,7 @@
 | Library | **Biowave DS — Foundations** · library key `lk-e00b31b21f924b36eeea820da99c4b306c460986c83e894f415a1c194ba5a2e670f3142c2fccca81280a80bcaee6a87bc47c9a9505d186d7b693aa9805ad7031` |
 | Library file | Foundations · key `AyFaSmfDUlTax3GpKhRdHI` |
 | Doc Kit library (Phase 2) | **Annotation (Biowave Doc Kit)** · file key `cBPWg6YZNqK8UIzgMQIpXl` — must be enabled in this file (Assets → Libraries) |
-| Enabled here | ✓ verified from a component file: 7 collections, 281 variables reachable |
+| Enabled here | ✓ verified from a component file: 7 collections, 282 variables reachable |
 
 Import by key — never search by name, never copy:
 
@@ -41,7 +41,7 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | Button / Size | sm · md · lg | `height` | sm → 4. Size › `size/control/height/sm`<br>md → 4. Size › `size/control/height/md`<br>lg → 4. Size › `size/control/height/lg` |
 | Button / Size | sm · md · lg | `padding-inline` | sm → 3. Spacing › `spacing/control/padding-inline/sm`<br>md → 3. Spacing › `spacing/control/padding-inline/md`<br>lg → 3. Spacing › `spacing/control/padding-inline/lg` |
 | Button / Size | sm · md · lg | `gap` | sm → 3. Spacing › `spacing/control/gap/sm`<br>md → 3. Spacing › `spacing/control/gap/md`<br>lg → 3. Spacing › `spacing/control/gap/lg` |
-| Button / Size | sm · md · lg | `icon` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
+| Button / Size | sm · md · lg | `icon-size` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
 | Button / Size | sm · md · lg | `radius` | sm → 2. Radius › `radius/md`<br>md → 2. Radius › `radius/md`<br>lg → 2. Radius › `radius/md` |
 | Button / Size | sm · md · lg | `border-width` | sm → 7. Border › `border/width/default`<br>md → 7. Border › `border/width/default`<br>lg → 7. Border › `border/width/default` |
 | Button / Size | sm · md · lg | `focus-ring-radius` | sm → 2. Radius › `radius/lg`<br>md → 2. Radius › `radius/lg`<br>lg → 2. Radius › `radius/lg` |

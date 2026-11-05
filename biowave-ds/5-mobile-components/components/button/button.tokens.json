@@ -14,7 +14,7 @@
         "gap": {
           "$value": "{spacing.control.gap.xl}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.lg}"
         },
         "radius": {

@@ -1,4 +1,4 @@
-<!-- GENERATED from tooltip.md @ 48b30e44c54433a2 — do not edit; change the source and run: npm run contract -- web tooltip -->
+<!-- GENERATED from tooltip.md @ 6016113377008546 — do not edit; change the source and run: npm run contract -- web tooltip -->
 # Tooltip · تلميح — Web — code contract
 
 > **Everything you need to build Tooltip on Web, and nothing else.** Read this file only. Generated from [`tooltip.md`](tooltip.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](tooltip.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -11,8 +11,8 @@
 | Import | `import { Tooltip } from '@biowave/web'` |
 | Version | 1.1 · 2026-10-24 |
 | Source code | [`src/components/tooltip/`](../../src/components/tooltip/) |
-| Tokens | — |
-| Source | [`tooltip.md`](tooltip.md) @ `48b30e44c54433a2` |
+| Tokens | [`tooltip.tokens.json`](tooltip.tokens.json) |
+| Source | [`tooltip.md`](tooltip.md) @ `6016113377008546` |
 
 ## 1. What it is
 
@@ -81,7 +81,7 @@ Layout rules: the tooltip renders in a portal above all page content and never c
 
 ## 4. Tokens by part and state
 
-Every value is a semantic token; there are no component tokens (P-04 — the same set Icon button B3.4 uses for its temporary tooltip, plus the max width).
+Every value is a semantic token. Figma uses the `Tooltip / Container` collection from `tooltip.tokens.json`; code reads the semantic tokens directly (the same set Icon button B3.4 uses for its temporary tooltip, plus the max width).
 
 | Part | Property | Shown | Entering / exiting |
 |---|---|---|---|
@@ -109,6 +109,19 @@ Values are for checking only — never paste a value.
 | `size-container-xxs` | `var(--bw-size-container-xxs)` · `cssVars.size.container.xxs` | 320 | 320 |
 | `spacing-md` | `var(--bw-spacing-md)` · `cssVars.spacing.md` | 8 | 8 |
 | `spacing-xs` | `var(--bw-spacing-xs)` · `cssVars.spacing.xs` | 4 | 4 |
+
+### 4.2 Component tokens
+
+The code token map must equal [`tooltip.tokens.json`](tooltip.tokens.json) (tests compare them).
+
+| Collection | Variable | Modes → semantic token |
+|---|---|---|
+| Tooltip / Container | container | default: `color-surface-inverse` |
+| Tooltip / Container | label | default: `color-text-inverse` |
+| Tooltip / Container | radius | default: `radius-sm` |
+| Tooltip / Container | padding-block | default: `spacing-xs` |
+| Tooltip / Container | padding-inline | default: `spacing-md` |
+| Tooltip / Container | offset | default: `spacing-xs` |
 
 ## 5. States and transitions
 

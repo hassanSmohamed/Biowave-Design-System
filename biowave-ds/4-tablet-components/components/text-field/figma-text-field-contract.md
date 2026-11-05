@@ -1,7 +1,7 @@
-<!-- GENERATED from text-field.md @ 26ed89862144cb12 — do not edit; change the source and run: npm run contract -- tablet text-field -->
+<!-- GENERATED from text-field.md @ 283e9e5cb8503d2a — do not edit; change the source and run: npm run contract -- tablet text-field -->
 # Text field · حقل نص — Tablet — Figma contract
 
-> **Everything the Figma Agent needs to build Text field in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](text-field.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Text field in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](text-field.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Text field · حقل نص |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-18 (first Tablet version; same guidelines version as Web 1.1) |
-| Source | [`text-field.md`](text-field.md) @ `26ed89862144cb12` |
+| Source | [`text-field.md`](text-field.md) @ `283e9e5cb8503d2a` |
 
 ## 1. Library connections in this file
 
@@ -21,7 +21,7 @@
 | Library | **Biowave DS — Foundations** · library key `lk-e00b31b21f924b36eeea820da99c4b306c460986c83e894f415a1c194ba5a2e670f3142c2fccca81280a80bcaee6a87bc47c9a9505d186d7b693aa9805ad7031` |
 | Library file | Foundations · key `AyFaSmfDUlTax3GpKhRdHI` |
 | Doc Kit library (Phase 2) | **Annotation (Biowave Doc Kit)** · file key `cBPWg6YZNqK8UIzgMQIpXl` — must be enabled in this file (Assets → Libraries) |
-| Enabled here | ✓ verified from a component file: 7 collections, 281 variables reachable |
+| Enabled here | ✓ verified from a component file: 7 collections, 282 variables reachable |
 
 Import by key — never search by name, never copy:
 
@@ -43,12 +43,12 @@ Already in this file, created by the sync tooling from [`text-field.tokens.json`
 | Text field / Size | sm · md · lg | `gap` | sm → 3. Spacing › `spacing/control/gap/sm`<br>md → 3. Spacing › `spacing/control/gap/md`<br>lg → 3. Spacing › `spacing/control/gap/lg` |
 | Text field / Size | sm · md · lg | `label-gap` | sm → 3. Spacing › `spacing/sm`<br>md → 3. Spacing › `spacing/sm`<br>lg → 3. Spacing › `spacing/sm` |
 | Text field / Size | sm · md · lg | `supporting-gap` | sm → 3. Spacing › `spacing/xs`<br>md → 3. Spacing › `spacing/xs`<br>lg → 3. Spacing › `spacing/xs` |
-| Text field / Size | sm · md · lg | `icon` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
+| Text field / Size | sm · md · lg | `icon-size` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
 | Text field / Size | sm · md · lg | `radius` | sm → 2. Radius › `radius/md`<br>md → 2. Radius › `radius/md`<br>lg → 2. Radius › `radius/md` |
 | Text field / Size | sm · md · lg | `border-width` | sm → 7. Border › `border/width/default`<br>md → 7. Border › `border/width/default`<br>lg → 7. Border › `border/width/default` |
-| Text field / Size | sm · md · lg | `action-box` | sm → 4. Size › `size/icon/lg`<br>md → 4. Size › `size/control/height/sm`<br>lg → 4. Size › `size/control/height/md` |
+| Text field / Size | sm · md · lg | `action-size` | sm → 4. Size › `size/icon/lg`<br>md → 4. Size › `size/control/height/sm`<br>lg → 4. Size › `size/control/height/md` |
 | Text field / Size | sm · md · lg | `action-inset` | sm → 3. Spacing › `spacing/xs`<br>md → 3. Spacing › `spacing/xs`<br>lg → 3. Spacing › `spacing/xs` |
-| Text field / State | default · hovered · focused · error · disabled · read-only | `background` | default → 1. Themes › `color/background/base/default`<br>hovered → 1. Themes › `color/background/base/hovered`<br>focused → 1. Themes › `color/background/base/default`<br>error → 1. Themes › `color/background/base/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/base/subtlest` |
+| Text field / State | default · hovered · focused · error · disabled · read-only | `container` | default → 1. Themes › `color/background/base/default`<br>hovered → 1. Themes › `color/background/base/hovered`<br>focused → 1. Themes › `color/background/base/default`<br>error → 1. Themes › `color/background/base/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/base/subtlest` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `border` | default → 1. Themes › `color/border/bold`<br>hovered → 1. Themes › `color/border/bold`<br>focused → 1. Themes › `color/border/focus`<br>error → 1. Themes › `color/border/error`<br>disabled → 1. Themes › `color/border/disabled`<br>read-only → 1. Themes › `color/border/default` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `border-width` | default → 7. Border › `border/width/default`<br>hovered → 7. Border › `border/width/default`<br>focused → 7. Border › `border/width/focus`<br>error → 7. Border › `border/width/default`<br>disabled → 7. Border › `border/width/default`<br>read-only → 7. Border › `border/width/default` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `label` | default → 1. Themes › `color/text/default`<br>hovered → 1. Themes › `color/text/default`<br>focused → 1. Themes › `color/text/default`<br>error → 1. Themes › `color/text/default`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/default` |
@@ -58,8 +58,8 @@ Already in this file, created by the sync tooling from [`text-field.tokens.json`
 | Text field / State | default · hovered · focused · error · disabled · read-only | `supporting` | default → 1. Themes › `color/text/subtlest`<br>hovered → 1. Themes › `color/text/subtlest`<br>focused → 1. Themes › `color/text/subtlest`<br>error → 1. Themes › `color/text/role/error`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/subtlest` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `counter` | default → 1. Themes › `color/text/subtlest`<br>hovered → 1. Themes › `color/text/subtlest`<br>focused → 1. Themes › `color/text/subtlest`<br>error → 1. Themes › `color/text/role/error`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/subtlest` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `required` | default → 1. Themes › `color/text/role/error`<br>hovered → 1. Themes › `color/text/role/error`<br>focused → 1. Themes › `color/text/role/error`<br>error → 1. Themes › `color/text/role/error`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/role/error` |
-| Text field / State | default · hovered · focused · error · disabled · read-only | `addon-background` | default → 1. Themes › `color/background/neutral/default`<br>hovered → 1. Themes › `color/background/neutral/default`<br>focused → 1. Themes › `color/background/neutral/default`<br>error → 1. Themes › `color/background/neutral/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/neutral/default` |
-| Text field / State | default · hovered · focused · error · disabled · read-only | `addon-text` | default → 1. Themes › `color/text/subtle`<br>hovered → 1. Themes › `color/text/subtle`<br>focused → 1. Themes › `color/text/subtle`<br>error → 1. Themes › `color/text/subtle`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/subtle` |
+| Text field / State | default · hovered · focused · error · disabled · read-only | `addon-container` | default → 1. Themes › `color/background/neutral/default`<br>hovered → 1. Themes › `color/background/neutral/default`<br>focused → 1. Themes › `color/background/neutral/default`<br>error → 1. Themes › `color/background/neutral/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/neutral/default` |
+| Text field / State | default · hovered · focused · error · disabled · read-only | `addon-label` | default → 1. Themes › `color/text/subtle`<br>hovered → 1. Themes › `color/text/subtle`<br>focused → 1. Themes › `color/text/subtle`<br>error → 1. Themes › `color/text/subtle`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/subtle` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `error-icon` | default → 1. Themes › `color/icon/role/error`<br>hovered → 1. Themes › `color/icon/role/error`<br>focused → 1. Themes › `color/icon/role/error`<br>error → 1. Themes › `color/icon/role/error`<br>disabled → 1. Themes › `color/icon/disabled`<br>read-only → 1. Themes › `color/icon/role/error` |
 
 ## 3. Foundations variables used (keys)
@@ -231,7 +231,7 @@ Same as [Web B5](../../../3-web-components/components/text-field/text-field.md#b
 | Hint / error / counter | Through `InputDecoration.helper` / `error` / `counter` so TalkBack and VoiceOver read them with the field; `error-icon` `ExcludeSemantics` |
 | Prefix / suffix | Read as part of the field value hint (e.g. “Hourly rate, SAR”) |
 | Help icon | `BwIconButton` (`text`, `neutral`) with `helpLabel`; M3 `Tooltip(triggerMode: TooltipTriggerMode.tap, message: helpText)`; stays enabled when the field is disabled |
-| Trailing action | `BwIconButton` (`text`, `neutral`) sized to B2 `action-box`; `onPressed: null` when the field is disabled; clear returns focus to the field; password toggle exposes `toggled` with “Show password” / “Hide password” |
+| Trailing action | `BwIconButton` (`text`, `neutral`) sized to B2 `action-size`; `onPressed: null` when the field is disabled; clear returns focus to the field; password toggle exposes `toggled` with “Show password” / “Hide password” |
 | End button | `BwButton` (`outlined`, `neutral`, field size); `onPressed: null` when the field is disabled |
 | Focus | **Field exception** (as Web): the outline becomes `border-width-focus` in `color-border-focus` whenever the field has focus (touch or keyboard); error keeps `color-border-error`. Buttons inside use `BwFocusRing` (keyboard only) |
 | Disabled / read-only | `enabled: false` removes the field and its controls from focus traversal; `readOnly: true` stays focusable and selectable, clear hidden |
@@ -314,7 +314,7 @@ The Tablet Part D refers to these Web sections; they are copied here so you read
   ├─ ◇ .Field/Label            label · required-indicator · help-icon
   ├─ ◇ .Field/Container        field box with slots
   ├─ ◇ .Field/Add-on           prefix / suffix segment
-  ├─ ◇ .Field/Action           Icon button instance sized to action-box
+  ├─ ◇ .Field/Action           Icon button instance sized to action-size
   └─ ◇ .Field/Supporting text  error-icon · supporting-text · counter
 
 ❖ Text area

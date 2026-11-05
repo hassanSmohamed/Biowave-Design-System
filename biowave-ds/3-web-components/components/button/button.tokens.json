@@ -19,7 +19,7 @@
         "gap": {
           "$value": "{spacing.control.gap.sm}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.sm}"
         },
         "radius": {
@@ -42,7 +42,7 @@
         "gap": {
           "$value": "{spacing.control.gap.md}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.md}"
         },
         "radius": {
@@ -65,7 +65,7 @@
         "gap": {
           "$value": "{spacing.control.gap.lg}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.lg}"
         },
         "radius": {

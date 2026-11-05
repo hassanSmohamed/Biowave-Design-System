@@ -1,7 +1,7 @@
-<!-- GENERATED from icon-button.md @ 00454086e61bec7d — do not edit; change the source and run: npm run contract -- web icon-button -->
+<!-- GENERATED from icon-button.md @ c1932c964e49a762 — do not edit; change the source and run: npm run contract -- web icon-button -->
 # Icon button · زر أيقونة — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Icon button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](icon-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Icon button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](icon-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Icon button · زر أيقونة |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-21 |
-| Source | [`icon-button.md`](icon-button.md) @ `00454086e61bec7d` |
+| Source | [`icon-button.md`](icon-button.md) @ `c1932c964e49a762` |
 
 ## 1. Library connections in this file
 
@@ -21,7 +21,7 @@
 | Library | **Biowave DS — Foundations** · library key `lk-e00b31b21f924b36eeea820da99c4b306c460986c83e894f415a1c194ba5a2e670f3142c2fccca81280a80bcaee6a87bc47c9a9505d186d7b693aa9805ad7031` |
 | Library file | Foundations · key `AyFaSmfDUlTax3GpKhRdHI` |
 | Doc Kit library (Phase 2) | **Annotation (Biowave Doc Kit)** · file key `cBPWg6YZNqK8UIzgMQIpXl` — must be enabled in this file (Assets → Libraries) |
-| Enabled here | ✓ verified from a component file: 7 collections, 281 variables reachable |
+| Enabled here | ✓ verified from a component file: 7 collections, 282 variables reachable |
 
 Import by key — never search by name, never copy:
 
@@ -39,7 +39,7 @@ Already in this file, created by the sync tooling from [`icon-button.tokens.json
 | Collection | Modes | Variable | Alias target per mode |
 |---|---|---|---|
 | Icon button / Size | sm · md · lg | `size` | sm → 4. Size › `size/control/height/sm`<br>md → 4. Size › `size/control/height/md`<br>lg → 4. Size › `size/control/height/lg` |
-| Icon button / Size | sm · md · lg | `icon` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
+| Icon button / Size | sm · md · lg | `icon-size` | sm → 4. Size › `size/icon/sm`<br>md → 4. Size › `size/icon/md`<br>lg → 4. Size › `size/icon/lg` |
 | Icon button / Size | sm · md · lg | `radius` | sm → 2. Radius › `radius/md`<br>md → 2. Radius › `radius/md`<br>lg → 2. Radius › `radius/md` |
 | Icon button / Size | sm · md · lg | `border-width` | sm → 7. Border › `border/width/default`<br>md → 7. Border › `border/width/default`<br>lg → 7. Border › `border/width/default` |
 | Icon button / Selected | brand · secondary · error · neutral · inverse · success · warning · info | `container/selected` | brand → 1. Themes › `color/background/brand/subtle`<br>secondary → 1. Themes › `color/background/secondary/subtle`<br>error → 1. Themes › `color/background/error/subtle`<br>neutral → 1. Themes › `color/background/neutral/default`<br>inverse → 1. Themes › `color/background/inverse/default`<br>success → 1. Themes › `color/background/success/subtle`<br>warning → 1. Themes › `color/background/warning/subtle`<br>info → 1. Themes › `color/background/info/subtle` |
@@ -50,18 +50,12 @@ Already in this file, created by the sync tooling from [`icon-button.tokens.json
 | Icon button / Selected | brand · secondary · error · neutral · inverse · success · warning · info | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled`<br>success → 1. Themes › `color/icon/disabled`<br>warning → 1. Themes › `color/icon/disabled`<br>info → 1. Themes › `color/icon/disabled` |
 | Icon button / Selected | brand · secondary · error · neutral · inverse · success · warning · info | `border/selected` | brand → 1. Themes › `color/border/brand`<br>secondary → 1. Themes › `color/border/secondary`<br>error → 1. Themes › `color/border/error`<br>neutral → 1. Themes › `color/border/strong`<br>inverse → 1. Themes › `color/border/inverse`<br>success → 1. Themes › `color/border/success`<br>warning → 1. Themes › `color/border/warning`<br>info → 1. Themes › `color/border/info` |
 | Icon button / Selected | brand · secondary · error · neutral · inverse · success · warning · info | `border/disabled` | brand → 1. Themes › `color/border/disabled`<br>secondary → 1. Themes › `color/border/disabled`<br>error → 1. Themes › `color/border/disabled`<br>neutral → 1. Themes › `color/border/disabled`<br>inverse → 1. Themes › `color/border/disabled`<br>success → 1. Themes › `color/border/disabled`<br>warning → 1. Themes › `color/border/disabled`<br>info → 1. Themes › `color/border/disabled` |
-| Icon button / Tooltip | default | `background` | default → 1. Themes › `color/surface/inverse` |
-| Icon button / Tooltip | default | `text` | default → 1. Themes › `color/text/inverse` |
-| Icon button / Tooltip | default | `radius` | default → 2. Radius › `radius/sm` |
-| Icon button / Tooltip | default | `padding-block` | default → 3. Spacing › `spacing/xs` |
-| Icon button / Tooltip | default | `padding-inline` | default → 3. Spacing › `spacing/md` |
-| Icon button / Tooltip | default | `offset` | default → 3. Spacing › `spacing/xs` |
-| Button / Icon | brand · secondary · success · error · warning · info · neutral · inverse | `container/default` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
-| Button / Icon | brand · secondary · success · error · warning · info · neutral · inverse | `container/disabled` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
-| Button / Icon | brand · secondary · success · error · warning · info · neutral · inverse | `state-layer/hovered` | brand → 1. Themes › `color/background/transparent/hovered`<br>secondary → 1. Themes › `color/background/transparent/hovered`<br>success → 1. Themes › `color/background/transparent/hovered`<br>error → 1. Themes › `color/background/transparent/hovered`<br>warning → 1. Themes › `color/background/transparent/hovered`<br>info → 1. Themes › `color/background/transparent/hovered`<br>neutral → 1. Themes › `color/background/transparent/hovered`<br>inverse → 1. Themes › `color/background/transparent/hovered` |
-| Button / Icon | brand · secondary · success · error · warning · info · neutral · inverse | `state-layer/pressed` | brand → 1. Themes › `color/background/transparent/pressed`<br>secondary → 1. Themes › `color/background/transparent/pressed`<br>success → 1. Themes › `color/background/transparent/pressed`<br>error → 1. Themes › `color/background/transparent/pressed`<br>warning → 1. Themes › `color/background/transparent/pressed`<br>info → 1. Themes › `color/background/transparent/pressed`<br>neutral → 1. Themes › `color/background/transparent/pressed`<br>inverse → 1. Themes › `color/background/transparent/pressed` |
-| Button / Icon | brand · secondary · success · error · warning · info · neutral · inverse | `icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/on/brand` |
-| Button / Icon | brand · secondary · success · error · warning · info · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>success → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>warning → 1. Themes › `color/icon/disabled`<br>info → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
+| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `container/default` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
+| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `container/disabled` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
+| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `state-layer/hovered` | brand → 1. Themes › `color/background/transparent/hovered`<br>secondary → 1. Themes › `color/background/transparent/hovered`<br>success → 1. Themes › `color/background/transparent/hovered`<br>error → 1. Themes › `color/background/transparent/hovered`<br>warning → 1. Themes › `color/background/transparent/hovered`<br>info → 1. Themes › `color/background/transparent/hovered`<br>neutral → 1. Themes › `color/background/transparent/hovered`<br>inverse → 1. Themes › `color/background/transparent/hovered` |
+| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `state-layer/pressed` | brand → 1. Themes › `color/background/transparent/pressed`<br>secondary → 1. Themes › `color/background/transparent/pressed`<br>success → 1. Themes › `color/background/transparent/pressed`<br>error → 1. Themes › `color/background/transparent/pressed`<br>warning → 1. Themes › `color/background/transparent/pressed`<br>info → 1. Themes › `color/background/transparent/pressed`<br>neutral → 1. Themes › `color/background/transparent/pressed`<br>inverse → 1. Themes › `color/background/transparent/pressed` |
+| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/on/brand` |
+| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>success → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>warning → 1. Themes › `color/icon/disabled`<br>info → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
 
 ## 3. Foundations variables used (keys)
 
@@ -100,18 +94,13 @@ Already in this file, created by the sync tooling from [`icon-button.tokens.json
 | `color-icon-role-secondary` | 1. Themes › `color/icon/role/secondary` | `b3c3c18415370f381760224fd00a40f2816ffdb6` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
 | `color-icon-role-success` | 1. Themes › `color/icon/role/success` | `096b2f9e4c965c38f55d3dd051dbff93f36a33e5` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
 | `color-icon-role-warning` | 1. Themes › `color/icon/role/warning` | `3fa016bcd1409896b81681403e6a214dcc365fda` | COLOR | SHAPE_FILL, STROKE_COLOR | spec, component token |
-| `color-surface-inverse` | 1. Themes › `color/surface/inverse` | `364770c6a80914cb1d30c8afc1e354431dbb5f07` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
-| `color-text-inverse` | 1. Themes › `color/text/inverse` | `83e1f6c6d7ddf8376b1bc5d0b9d5f6cd13b68e9b` | COLOR | TEXT_FILL | spec, component token |
 | `radius-md` | 2. Radius › `radius/md` | `0758e506cdfd4d7a4eef6369a4851133d7eab5a4` | FLOAT | CORNER_RADIUS | spec, component token |
-| `radius-sm` | 2. Radius › `radius/sm` | `44047be92c065ef35e4aa9ed6732645870ae38c9` | FLOAT | CORNER_RADIUS | spec, component token |
 | `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | spec, component token |
 | `size-control-height-md` | 4. Size › `size/control/height/md` | `cb6d23a09de76b9cea37c24579dbb2a9e6e6a079` | FLOAT | WIDTH_HEIGHT | spec, component token |
 | `size-control-height-sm` | 4. Size › `size/control/height/sm` | `1409647f4e12e37e76b49ed9ce1a78946e4250f4` | FLOAT | WIDTH_HEIGHT | spec, component token |
 | `size-icon-lg` | 4. Size › `size/icon/lg` | `e79bd86fedcce89547674c84c9127d0149e60061` | FLOAT | WIDTH_HEIGHT | spec, component token |
 | `size-icon-md` | 4. Size › `size/icon/md` | `eb459c673e6ca16e3c81b240f04b467717953a9a` | FLOAT | WIDTH_HEIGHT | spec, component token |
 | `size-icon-sm` | 4. Size › `size/icon/sm` | `2aa4b1f12a5ed0745f9a8b3251dc1fd9f7dd3476` | FLOAT | WIDTH_HEIGHT | spec, component token |
-| `spacing-md` | 3. Spacing › `spacing/md` | `58c93e3cec1b6ba603371a027483e101adcef4f0` | FLOAT | GAP | spec, component token |
-| `spacing-xs` | 3. Spacing › `spacing/xs` | `9ea993d003d5368c5100b038d51c7c8f3e95c115` | FLOAT | GAP | spec, component token |
 | `target-min` | 6. Grid & Layout › `target/min` | `db23ec2826d3bfa3e600e5a82801e0c7d37ba298` | FLOAT | WIDTH_HEIGHT | spec |
 
 Code-only tokens (no Figma variable by design — motion, layers): `motion-duration-2xl` · `motion-duration-md` · `motion-duration-sm` · `motion-easing-standard` · `motion-easing-standard-accelerate` · `motion-easing-standard-decelerate`. Use them only as written values in prototype settings and docs.
@@ -208,12 +197,7 @@ Exactly [Button B3.1–B3.5](../button/button.md#b3-tokens-by-part-and-state) fo
 As Button B3.5: the ring follows `color`.
 
 ### 3.4 Tooltip (temporary, until Tooltip component)
-| Part | Property | Token |
-|---|---|---|
-| `tooltip` | background · text | `color-surface-inverse` · `color-text-inverse` |
-| `tooltip` | text style · radius | `label-sm` · `radius-sm` |
-| `tooltip` | padding-block · padding-inline | `spacing-xs` · `spacing-md` |
-| `tooltip` | offset from button | `spacing-xs` |
+As [Tooltip B3](../tooltip/tooltip.md). Figma uses the `Tooltip / Container` collection; the offset from the button is its `offset` variable.
 
 ### B4 States and transitions
 
@@ -283,11 +267,11 @@ Keep existing nesting and auto layout. Bind dimensions from B2 and colours from 
 | Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
 | `Variant=filled` | `Button / Filled` | Same name as `Color` |
 | `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
-| `Variant=transparent` | `Button / Icon` | Same name as `Color` |
+| `Variant=transparent` | `Button / Transparent` | Same name as `Color` |
 | `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
 | `Selected=true` | `Icon button / Selected` | Same name as `Color` |
 | Focus ring | `Button / Focus` | `default` or `inverse` |
-| Tooltip layers | `Icon button / Tooltip` | `default` |
+| Tooltip layers | `Tooltip / Container` | `default` |
 | `Show Menu Buttons` layers | `Menu / *` | `default` |
 
 ### D4 Properties

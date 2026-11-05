@@ -13,7 +13,7 @@
         "size": {
           "$value": "{size.control.height.sm}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.sm}"
         },
         "radius": {
@@ -27,7 +27,7 @@
         "size": {
           "$value": "{size.control.height.md}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.md}"
         },
         "radius": {
@@ -41,7 +41,7 @@
         "size": {
           "$value": "{size.control.height.lg}"
         },
-        "icon": {
+        "icon-size": {
           "$value": "{size.icon.lg}"
         },
         "radius": {
@@ -332,38 +332,10 @@
         }
       }
     },
-    "tooltip": {
-      "$extensions": {
-        "figma": {
-          "collection": "Icon button / Tooltip",
-          "modes": true
-        }
-      },
-      "default": {
-        "background": {
-          "$value": "{color.surface.inverse}"
-        },
-        "text": {
-          "$value": "{color.text.inverse}"
-        },
-        "radius": {
-          "$value": "{radius.sm}"
-        },
-        "padding-block": {
-          "$value": "{spacing.xs}"
-        },
-        "padding-inline": {
-          "$value": "{spacing.md}"
-        },
-        "offset": {
-          "$value": "{spacing.xs}"
-        }
-      }
-    },
     "transparent": {
       "$extensions": {
         "figma": {
-          "collection": "Button / Icon",
+          "collection": "Button / Transparent",
           "modes": true
         }
       },

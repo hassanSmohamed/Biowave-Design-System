@@ -294,7 +294,7 @@ The Web implementation continues to consume shared semantic tokens directly. The
 
 | Figma collection | Modes | Variables |
 |---|---|---|
-| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` · `focus-ring-width` |
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon-size` · `radius` · `focus-ring-width` |
 | `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
 
 `XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and the focus ring is a real stroke on the `Border` layer in the link colour. Web Link has no Pressed state in Figma or code.

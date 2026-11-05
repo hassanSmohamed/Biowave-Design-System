@@ -60,7 +60,7 @@ interface SourceSizeTokens {
   height: TokenLeaf;
   'padding-inline': TokenLeaf;
   gap: TokenLeaf;
-  icon: TokenLeaf;
+  'icon-size': TokenLeaf;
   radius: TokenLeaf;
   'border-width': TokenLeaf;
 }
@@ -149,7 +149,7 @@ describe('Button token contract', () => {
         height: cssVariable(expected.height),
         paddingInline: cssVariable(expected['padding-inline']),
         gap: cssVariable(expected.gap),
-        icon: cssVariable(expected.icon),
+        icon: cssVariable(expected['icon-size']),
         radius: cssVariable(expected.radius),
         borderWidth: cssVariable(expected['border-width']),
       });

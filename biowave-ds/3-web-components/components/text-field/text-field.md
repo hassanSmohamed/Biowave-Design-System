@@ -324,7 +324,7 @@ Web form row
 | `leading-icon` · `trailing-icon` | glyph | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
 | `trailing-action` | box (inline + block) | `size-icon-lg` (24) | `size-control-height-sm` (32) | `size-control-height-md` (40) |
 | `trailing-action` | glyph | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
-| `trailing-action` | multiline margin-block-start | `max(action-inset − spacing-control-gap-sm, (body-sm line-height − action-box) / 2)` | `max(action-inset − spacing-control-gap-md, (body-md line-height − action-box) / 2)` | `max(action-inset − spacing-control-gap-lg, (body-lg line-height − action-box) / 2)` |
+| `trailing-action` | multiline margin-block-start | `max(action-inset − spacing-control-gap-sm, (body-sm line-height − action-size) / 2)` | `max(action-inset − spacing-control-gap-md, (body-md line-height − action-size) / 2)` | `max(action-inset − spacing-control-gap-lg, (body-lg line-height − action-size) / 2)` |
 | `trailing-action` | multiline offset from the field's top edge (resolved, EN and AR) | `spacing-xs` (margin 0) | `spacing-xs` (margin `spacing-xs` − `spacing-control-gap-md`) | `spacing-xs` (margin `spacing-xs` − `spacing-control-gap-lg`) |
 | `trailing-action` | pointer target | ≥ `target-min`, extended invisibly around the box; never changes layout | same | same |
 | `prefix` · `suffix` | padding-inline | = field padding-inline | same | same |
@@ -342,7 +342,7 @@ Layout rules:
 - Root fills the available inline size by default; `fullWidth=false` hugs the MUI intrinsic width
 - The single-line height includes the border. Input, icons and add-ons center on the block axis
 - The trailing action is inset by `spacing-xs` from the border on the top, bottom and inline end, so it never covers the border at any size. A decorative trailing icon sits at the normal padding, mirroring the leading icon
-- Multiline: icons top-align. **One rule for the trailing action:** `margin-block-start = max(action-inset − padding-block, (line-height − action-box) / 2)`, where `padding-block` = `spacing-control-gap-*` and `line-height` = the input text style's line height for the current size and language. The action box is centred on the first text line when that leaves at least `spacing-xs` above it; otherwise it starts `spacing-xs` below the field's top edge, the same inset as single-line. It is never closer than `spacing-xs` to the top border at any size. With today's tokens the second term is always smaller, so at `sm`, `md` and `lg` (EN and AR) the action box starts exactly `spacing-xs` from the top edge and its centre sits slightly below the first-line centre (by 2 / 3 / 4 in EN, 1 / 2 / 3 in AR for sm / md / lg). This replaces the v1.1 rule "centre aligns with the first text line", which put the box 2 / 1 / 0 from the top edge
+- Multiline: icons top-align. **One rule for the trailing action:** `margin-block-start = max(action-inset − padding-block, (line-height − action-size) / 2)`, where `padding-block` = `spacing-control-gap-*` and `line-height` = the input text style's line height for the current size and language. The action box is centred on the first text line when that leaves at least `spacing-xs` above it; otherwise it starts `spacing-xs` below the field's top edge, the same inset as single-line. It is never closer than `spacing-xs` to the top border at any size. With today's tokens the second term is always smaller, so at `sm`, `md` and `lg` (EN and AR) the action box starts exactly `spacing-xs` from the top edge and its centre sits slightly below the first-line centre (by 2 / 3 / 4 in EN, 1 / 2 / 3 in AR for sm / md / lg). This replaces the v1.1 rule "centre aligns with the first text line", which put the box 2 / 1 / 0 from the top edge
 - `prefix`/`suffix` are part of the field (one outer border, one focus indicator). With `end-button`, the field's inline-end corners are square and the Button's inline-start corners are square; they share one border
 - Label, helper text and counter can wrap. The helper grows first; the counter stays at inline end and does not overlap it
 
@@ -360,7 +360,7 @@ Layout rules:
 | `field` | radius | `radius-md` | `radius-md` | `radius-md` |
 | `field` | border | `border-width-default` | `border-width-default` | `border-width-default` |
 | icons | icon size | `size-icon-sm` | `size-icon-md` | `size-icon-lg` |
-| `trailing-action` | action-box | `size-icon-lg` | `size-control-height-sm` | `size-control-height-md` |
+| `trailing-action` | action-size | `size-icon-lg` | `size-control-height-sm` | `size-control-height-md` |
 
 #### 3.2 State tokens
 
@@ -469,7 +469,7 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 - [ ] Associates visible and visually hidden labels with the native control; caller `aria-*` lands on the input
 - [ ] Required, error, helper, counter, prefix and suffix ids/semantics match B6; error icon is shown with error text and is `aria-hidden`
 - [ ] Default, hover, focus, error, disabled and read-only use the B3 token map; leading icon keeps its neutral colour in error; read-only border differs from default
-- [ ] Trailing action box equals the B3 action-box per size, is inset `spacing-xs` and stays inside the field border at viewport widths below and above the web breakpoint, for single-line **and multiline** fields
+- [ ] Trailing action box equals the B3 action-size per size, is inset `spacing-xs` and stays inside the field border at viewport widths below and above the web breakpoint, for single-line **and multiline** fields
 - [ ] Disabled field: trailing action and end button are disabled and skipped by Tab; help icon is still reachable
 - [ ] Clear: hidden when empty, read-only or disabled; clears, keeps focus, fires `onChange` and `onClear`
 - [ ] Password toggle switches `type`, `aria-pressed` and label; keeps caret position
@@ -518,7 +518,7 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 - **Base:** compose MUI `FormControl` and `OutlinedInput`. Keep the label outside the outline and do not pass MUI's floating/notched label. Use the native input/textarea that `OutlinedInput` creates
 - **Token map:** `text-field.tokens.ts` exports typed size and state maps using `cssVars.*`; its semantic references equal `text-field.tokens.json`. Styling reads this map only
 - **Structure:** root form control → `FieldLabel` (label, required indicator, help icon) → field row (`FieldAddon` prefix · styled `OutlinedInput` · `FieldAddon` suffix) + attached `Button` → `FieldSupportingText` (error icon, text, counter). Private pieces are not package exports
-- **Trailing action (fixes AD-1 … AD-3):** remove the `target-min` box from the slot. `FieldAction` renders the Biowave `IconButton` (`variant="text"`, `color="neutral"`, `disabled={disabled}`) and overrides its box to the B3 `action-box` with the field's icon size through a scoped class; the pointer target is extended with a `::before` of at least `target-min`, centred, so layout never changes. Field `padding-inline-end` becomes `action-inset` when an action exists. A decorative `endAdornment` keeps only the icon size at the normal padding
+- **Trailing action (fixes AD-1 … AD-3):** remove the `target-min` box from the slot. `FieldAction` renders the Biowave `IconButton` (`variant="text"`, `color="neutral"`, `disabled={disabled}`) and overrides its box to the B3 `action-size` with the field's icon size through a scoped class; the pointer target is extended with a `::before` of at least `target-min`, centred, so layout never changes. Field `padding-inline-end` becomes `action-inset` when an action exists. A decorative `endAdornment` keeps only the icon size at the normal padding
 - **Clear and password:** clear writes an empty value through a native input event so `onChange` fires for controlled and uncontrolled fields, then focuses the input and calls `onClear`. Password toggle keeps internal `visible` state, swaps `type` and restores the caret
 - **Help icon:** `IconButton` (`text`, `neutral`) + tooltip. Reuse the private tooltip wrapper styling (`iconButtonTooltipTokens`) with tooltip content = `helpText`, name = `helpLabel`; replace with the shared Tooltip on Day 4 (TODO comment). It is never disabled
 - **Add-ons:** `FieldAddon` is a non-interactive segment inside the outlined border (`startAdornment`/`endAdornment` of `OutlinedInput` with negative inline margin equal to the padding so it reaches the border), divider on the inner edge, `aria-hidden` visual + id text in `aria-describedby`
@@ -528,13 +528,13 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 - **Error colour (AD-4):** only border, supporting text and error icon change colour in error
 - **State priority:** native MUI classes plus transient props implement Disabled → Error → Focus → Hover → Default. Read-only has its background and border tokens and still receives focus styling
 - **Focus exception:** style only `.MuiOutlinedInput-notchedOutline`; never add an exterior outline or shadow to the field. Controls inside keep their own focus ring
-- **Multiline:** pass `multiline`, row props and textarea semantics to MUI; `resize` maps to CSS `resize: vertical | none`. Top-align icons. Trailing action (E4 finding 9): `align-self: flex-start` and `margin-block-start: max(calc(action-inset − gap), calc((input line-height − action-box) / 2))` from the size token map and the input typography line height (locale-aware), so the box is never closer than `spacing-xs` to the top edge. Resolved offset from the top edge = `spacing-xs` at `sm` · `md` · `lg` (B2). Single-line is unchanged
+- **Multiline:** pass `multiline`, row props and textarea semantics to MUI; `resize` maps to CSS `resize: vertical | none`. Top-align icons. Trailing action (E4 finding 9): `align-self: flex-start` and `margin-block-start: max(calc(action-inset − gap), calc((input line-height − action-size) / 2))` from the size token map and the input typography line height (locale-aware), so the box is never closer than `spacing-xs` to the top edge. Resolved offset from the top edge = `spacing-xs` at `sm` · `md` · `lg` (B2). Single-line is unchanged
 - **Counter:** unchanged; additionally reset the uncontrolled mirror on the owning form's `reset` event (E2 finding 8)
 - **Ids and aria:** `useId()` id; route every `aria-*` prop to `inputProps` and merge `aria-describedby` (finding 3)
 - **Warnings:** existing `warnOnce` helper for every B1 invalid combination; never throw
 
 ### C4 Token gaps
-None in Foundations. New component tokens in `text-field.tokens.json`: `size.*.action-box`, `size.*.action-inset`, `state.*.addon-background`, `state.*.addon-text`, `state.*.error-icon`, and changed `state.error.icon`, `state.read-only.border`, `state.disabled.required` — all alias existing semantic tokens (B3).
+None in Foundations. New component tokens in `text-field.tokens.json`: `size.*.action-size`, `size.*.action-inset`, `state.*.addon-container`, `state.*.addon-label`, `state.*.error-icon`, and changed `state.error.icon`, `state.read-only.border`, `state.disabled.required` — all alias existing semantic tokens (B3).
 
 ### C5 Files to create / change
 ```
@@ -619,7 +619,7 @@ From E4 Round 2 (plan 1.2). Only these; nothing else changes.
 
 | Finding | What changed (`file:line`) | Test that proves it |
 |---|---|---|
-| 9 🟡 | `FieldAction.tsx:42` — multiline `margin-block-start` now uses `max(action-inset − gap, (line-height − action-box) / 2)` from the size and typography token maps; single-line remains centred with no margin | `TextField.test.tsx:364` covers single-line and multiline at `sm`/`md`/`lg` for 980 and 1280 px, including action size, inline-end inset, block padding and the exact token expression; `TextField.test.tsx:564` verifies the new top-inset rule in Arabic RTL |
+| 9 🟡 | `FieldAction.tsx:42` — multiline `margin-block-start` now uses `max(action-inset − gap, (line-height − action-size) / 2)` from the size and typography token maps; single-line remains centred with no margin | `TextField.test.tsx:364` covers single-line and multiline at `sm`/`md`/`lg` for 980 and 1280 px, including action size, inline-end inset, block padding and the exact token expression; `TextField.test.tsx:564` verifies the new top-inset rule in Arabic RTL |
 
 - C8 correction: the Round 2 implementation uses the Biowave `Icon` (Material Symbols Rounded), not MUI `Icon`.
 - Files: `3-web-components/src/components/text-field/FieldAction.tsx`; `3-web-components/src/components/text-field/TextField.test.tsx`; `3-web-components/components/text-field/text-field.md`; `3-web-components/README.md`; `CHANGELOG.md`.
@@ -656,7 +656,7 @@ From E4 Round 2 (plan 1.2). Only these; nothing else changes.
   ├─ ◇ .Field/Label            label · required-indicator · help-icon
   ├─ ◇ .Field/Container        field box with slots
   ├─ ◇ .Field/Add-on           prefix / suffix segment
-  ├─ ◇ .Field/Action           Icon button instance sized to action-box
+  ├─ ◇ .Field/Action           Icon button instance sized to action-size
   └─ ◇ .Field/Supporting text  error-icon · supporting-text · counter
 
 ❖ Text area
@@ -973,7 +973,7 @@ Code: prefix in `startAdornment` `TextField.tsx:621-634`, suffix in `endAdornmen
 
 | # | Severity | File | Issue | Required change | Owner |
 |---|---|---|---|---|---|
-| 9 | 🟡 Should fix | B2 layout rules · `FieldAction.tsx:41-45` | B2 has two rules that conflict for multiline: “inset by `spacing-xs` … never covers the border at any size” and “centre aligns with the first text line”. With `padding-block = spacing-control-gap-*` the centring puts the action box 2 / 1 / **0** px from the top edge (`sm`/`md`/`lg`, measured at 980 and 1280 px), so at `md`/`lg` it sits on the border and its hover layer / focus ring reach the field edge. AC-10 fails for multiline | Planner: pick one rule for multiline in B2/C3 — recommend `margin-block-start = max(action-inset − padding-block, (line-height − action-box) / 2)` (centre on the first line, never closer than `spacing-xs` to the border) or a smaller multiline action box. Regenerate the contract. Executor: apply it and add the multiline case to the viewport test at `TextField.test.tsx:364` | Planner → Executor |
+| 9 | 🟡 Should fix | B2 layout rules · `FieldAction.tsx:41-45` | B2 has two rules that conflict for multiline: “inset by `spacing-xs` … never covers the border at any size” and “centre aligns with the first text line”. With `padding-block = spacing-control-gap-*` the centring puts the action box 2 / 1 / **0** px from the top edge (`sm`/`md`/`lg`, measured at 980 and 1280 px), so at `md`/`lg` it sits on the border and its hover layer / focus ring reach the field edge. AC-10 fails for multiline | Planner: pick one rule for multiline in B2/C3 — recommend `margin-block-start = max(action-inset − padding-block, (line-height − action-size) / 2)` (centre on the first line, never closer than `spacing-xs` to the border) or a smaller multiline action box. Regenerate the contract. Executor: apply it and add the multiline case to the viewport test at `TextField.test.tsx:364` | Planner → Executor |
 | 10 | 🟢 Nit | C3 “Icons”, B7, C8 Round 2 | Spec still says built-in glyphs use MUI `Icon baseClassName="material-symbols-rounded"` “until the Biowave Icon ships”; the code (since icon/web) uses the Biowave `Icon`, which is right | Update C3 and B7 to `import { Icon } from '@biowave/web'` / `<Icon name="…" />` | Planner |
 
 #### Outside this unit (for the orchestrator)
@@ -995,7 +995,7 @@ Code: prefix in `startAdornment` `TextField.tsx:621-634`, suffix in `endAdornmen
 
 | # | Decision | Where |
 |---|---|---|
-| 9 | Reviewer's recommendation adopted (approved at the after-review gate). One multiline rule: `margin-block-start = max(action-inset − padding-block, (line-height − action-box) / 2)`. The action box is never closer than `spacing-xs` to the top border; it is centred on the first line only when that already leaves `spacing-xs`. Resolved: top offset = `spacing-xs` at `sm` · `md` · `lg`, EN and AR. The old "centre aligns with the first text line" rule is removed. Multiline viewport test added; Executor task list in C7 › Fix round 2 | B2 (table + layout rule), B9, C2, C3 Multiline, C6, C7 AC-10 + Fix round 2. D3 (Text area tree) left unchanged on purpose: Tablet and Mobile Figma contracts inherit Web D3, so editing it would make their contracts stale; B2 is the rule the Figma Agent redlines against (F-AC-8) |
+| 9 | Reviewer's recommendation adopted (approved at the after-review gate). One multiline rule: `margin-block-start = max(action-inset − padding-block, (line-height − action-size) / 2)`. The action box is never closer than `spacing-xs` to the top border; it is centred on the first line only when that already leaves `spacing-xs`. Resolved: top offset = `spacing-xs` at `sm` · `md` · `lg`, EN and AR. The old "centre aligns with the first text line" rule is removed. Multiline viewport test added; Executor task list in C7 › Fix round 2 | B2 (table + layout rule), B9, C2, C3 Multiline, C6, C7 AC-10 + Fix round 2. D3 (Text area tree) left unchanged on purpose: Tablet and Mobile Figma contracts inherit Web D3, so editing it would make their contracts stale; B2 is the rule the Figma Agent redlines against (F-AC-8) |
 | 10 | Built-in glyphs and examples use the Biowave `Icon` (`<Icon name="…" />`; `import { Icon } from '@biowave/web'`, in-package `'../icon'`); MUI `Icon` references removed. C8 is Executor-owned — the Fix round 2 entry records it | B7, C3 Icons, C7 AC-12 |
 
 Plan → `Finished` · version 1.2 · contracts regenerated.
@@ -1011,7 +1011,7 @@ Plan → `Finished` · version 1.2 · contracts regenerated.
 | # | Severity | Bug | Evidence | Fixed in spec 1.1 by |
 |---|---|---|---|---|
 | AD-1 | 🔴 Blocker | Trailing slot is 48 × 48 below 1200 px: overflows `sm` (32) and `md` (40) fields by 8 / 4 px and pushes a decorative trailing icon 24–28 px from the edge (leading icon sits at 8–16 px) | Help sm: slot 48×48 at top −8 | B2 action box + inset; decorative trailing icon at normal padding; C3 |
-| AD-2 | 🔴 Blocker | An Icon button passed in is not sized by the field: `md` / `lg` buttons are as tall as the field and paint over its border | Password md: button 40×40 at 0,0 in a 40 px field | B2 `action-box` = field height − 2 × `spacing-xs`; field renders the button (B1 `action`) |
+| AD-2 | 🔴 Blocker | An Icon button passed in is not sized by the field: `md` / `lg` buttons are as tall as the field and paint over its border | Password md: button 40×40 at 0,0 in a 40 px field | B2 `action-size` = field height − 2 × `spacing-xs`; field renders the button (B1 `action`) |
 | AD-3 | 🔴 Blocker | Disabled field keeps its trailing action enabled: in tab order, clickable, full colour | Tab reaches “Clear” in the Disabled field; `rgb(10,10,10)`, cursor pointer | B6 trailing action / end button disabled with the field |
 | AD-4 | 🟡 Should fix | Error turns every icon red, including leading and help icons | B3 v1.0 mapped all icons to `color-icon-role-error` | B3 icons stay neutral; separate `error-icon` |
 | AD-5 | 🟡 Should fix | Multiline: trailing action not aligned to the first text line | Notes md: button top 14 px, first line 6 px | B2 layout rule; C3 |
@@ -1095,5 +1095,5 @@ Planner items from E2 closed in spec 1.1: **#2** read-only border `color-border-
 | 1.1 | 2026-10-18 | Round 2 Web implementation built with all E2 and AD-1 … AD-6 fixes, private field parts and 19 contract tests | No further break | — |
 | 1.1 | 2026-10-18 | Overview playground controls added for example, size, state, required, supporting text, help tooltip and counter; controls drive the live React preview | No | — |
 | 1.1 | 2026-10-21 | Review round 2: Changes requested (E4) | No | — |
-| 1.2 | 2026-10-21 | E4 #9: one multiline trailing-action rule (`max(action-inset − padding-block, (line-height − action-box) / 2)`), action never closer than `spacing-xs` to the top border; B2, B9, C3, C6, C7 Fix round 2 task list. E4 #10: built-in glyphs and B7 examples use the Biowave `Icon` (`<Icon name="…" />`) | No — visual only: the multiline action moves down at `md` / `lg` | — |
+| 1.2 | 2026-10-21 | E4 #9: one multiline trailing-action rule (`max(action-inset − padding-block, (line-height − action-size) / 2)`), action never closer than `spacing-xs` to the top border; B2, B9, C3, C6, C7 Fix round 2 task list. E4 #10: built-in glyphs and B7 examples use the Biowave `Icon` (`<Icon name="…" />`) | No — visual only: the multiline action moves down at `md` / `lg` | — |
 | 1.1 (naming) | 2026-10-31 | Foundations check (Spacing 2.0, Size, Radius): all tokens already follow the new rules. State modes `hover` → `hovered`, `focus` → `focused` (text-field.tokens.json, web code keys; Figma `Text field / State` modes renamed in place, IDs kept); Figma `State` `Hover` / `Focus` → `Hovered` / `Focused` | No | — |

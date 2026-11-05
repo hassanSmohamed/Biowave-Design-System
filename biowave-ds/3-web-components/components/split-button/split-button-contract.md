@@ -1,4 +1,4 @@
-<!-- GENERATED from split-button.md @ 647972de08278996 — do not edit; change the source and run: npm run contract -- web split-button -->
+<!-- GENERATED from split-button.md @ eba45be8806029b1 — do not edit; change the source and run: npm run contract -- web split-button -->
 # Split button · زر مقسّم — Web — code contract
 
 > **Everything you need to build Split button on Web, and nothing else.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](split-button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.2 · 2026-10-31 |
 | Source code | `src/components/split-button/` — not built yet (the Executor creates it) |
 | Tokens | [`split-button.tokens.json`](split-button.tokens.json) |
-| Source | [`split-button.md`](split-button.md) @ `647972de08278996` |
+| Source | [`split-button.md`](split-button.md) @ `eba45be8806029b1` |
 
 ## 1. What it is
 
@@ -127,13 +127,13 @@ The code token map must equal [`split-button.tokens.json`](split-button.tokens.j
 
 | Collection | Variable | Modes → semantic token |
 |---|---|---|
-| Split button / Part | gap | default: `spacing-none` |
-| Split button / Part | inner-radius | default: `radius-none` |
-| Split button / Part | outer-radius | default: `radius-md` |
-| Split button / Part | inner-border-width | default: `border-width-none` |
-| Split button / Part | divider/width | default: `border-width-default` |
-| Split button / Part | divider/color | default: `color-border-default` |
-| Menu / Container | background | default: `color-surface-raised` |
+| Split button / Segment | gap | default: `spacing-none` |
+| Split button / Segment | inner-radius | default: `radius-none` |
+| Split button / Segment | outer-radius | default: `radius-md` |
+| Split button / Segment | inner-border-width | default: `border-width-none` |
+| Split button / Segment | divider-width | default: `border-width-default` |
+| Split button / Segment | divider | default: `color-border-default` |
+| Menu / Container | container | default: `color-surface-raised` |
 | Menu / Container | radius | default: `radius-lg` |
 | Menu / Container | padding | default: `spacing-xs` |
 | Menu / Container | offset | default: `spacing-xs` |
