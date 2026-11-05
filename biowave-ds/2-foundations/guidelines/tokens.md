@@ -54,7 +54,37 @@ Designer guide for the Figma file: [`Biowave-Figma-Token-Naming.png`](../../../f
 | Text style | `{role}/{size}` | `body/md` |
 | Component | Collection `{Component} / {Group}` · mode · variable `{part}/{state}` | `Button / Filled` · `brand` · `container/hovered` |
 
-A collection's mode is whichever choice swaps all its values: size, colour or state. So the state is in the mode for `Text field / State` (`hovered` › `border`) and in the variable for `Button / Filled` (`brand` › `container/hovered`).
+### Component token rules
+**Every mode is a value of a component prop.** If a prop swaps a set of values, it is a mode. If there is no prop, the only mode is `default`. Button keeps `success`, `warning` and `info` modes in Figma until code adds those colours.
+
+The collection name is always `{Component} / {Group}`, and the Group is one of these:
+
+| Group | Use when | Modes | Variables | Example |
+|---|---|---|---|---|
+| `Size` | Dimensions change with the size prop | Size values | Dimensions only | `Button / Size › height` |
+| Variant name | Colours change with the variant or a boolean such as `selected` | Colour values | `{part}/{state}` | `Button / Filled › container/hovered` |
+| `Color` | Colours change with the colour prop and there are no variants | Colour values | `{part}/{state}` | `Link / Color › label/hovered` |
+| `State` | Values change with state and there is no colour prop | State values | `{part}` | `Text field / State › border` |
+| `Focus` | Focus ring values change with the colour prop | Colour values | `color` · `width` | `Button / Focus › color` |
+| Part name | One part of a composite component | `default` | Part dimensions and colours | `Menu / Item › height` |
+
+Check in this order: Part, Focus, Size, Variant, Color, State. The first match wins.
+
+Allowed names:
+
+| Kind | Values |
+|---|---|
+| Parts | `container` · `label` · `icon` · `border` · `state-layer` · `focus-ring`, plus parts of the component itself such as `placeholder` or `divider` |
+| Dimensions | `size` · `height` · `width` · `padding` · `padding-inline` · `padding-block` · `gap` · `offset` · `inset` · `icon-size` · `radius` · `border-width` |
+| States | `default` · `hovered` · `pressed` · `focused` · `visited` · `disabled` · `selected` |
+
+- **Colour variable:** `{part}/{state}`, or `{part}` when it has no states.
+- **Dimension variable:** `{dimension}`, or `{part}-{dimension}` when it belongs to one part, such as `focus-ring-radius`.
+- **A family shares collections.** Icon button and Split button reuse `Button / *`.
+- **A component owns only its own tokens.** Tooltip values live in `Tooltip / *`, not in the component that shows it.
+- **A name is never both a token and a group.** `npm run component-tokens` fails on it.
+
+`npm run component-tokens` reports names outside these rules. Use `npm run component-tokens -- --strict` to fail on them.
 
 ### Web (CSS, TypeScript, MUI)
 | Use | Formula | Example |
