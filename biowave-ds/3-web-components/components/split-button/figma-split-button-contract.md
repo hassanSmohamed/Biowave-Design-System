@@ -1,4 +1,4 @@
-<!-- GENERATED from split-button.md @ 4475a5884549b038 — do not edit; change the source and run: npm run contract -- web split-button -->
+<!-- GENERATED from split-button.md @ 37ec5a267c02d77a — do not edit; change the source and run: npm run contract -- web split-button -->
 # Split button · زر مقسّم — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Split button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Split button · زر مقسّم |
 | Platform | Web · React + MUI |
 | Version | 1.2 · 2026-10-31 |
-| Source | [`split-button.md`](split-button.md) @ `4475a5884549b038` |
+| Source | [`split-button.md`](split-button.md) @ `37ec5a267c02d77a` |
 
 ## 1. Library connections in this file
 

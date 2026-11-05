@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 17405df67019997e — do not edit; change the source and run: npm run contract -- tablet link -->
+<!-- GENERATED from link.md @ 0ab6b9380a515102 — do not edit; change the source and run: npm run contract -- tablet link -->
 # Link · رابط — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `17405df67019997e` |
+| Source | [`link.md`](link.md) @ `0ab6b9380a515102` |
 
 ## 1. Library connections in this file
 

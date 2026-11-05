@@ -1,4 +1,4 @@
-<!-- GENERATED from split-button.md @ eba45be8806029b1 — do not edit; change the source and run: npm run contract -- web split-button -->
+<!-- GENERATED from split-button.md @ d041c810d354d8f5 — do not edit; change the source and run: npm run contract -- web split-button -->
 # Split button · زر مقسّم — Web — code contract
 
 > **Everything you need to build Split button on Web, and nothing else.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](split-button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.2 · 2026-10-31 |
 | Source code | `src/components/split-button/` — not built yet (the Executor creates it) |
 | Tokens | [`split-button.tokens.json`](split-button.tokens.json) |
-| Source | [`split-button.md`](split-button.md) @ `eba45be8806029b1` |
+| Source | [`split-button.md`](split-button.md) @ `d041c810d354d8f5` |
 
 ## 1. What it is
 

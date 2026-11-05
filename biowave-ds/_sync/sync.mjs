@@ -151,7 +151,7 @@ function plan() {
     const ct = expectedComponentTokens(file);
     if (ct.errors.length) { console.error(`✗ ${file}: tokens.json has errors — run npm run component-tokens`); process.exitCode = 1; continue; }
     if (!ct.collections.length || (f.snap.componentTokens || {})[file] === ct.hash) { discard(out); continue; }
-    fs.writeFileSync(out, tplT.replace("/*__FILE__*/''", JSON.stringify(file)).replace('/*__COLLECTIONS__*/[]', JSON.stringify(ct.collections.map(({ collection, modes, vars }) => ({ collection, modes, vars: Object.fromEntries(Object.entries(vars).map(([n, bm]) => [n, Object.fromEntries(Object.entries(bm).map(([m, t]) => [m, `${t.collection}::${t.name}`]))])) })))));
+    fs.writeFileSync(out, tplT.replace("/*__FILE__*/''", JSON.stringify(file)).replace('/*__COLLECTIONS__*/[]', JSON.stringify(ct.collections.map(({ collection, modes, vars, descriptions }) => ({ collection, modes, descriptions, vars: Object.fromEntries(Object.entries(vars).map(([n, bm]) => [n, Object.fromEntries(Object.entries(bm).map(([m, t]) => [m, `${t.collection}::${t.name}`]))])) })))));
     console.log(`✓ component tokens → _sync/figma-apply-tokens-${file}.js  (run on ${FIGMA_FILES[file].name} ${FIGMA_FILES[file].key})`);
   }
   if (!changes.length) { console.log('✓ No token changes for Figma.' + (f.docChanges.length ? ` ${f.docChanges.length} component doc(s) changed — see npm run sync.` : '')); return; }

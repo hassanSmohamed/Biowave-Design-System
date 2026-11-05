@@ -68,9 +68,10 @@ export function figmaModel(rel) {
     for (const [name, byMode] of Object.entries(vars)) {
       const missing = modes.filter((m) => !byMode[m]);
       if (missing.length) errors.push(`${rel}: "${fx.collection}" variable ${name} missing in mode(s) ${missing.join(', ')} — every mode needs the same variables`);
+      if (!group.$descriptions?.[name]) errors.push(`${rel}: "${fx.collection}" variable ${name} has no description in $descriptions`);
     }
     if (modes.length > 10) errors.push(`${rel}: "${fx.collection}" has ${modes.length} modes — Figma Professional allows 10`);
-    collections.push({ collection: fx.collection, component: comp, modes, vars });
+    collections.push({ collection: fx.collection, component: comp, modes, vars, descriptions: group.$descriptions || {} });
   }
   return { collections, errors, refs };
 }

@@ -1,4 +1,4 @@
-<!-- GENERATED from icon-button.md @ e88820b675a1a582 — do not edit; change the source and run: npm run contract -- web icon-button -->
+<!-- GENERATED from icon-button.md @ 2dbc9660fa10536b — do not edit; change the source and run: npm run contract -- web icon-button -->
 # Icon button · زر أيقونة — Web — code contract
 
 > **Everything you need to build Icon button on Web, and nothing else.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](icon-button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-21 |
 | Source code | [`src/components/icon-button/`](../../src/components/icon-button/) |
 | Tokens | [`icon-button.tokens.json`](icon-button.tokens.json) |
-| Source | [`icon-button.md`](icon-button.md) @ `e88820b675a1a582` |
+| Source | [`icon-button.md`](icon-button.md) @ `2dbc9660fa10536b` |
 
 ## 1. What it is
 

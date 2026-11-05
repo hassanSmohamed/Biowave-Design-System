@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ f7e8a98bed93f563 — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ 91bd72969ad2090f — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — code contract
 
 > **Everything you need to build Link on Web, and nothing else.** Read this file only. Generated from [`link.md`](link.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](link.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-10-21 |
 | Source code | `src/components/link/` (built) |
 | Tokens | [`link.tokens.json`](link.tokens.json) |
-| Source | [`link.md`](link.md) @ `f7e8a98bed93f563` |
+| Source | [`link.md`](link.md) @ `91bd72969ad2090f` |
 
 ## 1. What it is
 

@@ -1,7 +1,7 @@
 {
-  "syncedAt": "2026-10-29T19:16:46.582Z",
+  "syncedAt": "2026-11-05T08:18:04.309Z",
   "fileKey": "AyFaSmfDUlTax3GpKhRdHI",
-  "sourceHash": "2e552be55fdde189",
+  "sourceHash": "c751a2da898dfc45",
   "tokens": {
     "1. Themes::color-surface-page": {
       "Light": "#F7F7F7",
@@ -1310,6 +1310,11 @@
       "Tablet": 80,
       "Mobile": 0
     },
+    "6. Grid & Layout::layout-width-sidebar-start-collapsed": {
+      "Web": 96,
+      "Tablet": 80,
+      "Mobile": 0
+    },
     "6. Grid & Layout::layout-width-sidebar-end": {
       "Web": 248,
       "Tablet": 0,
@@ -2051,9 +2056,9 @@
     }
   },
   "componentTokens": {
-    "web": "9e98eb08fc0689f7",
-    "tablet": "66e7f20a3ded4371",
-    "mobile": "66e7f20a3ded4371"
+    "web": "2234f331818ed114",
+    "tablet": "e4159db1b63b3dd8",
+    "mobile": "e4159db1b63b3dd8"
   },
   "docsSyncedAt": {
     "docKit": "2026-10-18T10:45:49.592Z"

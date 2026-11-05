@@ -9,6 +9,14 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "gap": "Space between segments; they touch. Bind to: split button auto-layout gap.",
+        "inner-radius": "Corner radius where segments meet. Bind to: inner corners.",
+        "outer-radius": "Corner radius at the outer ends. Bind to: outer corners.",
+        "inner-border-width": "Border width where segments meet. Bind to: inner strokes.",
+        "divider-width": "Divider width. Bind to: Divider stroke weight.",
+        "divider": "Divider colour, the same for every variant. Bind to: Divider stroke."
+      },
       "default": {
         "gap": {
           "$value": "{spacing.none}"
@@ -39,6 +47,12 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "container": "Menu surface. Bind to: menu frame fill.",
+        "radius": "Corner radius. Bind to: frame corner radius.",
+        "padding": "Inner padding. Bind to: frame padding.",
+        "offset": "Distance from the trigger. Use for: menu position."
+      },
       "default": {
         "container": {
           "$value": "{color.surface.raised}"
@@ -60,6 +74,18 @@
           "collection": "Menu / Item",
           "modes": true
         }
+      },
+      "$descriptions": {
+        "height": "Row height. Bind to: menu row height.",
+        "padding-inline": "Start and end padding, mirrored in RTL. Bind to: left and right padding.",
+        "gap": "Space between items. Bind to: auto-layout gap.",
+        "icon-size": "Icon size. Bind to: icon width and height.",
+        "state-layer/hovered": "Translucent overlay on hover (pointer only). Bind to: State layer fill.",
+        "state-layer/pressed": "Translucent overlay while pressed. Bind to: State layer fill.",
+        "label/default": "Label colour at rest and when focused. Bind to: label text fill.",
+        "label/disabled": "Label colour when disabled. Bind to: label text fill in Disabled variants.",
+        "icon/default": "Icon colour at rest and when focused. Bind to: icon fill.",
+        "focus-ring": "Inset focus ring colour. Bind to: focus ring stroke."
       },
       "default": {
         "height": {

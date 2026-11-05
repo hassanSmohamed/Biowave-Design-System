@@ -1,4 +1,4 @@
-<!-- GENERATED from icon-button.md @ c1932c964e49a762 — do not edit; change the source and run: npm run contract -- web icon-button -->
+<!-- GENERATED from icon-button.md @ f204e3b59d2ba89f — do not edit; change the source and run: npm run contract -- web icon-button -->
 # Icon button · زر أيقونة — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Icon button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](icon-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Icon button · زر أيقونة |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-21 |
-| Source | [`icon-button.md`](icon-button.md) @ `c1932c964e49a762` |
+| Source | [`icon-button.md`](icon-button.md) @ `f204e3b59d2ba89f` |
 
 ## 1. Library connections in this file
 

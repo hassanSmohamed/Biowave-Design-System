@@ -9,6 +9,15 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "height": "Button height. Bind to: button frame height. Change size with the Button / Size mode.",
+        "padding-inline": "Start and end padding, mirrored in RTL. Bind to: left and right padding.",
+        "gap": "Space between items. Bind to: auto-layout gap.",
+        "icon-size": "Icon size. Bind to: icon width and height.",
+        "radius": "Corner radius. Bind to: frame corner radius.",
+        "border-width": "Outlined border width. Bind to: stroke weight of Outlined variants.",
+        "focus-ring-radius": "Focus ring corner radius. Bind to: Focus ring layer corner radius."
+      },
       "sm": {
         "height": {
           "$value": "{size.control.height.sm}"
@@ -85,6 +94,16 @@
           "collection": "Button / Filled",
           "modes": true
         }
+      },
+      "$descriptions": {
+        "container/default": "Fill at rest and when focused. Bind to: frame fill.",
+        "container/hovered": "Fill on hover (pointer only). Bind to: frame fill in Hovered variants.",
+        "container/pressed": "Fill while pressed. Bind to: frame fill in Pressed variants.",
+        "container/disabled": "Fill when disabled. Bind to: frame fill in Disabled variants.",
+        "label/default": "Label colour at rest and when focused. Bind to: label text fill.",
+        "label/disabled": "Label colour when disabled. Bind to: label text fill in Disabled variants.",
+        "icon/default": "Icon colour at rest and when focused. Bind to: icon fill.",
+        "icon/disabled": "Icon colour when disabled. Bind to: icon fill in Disabled variants."
       },
       "brand": {
         "container": {
@@ -254,6 +273,16 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "container/default": "Fill at rest and when focused. Bind to: frame fill.",
+        "container/disabled": "Fill when disabled. Bind to: frame fill in Disabled variants.",
+        "state-layer/hovered": "Translucent overlay on hover (pointer only). Bind to: State layer fill.",
+        "state-layer/pressed": "Translucent overlay while pressed. Bind to: State layer fill.",
+        "label/default": "Label colour at rest and when focused. Bind to: label text fill.",
+        "label/disabled": "Label colour when disabled. Bind to: label text fill in Disabled variants.",
+        "icon/default": "Icon colour at rest and when focused. Bind to: icon fill.",
+        "icon/disabled": "Icon colour when disabled. Bind to: icon fill in Disabled variants."
+      },
       "brand": {
         "container": {
           "default": {
@@ -363,6 +392,18 @@
           "collection": "Button / Outlined",
           "modes": true
         }
+      },
+      "$descriptions": {
+        "container/default": "Fill at rest and when focused. Bind to: frame fill.",
+        "container/disabled": "Fill when disabled. Bind to: frame fill in Disabled variants.",
+        "border/default": "Border colour at rest. Always a real stroke, never a shadow. Bind to: frame stroke.",
+        "border/disabled": "Border colour when disabled. Bind to: frame stroke in Disabled variants.",
+        "state-layer/hovered": "Translucent overlay on hover (pointer only). Bind to: State layer fill.",
+        "state-layer/pressed": "Translucent overlay while pressed. Bind to: State layer fill.",
+        "label/default": "Label colour at rest and when focused. Bind to: label text fill.",
+        "label/disabled": "Label colour when disabled. Bind to: label text fill in Disabled variants.",
+        "icon/default": "Icon colour at rest and when focused. Bind to: icon fill.",
+        "icon/disabled": "Icon colour when disabled. Bind to: icon fill in Disabled variants."
       },
       "brand": {
         "container": {
@@ -582,6 +623,16 @@
           "modes": true
         }
       },
+      "$descriptions": {
+        "container/default": "Fill at rest and when focused. Bind to: frame fill.",
+        "container/disabled": "Fill when disabled. Bind to: frame fill in Disabled variants.",
+        "state-layer/hovered": "Translucent overlay on hover (pointer only). Bind to: State layer fill.",
+        "state-layer/pressed": "Translucent overlay while pressed. Bind to: State layer fill.",
+        "label/default": "Label colour at rest and when focused. Bind to: label text fill.",
+        "label/disabled": "Label colour when disabled. Bind to: label text fill in Disabled variants.",
+        "icon/default": "Icon colour at rest and when focused. Bind to: icon fill.",
+        "icon/disabled": "Icon colour when disabled. Bind to: icon fill in Disabled variants."
+      },
       "brand": {
         "container": {
           "default": {
@@ -759,6 +810,10 @@
           "collection": "Button / Focus",
           "modes": true
         }
+      },
+      "$descriptions": {
+        "color": "Focus ring colour. Follows the element colour. Bind to: Focus ring stroke. Mode driven by: Color.",
+        "width": "Focus ring width. Bind to: Focus ring stroke weight."
       },
       "brand": {
         "color": {

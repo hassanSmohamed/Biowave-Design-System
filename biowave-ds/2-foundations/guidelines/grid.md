@@ -12,6 +12,7 @@ Each platform has a fluid column grid plus layout constants. Values come from `t
 | `layout-height-app-bar` | 72 | 64 | 64 | App bar (App header) |
 | `layout-height-system-status` | 40 | 40 | 40 | Biowave System Status Bar (in-app strip, not the OS status bar) |
 | `layout-width-sidebar-start` | 248 | 80 | 0 | Start navigation: web persistent sidebar · tablet navigation rail · mobile modal drawer |
+| `layout-width-sidebar-start-collapsed` | 96 | 80 | 0 | Start navigation collapsed to icons only: web names move to a Tooltip · tablet rail does not collapse · mobile stays a modal drawer |
 | `layout-width-sidebar-end` | 248 | 0 | 0 | End panel (details, filters): web persistent · tablet and mobile open it as a sheet |
 | `target-min` | 24 | 48 | 48 | Minimum hit area, not visual size (WCAG 2.5.8 on web, 48dp on touch) |
 
@@ -30,7 +31,7 @@ Breakpoints follow Material 3 window size classes (compact < 600, medium/expande
 ## Navigation per platform
 | Platform | Start (navigation) | End (details, filters) |
 |---|---|---|
-| Web | Persistent sidebar, 248 | Persistent panel, 248 |
+| Web | Persistent sidebar, 248 open · 96 collapsed (icons only, names in a Tooltip) | Persistent panel, 248 |
 | Tablet | Navigation rail, 80 (icons + short labels) | Sheet over the content |
 | Mobile | Modal drawer (width 0 in the layout) | Sheet over the content |
 
@@ -39,11 +40,13 @@ Regions, top to bottom: System status bar → App header → Start navigation ·
 ## In Figma
 - Two grid styles: **`Grid/Full width`** and **`Grid/With sidebar`**. Columns, gutter and margin are bound to the `6. Grid & Layout` variables, so the **frame mode** (`Web`, `Tablet`, `Mobile`) decides the platform — the same style works on every platform.
 - The same mode also switches `spacing/layout/*`, so a frame set to `Mobile` gets the mobile grid and the mobile layout spacing together.
+- `Grid/With sidebar` is applied to the main content area, so it works for the open and the collapsed sidebar: only the content width changes, and the columns stretch.
 - Gutter, margins and layout spacing appear in padding and gap fields; heights, widths and `target-min` in width/height fields; columns and breakpoints are not bindable.
 
 ## Rules
 - Content columns are fluid (`fill`); never fix a content width in px. Cap reading width with `size-container-*`.
 - Sidebars are named **start/end**, never left/right; they swap in RTL automatically.
+- Collapsing the web sidebar uses `layout-width-sidebar-start-collapsed`; margins, gutter and column count stay the same.
 - Web: grid/margins follow the viewport automatically (CSS media queries); the type scale stays "web" unless `data-platform` is set.
 - Flutter: tablet and mobile apps use their own package; read `context.bw.layout`.
 

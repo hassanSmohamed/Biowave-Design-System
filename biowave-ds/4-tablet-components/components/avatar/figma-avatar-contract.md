@@ -1,4 +1,4 @@
-<!-- GENERATED from avatar.md @ c1924b266754e20f — do not edit; change the source and run: npm run contract -- tablet avatar -->
+<!-- GENERATED from avatar.md @ f5fb3674095bb5b4 — do not edit; change the source and run: npm run contract -- tablet avatar -->
 # Avatar · صورة رمزية — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Avatar in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`avatar.md`](avatar.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](avatar.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Avatar · صورة رمزية |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`avatar.md`](avatar.md) @ `c1924b266754e20f` |
+| Source | [`avatar.md`](avatar.md) @ `f5fb3674095bb5b4` |
 
 ## 1. Library connections in this file
 

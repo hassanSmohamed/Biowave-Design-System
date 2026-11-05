@@ -56,6 +56,7 @@ for (const spec of COLLECTIONS) {
     else report.variables.updated++;
     v.hiddenFromPublishing = true;
     v.scopes = [...first.scopes];
+    if (spec.descriptions?.[name]) v.description = spec.descriptions[name];
     for (const platform of ['WEB', 'ANDROID', 'iOS']) { const cs = first.codeSyntax?.[platform]; if (cs) v.setVariableCodeSyntax(platform, cs); }
     for (const [m, ref] of Object.entries(byMode)) v.setValueForMode(modeId[m], figma.variables.createVariableAlias(imported.get(ref)));
   }

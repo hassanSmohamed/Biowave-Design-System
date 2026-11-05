@@ -1,4 +1,4 @@
-<!-- GENERATED from badge.md @ 447eb0b9d14e3c3d — do not edit; change the source and run: npm run contract -- web badge -->
+<!-- GENERATED from badge.md @ a1414800ca92ccb0 — do not edit; change the source and run: npm run contract -- web badge -->
 # Badge · شارة — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Badge in the Web Components file, with our variables and styles.** Read this file only. Generated from [`badge.md`](badge.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](badge.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Badge · شارة |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`badge.md`](badge.md) @ `447eb0b9d14e3c3d` |
+| Source | [`badge.md`](badge.md) @ `a1414800ca92ccb0` |
 
 ## 1. Library connections in this file
 

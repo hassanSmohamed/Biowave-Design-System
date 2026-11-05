@@ -1,4 +1,4 @@
-<!-- GENERATED from text-field.md @ d064c66e05071ffd — do not edit; change the source and run: npm run contract -- mobile text-field -->
+<!-- GENERATED from text-field.md @ 1e6227cee6c1470b — do not edit; change the source and run: npm run contract -- mobile text-field -->
 # Text field · حقل نص — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Text field in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](text-field.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Text field · حقل نص |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-18 (first Mobile version; same guidelines version as Web 1.1) |
-| Source | [`text-field.md`](text-field.md) @ `d064c66e05071ffd` |
+| Source | [`text-field.md`](text-field.md) @ `1e6227cee6c1470b` |
 
 ## 1. Library connections in this file
 

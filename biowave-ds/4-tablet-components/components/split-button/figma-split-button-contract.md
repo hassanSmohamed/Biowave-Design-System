@@ -1,4 +1,4 @@
-<!-- GENERATED from split-button.md @ f29cbc8f4705c84e — do not edit; change the source and run: npm run contract -- tablet split-button -->
+<!-- GENERATED from split-button.md @ 0c20cd3db29aed38 — do not edit; change the source and run: npm run contract -- tablet split-button -->
 # Split button · زر مقسّم — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Split button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Split button · زر مقسّم |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-31 |
-| Source | [`split-button.md`](split-button.md) @ `f29cbc8f4705c84e` |
+| Source | [`split-button.md`](split-button.md) @ `0c20cd3db29aed38` |
 
 ## 1. Library connections in this file
 

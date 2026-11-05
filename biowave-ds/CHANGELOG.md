@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05 — Component token descriptions
+
+Every component variable now has a description in `$descriptions` in `tokens.json`, and the sync tooling writes them to Figma. Filled the 44 missing descriptions, shortened the rest to what it is and where to bind it, and removed the `Source:` lists because the alias already shows them. `component-tokens` fails on a missing description. No Foundations token or Figma variable changed.
+
 ## 2026-11-05 — Component token renames
 
 Renamed 25 component variables across the Web, Tablet and Mobile Figma files and in `tokens.json`, keeping variable IDs: `icon` → `icon-size` on Size collections; `background` → `container`, `text` → `label`; `addon-background` → `addon-container`; `addon-text` → `addon-label`; `action-box` → `action-size`; `divider/width` → `divider-width`; `divider/color` → `divider`. Renamed three collections: `Icon button / Tooltip` → `Tooltip / Container`, `Split button / Part` → `Split button / Segment`, `Button / Icon` → `Button / Transparent`. Tooltip tokens moved to `tooltip.tokens.json`. `component-tokens --strict` now passes. No Foundations token or Figma variable changed.
@@ -57,6 +61,20 @@ Renamed both Button sets in place, preserved their 720 variants and keys, and ve
 Added Icon button and Split button/Menu aliases and Button focus width; renamed Icon button code variant to transparent across platforms and updated Web rebind specifications. Validation and Figma execution pending. Updated through ad42e97: live preview caller migrated; library index refreshed read-only; Button, Icon button and Split button contracts regenerated on all platforms. Typecheck passes; the five previously timed-out tests pass with the requested 30-second timeout. All contracts regenerated with --all as authorized; docs:check passes (33 components, zero errors). Restricted Web token apply created seven collections and 44 variables, updated Button / Focus width, and deprecated nothing. Stopped before set mutations: embedded Scroll Bar instance 116:23651 (remote main 7:807) binds to legacy Color / Bg/Gray Bold; no matching component alias or scrollbar mapping exists in the brief. Flutter checks not run.
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
+
+## [Foundations — Collapsed start sidebar] — 2026-11-05
+### Added
+- `layout-width-sidebar-start-collapsed`: Web 96 (icons only, item names in a Tooltip), Tablet 80 (the rail does not collapse), Mobile 0 (modal drawer). Aliases `primitive.dimension.96`, `.80` and `.0`.
+- `BwLayout.sidebarStartCollapsed` in the generated Flutter code.
+- Figma Foundations: `layout/width/sidebar-start-collapsed` in `6. Grid & Layout`, with description and `WIDTH_HEIGHT` scope.
+### Changed
+- `layout-width-sidebar-start` description now points to the collapsed width.
+- `Grid/With sidebar` stays the only sidebar grid style and is applied to the main content area, so open and collapsed states share it. Updated its Figma description, `guidelines/grid.md` and the grid image source (`scripts/images/grid.mjs`).
+### Fixed
+- Figma Flutter code syntax in `6. Grid & Layout` now matches the `BwLayout` fields: `columns`, `gutter`, `appBarHeight`, `systemStatusHeight`, `sidebarStart`, `sidebarEnd`, `minTarget`. No values changed.
+- `_sync/figma-library.json` refreshed after the Foundations library was published: 282 published variables, all reachable from the Web Components file. All 33 Figma contracts regenerated; only their source hash and reachable count changed.
+### Notes
+- Foundation images rebuilt with the same scripts in a temporary copy, with Hassan's approval, because the browser was not available in the main folder.
 
 ## [Tooling — Sync hash ignores line endings] — 2026-11-03
 ### Fixed
