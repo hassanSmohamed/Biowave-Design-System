@@ -77,7 +77,7 @@ const LinkRoot = styled(MuiLink, {
   const visual: LinkVisualTokens = linkColorTokens[$color];
   const size = linkSizeTokens[$size];
   const inline = $size === 'inherit';
-  const focusColor = $color === 'inverse' ? linkFocusTokens.inverse : linkFocusTokens.default;
+  const focusColor = linkFocusTokens.color[$color];
 
   return {
     ...size.typography,

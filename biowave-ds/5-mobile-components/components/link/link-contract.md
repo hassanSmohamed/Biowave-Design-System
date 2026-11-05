@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ fdda8a03a16ae379 — do not edit; change the source and run: npm run contract -- mobile link -->
+<!-- GENERATED from link.md @ 2dace2220293b41b — do not edit; change the source and run: npm run contract -- mobile link -->
 # Link · رابط — Mobile — code contract
 
 > **Everything you need to build Link on Mobile, and nothing else.** Read this file only. Generated from [`link.md`](link.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](link.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-10-21 |
 | Source code | `lib/src/components/link/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`link.md`](link.md) @ `fdda8a03a16ae379` |
+| Source | [`link.md`](link.md) @ `2dace2220293b41b` |
 
 ## 1. What it is
 
@@ -94,7 +94,7 @@ A link takes people somewhere else: another page or screen, a help article, a po
 | `leading-icon`, `external-icon` | size | the label's font size | `size-icon-sm` | `size-icon-md` | `size-icon-md` |
 | content | gap | `spacing-xs` | `spacing-xs` | `spacing-xs` | `spacing-xs` |
 | hit area | min size (both axes) | — (inline exception) | `target-min` | `target-min` | `target-min` |
-| `underline` | thickness | `TextDecoration.underline`, font default thickness (= `border-width-default`); hover / pressed: `decorationThickness` = `BwBorder.widthStrong / BwBorder.widthDefault` | same | same | same |
+| `underline` | thickness | `TextDecoration.underline`, font default thickness (= `border-width-default`); hover: `decorationThickness` = `BwBorder.widthStrong / BwBorder.widthDefault` | same | same | same |
 | `underline` | offset | font default (Flutter has no underline offset; web uses `spacing-xxs`) | same | same | same |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` | same | same | same |
 
@@ -106,20 +106,20 @@ Layout rules: `BwLink` is a `Row(mainAxisSize: MainAxisSize.min)` centred inside
 
 > No component tokens (P-04): every value is a shared semantic token, so there is no `link.tokens.json`. `label`, `underline` and both icons use the same colour.
 
-| `color` | Default | Hover (pointer) | Pressed | Disabled |
-|---|---|---|---|---|
-| `brand` | `color-link-default` | `color-link-hovered` | `color-link-pressed` | `color-text-disabled` |
-| `neutral` | `color-text-default` | `color-text-default` | `color-text-default` | `color-text-disabled` |
-| `inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-disabled` |
+| `color` | Default | Hover (pointer) | Disabled |
+|---|---|---|---|
+| `brand` | `color-link-default` | `color-link-hovered` | `color-text-disabled` |
+| `neutral` | `color-text-default` | `color-text-default` | `color-text-disabled` |
+| `inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-disabled` |
 
-| Part | `underline` | Default | Hover | Pressed | Focus | Disabled |
-|---|---|---|---|---|---|---|
-| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-strong` | `border-width-default` | none |
-| `underline` | `hover` | none | `border-width-default` | `border-width-default` | `border-width-default` | none |
+| Part | `underline` | Default | Hover | Focus | Disabled |
+|---|---|---|---|---|---|
+| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-default` | none |
+| `underline` | `hover` | none | `border-width-default` | `border-width-default` | none |
 
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
+| `focus-ring` | color | Follows `color`: `brand` `color-border-info` · `neutral` `color-border-bold` · `inverse` `color-border-inverse` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` |
 
 No ink splash and no state overlay: states change only colour and underline. Dark theme: same tokens, values switch automatically. No exceptions.
@@ -134,17 +134,16 @@ Values are for checking only — never paste a value.
 | `border-width-default` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 1 | 1 |
 | `border-width-focus` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 2 | 2 |
 | `border-width-strong` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 2 | 2 |
-| `color-border-focus` | `context.bw.colors.borderFocus` | #254471 | #90A3BC |
+| `color-border-bold` | `context.bw.colors.borderBold` | #707070 | #969696 |
+| `color-border-info` | `context.bw.colors.borderInfo` | #2559D4 | #6D9CE8 |
 | `color-border-inverse` | `context.bw.colors.borderInverse` | #FFFFFF | #0A0A0A |
 | `color-link-default` | `context.bw.colors.linkDefault` | #2559D4 | #6D9CE8 |
 | `color-link-hovered` | `context.bw.colors.linkHovered` | #1D48AD | #9CBCF2 |
-| `color-link-pressed` | `context.bw.colors.linkPressed` | #153786 | #CBDCFA |
 | `color-text-default` | `context.bw.colors.textDefault` | #0A0A0A | #F7F7F7 |
 | `color-text-disabled` | `context.bw.colors.textDisabled` | #969696 | #707070 |
 | `color-text-inverse` | `context.bw.colors.textInverse` | #FFFFFF | #0A0A0A |
 | `motion-duration-instant` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 0 | 0 |
 | `motion-duration-sm` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 100 | 100 |
-| `motion-duration-xs` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 50 | 50 |
 | `motion-easing-standard` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | [0.2,0,0,1] | [0.2,0,0,1] |
 | `radius-xs` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 4 | 4 |
 | `size-icon-md` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 20 | 20 |
@@ -158,8 +157,6 @@ Values are for checking only — never paste a value.
 | From → To | Trigger | Animated properties | Duration | Easing |
 |---|---|---|---|---|
 | Default → Hover | pointer enter (pointer attached) | colour, underline | `motion-duration-sm` | `motion-easing-standard` |
-| Default / Hover → Pressed | tap down · Enter / Space down | colour, underline | `motion-duration-xs` | `motion-easing-standard` |
-| Pressed → Default | release | colour, underline | `motion-duration-sm` | `motion-easing-standard` |
 | Any → Focus | keyboard focus (`FocusManager.instance.highlightMode == traditional`) | focus ring appears | `motion-duration-instant` | — |
 | Enabled ↔ Disabled | `onPressed` becomes / stops being `null` | colour, underline | `motion-duration-instant` | — |
 
@@ -176,7 +173,7 @@ As [Web B5](../../../3-web-components/components/link/link.md#b5-rtl) (same wire
 | Role / semantics | `Semantics(link: true, label: label, hint: external ? externalHint : null, enabled: onPressed != null, onTap: onPressed)`; the `Text` and icons are excluded (`ExcludeSemantics` / `BwIcon` without `semanticLabel`) so the name is read once |
 | Accessible name | `label` |
 | External | Hint from `externalHint` (localized default by `Localizations.localeOf(context)`, the same way `BwButton` resolves `loadingLabel`) |
-| Disabled | `onPressed: null` → not focusable, `enabled: false`, no hover / pressed |
+| Disabled | `onPressed: null` → not focusable, `enabled: false`, no hover |
 | Focus | Keyboard highlight mode only: ring per B3 painted around the visible content (shared `BwFocusRing`, `lib/src/common/bw_focus_ring.dart`), shows on the first frame (no fade), takes no layout space |
 | Target size | `BwLink`: hit area ≥ `BwLayout.mobile.minTarget` on both axes · `BwLink.span`: WCAG 2.5.8 inline exception |
 | Text scale | Label and icons scale with the system text scale; the label wraps, the hit area grows |
@@ -242,7 +239,7 @@ BwLink(label: 'التواصل مع الدعم', external: true, onPressed: () =>
 
 ### Token gaps
 
-None. All tokens exist in Foundations (`color-link-*`, `color-text-default` · `-inverse` · `-disabled`, `color-border-focus` · `-inverse`, `border-width-*`, `border-focus-offset`, `radius-xs`, `spacing-xs`, `size-icon-sm` · `-md`, `target-min`, `action-*`, `motion-*`). No component tokens (P-04).
+None. All tokens exist in Foundations (`color-link-*`, `color-text-default` · `-inverse` · `-disabled`, `color-border-info` · `-bold` · `-inverse`, `border-width-*`, `border-focus-offset`, `radius-xs`, `spacing-xs`, `size-icon-sm` · `-md`, `target-min`, `action-*`, `motion-*`). No component tokens (P-04).
 
 ### Files to create / change
 
@@ -258,8 +255,8 @@ CHANGELOG.md                                   change: one entry
 ## 10. Tests
 
 - [ ] Golden tests: every `color` × `size` × allowed `underline`, plus `BwLink.span` in a paragraph, in light + dark and `Locale('en')` + `Locale('ar')`, with the real fonts (`test/flutter_test_config.dart`) and Material Symbols glyphs
-- [ ] States: hovered, pressed, focused (keyboard highlight mode), disabled — text colour and decoration read from the rendered `Text` equal B3
-- [ ] Underline: `always` at rest; `hover` none at rest and present when hovered, pressed or focused; disabled none; thickness ratio on hover / pressed
+- [ ] States: hovered, focused (keyboard highlight mode), disabled — text colour and decoration read from the rendered `Text` equal B3
+- [ ] Underline: `always` at rest; `hover` none at rest and present when hovered or focused; disabled none; thickness ratio on hover
 - [ ] External: `open_in_new` shown; semantics hint in en and ar; `externalHint` overrides it
 - [ ] Semantics: `link: true`, name = label, read once (no duplicate label node); disabled `enabled: false` and not focusable
 - [ ] `onPressed` called on tap, Enter and Space; not called when disabled

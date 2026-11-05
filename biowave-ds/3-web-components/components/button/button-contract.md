@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ becbd2a7304e84e5 — do not edit; change the source and run: npm run contract -- web button -->
+<!-- GENERATED from button.md @ 33edff8a1c5814ef — do not edit; change the source and run: npm run contract -- web button -->
 # Button · زر — Web — code contract
 
 > **Everything you need to build Button on Web, and nothing else.** Read this file only. Generated from [`button.md`](button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-18 |
 | Source code | [`src/components/button/`](../../src/components/button/) |
 | Tokens | [`button.tokens.json`](button.tokens.json) |
-| Source | [`button.md`](button.md) @ `becbd2a7304e84e5` |
+| Source | [`button.md`](button.md) @ `33edff8a1c5814ef` |
 
 ## 1. What it is
 
@@ -137,7 +137,7 @@ Same as `outlined` without the border.
 ### 3.5 Focus
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
+| `focus-ring` | color | Follows `color`: `color-border-brand` · `-secondary` · `-error` · `-success` · `-warning` · `-info` · `-inverse`; `neutral`: `color-border-bold` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-lg` |
 
 The **state layer** is a second fill painted above the container fill (web: `background-image: linear-gradient(var(--bw-color-background-transparent-hovered), var(--bw-color-background-transparent-hovered))`). Filled buttons never use a state layer; they switch to the solid `-hovered`/`-pressed` tokens.
@@ -175,10 +175,10 @@ Values are for checking only — never paste a value.
 | `color-background-transparent-default` | `var(--bw-color-background-transparent-default)` · `cssVars.color.background.transparent.default` | #54545400 | #54545400 |
 | `color-background-transparent-hovered` | `var(--bw-color-background-transparent-hovered)` · `cssVars.color.background.transparent.hovered` | #5454541A | #54545466 |
 | `color-background-transparent-pressed` | `var(--bw-color-background-transparent-pressed)` · `cssVars.color.background.transparent.pressed` | #54545433 | #54545499 |
+| `color-border-bold` | `var(--bw-color-border-bold)` · `cssVars.color.border.bold` | #707070 | #969696 |
 | `color-border-brand` | `var(--bw-color-border-brand)` · `cssVars.color.border.brand` | #254471 | #607D9F |
 | `color-border-disabled` | `var(--bw-color-border-disabled)` · `cssVars.color.border.disabled` | #DBDBDB | #404040 |
 | `color-border-error` | `var(--bw-color-border-error)` · `cssVars.color.border.error` | #D42222 | #FF7676 |
-| `color-border-focus` | `var(--bw-color-border-focus)` · `cssVars.color.border.focus` | #254471 | #90A3BC |
 | `color-border-inverse` | `var(--bw-color-border-inverse)` · `cssVars.color.border.inverse` | #FFFFFF | #0A0A0A |
 | `color-border-secondary` | `var(--bw-color-border-secondary)` · `cssVars.color.border.secondary` | #1A7596 | #5DA8C2 |
 | `color-border-strong` | `var(--bw-color-border-strong)` · `cssVars.color.border.strong` | #BDBDBD | #545454 |
@@ -268,8 +268,8 @@ The code token map must equal [`button.tokens.json`](button.tokens.json) (tests 
 | Button / Text | label/disabled | brand: `color-text-disabled` · secondary: `color-text-disabled` · error: `color-text-disabled` · neutral: `color-text-disabled` · inverse: `color-text-disabled` |
 | Button / Text | icon/default | brand: `color-icon-role-brand` · secondary: `color-icon-role-secondary` · error: `color-icon-role-error` · neutral: `color-icon-default` · inverse: `color-icon-on-brand` |
 | Button / Text | icon/disabled | brand: `color-icon-disabled` · secondary: `color-icon-disabled` · error: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
-| Button / Focus | color | default: `color-border-focus` · inverse: `color-border-inverse` |
-| Button / Focus | width | default: `border-width-focus` · inverse: `border-width-focus` |
+| Button / Focus | color | brand: `color-border-brand` · secondary: `color-border-secondary` · neutral: `color-border-bold` · success: `color-border-success` · error: `color-border-error` · warning: `color-border-warning` · info: `color-border-info` · inverse: `color-border-inverse` |
+| Button / Focus | width | brand: `border-width-focus` · secondary: `border-width-focus` · neutral: `border-width-focus` · success: `border-width-focus` · error: `border-width-focus` · warning: `border-width-focus` · info: `border-width-focus` · inverse: `border-width-focus` |
 
 ## 5. States and transitions
 
@@ -307,7 +307,7 @@ RTL  │          إضافة جهاز  [◆]  │      │  [◂]  التالي 
 | Accessible name | `children` text. Icons get `aria-hidden="true"` |
 | Loading | `aria-busy="true"` + `aria-disabled="true"` (stays focusable, click ignored). A visually hidden `role="status"` region announces `loadingLabel` once |
 | Disabled | Native `disabled` (removed from tab order). With `href`: `aria-disabled="true"`, `tabIndex=-1`, no navigation |
-| Focus | `:focus-visible` outline: `border-width-focus` solid `color-border-focus`, `outline-offset: border-focus-offset`; follows the container radius |
+| Focus | `:focus-visible` outline: `border-width-focus` solid the `color` focus token (B3.5), `outline-offset: border-focus-offset`; follows the container radius |
 | Target size | Every size ≥ `target-min` (24) — `sm` is the smallest at 32 |
 | Contrast | All label/background pairs in B3 are in `contrast-pairs.json` (4.5:1); outlines and focus 3:1 |
 | Screen reader output | "Save changes, button" · loading: "Save changes, button, busy" + "Saving…" |

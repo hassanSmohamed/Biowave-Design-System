@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ 5632302a1f952718 — do not edit; change the source and run: npm run contract -- web link -->
+<!-- GENERATED from link.md @ a9d6a0d8a5c73bab — do not edit; change the source and run: npm run contract -- web link -->
 # Link · رابط — Web — code contract
 
 > **Everything you need to build Link on Web, and nothing else.** Read this file only. Generated from [`link.md`](link.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](link.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-10-21 |
 | Source code | `src/components/link/` (built) |
 | Tokens | [`link.tokens.json`](link.tokens.json) |
-| Source | [`link.md`](link.md) @ `5632302a1f952718` |
+| Source | [`link.md`](link.md) @ `a9d6a0d8a5c73bab` |
 
 ## 1. What it is
 
@@ -109,10 +109,10 @@ The Web implementation continues to consume shared semantic tokens directly. The
 
 | Figma collection | Modes | Variables |
 |---|---|---|
-| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` · `focus-ring-width` |
 | `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
 
-`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. Web Link has no Pressed state in Figma or code.
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and the focus ring is a real stroke on the `Border` layer in the link colour. Web Link has no Pressed state in Figma or code.
 
 In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 
@@ -129,7 +129,7 @@ In code, `label`, `underline`, and both icons use the same colour (`currentColor
 
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
+| `focus-ring` | color | Follows `color`: `brand` `color-border-info` · `neutral` `color-border-bold` · `inverse` `color-border-inverse` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` |
 
 Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` is darker in light and lighter in dark, so it keeps at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
@@ -144,7 +144,8 @@ Values are for checking only — never paste a value.
 | `border-width-default` | `var(--bw-border-width-default)` · `cssVars.border.width.default` | 1 | 1 |
 | `border-width-focus` | `var(--bw-border-width-focus)` · `cssVars.border.width.focus` | 2 | 2 |
 | `border-width-strong` | `var(--bw-border-width-strong)` · `cssVars.border.width.strong` | 2 | 2 |
-| `color-border-focus` | `var(--bw-color-border-focus)` · `cssVars.color.border.focus` | #254471 | #90A3BC |
+| `color-border-bold` | `var(--bw-color-border-bold)` · `cssVars.color.border.bold` | #707070 | #969696 |
+| `color-border-info` | `var(--bw-color-border-info)` · `cssVars.color.border.info` | #2559D4 | #6D9CE8 |
 | `color-border-inverse` | `var(--bw-color-border-inverse)` · `cssVars.color.border.inverse` | #FFFFFF | #0A0A0A |
 | `color-link-default` | `var(--bw-color-link-default)` · `cssVars.color.link.default` | #2559D4 | #6D9CE8 |
 | `color-link-hovered` | `var(--bw-color-link-hovered)` · `cssVars.color.link.hovered` | #1D48AD | #9CBCF2 |
@@ -175,6 +176,7 @@ The code token map must equal [`link.tokens.json`](link.tokens.json) (tests comp
 | Link / Size | gap | lg: `spacing-control-gap-lg` · md: `spacing-control-gap-md` · sm: `spacing-control-gap-sm` |
 | Link / Size | icon | lg: `size-icon-lg` · md: `size-icon-md` · sm: `size-icon-sm` |
 | Link / Size | radius | lg: `radius-2xl` · md: `radius-2xl` · sm: `radius-2xl` |
+| Link / Size | focus-ring-width | lg: `border-width-focus` · md: `border-width-focus` · sm: `border-width-focus` |
 | Link / Color | label/default | brand: `color-link-default` · neutral: `color-text-default` · inverse: `color-text-inverse` |
 | Link / Color | label/hovered | brand: `color-link-hovered` · neutral: `color-text-default` · inverse: `color-text-inverse` |
 | Link / Color | label/visited | brand: `color-link-visited` · neutral: `color-text-default` · inverse: `color-text-inverse` |
@@ -185,7 +187,7 @@ The code token map must equal [`link.tokens.json`](link.tokens.json) (tests comp
 | Link / Color | icon/disabled | brand: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
 | Link / Color | container | brand: `color-background-transparent-default` · neutral: `color-background-transparent-default` · inverse: `color-background-transparent-default` |
 | Link / Color | border | brand: `color-border-default` · neutral: `color-border-default` · inverse: `color-border-default` |
-| Link / Color | focus-ring | brand: `color-border-focus` · neutral: `color-border-focus` · inverse: `color-border-inverse` |
+| Link / Color | focus-ring | brand: `color-border-info` · neutral: `color-border-bold` · inverse: `color-border-inverse` |
 
 ## 5. States and transitions
 
@@ -224,7 +226,7 @@ LTR  [◆] Contact support [▸]          RTL          [◂] التواصل مع
 | Accessible name | `children` text. Icons are decorative (`Icon` without `label` → `aria-hidden="true"`). `external`: a visually hidden span with `externalLabel` inside the link, after the label (shared helper `src/internal/visuallyHidden.ts`) |
 | External | `target="_blank"` + `rel="noopener noreferrer"` |
 | Disabled | `<a>` **without** `href`, `role="link"`, `aria-disabled="true"`; not in the tab order; `onClick` not called |
-| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid `color-border-focus` (`inverse`: `color-border-inverse`), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
+| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid the `color` focus token (B3), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
 | Target size | Standalone: `min-block-size: target-min` (24) · inline: WCAG 2.5.8 inline exception |
 | Non-colour cue | Inline and `neutral` links always underlined (WCAG 1.4.1, B1 fallbacks) |
 | Cursor | `pointer`; disabled: `default` |
@@ -296,7 +298,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 Code has no token gap: it continues to use the shared semantic tokens listed below. Figma has the R-02 bridge in `link.tokens.json`; it aliases those live semantic variables and does not change the public API.
 
-Shared code tokens: `color-link-default` · `-hovered` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-focus` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`.
+Shared code tokens: `color-link-default` · `-hovered` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-info` · `-bold` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`.
 
 ### Files to create / change
 

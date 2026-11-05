@@ -110,7 +110,7 @@ A link takes people somewhere else: another page or screen, a help article, a po
 | Value | Looks like | Pick it when |
 |---|---|---|
 | `always` | `Contact support` with a line under it | **Default.** Required for inline links and for `neutral` |
-| `hover` | No line until hovered, pressed or focused | Standalone links whose place already says "link": card header "View all", a list of links, a footer. On touch screens the line shows while pressed or focused |
+| `hover` | No line until hovered or focused | Standalone links whose place already says "link": card header "View all", a list of links, a footer. On touch screens the line shows when focused |
 
 #### 4.4 `leading-icon`
 
@@ -140,7 +140,6 @@ On for links in long content and help pages, where people benefit from seeing wh
 | Default | At rest | Link colour; underline per `underline` |
 | Hover | Pointer over (web, tablet with a pointer) | Darker link colour (`brand`), thicker underline; `hover` links show their underline |
 | Focus | Keyboard focus | Focus ring around the whole link (see [a11y](../../../2-foundations/guidelines/a11y.md)); `hover` links show their underline |
-| Pressed | Tap (Tablet and Mobile only) | Darkest link colour (`brand`), thicker underline. Web has no Pressed state |
 | Visited | Web with `show-visited`, page already opened | Visited link colour |
 | Disabled | The destination is not available yet | Disabled text colour, no underline, not focusable. Prefer hiding the link or explaining why in text next to it |
 
@@ -295,10 +294,10 @@ The Web implementation continues to consume shared semantic tokens directly. The
 
 | Figma collection | Modes | Variables |
 |---|---|---|
-| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` |
+| `Link / Size` | `lg` · `md` · `sm` | `height` · `padding-inline` · `padding-block` · `gap` · `icon` · `radius` · `focus-ring-width` |
 | `Link / Color` | `brand` · `neutral` · `inverse` | `label/{default,hovered,visited,disabled}` · `icon/{default,hovered,visited,disabled}` · `container` · `border` · `focus-ring` |
 
-`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and EN and AR use one `focus-ring` colour. Web Link has no Pressed state in Figma or code.
+`XLarge`, `Medium`, and `Small` select `lg`, `md`, and `sm`. `Brand`, `Neutral`, and `Inverse` select the matching modes above. Idle and Focused bind `*/default`; Hovered, Visited, and Disabled bind their matching state variables. D-R02-1 sets fixed-height `padding-block` to `spacing-none`. Figma matches code for colour: Link has three colours, `label` and `icon` share the same values, and the focus ring is a real stroke on the `Border` layer in the link colour. Web Link has no Pressed state in Figma or code.
 
 In code, `label`, `underline`, and both icons use the same colour (`currentColor`):
 
@@ -315,7 +314,7 @@ In code, `label`, `underline`, and both icons use the same colour (`currentColor
 
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
+| `focus-ring` | color | Follows `color`: `brand` `color-border-info` · `neutral` `color-border-bold` · `inverse` `color-border-inverse` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` |
 
 Contrast: `color-link-default` is checked against the page and surface colours in `2-foundations/scripts/contrast-pairs.json` (4.5:1); `-hovered` is darker in light and lighter in dark, so it keeps at least that contrast. Dark theme: same tokens, values switch automatically. No exceptions.
@@ -357,7 +356,7 @@ LTR  [◆] Contact support [▸]          RTL          [◂] التواصل مع
 | Accessible name | `children` text. Icons are decorative (`Icon` without `label` → `aria-hidden="true"`). `external`: a visually hidden span with `externalLabel` inside the link, after the label (shared helper `src/internal/visuallyHidden.ts`) |
 | External | `target="_blank"` + `rel="noopener noreferrer"` |
 | Disabled | `<a>` **without** `href`, `role="link"`, `aria-disabled="true"`; not in the tab order; `onClick` not called |
-| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid `color-border-focus` (`inverse`: `color-border-inverse`), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
+| Focus | `:focus-visible` (and `.Mui-focusVisible`) outline `border-width-focus` solid the `color` focus token (B3), `outline-offset: border-focus-offset`, `border-radius: radius-xs` |
 | Target size | Standalone: `min-block-size: target-min` (24) · inline: WCAG 2.5.8 inline exception |
 | Non-colour cue | Inline and `neutral` links always underlined (WCAG 1.4.1, B1 fallbacks) |
 | Cursor | `pointer`; disabled: `default` |
@@ -462,7 +461,7 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 
 Code has no token gap: it continues to use the shared semantic tokens listed below. Figma has the R-02 bridge in `link.tokens.json`; it aliases those live semantic variables and does not change the public API.
 
-Shared code tokens: `color-link-default` · `-hovered` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-focus` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`.
+Shared code tokens: `color-link-default` · `-hovered` · `-visited`, `color-text-default` · `-inverse` · `-disabled`, `color-border-info` · `-bold` · `-inverse`, `border-width-default` · `-strong` · `-focus`, `border-focus-offset`, `radius-xs`, `spacing-xs` · `-xxs`, `size-icon-sm` · `-md`, `target-min`, `action-sm|md|lg`, `motion-duration-*`, `motion-easing-standard`.
 
 ### C5 Files to create / change
 

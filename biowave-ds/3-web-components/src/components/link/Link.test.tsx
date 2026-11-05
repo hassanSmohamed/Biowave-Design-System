@@ -110,8 +110,11 @@ describe('Link token contract', () => {
       offset: 'var(--bw-spacing-xxs)',
     });
     expect(linkFocusTokens).toEqual({
-      default: 'var(--bw-color-border-focus)',
-      inverse: 'var(--bw-color-border-inverse)',
+      color: {
+        brand: 'var(--bw-color-border-info)',
+        neutral: 'var(--bw-color-border-bold)',
+        inverse: 'var(--bw-color-border-inverse)',
+      },
       width: 'var(--bw-border-width-focus)',
       offset: 'var(--bw-border-focus-offset)',
     });
@@ -221,7 +224,7 @@ describe('Link states and underline', () => {
       (rule) => rule.includes(':focus-visible') && !rule.includes('__label'),
     );
     expect(focusRoot).toContain(linkFocusTokens.width);
-    expect(focusRoot).toContain(linkFocusTokens.default);
+    expect(focusRoot).toContain(linkFocusTokens.color.brand);
     expect(focusRoot).toContain(linkFocusTokens.offset);
     const disabledRoot = ruleList.find(
       (rule) =>
@@ -252,7 +255,7 @@ describe('Link states and underline', () => {
     const inverseFocus = cssRulesFor(screen.getByRole('link', { name: 'Inverse' }))
       .split('\n')
       .find((rule) => rule.includes(':focus-visible') && !rule.includes('__label'));
-    expect(inverseFocus).toContain(linkFocusTokens.inverse);
+    expect(inverseFocus).toContain(linkFocusTokens.color.inverse);
     inverse.unmount();
   });
 

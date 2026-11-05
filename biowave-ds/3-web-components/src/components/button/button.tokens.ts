@@ -235,8 +235,13 @@ export const buttonSizeTokens = {
 } as const satisfies Record<ButtonSize, object>;
 
 export const buttonFocusTokens = {
-  default: cssVars.color.border.focus,
-  inverse: cssVars.color.border.inverse,
+  color: {
+    brand: cssVars.color.border.brand,
+    secondary: cssVars.color.border.secondary,
+    neutral: cssVars.color.border.bold,
+    error: cssVars.color.border.error,
+    inverse: cssVars.color.border.inverse,
+  } satisfies Record<ButtonColor, string>,
   width: cssVars.border.width.focus,
   offset: cssVars.border.focus.offset,
 } as const;

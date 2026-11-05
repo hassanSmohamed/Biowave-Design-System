@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ 091395446389b2aa — do not edit; change the source and run: npm run contract -- tablet button -->
+<!-- GENERATED from button.md @ fd11b1dd079b9ff8 — do not edit; change the source and run: npm run contract -- tablet button -->
 # Button · زر — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`button.md`](button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Button · زر |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-20 |
-| Source | [`button.md`](button.md) @ `091395446389b2aa` |
+| Source | [`button.md`](button.md) @ `fd11b1dd079b9ff8` |
 
 ## 1. Library connections in this file
 
@@ -79,8 +79,8 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | Button / Text | brand · secondary · error · neutral · inverse | `label/disabled` | brand → 1. Themes › `color/text/disabled`<br>secondary → 1. Themes › `color/text/disabled`<br>error → 1. Themes › `color/text/disabled`<br>neutral → 1. Themes › `color/text/disabled`<br>inverse → 1. Themes › `color/text/disabled` |
 | Button / Text | brand · secondary · error · neutral · inverse | `icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>error → 1. Themes › `color/icon/role/error`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/on/brand` |
 | Button / Text | brand · secondary · error · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
-| Button / Focus | default · inverse | `color` | default → 1. Themes › `color/border/focus`<br>inverse → 1. Themes › `color/border/inverse` |
-| Button / Focus | default · inverse | `width` | default → 7. Border › `border/width/focus`<br>inverse → 7. Border › `border/width/focus` |
+| Button / Focus | brand · secondary · neutral · success · error · warning · info · inverse | `color` | brand → 1. Themes › `color/border/brand`<br>secondary → 1. Themes › `color/border/secondary`<br>neutral → 1. Themes › `color/border/bold`<br>success → 1. Themes › `color/border/success`<br>error → 1. Themes › `color/border/error`<br>warning → 1. Themes › `color/border/warning`<br>info → 1. Themes › `color/border/info`<br>inverse → 1. Themes › `color/border/inverse` |
+| Button / Focus | brand · secondary · neutral · success · error · warning · info · inverse | `width` | brand → 7. Border › `border/width/focus`<br>secondary → 7. Border › `border/width/focus`<br>neutral → 7. Border › `border/width/focus`<br>success → 7. Border › `border/width/focus`<br>error → 7. Border › `border/width/focus`<br>warning → 7. Border › `border/width/focus`<br>info → 7. Border › `border/width/focus`<br>inverse → 7. Border › `border/width/focus` |
 
 ## 3. Foundations variables used (keys)
 
@@ -111,13 +111,16 @@ Already in this file, created by the sync tooling from [`button.tokens.json`](bu
 | `color-background-transparent-default` | 1. Themes › `color/background/transparent/default` | `7ded3d8bfead13a83fc2297ef9dc75a16f73857b` | COLOR | FRAME_FILL, SHAPE_FILL | component token |
 | `color-background-transparent-hovered` | 1. Themes › `color/background/transparent/hovered` | `51354205cb02a343717bc6e5ca84b0e151af3de8` | COLOR | FRAME_FILL, SHAPE_FILL | component token |
 | `color-background-transparent-pressed` | 1. Themes › `color/background/transparent/pressed` | `830ae424ad770312d061208a89f7452569d643d8` | COLOR | FRAME_FILL, SHAPE_FILL | component token |
+| `color-border-bold` | 1. Themes › `color/border/bold` | `ab8b644249ebef8ab1b6a1efc54e0b4e504d3979` | COLOR | STROKE_COLOR | component token |
 | `color-border-brand` | 1. Themes › `color/border/brand` | `50ddd3d7028ede7c14f73576869a28588b0c3b7d` | COLOR | STROKE_COLOR | component token |
 | `color-border-disabled` | 1. Themes › `color/border/disabled` | `a6d557c3fa0bcb0e2e6b6592234d737ef80936bf` | COLOR | STROKE_COLOR | component token |
 | `color-border-error` | 1. Themes › `color/border/error` | `28b0f15306faf6c8113f5acdf14ed8fc66e02c57` | COLOR | STROKE_COLOR | component token |
-| `color-border-focus` | 1. Themes › `color/border/focus` | `ef666d3badd2b63f18cb168d9987ead7fbc21480` | COLOR | STROKE_COLOR | spec, component token |
-| `color-border-inverse` | 1. Themes › `color/border/inverse` | `0e53944b3de77eca83b17b27c3e5d0b4fca582d8` | COLOR | STROKE_COLOR | spec, component token |
+| `color-border-info` | 1. Themes › `color/border/info` | `df6d00488697e55fe6bd439d9ef9888d85c9a3d7` | COLOR | STROKE_COLOR | component token |
+| `color-border-inverse` | 1. Themes › `color/border/inverse` | `0e53944b3de77eca83b17b27c3e5d0b4fca582d8` | COLOR | STROKE_COLOR | component token |
 | `color-border-secondary` | 1. Themes › `color/border/secondary` | `7466169e60102e31827f59ddfe6eb94a9bbee577` | COLOR | STROKE_COLOR | component token |
 | `color-border-strong` | 1. Themes › `color/border/strong` | `a12934eff6a447ebe30a4507b223c76e583e2701` | COLOR | STROKE_COLOR | component token |
+| `color-border-success` | 1. Themes › `color/border/success` | `a6bc4e451961378013cbf0f536417a2a9fba0daa` | COLOR | STROKE_COLOR | component token |
+| `color-border-warning` | 1. Themes › `color/border/warning` | `d327d60eda883f8a19982118ed7843d57671a416` | COLOR | STROKE_COLOR | component token |
 | `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
 | `color-icon-disabled` | 1. Themes › `color/icon/disabled` | `708926473ca446a26d4a0891351f04692171f74f` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
 | `color-icon-on-brand` | 1. Themes › `color/icon/on/brand` | `7adf0bdf71942294bcca707ea3b88ab778741004` | COLOR | SHAPE_FILL, STROKE_COLOR | component token |
@@ -279,7 +282,7 @@ RTL  │          إضافة جهاز  [◆]  │      │  [◂]  التالي 
 | Accessible name | `label` |
 | Loading | `Semantics(label: '$label', value: loadingLabel, button: true, enabled: true)`; `SemanticsService.announce(loadingLabel, Directionality.of(context))` once when `loading` turns on; presses ignored, focus kept |
 | Disabled | `onPressed: null` → not focusable, `enabled: false` |
-| Focus | Keyboard focus only (`FocusManager.instance.highlightMode == traditional`): ring `border-width-focus` in `color-border-focus` (`inverse`: `color-border-inverse`) painted around the **visible container** (the shaped `Material`), never around the padded 48dp tap-target box: gap between container edge and ring = `border-focus-offset`, stroke = `border-width-focus`, ring inner-edge radius = container radius + offset (outer edge + `border-width-focus`, concentric). The ring takes no layout space (C3) and appears and disappears instantly (B4 Any → Focus `motion-duration-instant`) |
+| Focus | Keyboard focus only (`FocusManager.instance.highlightMode == traditional`): ring `border-width-focus` in the `color` focus token (Web B3.5) painted around the **visible container** (the shaped `Material`), never around the padded 48dp tap-target box: gap between container edge and ring = `border-focus-offset`, stroke = `border-width-focus`, ring inner-edge radius = container radius + offset (outer edge + `border-width-focus`, concentric). The ring takes no layout space (C3) and appears and disappears instantly (B4 Any → Focus `motion-duration-instant`) |
 | Target size | ≥ `BwLayout.tablet.minTarget` via `MaterialTapTargetSize.padded` |
 | Text scale | Label scales with the system text scale; height grows rather than clipping (use `minimumSize`, not a hard max) |
 | Screen reader output | "Clock in, button" / "تسجيل الحضور، زر" · loading: "Saving…" announced |

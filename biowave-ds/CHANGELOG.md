@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-05 — Focus ring follows the element colour
+
+Button, Icon button, Split button and Link now use a focus ring in the element colour on every platform: `color-border-brand`, `-secondary`, `-error`, `-success`, `-warning`, `-info`, `-inverse`, and `-bold` for neutral. Link brand uses `color-border-info`, which matches `color-link-default`. `Button / Focus` has one mode per colour and all focused Web variants pin it. Link focused variants use a real stroke on the `Border` layer, bound to the new `Link / Size › focus-ring-width`, and Link variants hug their width. No Foundations token or Figma variable changed.
+
+## 2026-11-05 — Link has no Pressed state on any platform
+
+Removed Pressed from the Tablet and Mobile Link specs and from A5 on all platforms. Link tap feedback on touch is now left to the app.
+
 ## 2026-11-04 — Web Link has no Pressed state
 
 Removed the `:active` styles, the `pressed` colour tokens and `pressedDuration` from Web Link, its tests and its spec. Tablet and Mobile specs keep Pressed as their only tap feedback; A5 notes the difference. `color-link-pressed` stays in Foundations, unchanged and now unused by Web Link.

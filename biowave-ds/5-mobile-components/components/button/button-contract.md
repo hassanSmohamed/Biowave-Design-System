@@ -1,4 +1,4 @@
-<!-- GENERATED from button.md @ 275a54065bfd338c — do not edit; change the source and run: npm run contract -- mobile button -->
+<!-- GENERATED from button.md @ ee93164674edccfc — do not edit; change the source and run: npm run contract -- mobile button -->
 # Button · زر — Mobile — code contract
 
 > **Everything you need to build Button on Mobile, and nothing else.** Read this file only. Generated from [`button.md`](button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-20 |
 | Source code | [`lib/src/components/button/bw_button.dart`](../../lib/src/components/button/bw_button.dart) |
 | Tokens | [`button.tokens.json`](button.tokens.json) |
-| Source | [`button.md`](button.md) @ `275a54065bfd338c` |
+| Source | [`button.md`](button.md) @ `ee93164674edccfc` |
 
 ## 1. What it is
 
@@ -115,8 +115,6 @@ Values are for checking only — never paste a value.
 | `border-focus-offset` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 2 | 2 |
 | `border-width-default` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 1 | 1 |
 | `border-width-focus` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 2 | 2 |
-| `color-border-focus` | `context.bw.colors.borderFocus` | #254471 | #90A3BC |
-| `color-border-inverse` | `context.bw.colors.borderInverse` | #FFFFFF | #0A0A0A |
 | `motion-duration-instant` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 0 | 0 |
 | `radius-md` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 8 | 8 |
 | `radius-xl` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 12 | 12 |
@@ -179,8 +177,8 @@ The code token map must equal [`button.tokens.json`](button.tokens.json) (tests 
 | Button / Text | label/disabled | brand: `color-text-disabled` · secondary: `color-text-disabled` · error: `color-text-disabled` · neutral: `color-text-disabled` · inverse: `color-text-disabled` |
 | Button / Text | icon/default | brand: `color-icon-role-brand` · secondary: `color-icon-role-secondary` · error: `color-icon-role-error` · neutral: `color-icon-default` · inverse: `color-icon-on-brand` |
 | Button / Text | icon/disabled | brand: `color-icon-disabled` · secondary: `color-icon-disabled` · error: `color-icon-disabled` · neutral: `color-icon-disabled` · inverse: `color-icon-disabled` |
-| Button / Focus | color | default: `color-border-focus` · inverse: `color-border-inverse` |
-| Button / Focus | width | default: `border-width-focus` · inverse: `border-width-focus` |
+| Button / Focus | color | brand: `color-border-brand` · secondary: `color-border-secondary` · neutral: `color-border-bold` · success: `color-border-success` · error: `color-border-error` · warning: `color-border-warning` · info: `color-border-info` · inverse: `color-border-inverse` |
+| Button / Focus | width | brand: `border-width-focus` · secondary: `border-width-focus` · neutral: `border-width-focus` · success: `border-width-focus` · error: `border-width-focus` · warning: `border-width-focus` · info: `border-width-focus` · inverse: `border-width-focus` |
 
 ## 5. States and transitions
 
@@ -208,7 +206,7 @@ RTL  │          إضافة جهاز  [◆]  │      │  [◂]  التالي 
 | Accessible name | `label` |
 | Loading | `Semantics(label: '$label', value: loadingLabel, button: true, enabled: true)`; `SemanticsService.announce(loadingLabel, Directionality.of(context))` once when `loading` turns on; presses ignored, focus kept |
 | Disabled | `onPressed: null` → not focusable, `enabled: false` |
-| Focus | Keyboard focus only (`FocusManager.instance.highlightMode == traditional`): ring `border-width-focus` in `color-border-focus` (`inverse`: `color-border-inverse`) painted around the **visible container** (the shaped `Material`), never around the padded 48dp tap-target box: gap between container edge and ring = `border-focus-offset`, stroke = `border-width-focus`, ring inner-edge radius = container radius + offset (outer edge + `border-width-focus`, concentric). The ring takes no layout space (C3) and appears and disappears instantly (B4 Any → Focus `motion-duration-instant`) |
+| Focus | Keyboard focus only (`FocusManager.instance.highlightMode == traditional`): ring `border-width-focus` in the `color` focus token (Web B3.5) painted around the **visible container** (the shaped `Material`), never around the padded 48dp tap-target box: gap between container edge and ring = `border-focus-offset`, stroke = `border-width-focus`, ring inner-edge radius = container radius + offset (outer edge + `border-width-focus`, concentric). The ring takes no layout space (C3) and appears and disappears instantly (B4 Any → Focus `motion-duration-instant`) |
 | Target size | ≥ `BwLayout.mobile.minTarget` via `MaterialTapTargetSize.padded` |
 | Text scale | Label scales with the system text scale; height grows rather than clipping (use `minimumSize`, not a hard max) |
 | Screen reader output | "Clock in, button" / "تسجيل الحضور، زر" · loading: "Saving…" announced |

@@ -760,9 +760,57 @@
           "modes": true
         }
       },
-      "default": {
+      "brand": {
         "color": {
-          "$value": "{color.border.focus}"
+          "$value": "{color.border.brand}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "secondary": {
+        "color": {
+          "$value": "{color.border.secondary}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "neutral": {
+        "color": {
+          "$value": "{color.border.bold}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "success": {
+        "color": {
+          "$value": "{color.border.success}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "error": {
+        "color": {
+          "$value": "{color.border.error}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "warning": {
+        "color": {
+          "$value": "{color.border.warning}"
+        },
+        "width": {
+          "$value": "{border.width.focus}"
+        }
+      },
+      "info": {
+        "color": {
+          "$value": "{color.border.info}"
         },
         "width": {
           "$value": "{border.width.focus}"

@@ -131,9 +131,7 @@ class BwIconButton extends StatelessWidget {
     );
     final animationDuration =
         context.bw.reduceMotion ? BwDuration.instant : BwDuration.sm;
-    final ringColor = color == BwButtonColor.inverse
-        ? context.bw.colors.borderInverse
-        : context.bw.colors.borderFocus;
+    final ringColor = BwButtonStyle.focusRingColor(context.bw.colors, color);
     final borderRadius = BwButtonStyle.segmentBorderRadius(dimensions, segment);
     final ringBorderRadius = borderRadius.resolve(Directionality.of(context));
     final style = baseStyle.copyWith(

@@ -70,7 +70,7 @@ const ButtonRoot = styled(MuiButton, {
 })<ButtonRootProps>(({ $variant, $color, $size, $instantColorTransition, $segment }) => {
   const visual = resolveButtonTokens($variant, $color);
   const size = buttonSizeTokens[$size];
-  const focusColor = $color === 'inverse' ? buttonFocusTokens.inverse : buttonFocusTokens.default;
+  const focusColor = buttonFocusTokens.color[$color];
 
   return {
     ...buttonTypographyTokens[$size],

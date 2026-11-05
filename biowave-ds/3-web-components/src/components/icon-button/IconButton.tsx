@@ -72,7 +72,7 @@ const IconButtonRoot = styled(MuiIconButton, {
     prop !== '$visual',
 })<IconButtonRootProps>(({ $color, $selected, $size, $segment, $visual }) => {
   const size = buttonSizeTokens[$size];
-  const focusColor = $color === 'inverse' ? buttonFocusTokens.inverse : buttonFocusTokens.default;
+  const focusColor = buttonFocusTokens.color[$color];
 
   return {
     position: 'relative',

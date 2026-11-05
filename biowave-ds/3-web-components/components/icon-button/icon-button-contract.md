@@ -1,4 +1,4 @@
-<!-- GENERATED from icon-button.md @ 8caeda08f3b37aeb — do not edit; change the source and run: npm run contract -- web icon-button -->
+<!-- GENERATED from icon-button.md @ 7aa42c9b5b4badd3 — do not edit; change the source and run: npm run contract -- web icon-button -->
 # Icon button · زر أيقونة — Web — code contract
 
 > **Everything you need to build Icon button on Web, and nothing else.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](icon-button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-21 |
 | Source code | [`src/components/icon-button/`](../../src/components/icon-button/) |
 | Tokens | [`icon-button.tokens.json`](icon-button.tokens.json) |
-| Source | [`icon-button.md`](icon-button.md) @ `8caeda08f3b37aeb` |
+| Source | [`icon-button.md`](icon-button.md) @ `7aa42c9b5b4badd3` |
 
 ## 1. What it is
 
@@ -103,7 +103,7 @@ Exactly [Button B3.1–B3.5](../button/button.md#b3-tokens-by-part-and-state) fo
 | Disabled | `color-background-disabled` | — | `color-icon-disabled` | `color-border-disabled` |
 
 ### 3.3 Focus
-As Button B3.5 (`inverse` uses `color-border-inverse`).
+As Button B3.5: the ring follows `color`.
 
 ### 3.4 Tooltip (temporary, until Tooltip component)
 | Part | Property | Token |

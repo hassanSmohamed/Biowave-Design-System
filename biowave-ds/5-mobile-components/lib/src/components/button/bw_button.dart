@@ -97,9 +97,7 @@ class BwButton extends StatelessWidget {
                 BwFocusRing(
               focused: states.contains(WidgetState.focused),
               borderRadius: borderRadius,
-              color: color == BwButtonColor.inverse
-                  ? colors.borderInverse
-                  : colors.borderFocus,
+              color: BwButtonStyle.focusRingColor(colors, color),
               ringKey: focusRingKey,
               child: child ?? const SizedBox.shrink(),
             ),

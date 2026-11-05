@@ -1,4 +1,4 @@
-<!-- GENERATED from icon-button.md @ e88afacd41d00fe4 — do not edit; change the source and run: npm run contract -- web icon-button -->
+<!-- GENERATED from icon-button.md @ 00454086e61bec7d — do not edit; change the source and run: npm run contract -- web icon-button -->
 # Icon button · زر أيقونة — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Icon button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-03). Questions go to [D11 Execution log](icon-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Icon button · زر أيقونة |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-21 |
-| Source | [`icon-button.md`](icon-button.md) @ `e88afacd41d00fe4` |
+| Source | [`icon-button.md`](icon-button.md) @ `00454086e61bec7d` |
 
 ## 1. Library connections in this file
 
@@ -205,7 +205,7 @@ Exactly [Button B3.1–B3.5](../button/button.md#b3-tokens-by-part-and-state) fo
 | Disabled | `color-background-disabled` | — | `color-icon-disabled` | `color-border-disabled` |
 
 ### 3.3 Focus
-As Button B3.5 (`inverse` uses `color-border-inverse`).
+As Button B3.5: the ring follows `color`.
 
 ### 3.4 Tooltip (temporary, until Tooltip component)
 | Part | Property | Token |

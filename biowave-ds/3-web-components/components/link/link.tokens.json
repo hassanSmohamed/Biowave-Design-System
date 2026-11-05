@@ -32,6 +32,9 @@
         },
         "radius": {
           "$value": "{radius.2xl}"
+        },
+        "focus-ring-width": {
+          "$value": "{border.width.focus}"
         }
       },
       "md": {
@@ -52,6 +55,9 @@
         },
         "radius": {
           "$value": "{radius.2xl}"
+        },
+        "focus-ring-width": {
+          "$value": "{border.width.focus}"
         }
       },
       "sm": {
@@ -72,6 +78,9 @@
         },
         "radius": {
           "$value": "{radius.2xl}"
+        },
+        "focus-ring-width": {
+          "$value": "{border.width.focus}"
         }
       }
     },
@@ -118,7 +127,7 @@
           "$value": "{color.border.default}"
         },
         "focus-ring": {
-          "$value": "{color.border.focus}"
+          "$value": "{color.border.info}"
         }
       },
       "neutral": {
@@ -157,7 +166,7 @@
           "$value": "{color.border.default}"
         },
         "focus-ring": {
-          "$value": "{color.border.focus}"
+          "$value": "{color.border.bold}"
         }
       },
       "inverse": {

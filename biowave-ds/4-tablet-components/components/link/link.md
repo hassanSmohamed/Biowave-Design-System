@@ -110,7 +110,7 @@ A link takes people somewhere else: another page or screen, a help article, a po
 | Value | Looks like | Pick it when |
 |---|---|---|
 | `always` | `Contact support` with a line under it | **Default.** Required for inline links and for `neutral` |
-| `hover` | No line until hovered, pressed or focused | Standalone links whose place already says "link": card header "View all", a list of links, a footer. On touch screens the line shows while pressed or focused |
+| `hover` | No line until hovered or focused | Standalone links whose place already says "link": card header "View all", a list of links, a footer. On touch screens the line shows when focused |
 
 #### 4.4 `leading-icon`
 
@@ -140,7 +140,6 @@ On for links in long content and help pages, where people benefit from seeing wh
 | Default | At rest | Link colour; underline per `underline` |
 | Hover | Pointer over (web, tablet with a pointer) | Darker link colour (`brand`), thicker underline; `hover` links show their underline |
 | Focus | Keyboard focus | Focus ring around the whole link (see [a11y](../../../2-foundations/guidelines/a11y.md)); `hover` links show their underline |
-| Pressed | Tap (Tablet and Mobile only) | Darkest link colour (`brand`), thicker underline. Web has no Pressed state |
 | Visited | Web with `show-visited`, page already opened | Visited link colour |
 | Disabled | The destination is not available yet | Disabled text colour, no underline, not focusable. Prefer hiding the link or explaining why in text next to it |
 
@@ -283,7 +282,7 @@ Context: Tablet app (landscape and portrait, two-pane layouts). Hover and keyboa
 | `leading-icon`, `external-icon` | size | the label's font size | `size-icon-sm` | `size-icon-md` | `size-icon-md` |
 | content | gap | `spacing-xs` | `spacing-xs` | `spacing-xs` | `spacing-xs` |
 | hit area | min size (both axes) | — (inline exception) | `target-min` | `target-min` | `target-min` |
-| `underline` | thickness | `TextDecoration.underline`, font default thickness (= `border-width-default`); hover / pressed: `decorationThickness` = `BwBorder.widthStrong / BwBorder.widthDefault` | same | same | same |
+| `underline` | thickness | `TextDecoration.underline`, font default thickness (= `border-width-default`); hover: `decorationThickness` = `BwBorder.widthStrong / BwBorder.widthDefault` | same | same | same |
 | `underline` | offset | font default (Flutter has no underline offset; web uses `spacing-xxs`) | same | same | same |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` | same | same | same |
 
@@ -295,20 +294,20 @@ Layout rules: `BwLink` is a `Row(mainAxisSize: MainAxisSize.min)` centred inside
 
 > No component tokens (P-04): every value is a shared semantic token, so there is no `link.tokens.json`. `label`, `underline` and both icons use the same colour.
 
-| `color` | Default | Hover (pointer) | Pressed | Disabled |
-|---|---|---|---|---|
-| `brand` | `color-link-default` | `color-link-hovered` | `color-link-pressed` | `color-text-disabled` |
-| `neutral` | `color-text-default` | `color-text-default` | `color-text-default` | `color-text-disabled` |
-| `inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-disabled` |
+| `color` | Default | Hover (pointer) | Disabled |
+|---|---|---|---|
+| `brand` | `color-link-default` | `color-link-hovered` | `color-text-disabled` |
+| `neutral` | `color-text-default` | `color-text-default` | `color-text-disabled` |
+| `inverse` | `color-text-inverse` | `color-text-inverse` | `color-text-disabled` |
 
-| Part | `underline` | Default | Hover | Pressed | Focus | Disabled |
-|---|---|---|---|---|---|---|
-| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-strong` | `border-width-default` | none |
-| `underline` | `hover` | none | `border-width-default` | `border-width-default` | `border-width-default` | none |
+| Part | `underline` | Default | Hover | Focus | Disabled |
+|---|---|---|---|---|---|
+| `underline` | `always` | `border-width-default` | `border-width-strong` | `border-width-default` | none |
+| `underline` | `hover` | none | `border-width-default` | `border-width-default` | none |
 
 | Part | Property | Token |
 |---|---|---|
-| `focus-ring` | color | `color-border-focus` (`inverse`: `color-border-inverse`) |
+| `focus-ring` | color | Follows `color`: `brand` `color-border-info` · `neutral` `color-border-bold` · `inverse` `color-border-inverse` |
 | `focus-ring` | width · offset · radius | `border-width-focus` · `border-focus-offset` · `radius-xs` |
 
 No ink splash and no state overlay: states change only colour and underline. Dark theme: same tokens, values switch automatically. No exceptions.
@@ -318,8 +317,6 @@ No ink splash and no state overlay: states change only colour and underline. Dar
 | From → To | Trigger | Animated properties | Duration | Easing |
 |---|---|---|---|---|
 | Default → Hover | pointer enter (pointer attached) | colour, underline | `motion-duration-sm` | `motion-easing-standard` |
-| Default / Hover → Pressed | tap down · Enter / Space down | colour, underline | `motion-duration-xs` | `motion-easing-standard` |
-| Pressed → Default | release | colour, underline | `motion-duration-sm` | `motion-easing-standard` |
 | Any → Focus | keyboard focus (`FocusManager.instance.highlightMode == traditional`) | focus ring appears | `motion-duration-instant` | — |
 | Enabled ↔ Disabled | `onPressed` becomes / stops being `null` | colour, underline | `motion-duration-instant` | — |
 
@@ -336,7 +333,7 @@ As [Web B5](../../../3-web-components/components/link/link.md#b5-rtl) (same wire
 | Role / semantics | `Semantics(link: true, label: label, hint: external ? externalHint : null, enabled: onPressed != null, onTap: onPressed)`; the `Text` and icons are excluded (`ExcludeSemantics` / `BwIcon` without `semanticLabel`) so the name is read once |
 | Accessible name | `label` |
 | External | Hint from `externalHint` (localized default by `Localizations.localeOf(context)`, the same way `BwButton` resolves `loadingLabel`) |
-| Disabled | `onPressed: null` → not focusable, `enabled: false`, no hover / pressed |
+| Disabled | `onPressed: null` → not focusable, `enabled: false`, no hover |
 | Focus | Keyboard highlight mode only: ring per B3 painted around the visible content (shared `BwFocusRing`, `lib/src/common/bw_focus_ring.dart`), shows on the first frame (no fade), takes no layout space |
 | Target size | `BwLink`: hit area ≥ `BwLayout.tablet.minTarget` on both axes · `BwLink.span`: WCAG 2.5.8 inline exception |
 | Text scale | Label and icons scale with the system text scale; the label wraps, the hit area grows |
@@ -380,8 +377,8 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 ### B9 Tests
 
 - [ ] Golden tests: every `color` × `size` × allowed `underline`, plus `BwLink.span` in a paragraph, in light + dark and `Locale('en')` + `Locale('ar')`, with the real fonts (`test/flutter_test_config.dart`) and Material Symbols glyphs
-- [ ] States: hovered, pressed, focused (keyboard highlight mode), disabled — text colour and decoration read from the rendered `Text` equal B3
-- [ ] Underline: `always` at rest; `hover` none at rest and present when hovered, pressed or focused; disabled none; thickness ratio on hover / pressed
+- [ ] States: hovered, focused (keyboard highlight mode), disabled — text colour and decoration read from the rendered `Text` equal B3
+- [ ] Underline: `always` at rest; `hover` none at rest and present when hovered or focused; disabled none; thickness ratio on hover
 - [ ] External: `open_in_new` shown; semantics hint in en and ar; `externalHint` overrides it
 - [ ] Semantics: `link: true`, name = label, read once (no duplicate label node); disabled `enabled: false` and not focusable
 - [ ] `onPressed` called on tap, Enter and Space; not called when disabled
@@ -436,7 +433,7 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 
 ### C4 Token gaps
 
-None. All tokens exist in Foundations (`color-link-*`, `color-text-default` · `-inverse` · `-disabled`, `color-border-focus` · `-inverse`, `border-width-*`, `border-focus-offset`, `radius-xs`, `spacing-xs`, `size-icon-sm` · `-md`, `target-min`, `action-*`, `motion-*`). No component tokens (P-04).
+None. All tokens exist in Foundations (`color-link-*`, `color-text-default` · `-inverse` · `-disabled`, `color-border-info` · `-bold` · `-inverse`, `border-width-*`, `border-focus-offset`, `radius-xs`, `spacing-xs`, `size-icon-sm` · `-md`, `target-min`, `action-*`, `motion-*`). No component tokens (P-04).
 
 ### C5 Files to create / change
 
@@ -507,7 +504,7 @@ Same as [Web D1](../../../3-web-components/components/link/link.md#d1-rules-for-
 ### D2 Component structure
 
 As [Web D2–D4](../../../3-web-components/components/link/link.md#d2-component-structure), with these Tablet differences:
-- `State`: `Default` · `Focused` · `Pressed` · `Disabled` — no `Hover`, no `Visited`
+- `State`: `Default` · `Focused` · `Disabled` — no `Hover`, no `Visited`
 - Icon sizes per the Tablet B2 (`MD` uses `size/icon/md`)
 - The component frame's min width and min height bind to `target/min` (48 hit area); the content stays centred
 - Default instance: `Color=Brand`, `Size=MD`, `Underline=Always`
@@ -528,7 +525,7 @@ As [Web D4](../../../3-web-components/components/link/link.md#d4-properties), wi
 
 ### D6 States, interactions and motion
 
-As Web D6 without the hover interaction. While pressing: Default → Pressed, smart animate per B4.
+As Web D6 without the hover interaction.
 
 ### D7 RTL
 

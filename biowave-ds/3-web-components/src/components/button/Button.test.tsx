@@ -71,7 +71,7 @@ const source = componentTokenSource.button as unknown as {
   tonal: Record<Exclude<ButtonColor, 'neutral' | 'inverse'>, SourceVisualTokens>;
   outlined: Record<ButtonColor, SourceVisualTokens>;
   text: Record<ButtonColor, SourceVisualTokens>;
-  'focus-ring': { default: { color: TokenLeaf }; inverse: { color: TokenLeaf } };
+  'focus-ring': Record<string, { color: TokenLeaf }>;
 };
 
 function cssVariable({ $value }: TokenLeaf): string {
@@ -163,8 +163,11 @@ describe('Button token contract', () => {
       }
     }
 
-    expect(buttonFocusTokens.default).toBe(cssVariable(source['focus-ring'].default.color));
-    expect(buttonFocusTokens.inverse).toBe(cssVariable(source['focus-ring'].inverse.color));
+    for (const [color, token] of Object.entries(buttonFocusTokens.color)) {
+      expect(token).toBe(
+        cssVariable(source['focus-ring'][color].color),
+      );
+    }
   });
 
   it('contains no raw colors, dimensions, durations, or font names', () => {
@@ -295,7 +298,7 @@ describe('Button rendering', () => {
     Array.from(view.container.querySelectorAll('button')).forEach((button, index) => {
       const { variant, color } = variantColorCases[index];
       const visual = resolveButtonTokens(variant, color);
-      const focusColor = color === 'inverse' ? buttonFocusTokens.inverse : buttonFocusTokens.default;
+      const focusColor = buttonFocusTokens.color[color];
       const rules = cssRulesFor(button, cssText);
       expect(rules).toContain(':hover');
       expect(rules).toContain(':active');

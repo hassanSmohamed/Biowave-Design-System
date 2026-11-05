@@ -249,9 +249,7 @@ class _BwIconButtonState extends State<BwIconButton> {
               BwFocusRing(
                 focused: states.contains(WidgetState.focused),
                 borderRadius: borderRadius,
-                color: widget.color == BwButtonColor.inverse
-                    ? colors.borderInverse
-                    : colors.borderFocus,
+                color: BwButtonStyle.focusRingColor(colors, widget.color),
                 ringKey: focusRingKey,
                 child: child ?? const SizedBox.shrink(),
               ),

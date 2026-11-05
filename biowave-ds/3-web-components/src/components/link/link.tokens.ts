@@ -64,8 +64,11 @@ export const linkUnderlineTokens = {
 } as const;
 
 export const linkFocusTokens = {
-  default: cssVars.color.border.focus,
-  inverse: cssVars.color.border.inverse,
+  color: {
+    brand: cssVars.color.border.info,
+    neutral: cssVars.color.border.bold,
+    inverse: cssVars.color.border.inverse,
+  } satisfies Record<LinkColor, string>,
   width: cssVars.border.width.focus,
   offset: cssVars.border.focus.offset,
 } as const;

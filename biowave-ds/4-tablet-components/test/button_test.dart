@@ -491,7 +491,7 @@ void main() {
             expect(border.top.width, BwBorder.widthFocus);
             late BuildContext context;
             context = tester.element(find.byType(BwButton));
-            expect(border.top.color, context.bw.colors.borderFocus);
+            expect(border.top.color, context.bw.colors.borderBrand);
             expect(
               decoration.borderRadius!.resolve(Directionality.of(context)),
               BorderRadius.all(

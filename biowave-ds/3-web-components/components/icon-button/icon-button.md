@@ -242,7 +242,7 @@ Exactly [Button B3.1–B3.5](../button/button.md#b3-tokens-by-part-and-state) fo
 | Disabled | `color-background-disabled` | — | `color-icon-disabled` | `color-border-disabled` |
 
 #### 3.3 Focus
-As Button B3.5 (`inverse` uses `color-border-inverse`).
+As Button B3.5: the ring follows `color`.
 
 #### 3.4 Tooltip (temporary, until Tooltip component)
 | Part | Property | Token |
