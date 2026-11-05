@@ -1592,7 +1592,7 @@ class BwTextStyles extends ThemeExtension<BwTextStyles> {
 /// Grid and layout metrics for one platform. Read with `BwLayout.of(context)`.
 @immutable
 class BwLayout extends ThemeExtension<BwLayout> {
-  const BwLayout({required this.breakpointMin, this.breakpointMax, required this.columns, required this.gutter, required this.marginFull, required this.marginSidebar, required this.appBarHeight, required this.systemStatusHeight, required this.sidebarStart, required this.sidebarEnd, required this.minTarget, required this.sectionGap, required this.groupGap, required this.stackGap, required this.containerPadding});
+  const BwLayout({required this.breakpointMin, this.breakpointMax, required this.columns, required this.gutter, required this.marginFull, required this.marginSidebar, required this.appBarHeight, required this.systemStatusHeight, required this.sidebarStart, required this.sidebarStartCollapsed, required this.sidebarEnd, required this.minTarget, required this.sectionGap, required this.groupGap, required this.stackGap, required this.containerPadding});
   final double breakpointMin;
   final double? breakpointMax;
   final int columns;
@@ -1602,6 +1602,8 @@ class BwLayout extends ThemeExtension<BwLayout> {
   final double appBarHeight;
   final double systemStatusHeight;
   final double sidebarStart;
+  /// Start navigation width when collapsed to icons only.
+  final double sidebarStartCollapsed;
   final double sidebarEnd;
   /// Minimum interactive target size.
   final double minTarget;
@@ -1614,8 +1616,8 @@ class BwLayout extends ThemeExtension<BwLayout> {
   /// Layout spacing (spacing-layout-container): padding from a container's edge to its content.
   final double containerPadding;
 
-  static const tablet = BwLayout(breakpointMin: 600, breakpointMax: 1199, columns: 8, gutter: 24, marginFull: 24, marginSidebar: 24, appBarHeight: 64, systemStatusHeight: 40, sidebarStart: 80, sidebarEnd: 0, minTarget: 48, sectionGap: 32, groupGap: 24, stackGap: 16, containerPadding: 24);
-  static const mobile = BwLayout(breakpointMin: 0, breakpointMax: 599, columns: 4, gutter: 16, marginFull: 16, marginSidebar: 16, appBarHeight: 64, systemStatusHeight: 40, sidebarStart: 0, sidebarEnd: 0, minTarget: 48, sectionGap: 24, groupGap: 16, stackGap: 12, containerPadding: 16);
+  static const tablet = BwLayout(breakpointMin: 600, breakpointMax: 1199, columns: 8, gutter: 24, marginFull: 24, marginSidebar: 24, appBarHeight: 64, systemStatusHeight: 40, sidebarStart: 80, sidebarStartCollapsed: 80, sidebarEnd: 0, minTarget: 48, sectionGap: 32, groupGap: 24, stackGap: 16, containerPadding: 24);
+  static const mobile = BwLayout(breakpointMin: 0, breakpointMax: 599, columns: 4, gutter: 16, marginFull: 16, marginSidebar: 16, appBarHeight: 64, systemStatusHeight: 40, sidebarStart: 0, sidebarStartCollapsed: 0, sidebarEnd: 0, minTarget: 48, sectionGap: 24, groupGap: 16, stackGap: 12, containerPadding: 16);
 
   static BwLayout of(BuildContext context) => Theme.of(context).extension<BwLayout>()!;
 

@@ -2,6 +2,18 @@
 
 Every change to the design system is logged here **in the same task**, newest first (AGENTS.md rule 9). Format: [Keep a Changelog](https://keepachangelog.com); versions follow SemVer per package. Component detail also goes to that component's Part F.
 
+## [Foundations — Collapsed start sidebar] — 2026-11-05
+### Added
+- `layout-width-sidebar-start-collapsed`: Web 96 (icons only, item names in a Tooltip), Tablet 80 (the rail does not collapse), Mobile 0 (modal drawer). Aliases `primitive.dimension.96`, `.80` and `.0`.
+- `BwLayout.sidebarStartCollapsed` in the generated Flutter code.
+- Figma Foundations: `layout/width/sidebar-start-collapsed` in `6. Grid & Layout`, with description and `WIDTH_HEIGHT` scope.
+### Changed
+- `layout-width-sidebar-start` description now points to the collapsed width.
+- `Grid/With sidebar` stays the only sidebar grid style and is applied to the main content area, so open and collapsed states share it. Updated its Figma description, `guidelines/grid.md` and the grid image source (`scripts/images/grid.mjs`).
+### Notes
+- The grid image must be rebuilt with `npm run docs:images`, and the Foundations library must be published, then `npm run sync:library` and `npm run contract -- --all`.
+- `layout/width/sidebar-start` has the Flutter code syntax `context.bw.layout.widthSidebarStart` in Figma; the generated field is `sidebarStart`. Not changed here.
+
 ## [Tooling — Sync hash ignores line endings] — 2026-11-03
 ### Fixed
 - Root `.gitattributes`: text files always check out with LF, including on Windows, so generated files and hashes match on every machine.

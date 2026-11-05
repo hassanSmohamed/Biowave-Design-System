@@ -702,6 +702,7 @@
   --bw-layout-height-app-bar: 72px;
   --bw-layout-height-system-status: 40px;
   --bw-layout-width-sidebar-start: 248px;
+  --bw-layout-width-sidebar-start-collapsed: 96px;
   --bw-layout-width-sidebar-end: 248px;
   --bw-target-min: 24px;
 }
@@ -721,6 +722,7 @@
     --bw-layout-height-app-bar: 64px;
     --bw-layout-height-system-status: 40px;
     --bw-layout-width-sidebar-start: 80px;
+    --bw-layout-width-sidebar-start-collapsed: 80px;
     --bw-layout-width-sidebar-end: 0px;
     --bw-target-min: 48px;
   }
@@ -740,6 +742,7 @@
     --bw-layout-height-app-bar: 64px;
     --bw-layout-height-system-status: 40px;
     --bw-layout-width-sidebar-start: 0px;
+    --bw-layout-width-sidebar-start-collapsed: 0px;
     --bw-layout-width-sidebar-end: 0px;
     --bw-target-min: 48px;
   }
@@ -839,6 +842,7 @@
   --bw-layout-height-app-bar: 64px;
   --bw-layout-height-system-status: 40px;
   --bw-layout-width-sidebar-start: 80px;
+  --bw-layout-width-sidebar-start-collapsed: 80px;
   --bw-layout-width-sidebar-end: 0px;
   --bw-target-min: 48px;
 }
@@ -937,6 +941,7 @@
   --bw-layout-height-app-bar: 64px;
   --bw-layout-height-system-status: 40px;
   --bw-layout-width-sidebar-start: 0px;
+  --bw-layout-width-sidebar-start-collapsed: 0px;
   --bw-layout-width-sidebar-end: 0px;
   --bw-target-min: 48px;
 }
