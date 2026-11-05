@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-05 — A11y guideline: focus colour
+
+Updated the Visible focus row in `2-foundations/guidelines/a11y.md`: Button and Link focus rings follow the element colour. Documentation only; no token changed.
+
 ## 2026-11-05 — Focus ring follows the element colour
 
 Button, Icon button, Split button and Link now use a focus ring in the element colour on every platform: `color-border-brand`, `-secondary`, `-error`, `-success`, `-warning`, `-info`, `-inverse`, and `-bold` for neutral. Link brand uses `color-border-info`, which matches `color-link-default`. `Button / Focus` has one mode per colour and all focused Web variants pin it. Link focused variants use a real stroke on the `Border` layer, bound to the new `Link / Size › focus-ring-width`, and Link variants hug their width. No Foundations token or Figma variable changed.
