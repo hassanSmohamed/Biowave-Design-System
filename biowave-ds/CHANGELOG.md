@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-08 — Input building blocks map
+
+Added §9 to `_audits/input-catalog.md`: the design lead's input list mapped to Biowave components and the blocks each is built from, the options every block must have for inputs (Chip, Progress, List item, Menu, Popover, Bottom sheet, Calendar, Swatch, Flag), a wave-based build order, and open decisions IC-13 … IC-17. Draft; no spec, token or Figma file changed.
+
 ## 2026-11-08 — Input catalog decisions closed
 
 Design lead accepted IC-01 … IC-12 in `_audits/input-catalog.md`; added the full IC-11 rule text for Select A3 (§7.1). `ROADMAP.md`: new decision row, notes on Card (IC-07) and Select (IC-08, IC-11), Message composer in the backlog (IC-05 waits for product). No spec, token or Figma file changed.
