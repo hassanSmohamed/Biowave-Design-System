@@ -7,7 +7,7 @@
 | Date | 2026-11-08 |
 | Inputs | Gemini screen report (uploaded by the design lead) · `_audits/input-family.md` · `ROADMAP.md` v3 · `3-/4-/5-…/components/text-field/text-field.md` v1.2 · section README status tables |
 | Platforms | **W** Web (React + MUI) · **T** Tablet (Flutter + M3) · **M** Mobile (Flutter + M3) — every input below targets all three unless the table says otherwise |
-| Plan status | **Decisions closed** 2026-11-08 — all recommendations accepted by the design lead; IC-05 waits for a product answer |
+| Plan status | **Decisions closed** 2026-11-08 — IC-01 … IC-17 accepted by the design lead (IC-15 changed to colour wheel + hex) |
 
 ## 1. Platform agreement
 
@@ -53,7 +53,7 @@ Legend — **Status**: ✅ spec exists · 📅 on the roadmap (day) · 🗂 back
 | Number field with stepper (− / +) | — | ➕ Text field option or own component (IC-02) | ➕ | ● | ● | ● |
 | Masked / formatted text (national ID, IBAN, IP, duration) | ✓ (IP, time) | ➕ Text field `mask` (IC-03) | ➕ | ● | ● | ● |
 | IP address (4 segments) | ✓ | ➕ Text field + mask, not a segmented component (IC-04) | ➕ | ● | ● | — ? |
-| Chat / message composer | ✓ | ➕ Message composer (IC-05) | ➕ | ● | ● | ● |
+| Chat / message composer | ✓ | Message composer (IC-05) | 📅 Phase 2 | ● | ● | ● |
 | Rich text editor | — | Backlog | 🗂 | | | |
 | Inline edit (click text to edit) | — | — | ✗ (use Text field in a Dialog / Side sheet) | | | |
 
@@ -86,7 +86,7 @@ Legend — **Status**: ✅ spec exists · 📅 on the roadmap (day) · 🗂 back
 | Filter chips | — | Chip `filter` | 📅 4 | ● | ● | ● |
 | Slider / range slider | — | Slider (designed in Figma) | 🗂 | | | |
 | Rating | — | Backlog | 🗂 | | | |
-| Color picker | — | — | ✗ | | | |
+| Color picker (colour wheel + hex) | ✓ design lead | Color picker (IC-15) | 📅 Phase 2 | ● | ● | ● |
 | Transfer list (two lists) | — | — | ✗ (use Autocomplete multi) | | | |
 
 ### 3.4 Uploads and media
@@ -290,7 +290,7 @@ Every field component (Text field, Select, Autocomplete, Search field, Phone fie
 | IC-02 | Number field | (a) Text field `type=number` only · (b) Text field + `stepper` option · (c) own component | ✅ **(b)** — one option on Text field; no new Figma set, a `Stepper` boolean |
 | IC-03 | Input mask | (a) `mask` option on Text field · (b) leave to apps | ✅ **(a)** — needed by IP, duration, national ID, IBAN; one implementation (web: `react-imask` or similar, Flutter: `mask_text_input_formatter`) |
 | IC-04 | IP address | (a) one masked field · (b) four boxes like the screens | ✅ **(a)** — four boxes break paste, screen readers and RTL; the mask shows the dots |
-| IC-05 | Chat / message composer | (a) new Phase 2 component · (b) backlog · (c) pattern from Text field + Icon buttons | ⏳ **(a)** if Live chat ships with 1.0, otherwise **(b)** — waiting for the product team; until then it is backlog |
+| IC-05 | Chat / message composer | (a) new Phase 2 component · (b) backlog · (c) pattern from Text field + Icon buttons | ✅ **(a)** — Chat is on the design lead's list (2026-11-08) |
 | IC-06 | Duration `00:00:00` | (a) Text field + mask · (b) part of Time picker · (c) own component | ✅ **(a)** |
 | IC-07 | Radio cards | Card selectable covers single and multi + a group wrapper | ✅ Add `selectionMode` + `CardGroup` to the Card spec |
 | IC-08 | Select / Autocomplete / pickers on mobile | (a) bottom sheet · (b) anchored menu like web | ✅ **(a)** on Mobile, menu on Tablet and Web |
@@ -316,12 +316,12 @@ Radio vs Segmented button: Radio is a form answer saved on submit and can carry 
 
 ## 8. Suggested next steps
 
-1. ✅ IC-01 … IC-12 closed 2026-11-08 (IC-05 waits for product).
+1. ✅ IC-01 … IC-17 closed 2026-11-08.
 2. Update `ROADMAP.md`: Number field and mask as Text field 1.3 options (IC-02, IC-03); Message composer row or backlog (IC-05); note the schedule — Day 6–8 inputs (Checkbox, Radio, Switch, Select, Verification code, Segmented button) have no spec yet.
 3. Text field 1.3 (all three files): `optional`, `stepper`, `mask` if accepted.
 4. Write specs in this order — each reuses the parts before it: **Checkbox · Radio · Switch → Select → Verification code → Segmented button → Card selectable → Search field · Autocomplete · Phone field → Date · Time pickers → File upload**.
 
-## 9. Building blocks first — dependency map (added 2026-11-08, Draft)
+## 9. Building blocks first — dependency map (added 2026-11-08, decisions closed)
 
 Same approach as the button family: every component that appears **inside** an input is built first, with every option the inputs will need, so no input has to redraw or work around a missing part. Source: the design lead's input list (2026-11-08).
 
@@ -333,18 +333,18 @@ Same approach as the button family: every component that appears **inside** an i
 | Email | Text field `type=email` | same as Text |
 | Password | Text field `type=password` | same + Icon button (show/hide) |
 | Text area (details) | Text field `multiline` | same + counter |
-| IP | Text field `mask` (IC-03, IC-04) | same + mask |
-| Port | Text field `type=number` `min=0` `max=65535` (IC-02) — or IP `:` Port in one field (IC-13) | same |
+| IP | Text field `mask` `000.000.000.000`, each part 0–255 — own field (IC-03, IC-04, IC-13) | same + mask |
+| Port | Text field `type=number` `inputMode=numeric` `min=0` `max=65535`, no stepper — own field next to IP (IC-13) | same |
 | OTP | Verification code | Field parts (label, supporting text) · Cell |
 | Phone number | Phone field | Text field · Select · Menu · List item · **Flag** |
 | Dropdown list | Select | Field parts · Icon · **Menu** · **List item** · Avatar · Badge (dot) · **Bottom sheet** (Mobile) |
 | Search + multi | Search field + Autocomplete `multiple` | Text field · **Chip** · Menu · List item · **Checkbox** · **Progress** |
-| Multi inputs | ⚠ meaning to confirm (IC-14) | depends on the answer |
+| Multi inputs | Autocomplete `multiple` (pick from a list) and `freeSolo` + `multiple` (free tags) (IC-14) | Text field · Chip · Menu · List item · Checkbox |
 | Date | Date picker | Text field · Icon button · **Calendar** · **Popover** (W) / **Dialog** (T) / Bottom sheet (M) · Button |
 | Time | Time picker | Text field · Icon button · **Time list / clock** · Popover / Dialog / Bottom sheet · Button |
-| Color | Color picker (IC-15) — was ✗ in §3.3, back in scope | Text field (hex) · **Swatch** · Popover / Bottom sheet |
+| Color | Color picker: colour wheel + brightness track + hex field (IC-15) | Text field (hex) · **Color wheel** (area + handle) · **Swatch** (current colour) · Popover (W/T) / Bottom sheet (M) |
 | Location | Text field + Autocomplete (address) + map `action` (IC-09) | Autocomplete · Icon button · Dialog · Map (backlog) |
-| Chat | Message composer (IC-05 → in scope) | Text field `multiline` · Icon button (emoji, attach, send) · Chip (attachment) · Progress · Popover (emoji) |
+| Chat | Message composer (IC-05 ✅) | Text field `multiline` · Icon button (emoji, attach, send) · Chip (attachment) · Progress · Popover (emoji) |
 | Upload file / image | File upload (`dropzone` · `field` · `avatar`) | Button · Icon button · **Progress** · **List item** / Chip (file) · Avatar · Alert (error) |
 
 ### 9.2 Building blocks — status and the options inputs need from them
@@ -364,15 +364,15 @@ Same approach as the button family: every component that appears **inside** an i
 | **Progress** | Select / Autocomplete loading, upload, send | ❌ (Day 5) | Circular `sm` inside a field; linear inside a file row; determinate + indeterminate |
 | **List item** | Every menu row, file list | ❌ (Day 8) | Leading icon · avatar · dot · checkbox; title + description; selected; disabled; dense size per field size |
 | **Menu** | Select, Autocomplete, Phone, Search, Split button | ❌ (Day 10) | Anchored to a field, same width as the field; max height + scroll; empty, loading and "no results" rows; group headers; keyboard type-ahead |
-| **Popover** (generic anchored surface) | Date, Time, Color, emoji | ❌ **not on the roadmap** (IC-16) | Anchored, flips in RTL and near edges, focus trap, Esc closes |
+| **Popover** (generic anchored surface) | Date, Time, Color, emoji, Menu | ❌ new — Phase 2 with Menu (IC-16 ✅) | Anchored, flips in RTL and near edges, focus trap, Esc closes; Mobile uses Bottom sheet instead |
 | **Dialog** | Date / Time on T, location map, typed confirmation | ❌ (Day 11) | — |
 | **Bottom sheet** | Every picker and list on Mobile (IC-08) | ❌ (Day 12) | Search at top, list, sticky actions |
 | **Calendar** | Date picker, Date range picker | ❌ part of Day 14 | Day · month · year views; range; disabled days; Saturday/Sunday week start |
 | **Time list / clock** | Time picker | ❌ part of Day 15 | 12/24 h; minute step |
-| **Swatch** | Color picker | ❌ new (IC-15) | Selected, disabled, sizes |
-| **Flag** | Phone field country | ❌ new asset (IC-17) | Source of country flags (SVG set), square / round |
+| **Swatch** | Color picker (current colour, recent colours) | ❌ new part (IC-15) | Selected, disabled, sizes; checkerboard behind transparent colours |
+| **Flag** | Phone field country | ❌ new Foundations asset (IC-17 ✅) | One SVG flag set (W: SVG files · Flutter: same SVGs via `flutter_svg`); square and round; never emoji |
 
-### 9.3 Proposed build order (replaces §8 step 4 once IC-13 … IC-17 are closed)
+### 9.3 Build order
 
 ```
 Wave 0  Field parts on T/M  ← Text field code on Tablet + Mobile (Web done)
@@ -387,13 +387,13 @@ Wave 6  Rich inputs         File upload (dropzone · field · avatar) · Message
 
 This moves Select from Day 7 to after Menu (today Select is before Menu, List and Chip, so it would have to ship a placeholder list).
 
-### 9.4 Open decisions
+### 9.4 Decisions (✅ confirmed by design lead 2026-11-08)
 
-| ID | Question | Recommendation |
+| ID | Question | Decision |
 |---|---|---|
-| IC-13 | Port: own field or `IP : Port` in one field | Separate Number field (`0–65535`) beside the IP field; one combined mask only if the screens always show them together |
-| IC-14 | "Multi inputs" means: (a) multi-select · (b) repeatable rows ("+ Add another") · (c) several fields in one group (From – To) · (d) tags | Waiting for the design lead |
-| IC-15 | Color picker scope | Preset swatch palette + optional hex field; no free colour wheel (fewer a11y and contrast problems) |
-| IC-16 | Generic Popover component | Add to Phase 2 with Menu (Wave 2); Menu, Date, Time, Color and emoji all sit on it |
-| IC-17 | Country flags source | One SVG flag set as a Foundations asset (not emoji: emoji flags do not render on Windows) |
-| IC-05 | Message composer | Back in scope (Chat is on the design lead's list) — confirm with product |
+| IC-13 | Port and IP | ✅ Two separate Text fields. The difference is inside the field: IP uses `mask` `000.000.000.000` (parts 0–255); Port is `type=number`, `0–65535`, numeric keyboard, no stepper. Both always LTR with Western digits (D-10) |
+| IC-14 | "Multi inputs" | ✅ (a) multi-select **and** (d) tags — both are Autocomplete: `multiple` picks from a list, `freeSolo` + `multiple` adds free tags. Selected values are Chips in the field |
+| IC-15 | Color picker | ✅ **Colour wheel + hex field** (changed from the preset palette). The hex field is the keyboard and screen reader path; the wheel handle also moves with arrow keys and has a name and value ("Hue 210°, saturation 60 %"). Optional preset / recent swatches row |
+| IC-16 | Popover | ✅ New Phase 2 component, built with Menu |
+| IC-17 | Country flags | ✅ One SVG flag set, a Foundations asset; never emoji |
+| IC-05 | Message composer | ✅ In scope, Phase 2 |

@@ -92,7 +92,8 @@ The **button family** goes first and already exists in Figma, so it is *audit �
 
 | Day | Date | Component | W | T | M | Base (MUI / M3) | Depends on |
 |---|---|---|:-:|:-:|:-:|---|---|
-| 10 | Sun 1 Nov | Menu | ● | ● | ● | `Menu` / `MenuAnchor` | List, Icon, Divider · then swap into Split button |
+| 10 | Sun 1 Nov | Popover (generic anchored surface for pickers and emoji; Bottom sheet on Mobile, IC-16) | ● | ● | — | `Popover` / custom `OverlayPortal` + `CompositedTransformFollower` | Elevation tokens · then Menu sits on it |
+| 10 | | Menu | ● | ● | ● | `Menu` / `MenuAnchor` | List, Icon, Divider · then swap into Split button |
 | 10 | | Tabs | ● | ● | ● | `Tabs` / `TabBar` | Badge, Icon |
 | 10 | | Breadcrumbs | ● | ● | — | `Breadcrumbs` / custom | Link, Icon, Menu (overflow) |
 | 11 | Mon 2 Nov | Alert (inline banner) | ● | ● | ● | `Alert` / `MaterialBanner` (custom) | Icon, Button, Icon button |
@@ -106,9 +107,11 @@ The **button family** goes first and already exists in Figma, so it is *audit �
 | 13 | | Autocomplete (single + multi) | ● | ● | ● | `Autocomplete` / `Autocomplete` + `RawAutocomplete` | Text field, Menu, Chip, Progress |
 | 14 | Thu 5 Nov | **Date picker** (field + calendar) — whole day: web is our own build (P-01) | ● | ● | ● | custom on `Popover` + `TextField` / `showDatePicker` | Text field, Icon button, Dialog, D-10 |
 | 15 | Sun 8 Nov | Time picker | ● | ● | ● | custom / `showTimePicker` | Text field, Dialog, D-10 |
+| 15 | | Color picker (colour wheel + hex field, IC-15) | ● | ● | ● | custom on Popover + `TextField` / custom `CustomPainter` | Text field, Popover, Bottom sheet |
 | 15 | | Date range picker | ● | ● | ● | custom (two calendars) / `showDateRangePicker` | Date picker |
 | 15 | | Action bar (bulk / contextual actions bar, directional; P-05) | ● | ● | — | `Toolbar` + Button group / custom `Row` + `BwButton` | Button group, Icon button, Menu, Divider |
 | 16 | Mon 9 Nov | File upload (incl. photo / avatar upload variant, P-05) | ● | ● | ● | custom dropzone / `file_picker` + list | Button, Progress, List, Alert |
+| 16 | | Message composer (chat input, IC-05) | ● | ● | ● | custom on `TextField multiline` / custom on `TextField` | Text field, Icon button, Chip, Progress, Popover |
 | 16 | | Pagination | ● | ● | — | `Pagination` · `TablePagination` / custom | Icon button, Select |
 | 16 | | Stepper | ● | ● | ● | `Stepper` / custom (M3 has none) | Icon, Button |
 | 17 | Tue 10 Nov | Empty state | ● | ● | ● | custom | Icon / illustration, Button group |
@@ -148,6 +151,7 @@ A pattern is a documented composition of components that solves one recurring Bi
 | P-04 | Component tokens | Handled **in the semantic layer first**: values shared by several components become semantic tokens (e.g. `size.control.{sm,md,lg}.height`, `spacing.control.padding-x.*`, `spacing.control.gap`). A component-specific token is added only when no shared semantic token fits, and only by the Planner in the spec's *Token gaps*. Figma-only component collections are migrated into the token source (Day 0.5) | ✅ 2026-10-15 |
 | D-10 | Numerals in Arabic UI | **Western digits (0-9)** for IDs, times, dates, numbers and tables in both languages | ✅ 2026-10-16 |
 | D-18 | Icon set | **Google Material Symbols Rounded** (wght 400, GRAD 0, FILL 0 / 1 selected; opsz = size on Flutter, font default on web). Web: self-hosted `@material-symbols/font-400` variable font (FILL axis) (MUI `Icon` `baseClassName="material-symbols-rounded"`, wrapped by the Biowave `Icon`). Flutter: `material_symbols_icons` (`Symbols.*_rounded`). `@mui/icons-material` and Flutter `Icons.*` not allowed | [`icons.md`](2-foundations/guidelines/icons.md) | ✅ 2026-10-18 |
+| IC-13 … IC-17 | Input building blocks: IP and Port are two Text fields (mask / number 0–65535) · Multi inputs = Autocomplete multi + tags · Color picker = colour wheel + hex · new Popover component · country flags as one SVG set · Message composer in Phase 2 (IC-05) | [`_audits/input-catalog.md`](_audits/input-catalog.md) §9 | ✅ 2026-11-08 |
 | IC-01 … IC-12 | Input catalog: asterisk for required + `optional` for edge cases · Text field 1.3 gets `stepper` (number) and `mask` (IP, duration, IDs) · no success state · Select → Radio / Segmented button for 2–4 options · bottom sheet pickers on Mobile · location = Text field + action until Map · Message composer waits for product (IC-05) | [`_audits/input-catalog.md`](_audits/input-catalog.md) §7 | ✅ 2026-11-08 |
 | I-01 … I-10 | Input family: static label above the field · outlined only · field focus = border in `color-border-focus` (no offset ring) · `sm·md·lg` · Text area inside Text field · shared field parts · Verification code (Day 8) and Phone field (Day 13) added | [`_audits/input-family.md`](_audits/input-family.md) §4 | ✅ 2026-10-18 |
 | B-01 … B-05 | Button family: emphasis `filled·tonal·outlined·text` · colors `brand·secondary·neutral·error·inverse` · sizes `sm·md·lg·xl` · one EN/AR set · deprecate duplicates | [`audits/button-family.md`](_audits/button-family.md) §4 | ✅ 2026-10-16 |
@@ -155,7 +159,7 @@ A pattern is a documented composition of components that solves one recurring Bi
 
 ## 8. Backlog (after 1.0, not scheduled)
 
-Slider (designed in Figma, 30 variants) · Map (designed in Figma: Web `↳ Maps`, P-05) · Rating · Carousel · Tree view · Timeline · Charts (data visualization component set; needed for full Dashboard) · Message composer (chat input; moves into Phase 2 if Live chat ships with 1.0, IC-05) · Rich text editor · Calendar/scheduler view (shifts) · Biometric enrollment pattern · Kiosk / terminal mode for tablet.
+Slider (designed in Figma, 30 variants) · Map (designed in Figma: Web `↳ Maps`, P-05) · Rating · Carousel · Tree view · Timeline · Charts (data visualization component set; needed for full Dashboard) · Rich text editor · Calendar/scheduler view (shifts) · Biometric enrollment pattern · Kiosk / terminal mode for tablet.
 
 ## 9. Risks
 

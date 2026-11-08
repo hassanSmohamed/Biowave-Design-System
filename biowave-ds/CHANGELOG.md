@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-08 — Input building block decisions closed
+
+Design lead closed IC-13 … IC-17 and IC-05 in `_audits/input-catalog.md` §9.4: IP and Port as two Text fields, Multi inputs = Autocomplete multi + tags, Color picker with colour wheel + hex, new Popover component, SVG country flags, Message composer in scope. `ROADMAP.md`: Popover (Day 10), Color picker (Day 15) and Message composer (Day 16) added; decision row added. No spec, token or Figma file changed.
+
 ## 2026-11-08 — Input building blocks map
 
 Added §9 to `_audits/input-catalog.md`: the design lead's input list mapped to Biowave components and the blocks each is built from, the options every block must have for inputs (Chip, Progress, List item, Menu, Popover, Bottom sheet, Calendar, Swatch, Flag), a wave-based build order, and open decisions IC-13 … IC-17. Draft; no spec, token or Figma file changed.
