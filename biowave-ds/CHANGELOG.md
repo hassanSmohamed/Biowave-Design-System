@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-08 — Input catalog and gap analysis
+
+Added `_audits/input-catalog.md`: every input type checked against the Gemini screen report and the existing input plan (`_audits/input-family.md`, ROADMAP), with status and platforms (Web, Tablet, Mobile), shared field props, props per input type, and open decisions IC-01 … IC-12 (optional marker, number field, input mask, IP address, message composer, duration, radio cards, mobile pickers, location, success state). Audit only; no spec, token or Figma file changed.
+
 ## 2026-11-05 — Component token descriptions
 
 Every component variable now has a description in `$descriptions` in `tokens.json`, and the sync tooling writes them to Figma. Filled the 44 missing descriptions, shortened the rest to what it is and where to bind it, and removed the `Source:` lists because the alias already shows them. `component-tokens` fails on a missing description. No Foundations token or Figma variable changed.
