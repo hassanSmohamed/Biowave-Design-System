@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-08 — Input catalog decisions closed
+
+Design lead accepted IC-01 … IC-12 in `_audits/input-catalog.md`; added the full IC-11 rule text for Select A3 (§7.1). `ROADMAP.md`: new decision row, notes on Card (IC-07) and Select (IC-08, IC-11), Message composer in the backlog (IC-05 waits for product). No spec, token or Figma file changed.
+
 ## 2026-11-08 — Input catalog and gap analysis
 
 Added `_audits/input-catalog.md`: every input type checked against the Gemini screen report and the existing input plan (`_audits/input-family.md`, ROADMAP), with status and platforms (Web, Tablet, Mobile), shared field props, props per input type, and open decisions IC-01 … IC-12 (optional marker, number field, input mask, IP address, message composer, duration, radio cards, mobile pickers, location, success state). Audit only; no spec, token or Figma file changed.

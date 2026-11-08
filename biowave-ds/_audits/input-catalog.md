@@ -1,13 +1,13 @@
 # Input catalog and gap analysis — all input types × Web · Tablet · Mobile
 
-> Agent summary: the full list of input types a product UI can need, checked against (1) the Gemini screen report `ui_input_inventory_and_gap_analysis_report.md` (product screens, 2026-11-08) and (2) what Biowave already has or has planned (`_audits/input-family.md` I-01 … I-14, ROADMAP §4–§8, the three Text field specs). For each type: where it lives in Biowave, its status, its platforms and its props. Ends with the gaps and the decisions **IC-01 … IC-12** to close before the next input specs. Read-only audit: no spec, token or Figma file was changed.
+> Agent summary: the full list of input types a product UI can need, checked against (1) the Gemini screen report `ui_input_inventory_and_gap_analysis_report.md` (product screens, 2026-11-08) and (2) what Biowave already has or has planned (`_audits/input-family.md` I-01 … I-14, ROADMAP §4–§8, the three Text field specs). For each type: where it lives in Biowave, its status, its platforms and its props. Ends with the gaps and the decisions **IC-01 … IC-12** (closed 2026-11-08). Read-only audit: no spec, token or Figma file was changed.
 
 | Field | Value |
 |---|---|
 | Date | 2026-11-08 |
 | Inputs | Gemini screen report (uploaded by the design lead) · `_audits/input-family.md` · `ROADMAP.md` v3 · `3-/4-/5-…/components/text-field/text-field.md` v1.2 · section README status tables |
 | Platforms | **W** Web (React + MUI) · **T** Tablet (Flutter + M3) · **M** Mobile (Flutter + M3) — every input below targets all three unless the table says otherwise |
-| Plan status | **Draft** — waiting for IC-01 … IC-12 |
+| Plan status | **Decisions closed** 2026-11-08 — all recommendations accepted by the design lead; IC-05 waits for a product answer |
 
 ## 1. Platform agreement
 
@@ -282,26 +282,41 @@ Every field component (Text field, Select, Autocomplete, Search field, Phone fie
 | `emoji` | boolean | Emoji Icon button (prefix) |
 | `sending` · `disabled` | boolean | |
 
-## 7. Decisions needed (IC-01 … IC-12)
+## 7. Decisions (✅ confirmed by design lead 2026-11-08 — all recommendations accepted)
 
-| ID | Question | Options | Recommendation |
+| ID | Question | Options | Decision |
 |---|---|---|---|
-| IC-01 | Required vs optional marking | (a) asterisk on required + one line "* Required" at form top; no Optional tag · (b) asterisk + `optional` prop for forms where most fields are required · (c) mark only optional | **(b)** — asterisk is the rule (report §3.1); add an `optional` boolean to the shared field parts for the edge case, never both on one form. Write it in the Forms pattern (Day 21) |
-| IC-02 | Number field | (a) Text field `type=number` only · (b) Text field + `stepper` option · (c) own component | **(b)** — one option on Text field; no new Figma set, a `Stepper` boolean |
-| IC-03 | Input mask | (a) `mask` option on Text field · (b) leave to apps | **(a)** — needed by IP, duration, national ID, IBAN; one implementation (web: `react-imask` or similar, Flutter: `mask_text_input_formatter`) |
-| IC-04 | IP address | (a) one masked field · (b) four boxes like the screens | **(a)** — four boxes break paste, screen readers and RTL; the mask shows the dots |
-| IC-05 | Chat / message composer | (a) new Phase 2 component · (b) backlog · (c) pattern from Text field + Icon buttons | **(a)** if Live chat ships with 1.0, otherwise **(b)** — product decision |
-| IC-06 | Duration `00:00:00` | (a) Text field + mask · (b) part of Time picker · (c) own component | **(a)** |
-| IC-07 | Radio cards | Card selectable covers single and multi + a group wrapper | ✓ confirm, add `selectionMode` + `CardGroup` to the Card spec |
-| IC-08 | Select / Autocomplete / pickers on mobile | (a) bottom sheet · (b) anchored menu like web | **(a)** on Mobile, menu on Tablet and Web |
-| IC-09 | Location picker | (a) wait for Map (backlog) · (b) Text field + action now, map later | **(b)** — the field works with address search (Autocomplete); the map Dialog comes with Map |
-| IC-10 | Success / valid state | (a) green border state · (b) no success state; use a requirements checklist for passwords | **(b)** — fewer variants; green borders on every field add noise. The password rules list belongs to the Sign-in pattern (Day 23) |
-| IC-11 | Select with 2–4 options | Rule in Select A3 "When not to use": 2–4 short options → Radio group or Segmented button | ✓ add the rule |
-| IC-12 | Copy errors in product screens ("Rest", "Remotely Work") | Product team fixes; DS only owns `content.md` | ✓ send to product |
+| IC-01 | Required vs optional marking | (a) asterisk on required + one line "* Required" at form top; no Optional tag · (b) asterisk + `optional` prop for forms where most fields are required · (c) mark only optional | ✅ **(b)** — asterisk is the rule (report §3.1); add an `optional` boolean to the shared field parts for the edge case, never both on one form. Write it in the Forms pattern (Day 21) |
+| IC-02 | Number field | (a) Text field `type=number` only · (b) Text field + `stepper` option · (c) own component | ✅ **(b)** — one option on Text field; no new Figma set, a `Stepper` boolean |
+| IC-03 | Input mask | (a) `mask` option on Text field · (b) leave to apps | ✅ **(a)** — needed by IP, duration, national ID, IBAN; one implementation (web: `react-imask` or similar, Flutter: `mask_text_input_formatter`) |
+| IC-04 | IP address | (a) one masked field · (b) four boxes like the screens | ✅ **(a)** — four boxes break paste, screen readers and RTL; the mask shows the dots |
+| IC-05 | Chat / message composer | (a) new Phase 2 component · (b) backlog · (c) pattern from Text field + Icon buttons | ⏳ **(a)** if Live chat ships with 1.0, otherwise **(b)** — waiting for the product team; until then it is backlog |
+| IC-06 | Duration `00:00:00` | (a) Text field + mask · (b) part of Time picker · (c) own component | ✅ **(a)** |
+| IC-07 | Radio cards | Card selectable covers single and multi + a group wrapper | ✅ Add `selectionMode` + `CardGroup` to the Card spec |
+| IC-08 | Select / Autocomplete / pickers on mobile | (a) bottom sheet · (b) anchored menu like web | ✅ **(a)** on Mobile, menu on Tablet and Web |
+| IC-09 | Location picker | (a) wait for Map (backlog) · (b) Text field + action now, map later | ✅ **(b)** — the field works with address search (Autocomplete); the map Dialog comes with Map |
+| IC-10 | Success / valid state | (a) green border state · (b) no success state; use a requirements checklist for passwords | ✅ **(b)** — fewer variants; green borders on every field add noise. The password rules list belongs to the Sign-in pattern (Day 23) |
+| IC-11 | Select with 2–4 options | Rule in Select A3 "When not to use": 2–4 short options → Radio group or Segmented button | ✅ Add the rule — full text in §7.1 |
+| IC-12 | Copy errors in product screens ("Rest", "Remotely Work") | Product team fixes; DS only owns `content.md` | ✅ Send to product |
+
+### 7.1 IC-11 — rule text for Select A3 "When not to use"
+
+Why: a Select hides its options until it is opened, and every choice costs two actions (open, pick) — plus a bottom sheet on Mobile. Radio and Segmented button show every option at once and pick in one action. This is a usage rule, not a code limit: Select still accepts two options.
+
+| Situation | Use instead |
+|---|---|
+| 2–4 fixed options in a form question (e.g. Gender, request type with descriptions) | Radio group |
+| 2–5 short options (1–2 words) that switch a view, filter or quick setting (e.g. Office · Remote · Hybrid, weekend days, Day · Week · Month) | Segmented button (`multiple` for days) |
+| One on/off setting that applies at once | Switch |
+| One agreement or yes/no in a form | Checkbox |
+| More than about 10 options, or the user needs to search | Autocomplete |
+| **Keep Select** when space is tight (table toolbar, table cell, dense filter row), the list comes from the API and may grow, or the field is secondary and rarely changed | Select |
+
+Radio vs Segmented button: Radio is a form answer saved on submit and can carry long labels or descriptions; Segmented button is for short labels and usually applies at once. Arabic labels are longer: if a Segmented button does not fit in one row at the current width, use a vertical Radio group. Switch never replaces a two-option Radio (Male / Female is not on/off).
 
 ## 8. Suggested next steps
 
-1. Close IC-01 … IC-12 with the design lead.
+1. ✅ IC-01 … IC-12 closed 2026-11-08 (IC-05 waits for product).
 2. Update `ROADMAP.md`: Number field and mask as Text field 1.3 options (IC-02, IC-03); Message composer row or backlog (IC-05); note the schedule — Day 6–8 inputs (Checkbox, Radio, Switch, Select, Verification code, Segmented button) have no spec yet.
 3. Text field 1.3 (all three files): `optional`, `stepper`, `mask` if accepted.
 4. Write specs in this order — each reuses the parts before it: **Checkbox · Radio · Switch → Select → Verification code → Segmented button → Card selectable → Search field · Autocomplete · Phone field → Date · Time pickers → File upload**.

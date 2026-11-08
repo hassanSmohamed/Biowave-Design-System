@@ -77,12 +77,12 @@ The **button family** goes first and already exists in Figma, so it is *audit �
 | 4 | | Tooltip | ● | ● | ● | `Tooltip` / `Tooltip` (long-press on touch) | — |
 | 5 | Sun 25 Oct | Progress (circular + linear) | ● | ● | ● | `CircularProgress` · `LinearProgress` / `CircularProgressIndicator` · `LinearProgressIndicator` | — |
 | 5 | | Skeleton | ● | ● | ● | `Skeleton` / custom (shimmer respects reduced motion) | — |
-| 5 | | Card (incl. selectable card variant — Checkbox card, P-05) | ● | ● | ● | `Card` / `Card` (filled · outlined · elevated) | — |
+| 5 | | Card (incl. selectable card variant — Checkbox card, P-05; `selectionMode` single · multiple + Card group for radio cards, IC-07) | ● | ● | ● | `Card` / `Card` (filled · outlined · elevated) | — |
 | 6 | Mon 26 Oct | Checkbox | ● | ● | ● | `Checkbox` / `Checkbox` + `CheckboxListTile` | — |
 | 6 | | Radio | ● | ● | ● | `Radio` / `Radio` + `RadioListTile` | — |
 | 6 | | Switch | ● | ● | ● | `Switch` / `Switch` | Icon |
 | 7 | Tue 27 Oct | Text field (single line, multiline, label, helper, error, counter) | ● | ● | ● | `TextField` / `TextField` + `InputDecorationTheme` | Icon, Icon button, control tokens |
-| 7 | | Select | ● | ● | ● | `Select` / `DropdownMenu` | Text field, Icon |
+| 7 | | Select (A3 rule: 2–4 options → Radio / Segmented button, IC-11; Mobile opens a bottom sheet, IC-08) | ● | ● | ● | `Select` / `DropdownMenu` | Text field, Icon |
 | 8 | Wed 28 Oct | Verification code (OTP, 4 or 6 digits; digits always LTR, I-08) | ● | ● | ● | custom on `InputBase` × n / custom `TextField` × n | Text field (shared field parts) |
 | 8 | | List (list + list item; incl. notification item variant, P-05) | ● | ● | ● | `List` · `ListItem` / `ListTile` | Avatar, Icon, Checkbox, Switch, Divider |
 | 8 | | Segmented button (connected single/multi select; incl. day picker — 7 weekdays, multi-select, P-05) | ● | ● | ● | `ToggleButtonGroup` / `SegmentedButton` | Icon |
@@ -148,13 +148,14 @@ A pattern is a documented composition of components that solves one recurring Bi
 | P-04 | Component tokens | Handled **in the semantic layer first**: values shared by several components become semantic tokens (e.g. `size.control.{sm,md,lg}.height`, `spacing.control.padding-x.*`, `spacing.control.gap`). A component-specific token is added only when no shared semantic token fits, and only by the Planner in the spec's *Token gaps*. Figma-only component collections are migrated into the token source (Day 0.5) | ✅ 2026-10-15 |
 | D-10 | Numerals in Arabic UI | **Western digits (0-9)** for IDs, times, dates, numbers and tables in both languages | ✅ 2026-10-16 |
 | D-18 | Icon set | **Google Material Symbols Rounded** (wght 400, GRAD 0, FILL 0 / 1 selected; opsz = size on Flutter, font default on web). Web: self-hosted `@material-symbols/font-400` variable font (FILL axis) (MUI `Icon` `baseClassName="material-symbols-rounded"`, wrapped by the Biowave `Icon`). Flutter: `material_symbols_icons` (`Symbols.*_rounded`). `@mui/icons-material` and Flutter `Icons.*` not allowed | [`icons.md`](2-foundations/guidelines/icons.md) | ✅ 2026-10-18 |
+| IC-01 … IC-12 | Input catalog: asterisk for required + `optional` for edge cases · Text field 1.3 gets `stepper` (number) and `mask` (IP, duration, IDs) · no success state · Select → Radio / Segmented button for 2–4 options · bottom sheet pickers on Mobile · location = Text field + action until Map · Message composer waits for product (IC-05) | [`_audits/input-catalog.md`](_audits/input-catalog.md) §7 | ✅ 2026-11-08 |
 | I-01 … I-10 | Input family: static label above the field · outlined only · field focus = border in `color-border-focus` (no offset ring) · `sm·md·lg` · Text area inside Text field · shared field parts · Verification code (Day 8) and Phone field (Day 13) added | [`_audits/input-family.md`](_audits/input-family.md) §4 | ✅ 2026-10-18 |
 | B-01 … B-05 | Button family: emphasis `filled·tonal·outlined·text` · colors `brand·secondary·neutral·error·inverse` · sizes `sm·md·lg·xl` · one EN/AR set · deprecate duplicates | [`audits/button-family.md`](_audits/button-family.md) §4 | ✅ 2026-10-16 |
 | P-05 | Figma components missing from the roadmap (all 4 Figma files checked, incl. LEGACY Web + Mobile pages) | **Tag / Label / Request status** → Chip variants (no new component) · **Check badge** → Badge · **Checkbox card / Card check** → Card (selectable) · **Day picker** → Segmented button · **Notification card** → List item · **Upload photo** → File upload · **Actions bar** → new Phase 2 item **Action bar** (Day 15, W + T) · **Map** → backlog · **Slider** stays post-1.0 · System status bar = device chrome, not a component | ✅ 2026-10-20 |
 
 ## 8. Backlog (after 1.0, not scheduled)
 
-Slider (designed in Figma, 30 variants) · Map (designed in Figma: Web `↳ Maps`, P-05) · Rating · Carousel · Tree view · Timeline · Charts (data visualization component set; needed for full Dashboard) · Rich text editor · Calendar/scheduler view (shifts) · Biometric enrollment pattern · Kiosk / terminal mode for tablet.
+Slider (designed in Figma, 30 variants) · Map (designed in Figma: Web `↳ Maps`, P-05) · Rating · Carousel · Tree view · Timeline · Charts (data visualization component set; needed for full Dashboard) · Message composer (chat input; moves into Phase 2 if Live chat ships with 1.0, IC-05) · Rich text editor · Calendar/scheduler view (shifts) · Biometric enrollment pattern · Kiosk / terminal mode for tablet.
 
 ## 9. Risks
 
