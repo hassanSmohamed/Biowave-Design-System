@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-09 — Input family: group sets and Wave 2 built in the Web Figma file
+
+Figma only (Web Components file; no code or repo token change). Added `.Checkbox group` and `.Radio group` (_en/_ar, 12 variants each: legend with required mark, options, one hint or error message, built from `_Field / Label`, the controls and `_Field / Supporting text`); Error stays on the single Checkbox and Radio. Wave 2: collections `List item / Size`, `List item / State`, `Popover / Container`, and `border`, `border-width`, `message` added to `Menu / Container`; sets `.List item` (216 each), `.Menu` (24 each: options, loading, empty, no-results × single, multi × size), `.Popover` (title, close, Content slot, Cancel / Apply); docs 00–09 and 11 for all three; Components List cards. Lint 0 on every set. Waiting for review before Wave 3.
+
 ## 2026-11-09 — Input family Wave 1 built in the Web Figma file
 
 Built Wave 1 of `_workflow/tasks/2026-11-09-inputs-figma-web.md` in **Biowave DS — Web Components** (Figma only; no code, spec or repo token change): 14 component collections (`Checkbox / Size · Unselected · Selected`, `Radio / *`, `Switch / Size · Off · On`, `Chip / Size · Input`, `Progress / Size · Track · Indicator`), each value aliasing a Foundations semantic variable; sets Avatar (80, from `figma-avatar-contract.md`), `.Checkbox _en/_ar` (54 each), `.Radio` (36), `.Switch` (40), `.Chip` input chip (66), `.Progress` (10) — lint 0 on all; docs 00–09 and 11 for all six from the Doc Kit; Components List cards. Accessible sizes as briefed: Checkbox / Radio box 16 or 20 inside a 32 or 40 hit area; Switch track 32×16 or 40×20; focus 2 px ring with 2 px offset. Measured contrast of every new pair is ≥ 3:1 (lowest: linear indicator on its track in dark, 3.42:1). Pages: Avatar · Checkbox · Radio · Switch · Chip · Progress under INPUTS. Waiting for review before Wave 2.
