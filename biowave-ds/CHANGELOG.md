@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-09 — Input family Figma briefs (Web, Tablet, Mobile)
+
+Added three Figma-first task briefs in `_workflow/tasks/` (`2026-11-09-inputs-figma-{web,tablet,mobile}.md`) for the Figma Agent: 7 waves (field parts and Text field → Avatar, Checkbox, Radio, Switch, Input chip, Progress → List item, Menu, Popover, Bottom sheet → Verification code, Segmented button → Select, Search, Autocomplete, Phone → pickers → File upload, Message composer), Button-style component sheets and Doc Kit pages 00–11, a stop after every wave, and the change-log table as the execution log. Accessible Checkbox / Radio / Switch sizes set (Web `sm` 16 / 32 hit · `md` 20 / 40 hit; Tablet and Mobile `lg` 24 / 48 hit). Legacy sets stay untouched. No spec, token or Figma file changed yet.
+
 ## 2026-11-08 — Input building block decisions closed
 
 Design lead closed IC-13 … IC-17 and IC-05 in `_audits/input-catalog.md` §9.4: IP and Port as two Text fields, Multi inputs = Autocomplete multi + tags, Color picker with colour wheel + hex, new Popover component, SVG country flags, Message composer in scope. `ROADMAP.md`: Popover (Day 10), Color picker (Day 15) and Message composer (Day 16) added; decision row added. No spec, token or Figma file changed.
