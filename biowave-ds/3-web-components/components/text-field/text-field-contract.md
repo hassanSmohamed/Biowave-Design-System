@@ -1,4 +1,4 @@
-<!-- GENERATED from text-field.md @ 5757488a53e075cc — do not edit; change the source and run: npm run contract -- web text-field -->
+<!-- GENERATED from text-field.md @ 7e38583fc9bf1717 — do not edit; change the source and run: npm run contract -- web text-field -->
 # Text field · حقل نص — Web — code contract
 
 > **Everything you need to build Text field on Web, and nothing else.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](text-field.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.2 · 2026-10-21 |
 | Source code | [`src/components/text-field/`](../../src/components/text-field/) |
 | Tokens | [`text-field.tokens.json`](text-field.tokens.json) |
-| Source | [`text-field.md`](text-field.md) @ `5757488a53e075cc` |
+| Source | [`text-field.md`](text-field.md) @ `7e38583fc9bf1717` |
 
 ## 1. What it is
 
@@ -174,13 +174,13 @@ Layout rules:
 | Focus | same | `color-border-focus` | `border-width-focus` | same | same | `color-icon-default` | same | same | — |
 | Error | same | `color-border-error` | `border-width-default` (focused: `border-width-focus`) | same | same | `color-icon-subtlest` (unchanged) | same | `color-text-role-error` | `color-icon-role-error` |
 | Disabled | `color-background-disabled` | `color-border-disabled` | `border-width-default` | `color-text-disabled` | `color-text-disabled` | `color-icon-disabled` | `color-background-disabled` · `color-text-disabled` | `color-text-disabled` | — |
-| Read-only | `color-background-base-subtlest` | `color-border-default` | `border-width-default` (focused: `border-width-focus`) | `color-text-default` | `color-text-subtlest` | `color-icon-subtlest` | same as Default | `color-text-subtlest` | — |
+| Read-only | `color-background-base-subtlest` | `color-border-bold` | `border-width-default` (focused: `border-width-focus`) | `color-text-default` | `color-text-subtlest` | `color-icon-subtlest` | same as Default | `color-text-subtlest` | — |
 
 - Add-on divider = the field border token of the current state.
 - `required-indicator` uses `color-text-role-error`, `color-text-disabled` when disabled.
 - Trailing action and help icon: Icon button `text` · `neutral` tokens (Icon button spec); end button: Button `outlined` · `neutral`.
 - Error priority is Disabled → Error → Focus → Hover → Default; an error that receives focus keeps the error colour and changes to `border-width-focus`.
-- Read-only uses a lighter border (`color-border-default`) so it differs from an editable field in both themes; `color-background-base-subtlest` equals the base background in dark mode, so the border carries the difference. Dark theme uses the same token names and switches values automatically.
+- Read-only keeps the editable border (`color-border-bold`) so the field edge passes 3:1 (WCAG 1.4.11: 4.62:1 light, 6.69:1 dark on `color-background-base-subtlest`). It differs from an editable field by the `color-background-base-subtlest` surface (slightly darker than the base in both themes), the missing clear action and its read-only semantics. Dark theme uses the same token names and switches values automatically.
 
 ### 4.1 How to use each token on Web
 
@@ -196,7 +196,6 @@ Values are for checking only — never paste a value.
 | `color-background-disabled` | `var(--bw-color-background-disabled)` · `cssVars.color.background.disabled` | #EDEDED | #292929 |
 | `color-background-neutral-default` | `var(--bw-color-background-neutral-default)` · `cssVars.color.background.neutral.default` | #EDEDED | #292929 |
 | `color-border-bold` | `var(--bw-color-border-bold)` · `cssVars.color.border.bold` | #707070 | #969696 |
-| `color-border-default` | `var(--bw-color-border-default)` · `cssVars.color.border.default` | #DBDBDB | #404040 |
 | `color-border-disabled` | `var(--bw-color-border-disabled)` · `cssVars.color.border.disabled` | #DBDBDB | #404040 |
 | `color-border-error` | `var(--bw-color-border-error)` · `cssVars.color.border.error` | #D42222 | #FF7676 |
 | `color-border-focus` | `var(--bw-color-border-focus)` · `cssVars.color.border.focus` | #254471 | #90A3BC |
@@ -246,7 +245,7 @@ The code token map must equal [`text-field.tokens.json`](text-field.tokens.json)
 | Text field / Size | action-size | sm: `size-icon-lg` · md: `size-control-height-sm` · lg: `size-control-height-md` |
 | Text field / Size | action-inset | sm: `spacing-xs` · md: `spacing-xs` · lg: `spacing-xs` |
 | Text field / State | container | default: `color-background-base-default` · hovered: `color-background-base-hovered` · focused: `color-background-base-default` · error: `color-background-base-default` · disabled: `color-background-disabled` · read-only: `color-background-base-subtlest` |
-| Text field / State | border | default: `color-border-bold` · hovered: `color-border-bold` · focused: `color-border-focus` · error: `color-border-error` · disabled: `color-border-disabled` · read-only: `color-border-default` |
+| Text field / State | border | default: `color-border-bold` · hovered: `color-border-bold` · focused: `color-border-focus` · error: `color-border-error` · disabled: `color-border-disabled` · read-only: `color-border-bold` |
 | Text field / State | border-width | default: `border-width-default` · hovered: `border-width-default` · focused: `border-width-focus` · error: `border-width-default` · disabled: `border-width-default` · read-only: `border-width-default` |
 | Text field / State | label | default: `color-text-default` · hovered: `color-text-default` · focused: `color-text-default` · error: `color-text-default` · disabled: `color-text-disabled` · read-only: `color-text-default` |
 | Text field / State | input | default: `color-text-default` · hovered: `color-text-default` · focused: `color-text-default` · error: `color-text-default` · disabled: `color-text-disabled` · read-only: `color-text-default` |

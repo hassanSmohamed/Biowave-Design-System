@@ -160,7 +160,7 @@ An attached Button segment after the field for one action on the whole value, e.
 | Focus | Native input has keyboard or pointer focus | Focus border with no exterior offset; this is the documented field exception in the accessibility guideline |
 | Error | Validation failed | Error border, error icon and error text; the message explains how to fix the value. Leading and trailing icons keep their normal colour |
 | Disabled | Value cannot currently be changed or selected | Disabled surface, border, text, icons, add-ons, trailing action and end button; all removed from the tab order. The help icon stays available |
-| Read-only | Value may be read, copied or submitted but not changed | Subtle surface and a lighter border; focusable and selectable; clear is hidden; other actions (copy, show password) still work |
+| Read-only | Value may be read, copied or submitted but not changed | Subtle surface with the normal border (3:1 edge); focusable and selectable; clear is hidden; other actions (copy, show password) still work |
 | Filled | A value exists | Value replaces the placeholder; state otherwise stays unchanged |
 
 **Behavior rules**
@@ -371,13 +371,13 @@ Layout rules:
 | Focus | same | `color-border-focus` | `border-width-focus` | same | same | `color-icon-default` | same | same | — |
 | Error | same | `color-border-error` | `border-width-default` (focused: `border-width-focus`) | same | same | `color-icon-subtlest` (unchanged) | same | `color-text-role-error` | `color-icon-role-error` |
 | Disabled | `color-background-disabled` | `color-border-disabled` | `border-width-default` | `color-text-disabled` | `color-text-disabled` | `color-icon-disabled` | `color-background-disabled` · `color-text-disabled` | `color-text-disabled` | — |
-| Read-only | `color-background-base-subtlest` | `color-border-default` | `border-width-default` (focused: `border-width-focus`) | `color-text-default` | `color-text-subtlest` | `color-icon-subtlest` | same as Default | `color-text-subtlest` | — |
+| Read-only | `color-background-base-subtlest` | `color-border-bold` | `border-width-default` (focused: `border-width-focus`) | `color-text-default` | `color-text-subtlest` | `color-icon-subtlest` | same as Default | `color-text-subtlest` | — |
 
 - Add-on divider = the field border token of the current state.
 - `required-indicator` uses `color-text-role-error`, `color-text-disabled` when disabled.
 - Trailing action and help icon: Icon button `text` · `neutral` tokens (Icon button spec); end button: Button `outlined` · `neutral`.
 - Error priority is Disabled → Error → Focus → Hover → Default; an error that receives focus keeps the error colour and changes to `border-width-focus`.
-- Read-only uses a lighter border (`color-border-default`) so it differs from an editable field in both themes; `color-background-base-subtlest` equals the base background in dark mode, so the border carries the difference. Dark theme uses the same token names and switches values automatically.
+- Read-only keeps the editable border (`color-border-bold`) so the field edge passes 3:1 (WCAG 1.4.11: 4.62:1 light, 6.69:1 dark on `color-background-base-subtlest`). It differs from an editable field by the `color-background-base-subtlest` surface (slightly darker than the base in both themes), the missing clear action and its read-only semantics. Dark theme uses the same token names and switches values automatically.
 
 ### B4 States and transitions
 
@@ -1096,4 +1096,5 @@ Planner items from E2 closed in spec 1.1: **#2** read-only border `color-border-
 | 1.1 | 2026-10-18 | Overview playground controls added for example, size, state, required, supporting text, help tooltip and counter; controls drive the live React preview | No | — |
 | 1.1 | 2026-10-21 | Review round 2: Changes requested (E4) | No | — |
 | 1.2 | 2026-10-21 | E4 #9: one multiline trailing-action rule (`max(action-inset − padding-block, (line-height − action-size) / 2)`), action never closer than `spacing-xs` to the top border; B2, B9, C3, C6, C7 Fix round 2 task list. E4 #10: built-in glyphs and B7 examples use the Biowave `Icon` (`<Icon name="…" />`) | No — visual only: the multiline action moves down at `md` / `lg` | — |
+| 1.2 | 2026-11-09 | Read-only border `color-border-default` → `color-border-bold`: the default border was 1.29:1 (light) / 1.91:1 (dark), below 3:1; now 4.62:1 / 6.69:1. tokens.json, `text-field.tokens.ts`, B3.2, A5; Figma `Text field / State › border` (read-only) in the Web, Tablet and Mobile files. Figma sets built Figma-first from `_workflow/tasks/2026-11-09-inputs-figma-web.md` (Wave 0) | No — visual only | — |
 | 1.1 (naming) | 2026-10-31 | Foundations check (Spacing 2.0, Size, Radius): all tokens already follow the new rules. State modes `hover` → `hovered`, `focus` → `focused` (text-field.tokens.json, web code keys; Figma `Text field / State` modes renamed in place, IDs kept); Figma `State` `Hover` / `Focus` → `Hovered` / `Focused` | No | — |

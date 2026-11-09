@@ -173,7 +173,7 @@ The code token map must equal [`text-field.tokens.json`](text-field.tokens.json)
 | Text field / Size | action-size | sm: `size-icon-lg` · md: `size-control-height-sm` · lg: `size-control-height-md` |
 | Text field / Size | action-inset | sm: `spacing-xs` · md: `spacing-xs` · lg: `spacing-xs` |
 | Text field / State | container | default: `color-background-base-default` · hovered: `color-background-base-hovered` · focused: `color-background-base-default` · error: `color-background-base-default` · disabled: `color-background-disabled` · read-only: `color-background-base-subtlest` |
-| Text field / State | border | default: `color-border-bold` · hovered: `color-border-bold` · focused: `color-border-focus` · error: `color-border-error` · disabled: `color-border-disabled` · read-only: `color-border-default` |
+| Text field / State | border | default: `color-border-bold` · hovered: `color-border-bold` · focused: `color-border-focus` · error: `color-border-error` · disabled: `color-border-disabled` · read-only: `color-border-bold` |
 | Text field / State | border-width | default: `border-width-default` · hovered: `border-width-default` · focused: `border-width-focus` · error: `border-width-default` · disabled: `border-width-default` · read-only: `border-width-default` |
 | Text field / State | label | default: `color-text-default` · hovered: `color-text-default` · focused: `color-text-default` · error: `color-text-default` · disabled: `color-text-disabled` · read-only: `color-text-default` |
 | Text field / State | input | default: `color-text-default` · hovered: `color-text-default` · focused: `color-text-default` · error: `color-text-default` · disabled: `color-text-disabled` · read-only: `color-text-default` |

@@ -350,7 +350,7 @@
           "$value": "{color.background.base.subtlest}"
         },
         "border": {
-          "$value": "{color.border.default}"
+          "$value": "{color.border.bold}"
         },
         "border-width": {
           "$value": "{border.width.default}"

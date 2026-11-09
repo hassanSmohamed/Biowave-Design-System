@@ -1,4 +1,4 @@
-<!-- GENERATED from text-field.md @ 56a1f639efbf8a83 — do not edit; change the source and run: npm run contract -- web text-field -->
+<!-- GENERATED from text-field.md @ 33df64b49d2bac54 — do not edit; change the source and run: npm run contract -- web text-field -->
 # Text field · حقل نص — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Text field in the Web Components file, with our variables and styles.** Read this file only. Generated from [`text-field.md`](text-field.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](text-field.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Text field · حقل نص |
 | Platform | Web · React + MUI |
 | Version | 1.2 · 2026-10-21 |
-| Source | [`text-field.md`](text-field.md) @ `56a1f639efbf8a83` |
+| Source | [`text-field.md`](text-field.md) @ `33df64b49d2bac54` |
 
 ## 1. Library connections in this file
 
@@ -49,7 +49,7 @@ Already in this file, created by the sync tooling from [`text-field.tokens.json`
 | Text field / Size | sm · md · lg | `action-size` | sm → 4. Size › `size/icon/lg`<br>md → 4. Size › `size/control/height/sm`<br>lg → 4. Size › `size/control/height/md` |
 | Text field / Size | sm · md · lg | `action-inset` | sm → 3. Spacing › `spacing/xs`<br>md → 3. Spacing › `spacing/xs`<br>lg → 3. Spacing › `spacing/xs` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `container` | default → 1. Themes › `color/background/base/default`<br>hovered → 1. Themes › `color/background/base/hovered`<br>focused → 1. Themes › `color/background/base/default`<br>error → 1. Themes › `color/background/base/default`<br>disabled → 1. Themes › `color/background/disabled`<br>read-only → 1. Themes › `color/background/base/subtlest` |
-| Text field / State | default · hovered · focused · error · disabled · read-only | `border` | default → 1. Themes › `color/border/bold`<br>hovered → 1. Themes › `color/border/bold`<br>focused → 1. Themes › `color/border/focus`<br>error → 1. Themes › `color/border/error`<br>disabled → 1. Themes › `color/border/disabled`<br>read-only → 1. Themes › `color/border/default` |
+| Text field / State | default · hovered · focused · error · disabled · read-only | `border` | default → 1. Themes › `color/border/bold`<br>hovered → 1. Themes › `color/border/bold`<br>focused → 1. Themes › `color/border/focus`<br>error → 1. Themes › `color/border/error`<br>disabled → 1. Themes › `color/border/disabled`<br>read-only → 1. Themes › `color/border/bold` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `border-width` | default → 7. Border › `border/width/default`<br>hovered → 7. Border › `border/width/default`<br>focused → 7. Border › `border/width/focus`<br>error → 7. Border › `border/width/default`<br>disabled → 7. Border › `border/width/default`<br>read-only → 7. Border › `border/width/default` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `label` | default → 1. Themes › `color/text/default`<br>hovered → 1. Themes › `color/text/default`<br>focused → 1. Themes › `color/text/default`<br>error → 1. Themes › `color/text/default`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/default` |
 | Text field / State | default · hovered · focused · error · disabled · read-only | `input` | default → 1. Themes › `color/text/default`<br>hovered → 1. Themes › `color/text/default`<br>focused → 1. Themes › `color/text/default`<br>error → 1. Themes › `color/text/default`<br>disabled → 1. Themes › `color/text/disabled`<br>read-only → 1. Themes › `color/text/default` |
@@ -74,7 +74,6 @@ Already in this file, created by the sync tooling from [`text-field.tokens.json`
 | `color-background-disabled` | 1. Themes › `color/background/disabled` | `3697f6cbec9ecaa8acf84032dbdb9f6a1607a6ff` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
 | `color-background-neutral-default` | 1. Themes › `color/background/neutral/default` | `2dc9c39d4df7b490fd0d7ac7385b49fdaf0e973e` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
 | `color-border-bold` | 1. Themes › `color/border/bold` | `ab8b644249ebef8ab1b6a1efc54e0b4e504d3979` | COLOR | STROKE_COLOR | spec, component token |
-| `color-border-default` | 1. Themes › `color/border/default` | `ad520e82898707a0d3112a12f6f9439566c6d6c4` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-disabled` | 1. Themes › `color/border/disabled` | `a6d557c3fa0bcb0e2e6b6592234d737ef80936bf` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-error` | 1. Themes › `color/border/error` | `28b0f15306faf6c8113f5acdf14ed8fc66e02c57` | COLOR | STROKE_COLOR | spec, component token |
 | `color-border-focus` | 1. Themes › `color/border/focus` | `ef666d3badd2b63f18cb168d9987ead7fbc21480` | COLOR | STROKE_COLOR | spec, component token |
@@ -260,13 +259,13 @@ Layout rules:
 | Focus | same | `color-border-focus` | `border-width-focus` | same | same | `color-icon-default` | same | same | — |
 | Error | same | `color-border-error` | `border-width-default` (focused: `border-width-focus`) | same | same | `color-icon-subtlest` (unchanged) | same | `color-text-role-error` | `color-icon-role-error` |
 | Disabled | `color-background-disabled` | `color-border-disabled` | `border-width-default` | `color-text-disabled` | `color-text-disabled` | `color-icon-disabled` | `color-background-disabled` · `color-text-disabled` | `color-text-disabled` | — |
-| Read-only | `color-background-base-subtlest` | `color-border-default` | `border-width-default` (focused: `border-width-focus`) | `color-text-default` | `color-text-subtlest` | `color-icon-subtlest` | same as Default | `color-text-subtlest` | — |
+| Read-only | `color-background-base-subtlest` | `color-border-bold` | `border-width-default` (focused: `border-width-focus`) | `color-text-default` | `color-text-subtlest` | `color-icon-subtlest` | same as Default | `color-text-subtlest` | — |
 
 - Add-on divider = the field border token of the current state.
 - `required-indicator` uses `color-text-role-error`, `color-text-disabled` when disabled.
 - Trailing action and help icon: Icon button `text` · `neutral` tokens (Icon button spec); end button: Button `outlined` · `neutral`.
 - Error priority is Disabled → Error → Focus → Hover → Default; an error that receives focus keeps the error colour and changes to `border-width-focus`.
-- Read-only uses a lighter border (`color-border-default`) so it differs from an editable field in both themes; `color-background-base-subtlest` equals the base background in dark mode, so the border carries the difference. Dark theme uses the same token names and switches values automatically.
+- Read-only keeps the editable border (`color-border-bold`) so the field edge passes 3:1 (WCAG 1.4.11: 4.62:1 light, 6.69:1 dark on `color-background-base-subtlest`). It differs from an editable field by the `color-background-base-subtlest` surface (slightly darker than the base in both themes), the missing clear action and its read-only semantics. Dark theme uses the same token names and switches values automatically.
 
 ### B4 States and transitions
 

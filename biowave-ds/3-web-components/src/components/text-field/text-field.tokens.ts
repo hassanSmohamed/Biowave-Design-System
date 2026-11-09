@@ -135,7 +135,7 @@ export const textFieldStateTokens: Record<TextFieldState, TextFieldStateTokens> 
   'read-only': {
     ...defaultState,
     background: cssVars.color.background.base.subtlest,
-    border: cssVars.color.border.default,
+    border: cssVars.color.border.bold,
   },
 };
 

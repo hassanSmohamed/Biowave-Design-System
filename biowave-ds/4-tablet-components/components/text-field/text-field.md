@@ -160,7 +160,7 @@ An attached Button segment after the field for one action on the whole value, e.
 | Focus | Native input has keyboard or pointer focus | Focus border with no exterior offset; this is the documented field exception in the accessibility guideline |
 | Error | Validation failed | Error border, error icon and error text; the message explains how to fix the value. Leading and trailing icons keep their normal colour |
 | Disabled | Value cannot currently be changed or selected | Disabled surface, border, text, icons, add-ons, trailing action and end button; all removed from the tab order. The help icon stays available |
-| Read-only | Value may be read, copied or submitted but not changed | Subtle surface and a lighter border; focusable and selectable; clear is hidden; other actions (copy, show password) still work |
+| Read-only | Value may be read, copied or submitted but not changed | Subtle surface with the normal border (3:1 edge); focusable and selectable; clear is hidden; other actions (copy, show password) still work |
 | Filled | A value exists | Value replaces the placeholder; state otherwise stays unchanged |
 
 **Behavior rules**
@@ -607,10 +607,12 @@ First Tablet version (1.1). Differences from Web 1.1 are listed in A8 and B1 (Fl
 | Version | Date | Change | Migration | Author |
 |---|---|---|---|---|
 | 1.1 | 2026-10-18 | Guidelines copied from Web 1.1 (legacy properties, managed trailing action); A8 for Tablet | — | Claude (Planner) |
+| 1.1 | 2026-11-09 | A5 Read-only: normal border so the edge passes 3:1 (same change on Web, Tablet, Mobile) | — | Claude (Planner) |
 
 ### F2 Spec changelog
 
 | Version | Date | Change | Breaking | Migration |
 |---|---|---|---|---|
 | 1.1 | 2026-10-18 | Initial Tablet spec (Flutter `BwTextField`), aligned with Web 1.1 | No | — |
+| 1.1 | 2026-11-09 | Read-only border follows Web: `color-border-bold` (inherited from the Web tokens.json); Figma `Text field / State › border` (read-only) updated in this file | No — visual only | — |
 | 1.1 (naming) | 2026-10-31 | Foundations check (Spacing 2.0, Size, Radius): all tokens already follow the new rules. State modes `hover` → `hovered`, `focus` → `focused` (text-field.tokens.json, web code keys; Figma `Text field / State` modes renamed in place, IDs kept); Figma `State` `Hover` / `Focus` → `Hovered` / `Focused` | No | — |

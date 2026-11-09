@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-09 — Text field: read-only border passes 3:1 · Wave 0 review fixes (Web Figma)
+
+Read-only Text field border changed from `color-border-default` (1.29:1 light / 1.91:1 dark) to `color-border-bold` (4.62:1 / 6.69:1), decided by Hassan: Web `text-field.tokens.json` (Tablet and Mobile extend it), `text-field.tokens.ts`, B3.2 and A5 on all three platforms, and `Text field / State › border` (read-only mode) in the Web, Tablet and Mobile Figma files. Wave 0 review fixes in the Web Components file: label row hugs its text so `*`, (Optional) and the help icon sit next to the label (RTL aligned to the end); sample copy (`sara.ali@biowave.com` value, LTR email in Arabic, specific error messages, Text area "Request reason"); hover and click-to-focus prototype interactions (`motion-duration-sm`, standard easing). Wave 0 itself (field parts, Text field + Text area, 216 variants, docs 00–09 and 11) was built by the Figma Agent from the Web brief.
+
 ## 2026-11-09 — Input family Figma briefs (Web, Tablet, Mobile)
 
 Added three Figma-first task briefs in `_workflow/tasks/` (`2026-11-09-inputs-figma-{web,tablet,mobile}.md`) for the Figma Agent: 7 waves (field parts and Text field → Avatar, Checkbox, Radio, Switch, Input chip, Progress → List item, Menu, Popover, Bottom sheet → Verification code, Segmented button → Select, Search, Autocomplete, Phone → pickers → File upload, Message composer), Button-style component sheets and Doc Kit pages 00–11, a stop after every wave, and the change-log table as the execution log. Accessible Checkbox / Radio / Switch sizes set (Web `sm` 16 / 32 hit · `md` 20 / 40 hit; Tablet and Mobile `lg` 24 / 48 hit). Legacy sets stay untouched. No spec, token or Figma file changed yet.
