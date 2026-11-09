@@ -219,8 +219,9 @@ Build exactly as `figma-text-field-contract.md` (Tablet) Phase 1 and Phase 2, wi
 | Port example | Page 03 tile "Port": Value `8080`, supporting "0–65535", value LTR in the AR set; no stepper |
 | Email / Password examples | Page 03 tiles (`mail` leading icon; `visibility` trailing action) |
 
-- **Variants:** `Type` `single-line · multiline` × `Size` `md` · `lg` × `State` `default` · `focused` · `disabled` · `read-only` × `Filled` `false · true` × `Error` `false · true`; exclude `disabled × error=true`.
-- **Sheet:** columns = `State`; rows = `Type` → `Size` → `Filled` → `Error`.
+- **Sets:** `.Text field _en` · `.Text field _ar` (single line) and `.Text area _en` · `.Text area _ar` (multiline). The contract's `Language` and `Type` axes are dropped — language and type are separate sets. Ignore the contract's §13 repo steps; log in the change-log table instead (§9).
+- **Variants (each set):** `Size` `md` · `lg` × `State` `default` · `focused` · `disabled` · `read-only` × `Filled` `false · true` × `Error` `false · true`; exclude `disabled × error=true`.
+- **Sheet:** columns = `State`; rows = `Size` → `Filled` → `Error` (Text field, then Text area, each EN then AR).
 - **Usage:** when not to use → Select (known list), Autocomplete (search a list), Phone field, Verification code, Search field.
 
 ### WAVE 1 — Building blocks
