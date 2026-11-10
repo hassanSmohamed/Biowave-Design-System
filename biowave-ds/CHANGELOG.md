@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-10 — Input family Wave 4 built in the Web Figma file
+
+Figma only (Web Components file; no code or repo token change). All four built from the field parts and bound to `Text field / Size` and `Text field / State`; the open state uses `.Menu`. Sets: `.Select _en/_ar` (264 each: Size × State incl. open × Filled × Error × Leading none · icon · avatar · dot), `.Search field _en/_ar` (48 each: Size × State × Filled × Loading, optional ⌘K hint), `.Autocomplete _en/_ar` (198 each: single · multi · tags), `.Phone field _en/_ar` (66 each, flags from the Foundations flag set; dial code and number stay LTR in Arabic, with U+200E before “+”). Disabled + Error is not built. Fix in the same wave: Select, Autocomplete and Phone field variants now hug their height (they were fixed at 80 and overflowed at md and lg). Docs 00–09 and 11 for all four; the Location example (location_on, map action, two-line address rows) is documented on Autocomplete pages 03, 07 and 08, not as a set. Components List cards. Lint 0 on all 8 sets. Measured contrast: border / page 4.62:1 light, 6.69:1 dark; placeholder / field 7.57:1, 9.81:1. Waiting for review before Wave 5.
+
 ## 2026-11-10 — Input family Wave 3 built in the Web Figma file
 
 Figma only (Web Components file; no code or repo token change). Collections `Verification code / Size`, `Segmented button / Size`, `/ Unselected`, `/ Selected` (all alias Foundations semantic variables; Verification code cells reuse `Text field / State`). Sets: `_Verification code / Cell`, `.Verification code _en/_ar` (126 each, 4 or 6 digits, cells always LTR), `_Segmented button / Segment` (270, physical positions so RTL rows keep outer corners), `.Segmented button _en/_ar` (30 each, 2–5 segments and the 7-day picker). Docs 00–09 and 11 for both, Components List cards. Lint 0. Measured contrast of the brand label on the selected fill: 12.54:1 light, 7.68:1 dark. Waiting for review before Wave 4.
