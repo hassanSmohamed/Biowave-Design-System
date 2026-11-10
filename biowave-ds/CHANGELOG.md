@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-10 — Input family Wave 3 built in the Web Figma file
+
+Figma only (Web Components file; no code or repo token change). Collections `Verification code / Size`, `Segmented button / Size`, `/ Unselected`, `/ Selected` (all alias Foundations semantic variables; Verification code cells reuse `Text field / State`). Sets: `_Verification code / Cell`, `.Verification code _en/_ar` (126 each, 4 or 6 digits, cells always LTR), `_Segmented button / Segment` (270, physical positions so RTL rows keep outer corners), `.Segmented button _en/_ar` (30 each, 2–5 segments and the 7-day picker). Docs 00–09 and 11 for both, Components List cards. Lint 0. Measured contrast of the brand label on the selected fill: 12.54:1 light, 7.68:1 dark. Waiting for review before Wave 4.
+
 ## 2026-11-09 — Input family: group sets and Wave 2 built in the Web Figma file
 
 Figma only (Web Components file; no code or repo token change). Added `.Checkbox group` and `.Radio group` (_en/_ar, 12 variants each: legend with required mark, options, one hint or error message, built from `_Field / Label`, the controls and `_Field / Supporting text`); Error stays on the single Checkbox and Radio. Wave 2: collections `List item / Size`, `List item / State`, `Popover / Container`, and `border`, `border-width`, `message` added to `Menu / Container`; sets `.List item` (216 each), `.Menu` (24 each: options, loading, empty, no-results × single, multi × size), `.Popover` (title, close, Content slot, Cancel / Apply); docs 00–09 and 11 for all three; Components List cards. Lint 0 on every set. Waiting for review before Wave 3.
