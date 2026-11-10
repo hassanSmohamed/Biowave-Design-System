@@ -10,7 +10,7 @@ for (const lc of (await figma.teamLibrary.getAvailableLibraryVariableCollections
   for (const lv of await figma.teamLibrary.getVariablesInLibraryCollectionAsync(lc.key)) FOUNDATION_NAMES.add(lv.name);
 if (!FOUNDATION_NAMES.size) out.push('X|library "Biowave DS — Foundations" is not enabled in this file');
 for (const c of cols) {
-  if (!/^[A-Z][A-Za-z ]* \/ [A-Z][A-Za-z ]*$/.test(c.name)) out.push(`X|collection "${c.name}" is not a component-token collection ("<Component> / <Group>") — semantic and other variables belong in the Foundations file`);
+  if (!/^[A-Z][A-Za-z ]*( \/ [A-Z][A-Za-z ]*)?$/.test(c.name)) out.push(`X|collection "${c.name}" is not a component-token collection ("<Component>" or "<Component> / <Axis>") — semantic and other variables belong in the Foundations file`);
   for (const id of c.variableIds) {
     const v = await figma.variables.getVariableByIdAsync(id);
     if (!v || v.name.startsWith('_deprecated/')) continue;

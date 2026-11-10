@@ -1,4 +1,4 @@
-<!-- GENERATED from split-button.md @ d041c810d354d8f5 — do not edit; change the source and run: npm run contract -- web split-button -->
+<!-- GENERATED from split-button.md @ a22777c75f21572f — do not edit; change the source and run: npm run contract -- web split-button -->
 # Split button · زر مقسّم — Web — code contract
 
 > **Everything you need to build Split button on Web, and nothing else.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](split-button.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.2 · 2026-10-31 |
 | Source code | `src/components/split-button/` — not built yet (the Executor creates it) |
 | Tokens | [`split-button.tokens.json`](split-button.tokens.json) |
-| Source | [`split-button.md`](split-button.md) @ `d041c810d354d8f5` |
+| Source | [`split-button.md`](split-button.md) @ `a22777c75f21572f` |
 
 ## 1. What it is
 
@@ -82,7 +82,7 @@ A split button joins a main action with a menu of related alternatives: "Export"
 | `menu` item | height · padding-inline · icon–label gap · icon · text style · text color | `size-control-height-md` · `spacing-lg` · `spacing-sm` · `size-icon-md` · `body-md` · `color-text-default` (menu rows use the component spacing scale, not `spacing-control-*` — spacing.md) |
 | `menu` | offset from container | `spacing-xs` |
 
-Menu padding is `spacing-xs`. Menu tokens come from the general `Menu / Container` and `Menu / Item` collections.
+Menu padding is `spacing-xs`. Menu tokens come from the general `Menu` collection (groups `container/` and `item/`).
 
 ## 4. Tokens by part and state
 
@@ -133,20 +133,20 @@ The code token map must equal [`split-button.tokens.json`](split-button.tokens.j
 | Split button / Segment | inner-border-width | default: `border-width-none` |
 | Split button / Segment | divider-width | default: `border-width-default` |
 | Split button / Segment | divider | default: `color-border-default` |
-| Menu / Container | container | default: `color-surface-raised` |
-| Menu / Container | radius | default: `radius-lg` |
-| Menu / Container | padding | default: `spacing-xs` |
-| Menu / Container | offset | default: `spacing-xs` |
-| Menu / Item | height | default: `size-control-height-md` |
-| Menu / Item | padding-inline | default: `spacing-lg` |
-| Menu / Item | gap | default: `spacing-sm` |
-| Menu / Item | icon-size | default: `size-icon-md` |
-| Menu / Item | state-layer/hovered | default: `color-background-transparent-hovered` |
-| Menu / Item | state-layer/pressed | default: `color-background-transparent-pressed` |
-| Menu / Item | label/default | default: `color-text-default` |
-| Menu / Item | label/disabled | default: `color-text-disabled` |
-| Menu / Item | icon/default | default: `color-icon-subtle` |
-| Menu / Item | focus-ring | default: `color-border-focus` |
+| Menu | container/container | default: `color-surface-raised` |
+| Menu | container/radius | default: `radius-lg` |
+| Menu | container/padding | default: `spacing-xs` |
+| Menu | container/offset | default: `spacing-xs` |
+| Menu | item/height | default: `size-control-height-md` |
+| Menu | item/padding-inline | default: `spacing-lg` |
+| Menu | item/gap | default: `spacing-sm` |
+| Menu | item/icon-size | default: `size-icon-md` |
+| Menu | item/state-layer/hovered | default: `color-background-transparent-hovered` |
+| Menu | item/state-layer/pressed | default: `color-background-transparent-pressed` |
+| Menu | item/label/default | default: `color-text-default` |
+| Menu | item/label/disabled | default: `color-text-disabled` |
+| Menu | item/icon/default | default: `color-icon-subtle` |
+| Menu | item/focus-ring | default: `color-border-focus` |
 
 ## 5. States and transitions
 

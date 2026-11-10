@@ -1,4 +1,4 @@
-<!-- GENERATED from split-button.md @ 37ec5a267c02d77a — do not edit; change the source and run: npm run contract -- web split-button -->
+<!-- GENERATED from split-button.md @ 67c47abde8d873c8 — do not edit; change the source and run: npm run contract -- web split-button -->
 # Split button · زر مقسّم — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Split button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Split button · زر مقسّم |
 | Platform | Web · React + MUI |
 | Version | 1.2 · 2026-10-31 |
-| Source | [`split-button.md`](split-button.md) @ `37ec5a267c02d77a` |
+| Source | [`split-button.md`](split-button.md) @ `67c47abde8d873c8` |
 
 ## 1. Library connections in this file
 
@@ -44,20 +44,20 @@ Already in this file, created by the sync tooling from [`split-button.tokens.jso
 | Split button / Segment | default | `inner-border-width` | default → 7. Border › `border/width/none` |
 | Split button / Segment | default | `divider-width` | default → 7. Border › `border/width/default` |
 | Split button / Segment | default | `divider` | default → 1. Themes › `color/border/default` |
-| Menu / Container | default | `container` | default → 1. Themes › `color/surface/raised` |
-| Menu / Container | default | `radius` | default → 2. Radius › `radius/lg` |
-| Menu / Container | default | `padding` | default → 3. Spacing › `spacing/xs` |
-| Menu / Container | default | `offset` | default → 3. Spacing › `spacing/xs` |
-| Menu / Item | default | `height` | default → 4. Size › `size/control/height/md` |
-| Menu / Item | default | `padding-inline` | default → 3. Spacing › `spacing/lg` |
-| Menu / Item | default | `gap` | default → 3. Spacing › `spacing/sm` |
-| Menu / Item | default | `icon-size` | default → 4. Size › `size/icon/md` |
-| Menu / Item | default | `state-layer/hovered` | default → 1. Themes › `color/background/transparent/hovered` |
-| Menu / Item | default | `state-layer/pressed` | default → 1. Themes › `color/background/transparent/pressed` |
-| Menu / Item | default | `label/default` | default → 1. Themes › `color/text/default` |
-| Menu / Item | default | `label/disabled` | default → 1. Themes › `color/text/disabled` |
-| Menu / Item | default | `icon/default` | default → 1. Themes › `color/icon/subtle` |
-| Menu / Item | default | `focus-ring` | default → 1. Themes › `color/border/focus` |
+| Menu | default | `container/container` | default → 1. Themes › `color/surface/raised` |
+| Menu | default | `container/radius` | default → 2. Radius › `radius/lg` |
+| Menu | default | `container/padding` | default → 3. Spacing › `spacing/xs` |
+| Menu | default | `container/offset` | default → 3. Spacing › `spacing/xs` |
+| Menu | default | `item/height` | default → 4. Size › `size/control/height/md` |
+| Menu | default | `item/padding-inline` | default → 3. Spacing › `spacing/lg` |
+| Menu | default | `item/gap` | default → 3. Spacing › `spacing/sm` |
+| Menu | default | `item/icon-size` | default → 4. Size › `size/icon/md` |
+| Menu | default | `item/state-layer/hovered` | default → 1. Themes › `color/background/transparent/hovered` |
+| Menu | default | `item/state-layer/pressed` | default → 1. Themes › `color/background/transparent/pressed` |
+| Menu | default | `item/label/default` | default → 1. Themes › `color/text/default` |
+| Menu | default | `item/label/disabled` | default → 1. Themes › `color/text/disabled` |
+| Menu | default | `item/icon/default` | default → 1. Themes › `color/icon/subtle` |
+| Menu | default | `item/focus-ring` | default → 1. Themes › `color/border/focus` |
 
 ## 3. Foundations variables used (keys)
 
@@ -154,7 +154,7 @@ No icon named in this spec. Icons come only from the Google · Material Symbols 
 | `menu` item | height · padding-inline · icon–label gap · icon · text style · text color | `size-control-height-md` · `spacing-lg` · `spacing-sm` · `size-icon-md` · `body-md` · `color-text-default` (menu rows use the component spacing scale, not `spacing-control-*` — spacing.md) |
 | `menu` | offset from container | `spacing-xs` |
 
-Menu padding is `spacing-xs`. Menu tokens come from the general `Menu / Container` and `Menu / Item` collections.
+Menu padding is `spacing-xs`. Menu tokens come from the general `Menu` collection (groups `container/` and `item/`).
 
 ### B3 Tokens by part and state
 
@@ -230,15 +230,15 @@ Keep Split Button/EN (116:23634) and Split Button/AR (116:25888), preserving the
 
 ### D3 Layer tree and auto layout
 
-Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Color › focus/color and focus/width. No effects except Elevation/3 on the menu.
 
 Copy the binding pattern from the matching Button variant, then read it back. For both `Action` and `Dropdown`:
 
 | `Variant` | Collection |
 |---|---|
-| `filled` | `Button / Filled` |
-| `outlined` | `Button / Outlined` |
-| `text` | `Button / Text` |
+| `filled` | `Button / Color` › `filled/` |
+| `outlined` | `Button / Color` › `outlined/` |
+| `text` | `Button / Color` › `text/` |
 
 Use the mode with the same name as `Color`.
 
@@ -250,7 +250,7 @@ Use the mode with the same name as `Color`.
 | Border on the inner sides | `Split button / Segment` | `inner-border-width` |
 | Gap between parts | `Split button / Segment` | `gap` |
 | `Divider` fill, width | `Split button / Segment` | `divider`, `divider-width` |
-| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Focus ring | `Button / Color` › `focus/` | `default` or `inverse` |
 | Menu | `Menu / *` | `default` |
 
 - Replace the pinned `Button size` mode with `Button / Size` modes.
@@ -497,7 +497,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

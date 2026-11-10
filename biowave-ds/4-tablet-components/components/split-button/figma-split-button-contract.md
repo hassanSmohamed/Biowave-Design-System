@@ -1,4 +1,4 @@
-<!-- GENERATED from split-button.md @ 0c20cd3db29aed38 — do not edit; change the source and run: npm run contract -- tablet split-button -->
+<!-- GENERATED from split-button.md @ 9b812fb02b9a78f5 — do not edit; change the source and run: npm run contract -- tablet split-button -->
 # Split button · زر مقسّم — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Split button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`split-button.md`](split-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](split-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Split button · زر مقسّم |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-31 |
-| Source | [`split-button.md`](split-button.md) @ `0c20cd3db29aed38` |
+| Source | [`split-button.md`](split-button.md) @ `9b812fb02b9a78f5` |
 
 ## 1. Library connections in this file
 
@@ -230,15 +230,15 @@ Keep Split Button/EN (116:23634) and Split Button/AR (116:25888), preserving the
 
 #### D3 Layer tree and auto layout
 
-Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Color › focus/color and focus/width. No effects except Elevation/3 on the menu.
 
 Copy the binding pattern from the matching Button variant, then read it back. For both `Action` and `Dropdown`:
 
 | `Variant` | Collection |
 |---|---|
-| `filled` | `Button / Filled` |
-| `outlined` | `Button / Outlined` |
-| `text` | `Button / Text` |
+| `filled` | `Button / Color` › `filled/` |
+| `outlined` | `Button / Color` › `outlined/` |
+| `text` | `Button / Color` › `text/` |
 
 Use the mode with the same name as `Color`.
 
@@ -250,7 +250,7 @@ Use the mode with the same name as `Color`.
 | Border on the inner sides | `Split button / Segment` | `inner-border-width` |
 | Gap between parts | `Split button / Segment` | `gap` |
 | `Divider` fill, width | `Split button / Segment` | `divider`, `divider-width` |
-| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Focus ring | `Button / Color` › `focus/` | `default` or `inverse` |
 | Menu | `Menu / *` | `default` |
 
 - Replace the pinned `Button size` mode with `Button / Size` modes.
@@ -491,7 +491,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8 and the inherited Web D1), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

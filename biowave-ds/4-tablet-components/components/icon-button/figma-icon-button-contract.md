@@ -1,4 +1,4 @@
-<!-- GENERATED from icon-button.md @ de8db2e0f5715187 — do not edit; change the source and run: npm run contract -- tablet icon-button -->
+<!-- GENERATED from icon-button.md @ df6f86f2fd8a1d09 — do not edit; change the source and run: npm run contract -- tablet icon-button -->
 # Icon button · زر أيقونة — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Icon button in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](icon-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Icon button · زر أيقونة |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-10-16 |
-| Source | [`icon-button.md`](icon-button.md) @ `de8db2e0f5715187` |
+| Source | [`icon-button.md`](icon-button.md) @ `df6f86f2fd8a1d09` |
 
 ## 1. Library connections in this file
 
@@ -184,17 +184,17 @@ Keep Icon Button (116:30310), Icon Button / Appearance (116:28709), and Icon But
 
 #### D3 Layer tree and auto layout
 
-Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Color › focus/color and focus/width. No effects except Elevation/3 on the menu.
 
 | Part | Collection | Mode or variable |
 |---|---|---|
 | Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
-| `Variant=filled` | `Button / Filled` | Same name as `Color` |
-| `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
-| `Variant=transparent` | `Button / Transparent` | Same name as `Color` |
-| `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
+| `Variant=filled` | `Button / Color` › `filled/` | Same name as `Color` |
+| `Variant=tonal` | `Button / Color` › `tonal/` | Same name as `Color` |
+| `Variant=transparent` | `Button / Color` › `transparent/` | Same name as `Color` |
+| `Variant=outlined` | `Button / Color` › `outlined/` | Same name as `Color` |
 | `Selected=true` | `Icon button / Selected` | Same name as `Color` |
-| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Focus ring | `Button / Color` › `focus/` | `default` or `inverse` |
 | Tooltip layers | `Tooltip / Container` | `default` |
 | `Show Menu Buttons` layers | `Menu / *` | `default` |
 
@@ -432,7 +432,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8 and the inherited Web D1), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

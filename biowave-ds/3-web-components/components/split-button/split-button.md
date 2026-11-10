@@ -205,7 +205,7 @@ Each part has its own states, the same as [Button A5](../button/button.md#a5-sta
 | `menu` item | height · padding-inline · icon–label gap · icon · text style · text color | `size-control-height-md` · `spacing-lg` · `spacing-sm` · `size-icon-md` · `body-md` · `color-text-default` (menu rows use the component spacing scale, not `spacing-control-*` — spacing.md) |
 | `menu` | offset from container | `spacing-xs` |
 
-Menu padding is `spacing-xs`. Menu tokens come from the general `Menu / Container` and `Menu / Item` collections.
+Menu padding is `spacing-xs`. Menu tokens come from the general `Menu` collection (groups `container/` and `item/`).
 
 ### B3 Tokens by part and state
 
@@ -445,16 +445,16 @@ Keep Split Button/EN (116:23634) and Split Button/AR (116:25888), preserving the
 
 ### D3 Layer tree and auto layout
 
-Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Color › focus/color and focus/width. No effects except Elevation/3 on the menu.
 
 
 Copy the binding pattern from the matching Button variant, then read it back. For both `Action` and `Dropdown`:
 
 | `Variant` | Collection |
 |---|---|
-| `filled` | `Button / Filled` |
-| `outlined` | `Button / Outlined` |
-| `text` | `Button / Text` |
+| `filled` | `Button / Color` › `filled/` |
+| `outlined` | `Button / Color` › `outlined/` |
+| `text` | `Button / Color` › `text/` |
 
 Use the mode with the same name as `Color`.
 
@@ -466,7 +466,7 @@ Use the mode with the same name as `Color`.
 | Border on the inner sides | `Split button / Segment` | `inner-border-width` |
 | Gap between parts | `Split button / Segment` | `gap` |
 | `Divider` fill, width | `Split button / Segment` | `divider`, `divider-width` |
-| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Focus ring | `Button / Color` › `focus/` | `default` or `inverse` |
 | Menu | `Menu / *` | `default` |
 
 - Replace the pinned `Button size` mode with `Button / Size` modes.

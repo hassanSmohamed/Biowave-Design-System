@@ -52,23 +52,27 @@ Designer guide for the Figma file: [`Biowave-Figma-Token-Naming.png`](../../../f
 | Semantic | Numbered collection, dots become `/` | `1. Themes` › `color/background/brand/hovered` |
 | Platform | `platform` dropped, values held in modes | `5. Typography` › `font/size/body/md` |
 | Text style | `{role}/{size}` | `body/md` |
-| Component | Collection `{Component} / {Group}` · mode · variable `{part}/{state}` | `Button / Filled` · `brand` · `container/hovered` |
+| Component | Collection `{Component}` or `{Component} / {Axis}` · mode · variable `{group}/{part}/{state}` | `Button / Color` · `brand` · `filled/container/hovered` |
 
 ### Component token rules
 **Every mode is a value of a component prop.** If a prop swaps a set of values, it is a mode. If there is no prop, the only mode is `default`. Button keeps `success`, `warning` and `info` modes in Figma until code adds those colours.
 
-The collection name is always `{Component} / {Group}`, and the Group is one of these:
+**One collection per mode axis of a component (2026-11-10).** A collection exists only because its variables switch together on one prop. So a component has:
 
-| Group | Use when | Modes | Variables | Example |
-|---|---|---|---|---|
-| `Size` | Dimensions change with the size prop | Size values | Dimensions only | `Button / Size › height` |
-| Variant name | Colours change with the variant or a boolean such as `selected` | Colour values | `{part}/{state}` | `Button / Filled › container/hovered` |
-| `Color` | Colours change with the colour prop and there are no variants | Colour values | `{part}/{state}` | `Link / Color › label/hovered` |
-| `State` | Values change with state and there is no colour prop | State values | `{part}` | `Text field / State › border` |
-| `Focus` | Focus ring values change with the colour prop | Colour values | `color` · `width` | `Button / Focus › color` |
-| Part name | One part of a composite component | `default` | Part dimensions and colours | `Menu / Item › height` |
+- `{Component} / Size` when dimensions change with the size prop;
+- `{Component} / {Axis}` for the one other prop that swaps values: `Color` (colour prop), `State` (state or a boolean such as `selected`);
+- `{Component}` (no axis) for everything with the single `default` mode — parts of a composite, fixed colours.
 
-Check in this order: Part, Focus, Size, Variant, Color, State. The first match wins.
+Variables that would have lived in separate collections with the same modes share one collection and sit in **groups** (the first name segment). In `tokens.json` each group keeps its own key and sets `$extensions.figma.collection` to the shared collection plus `$extensions.figma.prefix` (the group name). Groups that share a collection must have the same modes; a group that does not use a mode repeats a sensible value and says so in `$description`.
+
+| Collection | Modes | Groups → variables | Example |
+|---|---|---|---|
+| `{Component} / Size` | Size values | Dimensions only, no groups | `Button / Size › height` |
+| `{Component} / Color` | Colour values | One group per variant (`filled/` · `tonal/` …) or none; `focus/` for the focus ring (`color` · `width`) | `Button / Color › filled/container/hovered` |
+| `{Component} / State` | State values | One group per part that changes (`unselected/` · `selected/`) or none | `Checkbox / State › selected/container/default` |
+| `{Component}` | `default` | One group per part of a composite (`container/` · `item/`) | `Menu › item/height` |
+
+Do not split a collection to show structure — that is what groups are for. Split only when the modes differ.
 
 Allowed names:
 
@@ -78,9 +82,9 @@ Allowed names:
 | Dimensions | `size` · `height` · `width` · `padding` · `padding-inline` · `padding-block` · `gap` · `offset` · `inset` · `icon-size` · `radius` · `border-width` |
 | States | `default` · `hovered` · `pressed` · `focused` · `visited` · `disabled` · `selected` |
 
-- **Colour variable:** `{part}/{state}`, or `{part}` when it has no states.
+- **Colour variable:** `{group}/{part}/{state}` in a shared collection, otherwise `{part}/{state}`, or `{part}` when it has no states.
 - **Dimension variable:** `{dimension}`, or `{part}-{dimension}` when it belongs to one part, such as `focus-ring-radius`.
-- **A family shares collections.** Icon button and Split button reuse `Button / *`.
+- **A family shares collections.** Icon button adds the `transparent/` group to `Button / Color`; Split button reuses `Button / *` and the `Menu` collection.
 - **A component owns only its own tokens.** Tooltip values live in `Tooltip / *`, not in the component that shows it.
 - **A name is never both a token and a group.** `npm run component-tokens` fails on it.
 - **Every variable has a description** in the group's `$descriptions`: what it is and where to bind it. `tokens.json` is the source; never edit a description in Figma.

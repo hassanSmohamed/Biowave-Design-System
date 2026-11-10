@@ -25,7 +25,7 @@ Variables and styles are synced into **Foundations** only; the component files u
 | Where | Contains | Never |
 |---|---|---|
 | Foundations file | Primitive (hidden) and **semantic** variables, text/effect styles | component tokens |
-| Web / Tablet / Mobile Components files | **Component tokens only**: collections `<Component> / <Group>`, every value an alias to a Foundations semantic variable, hidden from publishing, code syntax copied from the semantic variable (Dev Mode shows the real code token) | semantic variables, primitives, raw values, local styles |
+| Web / Tablet / Mobile Components files | **Component tokens only**: collections `<Component>` or `<Component> / <Axis>`, every value an alias to a Foundations semantic variable, hidden from publishing, code syntax copied from the semantic variable (Dev Mode shows the real code token) | semantic variables, primitives, raw values, local styles |
 
 Component tokens come from `<3|4|5>-*/components/<name>/<name>.tokens.json` (Tablet/Mobile may `"$extends"` the Web file and add e.g. size `xl`). Each group declares its Figma collection in `$extensions.figma.collection`; its keys become the collection's modes and every mode must define the same variables. Each group also holds `$descriptions`, one line per variable, which the sync tooling writes to Figma.
 
@@ -40,7 +40,7 @@ Component tokens come from `<3|4|5>-*/components/<name>/<name>.tokens.json` (Tab
 | `npm run component-tokens` | Validates every `<name>.tokens.json`: aliases only, semantic targets that exist in Foundations, same variables in every mode, ≤ 10 modes, and Part B of `<name>.md` names the same tokens. |
 | `npm run sync:library -- <dumps…>` | Saves the output of `figma-read-library.js` as `figma-library.json`: every published Foundations variable, text/effect style and Doc Kit/icon component **with its key**. The Figma contracts take keys from here. Re-read after every Foundations publish (`sync` shows it as stale). |
 | `npm run sync:icons:plan` · `npm run sync:icons -- <dump>` | Icon index (D-18): lists the Material Symbols the specs use that have no key yet and writes `figma-read-icons.generated.js` (git-ignored); run it with `use_figma` in the **Google · Material Symbols** file, then save its output to `figma-icons.json`. Figma contracts take icon keys from there. |
-| `npm run sync:verify-tokens -- <web|tablet|mobile> <dump>` | Checks a component file: output of `figma-read-tokens.js` vs `tokens.json`, and fails on any lint violation (copied semantic variable, raw value, local alias, primitive, local style, non-`<Component> / <Group>` collection). |
+| `npm run sync:verify-tokens -- <web|tablet|mobile> <dump>` | Checks a component file: output of `figma-read-tokens.js` vs `tokens.json`, and fails on any lint violation (copied semantic variable, raw value, local alias, primitive, local style, non-`<Component>` or `<Component> / <Axis>` collection). |
 | `npm run sync:done:tokens:<web|tablet|mobile>` | After verify-tokens passed: records the component-token baseline for that file. |
 | `npm run sync:plan` | Writes `figma-pending.json` + `figma-apply-N.js` (Plugin API scripts) for the pending token changes. |
 | `npm run sync:verify -- <dumps…>` | Compares the output of `figma-read.js` with the token source, value by value, every mode. |

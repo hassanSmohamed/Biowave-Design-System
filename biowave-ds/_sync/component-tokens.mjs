@@ -31,6 +31,10 @@ function semanticIndex() {
   for (const e of expectedFigma()) if (e.web && SEMANTIC_COLLECTIONS.includes(e.collection)) SEM.set(e.web, e);
   return SEM;
 }
+// A collection is one mode axis of one component: "<Component>" (no modes, or one shared axis) or "<Component> / <Axis>".
+// Several tokens.json groups may share a collection when they have the same modes; each then sets $extensions.figma.prefix,
+// which becomes the first segment of its variable names (e.g. Button / Color › filled/container/default).
+export const COLLECTION_RE = /^[A-Z][A-Za-z ]*( \/ [A-Z][A-Za-z ]*)?$/;
 const refOf = (v) => (typeof v === 'string' && /^\{[^}]+\}$/.test(v) ? v.slice(1, -1) : null);
 
 // → { collections: [{ collection, component, modes: [..], vars: { name: { mode: { path, collection, name } } } }], errors: [], refs: Set }
@@ -42,7 +46,9 @@ export function figmaModel(rel) {
     if (gk.startsWith('$')) continue;
     const fx = group.$extensions?.figma;
     if (!fx?.collection) { errors.push(`${rel}: ${comp}.${gk} has no $extensions.figma.collection`); continue; }
-    if (!/^[A-Z][A-Za-z ]* \/ [A-Z][A-Za-z ]*$/.test(fx.collection)) errors.push(`${rel}: collection "${fx.collection}" must be "<Component> / <Group>"`);
+    if (!COLLECTION_RE.test(fx.collection)) errors.push(`${rel}: collection "${fx.collection}" must be "<Component>" or "<Component> / <Axis>"`);
+    const prefix = fx.prefix ?? null;
+    if (prefix !== null && !/^[a-z][a-z0-9-]*$/.test(prefix)) errors.push(`${rel}: ${comp}.${gk} prefix "${prefix}" must be lowercase kebab-case`);
     const modes = Object.keys(group).filter((k) => !k.startsWith('$'));
     const vars = {};
     for (const m of modes) {
@@ -71,7 +77,10 @@ export function figmaModel(rel) {
       if (!group.$descriptions?.[name]) errors.push(`${rel}: "${fx.collection}" variable ${name} has no description in $descriptions`);
     }
     if (modes.length > 10) errors.push(`${rel}: "${fx.collection}" has ${modes.length} modes — Figma Professional allows 10`);
-    collections.push({ collection: fx.collection, component: comp, modes, vars, descriptions: group.$descriptions || {} });
+    const pre = (n) => (prefix ? `${prefix}/${n}` : n);
+    collections.push({ collection: fx.collection, component: comp, prefix, source: rel, modes,
+      vars: Object.fromEntries(Object.entries(vars).map(([n, v]) => [pre(n), v])),
+      descriptions: Object.fromEntries(Object.entries(group.$descriptions || {}).map(([n, v]) => [pre(n), v])) });
   }
   return { collections, errors, refs };
 }
@@ -82,12 +91,13 @@ const DIMENSIONS = ['size', 'height', 'width', 'padding', 'padding-inline', 'pad
 const STATES = new Set(['default', 'hovered', 'pressed', 'focused', 'visited', 'disabled', 'selected']);
 const isDimension = (name) => DIMENSIONS.some((d) => name === d || name.endsWith(`-${d}`));
 
-export function namingIssues({ collection, vars }) {
+export function namingIssues({ collection, vars, prefixes = [] }) {
   const issues = [];
   const group = collection.split(' / ')[1];
-  if (!GROUPS.has(group)) issues.push(`collection "${collection}": "${group}" is not an allowed Group`);
-  for (const name of Object.keys(vars)) {
-    const at = `${collection} › ${name}`;
+  if (group !== undefined && !GROUPS.has(group)) issues.push(`collection "${collection}": "${group}" is not an allowed axis`);
+  for (const full of Object.keys(vars)) {
+    const at = `${collection} › ${full}`;
+    const segs = full.split('/'); const name = prefixes.includes(segs[0]) ? segs.slice(1).join('/') : full;
     const [part, ...rest] = name.split('/');
     if (rest.length && !(rest.length === 1 && STATES.has(rest[0]))) issues.push(`${at}: use {part}/{state}`);
     if (/(^|-)(background|text)$/.test(part)) issues.push(`${at}: use container or label`);
@@ -104,9 +114,21 @@ export function expectedComponentTokens(file) {
     const m = figmaModel(rel);
     all.push(...m.collections); errors.push(...m.errors);
   }
-  const names = all.map((c) => c.collection);
-  names.filter((n, i) => names.indexOf(n) !== i).forEach((n) => errors.push(`${file}: collection "${n}" defined twice`));
-  return { collections: all, errors, hash: sha(JSON.stringify(all)) };
+  // Merge groups that share a collection: same set of modes, every group prefixed, no variable defined twice.
+  const merged = new Map();
+  for (const c of all) {
+    const m = merged.get(c.collection);
+    if (!m) { merged.set(c.collection, { collection: c.collection, components: [c.component], prefixes: c.prefix ? [c.prefix] : [], modes: [...c.modes], vars: { ...c.vars }, descriptions: { ...c.descriptions }, parts: 1 }); continue; }
+    m.parts++;
+    if ([...c.modes].sort().join() !== [...m.modes].sort().join()) { errors.push(`${file}: collection "${c.collection}" — ${c.source} ${c.component} has modes [${c.modes.join(', ')}], the collection has [${m.modes.join(', ')}]; groups sharing a collection need the same modes`); continue; }
+    if (!c.prefix || m.prefixes.length !== m.parts - 1) errors.push(`${file}: collection "${c.collection}" is shared by several groups — every group needs $extensions.figma.prefix`);
+    if (c.prefix) m.prefixes.push(c.prefix);
+    if (!m.components.includes(c.component)) m.components.push(c.component);
+    for (const [n, v] of Object.entries(c.vars)) { if (m.vars[n]) errors.push(`${file}: "${c.collection}" variable ${n} defined twice`); m.vars[n] = v; }
+    Object.assign(m.descriptions, c.descriptions);
+  }
+  const collections = [...merged.values()].map(({ parts, components, ...c }) => ({ ...c, component: components.join(', ') }));
+  return { collections, errors, hash: sha(JSON.stringify(collections)) };
 }
 
 // Spec ↔ <name>.tokens.json: the same facts must appear in both (Part B2–B3 of <name>.md is the human view, the JSON the machine view).

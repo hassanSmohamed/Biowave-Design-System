@@ -1,4 +1,4 @@
-<!-- GENERATED from icon-button.md @ f204e3b59d2ba89f — do not edit; change the source and run: npm run contract -- web icon-button -->
+<!-- GENERATED from icon-button.md @ 7b61761e91929272 — do not edit; change the source and run: npm run contract -- web icon-button -->
 # Icon button · زر أيقونة — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Icon button in the Web Components file, with our variables and styles.** Read this file only. Generated from [`icon-button.md`](icon-button.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](icon-button.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Icon button · زر أيقونة |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-21 |
-| Source | [`icon-button.md`](icon-button.md) @ `f204e3b59d2ba89f` |
+| Source | [`icon-button.md`](icon-button.md) @ `7b61761e91929272` |
 
 ## 1. Library connections in this file
 
@@ -50,12 +50,12 @@ Already in this file, created by the sync tooling from [`icon-button.tokens.json
 | Icon button / Selected | brand · secondary · error · neutral · inverse · success · warning · info | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled`<br>success → 1. Themes › `color/icon/disabled`<br>warning → 1. Themes › `color/icon/disabled`<br>info → 1. Themes › `color/icon/disabled` |
 | Icon button / Selected | brand · secondary · error · neutral · inverse · success · warning · info | `border/selected` | brand → 1. Themes › `color/border/brand`<br>secondary → 1. Themes › `color/border/secondary`<br>error → 1. Themes › `color/border/error`<br>neutral → 1. Themes › `color/border/strong`<br>inverse → 1. Themes › `color/border/inverse`<br>success → 1. Themes › `color/border/success`<br>warning → 1. Themes › `color/border/warning`<br>info → 1. Themes › `color/border/info` |
 | Icon button / Selected | brand · secondary · error · neutral · inverse · success · warning · info | `border/disabled` | brand → 1. Themes › `color/border/disabled`<br>secondary → 1. Themes › `color/border/disabled`<br>error → 1. Themes › `color/border/disabled`<br>neutral → 1. Themes › `color/border/disabled`<br>inverse → 1. Themes › `color/border/disabled`<br>success → 1. Themes › `color/border/disabled`<br>warning → 1. Themes › `color/border/disabled`<br>info → 1. Themes › `color/border/disabled` |
-| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `container/default` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
-| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `container/disabled` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
-| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `state-layer/hovered` | brand → 1. Themes › `color/background/transparent/hovered`<br>secondary → 1. Themes › `color/background/transparent/hovered`<br>success → 1. Themes › `color/background/transparent/hovered`<br>error → 1. Themes › `color/background/transparent/hovered`<br>warning → 1. Themes › `color/background/transparent/hovered`<br>info → 1. Themes › `color/background/transparent/hovered`<br>neutral → 1. Themes › `color/background/transparent/hovered`<br>inverse → 1. Themes › `color/background/transparent/hovered` |
-| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `state-layer/pressed` | brand → 1. Themes › `color/background/transparent/pressed`<br>secondary → 1. Themes › `color/background/transparent/pressed`<br>success → 1. Themes › `color/background/transparent/pressed`<br>error → 1. Themes › `color/background/transparent/pressed`<br>warning → 1. Themes › `color/background/transparent/pressed`<br>info → 1. Themes › `color/background/transparent/pressed`<br>neutral → 1. Themes › `color/background/transparent/pressed`<br>inverse → 1. Themes › `color/background/transparent/pressed` |
-| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/on/brand` |
-| Button / Transparent | brand · secondary · success · error · warning · info · neutral · inverse | `icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>success → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>warning → 1. Themes › `color/icon/disabled`<br>info → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
+| Button / Color | brand · secondary · success · error · warning · info · neutral · inverse | `transparent/container/default` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
+| Button / Color | brand · secondary · success · error · warning · info · neutral · inverse | `transparent/container/disabled` | brand → 1. Themes › `color/background/transparent/default`<br>secondary → 1. Themes › `color/background/transparent/default`<br>success → 1. Themes › `color/background/transparent/default`<br>error → 1. Themes › `color/background/transparent/default`<br>warning → 1. Themes › `color/background/transparent/default`<br>info → 1. Themes › `color/background/transparent/default`<br>neutral → 1. Themes › `color/background/transparent/default`<br>inverse → 1. Themes › `color/background/transparent/default` |
+| Button / Color | brand · secondary · success · error · warning · info · neutral · inverse | `transparent/state-layer/hovered` | brand → 1. Themes › `color/background/transparent/hovered`<br>secondary → 1. Themes › `color/background/transparent/hovered`<br>success → 1. Themes › `color/background/transparent/hovered`<br>error → 1. Themes › `color/background/transparent/hovered`<br>warning → 1. Themes › `color/background/transparent/hovered`<br>info → 1. Themes › `color/background/transparent/hovered`<br>neutral → 1. Themes › `color/background/transparent/hovered`<br>inverse → 1. Themes › `color/background/transparent/hovered` |
+| Button / Color | brand · secondary · success · error · warning · info · neutral · inverse | `transparent/state-layer/pressed` | brand → 1. Themes › `color/background/transparent/pressed`<br>secondary → 1. Themes › `color/background/transparent/pressed`<br>success → 1. Themes › `color/background/transparent/pressed`<br>error → 1. Themes › `color/background/transparent/pressed`<br>warning → 1. Themes › `color/background/transparent/pressed`<br>info → 1. Themes › `color/background/transparent/pressed`<br>neutral → 1. Themes › `color/background/transparent/pressed`<br>inverse → 1. Themes › `color/background/transparent/pressed` |
+| Button / Color | brand · secondary · success · error · warning · info · neutral · inverse | `transparent/icon/default` | brand → 1. Themes › `color/icon/role/brand`<br>secondary → 1. Themes › `color/icon/role/secondary`<br>success → 1. Themes › `color/icon/role/success`<br>error → 1. Themes › `color/icon/role/error`<br>warning → 1. Themes › `color/icon/role/warning`<br>info → 1. Themes › `color/icon/role/info`<br>neutral → 1. Themes › `color/icon/default`<br>inverse → 1. Themes › `color/icon/on/brand` |
+| Button / Color | brand · secondary · success · error · warning · info · neutral · inverse | `transparent/icon/disabled` | brand → 1. Themes › `color/icon/disabled`<br>secondary → 1. Themes › `color/icon/disabled`<br>success → 1. Themes › `color/icon/disabled`<br>error → 1. Themes › `color/icon/disabled`<br>warning → 1. Themes › `color/icon/disabled`<br>info → 1. Themes › `color/icon/disabled`<br>neutral → 1. Themes › `color/icon/disabled`<br>inverse → 1. Themes › `color/icon/disabled` |
 
 ## 3. Foundations variables used (keys)
 
@@ -260,17 +260,17 @@ Keep Icon Button (116:30310), Icon Button / Appearance (116:28709), and Icon But
 
 ### D3 Layer tree and auto layout
 
-Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Color › focus/color and focus/width. No effects except Elevation/3 on the menu.
 
 | Part | Collection | Mode or variable |
 |---|---|---|
 | Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
-| `Variant=filled` | `Button / Filled` | Same name as `Color` |
-| `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
-| `Variant=transparent` | `Button / Transparent` | Same name as `Color` |
-| `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
+| `Variant=filled` | `Button / Color` › `filled/` | Same name as `Color` |
+| `Variant=tonal` | `Button / Color` › `tonal/` | Same name as `Color` |
+| `Variant=transparent` | `Button / Color` › `transparent/` | Same name as `Color` |
+| `Variant=outlined` | `Button / Color` › `outlined/` | Same name as `Color` |
 | `Selected=true` | `Icon button / Selected` | Same name as `Color` |
-| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Focus ring | `Button / Color` › `focus/` | `default` or `inverse` |
 | Tooltip layers | `Tooltip / Container` | `default` |
 | `Show Menu Buttons` layers | `Menu / *` | `default` |
 
@@ -514,7 +514,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

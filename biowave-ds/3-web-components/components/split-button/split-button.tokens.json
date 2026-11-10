@@ -1,6 +1,6 @@
 {
   "$schema": "component-tokens/v1",
-  "$description": "Split button component tokens (D-13) plus the general Menu collections. Menu tokens stay here until the Menu component owns them; the collection names do not change when they move. Every value aliases a semantic token.",
+  "$description": "Split button component tokens (D-13) plus the general Menu collections. Menu tokens stay here until the Menu component owns them; the Menu collection name does not change when they move. Every value aliases a semantic token.",
   "split-button": {
     "segment": {
       "$extensions": {
@@ -43,7 +43,8 @@
     "container": {
       "$extensions": {
         "figma": {
-          "collection": "Menu / Container",
+          "collection": "Menu",
+          "prefix": "container",
           "modes": true
         }
       },
@@ -71,7 +72,8 @@
     "item": {
       "$extensions": {
         "figma": {
-          "collection": "Menu / Item",
+          "collection": "Menu",
+          "prefix": "item",
           "modes": true
         }
       },

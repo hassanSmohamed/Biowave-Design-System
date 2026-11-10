@@ -495,18 +495,18 @@ Keep Icon Button (116:30310), Icon Button / Appearance (116:28709), and Icon But
 
 ### D3 Layer tree and auto layout
 
-Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Focus color and width. No effects except Elevation/3 on the menu.
+Keep existing nesting and auto layout. Bind dimensions from B2 and colours from B3 using component tokens only. Focus ring is an inside stroke layer with no fill, bound to Button / Color › focus/color and focus/width. No effects except Elevation/3 on the menu.
 
 
 | Part | Collection | Mode or variable |
 |---|---|---|
 | Size, icon size, radius, border width | `Icon button / Size` | Same name as `Size` |
-| `Variant=filled` | `Button / Filled` | Same name as `Color` |
-| `Variant=tonal` | `Button / Tonal` | Same name as `Color` |
-| `Variant=transparent` | `Button / Transparent` | Same name as `Color` |
-| `Variant=outlined` | `Button / Outlined` | Same name as `Color` |
+| `Variant=filled` | `Button / Color` › `filled/` | Same name as `Color` |
+| `Variant=tonal` | `Button / Color` › `tonal/` | Same name as `Color` |
+| `Variant=transparent` | `Button / Color` › `transparent/` | Same name as `Color` |
+| `Variant=outlined` | `Button / Color` › `outlined/` | Same name as `Color` |
 | `Selected=true` | `Icon button / Selected` | Same name as `Color` |
-| Focus ring | `Button / Focus` | `default` or `inverse` |
+| Focus ring | `Button / Color` › `focus/` | `default` or `inverse` |
 | Tooltip layers | `Tooltip / Container` | `default` |
 | `Show Menu Buttons` layers | `Menu / *` | `default` |
 
