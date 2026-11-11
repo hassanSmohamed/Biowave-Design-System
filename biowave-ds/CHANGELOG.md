@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-11-11 — Input family on Tablet (Figma, copied from Web)
+
+Figma only (Tablet Components file; no code or repo token change). The Web input family (Waves 0–6), Button, Split button and Icon button were pasted into the Tablet file and made local:
+- **Local variables.** 32 component collections copied from Web (357 variables, each aliasing Foundations); every binding and explicit mode on main layers and on overrides inside instances moved to them, and pasted instances now point to the components in the Tablet file. A file-wide scan finds no layer bound to a Web variable. Removed the five old `Button / Filled · Tonal · Outlined · Text · Focus` collections and six unused ones (`typography`, `_Primitives`, `1. Color modes`, `Bottom bar`, `Icon / Size`, `Icon / Color`) after a 0-reference scan.
+- **Tablet modes.** `5. Typography` is set to Tablet · EN / Tablet · AR (the Arabic layers had pointed at an outdated copy of the collection), `6. Grid & Layout` to Tablet. Doc headers show `Tablet`.
+- **No hover.** Every `State=hovered` variant is removed (1,104 variants across 46 sets), with its columns, axis labels and variant counts in the doc sheets; sets are compacted and Split button / Button row labels realigned. Instances that pointed at hovered variants (for example in Menu) now use the default state.
+- **Open states.** Date, Date range, Time and Color picker, Select, Autocomplete and Phone field: the `open` variants show the field only. The panel opens in a Dialog over a scrim (pickers) or in a Bottom sheet (Select, Autocomplete, Phone country list), as shown on page 07.
+- **07 Platform rewritten** for all 24 pages: Tablet landscape and portrait device frames, Tablet tables (lg 48 is the touch default; sm and md keep a 48 hit area; no hover). File upload shows the sources sheet: Take photo · Choose from gallery · Browse files. Menu and Popover say Bottom sheet for lists on Tablet and Mobile.
+- **Changelog rows (1.1)** on every 11 sheet, file Changelog entry, and Components List cards for Waves 0–6.
+
+Open: the File upload dropzone still reads “Drag files here or” on Tablet; the Icon button doc (Glyph and Final sections) is sparse in Web as well; Tablet Button keeps the Web set (no `XL` size or `Loading` state that the Tablet contract lists). Mobile is next.
+
 ## 2026-11-10 — Component token collections: one per mode axis (Web Figma file + rule + tooling)
 
 **Figma (Web Components file).** Component-token collections now follow one rule: a collection exists only for one mode axis of a component; variables with the same modes share it and sit in groups. 48 → 34 collections, no value changed.
