@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-11-11 — Input family on Mobile (Figma, copied from Web)
+
+Figma only (Mobile Components file; no code or repo token change). Same steps as the Tablet entry below, for Mobile:
+- **Local variables.** 29 component collections copied from Web (the existing `Button / Size` and `Text field / Size · State` reused; 357 variables, each aliasing Foundations). Every binding and explicit mode moved to them, on main layers and on overrides inside instances; pasted instances, nested ones included, now point to the Mobile components. A file-wide scan finds no layer bound to a Web variable. Removed the five old `Button / Filled · Tonal · Outlined · Text · Focus` collections and six unused ones (`typography`, `_Primitives`, `1. Color modes`, `Bottom bar`, `Icon / Size`, `Icon / Color`) after a 0-reference scan (bindings, modes, aliases and styles).
+- **Old Wave 0.** The earlier Mobile field parts are kept, moved to `_Deprecation Ground` (section “Legacy · Mobile Wave 0 field parts”).
+- **Mobile modes.** `5. Typography` set to Mobile · EN / Mobile · AR on every layer and page, `6. Grid & Layout` to Mobile. Doc headers show `Mobile`.
+- **No hover.** Every `State=hovered` variant, and File upload `State=drag-over`, is removed with its doc columns, labels and counts; instances that pointed at them use the default state. The legacy Button and Link variation docs lose their “State = Hovered” blocks (Tablet too).
+- **Open states.** Date range, Time and Color picker and Phone field: the `open` variants show the field only. On Mobile both pickers and lists open in a Bottom sheet.
+- **07 Platform rewritten** for 20 pages: two Phone frames (the field in a form; the open Bottom sheet with drag handle over a scrim), Mobile tables (lg 48 touch default, 48 hit area, no hover). File upload shows the sources sheet: Take photo · Choose from gallery · Browse files.
+- **Fixes.** `label-row` and `supporting-row` fill the width in Phone field, Date range, Time and Color picker (they were fixed at 320 and overflowed narrower fields). File upload dropzone reads “Tap to add files” / “اضغط لإضافة الملفات”.
+- **Button.** Adds `Size=xl` and `State=loading` as on Tablet, matching `5-mobile-components/components/button/figma-button-contract.md`: 480 variants per language, 60-row grid, row labels rebuilt. Split button labels realigned; Icon button doc laid out like Tablet.
+- **Changelog rows (1.1)** on 21 sheets, file Changelog entry, Components List cards for Waves 0–6.
+
+Open: the Mobile Select, Autocomplete and Date picker pages hold the wrong components after the paste (Segmented button, Search field and Calendar copies, deleted after a 0-reference check). They need a new paste from Web; then the same steps, their 07 pages (and Calendar 07), 11 rows and cards. `Button Group` page is empty on Mobile.
+
 ## 2026-11-11 — Tablet follow-ups: File upload copy, Button XL + Loading, Icon button doc (Web and Tablet)
 
 Figma only.
