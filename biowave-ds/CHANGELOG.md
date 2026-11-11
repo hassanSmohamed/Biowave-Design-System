@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-11 — Tablet follow-ups: File upload copy, Button XL + Loading, Icon button doc (Web and Tablet)
+
+Figma only.
+- **Tablet File upload:** the dropzone reads “Tap to add files” / “اضغط لإضافة الملفات”; `State=drag-over` removed (no drag and drop on touch; 15 variants per language) with its doc column and counts.
+- **Tablet Button:** adds `Size=xl` (from lg with the `Button / Size` xl mode: height 56, xl padding and radius) and `State=loading` (content kept for width at 0 opacity, centered circular indeterminate Progress whose arc uses the label colour, track hidden), matching `figma-button-contract.md` (sm · md · lg · xl × default · pressed · focused · disabled · loading). 480 variants per language; grid reordered to 60 rows (Variant × State × Size) × 8 colours; doc row labels rebuilt (the old XLarge/Medium/Small labels were wrong).
+- **Icon button doc (Web, then Tablet):** the Appearance set is laid out as Variant rows × Colour blocks × State columns, the Final set as Size columns × Default / Toggle off / Toggle on rows, and every label is regenerated from the sets (the old XS–XL, Narrow/Default/Wide and Round/Rounded-square labels described an earlier design). Tablet shows no hover column.
+
 ## 2026-11-11 — Input family on Tablet (Figma, copied from Web)
 
 Figma only (Tablet Components file; no code or repo token change). The Web input family (Waves 0–6), Button, Split button and Icon button were pasted into the Tablet file and made local:
@@ -10,7 +17,7 @@ Figma only (Tablet Components file; no code or repo token change). The Web input
 - **07 Platform rewritten** for all 24 pages: Tablet landscape and portrait device frames, Tablet tables (lg 48 is the touch default; sm and md keep a 48 hit area; no hover). File upload shows the sources sheet: Take photo · Choose from gallery · Browse files. Menu and Popover say Bottom sheet for lists on Tablet and Mobile.
 - **Changelog rows (1.1)** on every 11 sheet, file Changelog entry, and Components List cards for Waves 0–6.
 
-Open: the File upload dropzone still reads “Drag files here or” on Tablet; the Icon button doc (Glyph and Final sections) is sparse in Web as well; Tablet Button keeps the Web set (no `XL` size or `Loading` state that the Tablet contract lists). Mobile is next.
+Open items from this entry are closed in the follow-up entry above. Mobile is next.
 
 ## 2026-11-10 — Component token collections: one per mode axis (Web Figma file + rule + tooling)
 
