@@ -7,13 +7,14 @@ Figma only (Mobile Components file; no code or repo token change). Same steps as
 - **Old Wave 0.** The earlier Mobile field parts are kept, moved to `_Deprecation Ground` (section “Legacy · Mobile Wave 0 field parts”).
 - **Mobile modes.** `5. Typography` set to Mobile · EN / Mobile · AR on every layer and page, `6. Grid & Layout` to Mobile. Doc headers show `Mobile`.
 - **No hover.** Every `State=hovered` variant, and File upload `State=drag-over`, is removed with its doc columns, labels and counts; instances that pointed at them use the default state. The legacy Button and Link variation docs lose their “State = Hovered” blocks (Tablet too).
-- **Open states.** Date range, Time and Color picker and Phone field: the `open` variants show the field only. On Mobile both pickers and lists open in a Bottom sheet.
-- **07 Platform rewritten** for 20 pages: two Phone frames (the field in a form; the open Bottom sheet with drag handle over a scrim), Mobile tables (lg 48 touch default, 48 hit area, no hover). File upload shows the sources sheet: Take photo · Choose from gallery · Browse files.
-- **Fixes.** `label-row` and `supporting-row` fill the width in Phone field, Date range, Time and Color picker (they were fixed at 320 and overflowed narrower fields). File upload dropzone reads “Tap to add files” / “اضغط لإضافة الملفات”.
+- **Open states.** Select, Autocomplete, Date, Date range, Time and Color picker and Phone field: the `open` variants show the field only. On Mobile both pickers and lists open in a Bottom sheet.
+- **07 Platform rewritten** for all 24 pages: two Phone frames (the field in a form; the open Bottom sheet with drag handle over a scrim), Mobile tables (lg 48 touch default, 48 hit area, no hover). File upload shows the sources sheet: Take photo · Choose from gallery · Browse files.
+- **Fixes.** `label-row` and `supporting-row` fill the width in Select, Phone field, Date, Date range, Time and Color picker (they were fixed at 320 and overflowed narrower fields). In the 07 Phone frames the field sits at a fixed width in a frame without auto layout: a field set to fill inside the device slot rendered at its old width with the right border cut off. File upload dropzone reads “Tap to add files” / “اضغط لإضافة الملفات”.
 - **Button.** Adds `Size=xl` and `State=loading` as on Tablet, matching `5-mobile-components/components/button/figma-button-contract.md`: 480 variants per language, 60-row grid, row labels rebuilt. Split button labels realigned; Icon button doc laid out like Tablet.
-- **Changelog rows (1.1)** on 21 sheets, file Changelog entry, Components List cards for Waves 0–6.
+- **Changelog rows (1.1)** on all 24 sheets, file Changelog entry, Components List cards for Waves 0–6 (27 cards).
+- **Select, Autocomplete, Date picker** were pasted again on 2026-11-12 (the first paste had put Segmented button, Search field and Calendar copies on those pages; they were deleted after a 0-reference check) and went through the same steps: 168 hovered variants removed, Web instances swapped, every binding moved to the Mobile collections (0 left), Mobile modes and headers, open states, 07, 11 and cards.
 
-Open: the Mobile Select, Autocomplete and Date picker pages hold the wrong components after the paste (Segmented button, Search field and Calendar copies, deleted after a 0-reference check). They need a new paste from Web; then the same steps, their 07 pages (and Calendar 07), 11 rows and cards. `Button Group` page is empty on Mobile.
+Open: the `Button Group` page is empty on Mobile.
 
 ## 2026-11-11 — Tablet follow-ups: File upload copy, Button XL + Loading, Icon button doc (Web and Tablet)
 
