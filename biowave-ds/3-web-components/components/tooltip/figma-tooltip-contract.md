@@ -1,4 +1,4 @@
-<!-- GENERATED from tooltip.md @ 5c379ef9be4d8572 — do not edit; change the source and run: npm run contract -- web tooltip -->
+<!-- GENERATED from tooltip.md @ e62ee09d7e84e5c5 — do not edit; change the source and run: npm run contract -- web tooltip -->
 # Tooltip · تلميح — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Tooltip in the Web Components file, with our variables and styles.** Read this file only. Generated from [`tooltip.md`](tooltip.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](tooltip.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Tooltip · تلميح |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`tooltip.md`](tooltip.md) @ `5c379ef9be4d8572` |
+| Source | [`tooltip.md`](tooltip.md) @ `e62ee09d7e84e5c5` |
 
 ## 1. Library connections in this file
 
@@ -199,7 +199,7 @@ RTL   placement="end"    ┌ تعديل الجهاز ┐ [◆]
 
 ### D1 Rules for this build
 
-Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first, every value bound, no local variables or styles. Tooltip has **no component tokens** (P-04), so bind directly to the Foundations library variables listed in the contract (§3); `figma-read-tokens.js` lint must still report 0.
+Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first, every value bound, no local variables or styles. Code reads the semantic tokens directly (P-04); Figma binds to the **Figma-only** `Tooltip / Container` collection from [`tooltip.tokens.json`](tooltip.tokens.json) (contract §2), whose values alias those semantic tokens, plus `size/container/xxs` for the max width; `figma-read-tokens.js` lint must still report 0.
 - Text uses the published text styles `label/sm` (EN variant → `en`, AR variant → `ar`).
 - No effect style (no shadow) and no stroke.
 
@@ -477,7 +477,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

@@ -1,4 +1,4 @@
-<!-- GENERATED from badge.md @ a1414800ca92ccb0 — do not edit; change the source and run: npm run contract -- web badge -->
+<!-- GENERATED from badge.md @ b2fb1109c88cad50 — do not edit; change the source and run: npm run contract -- web badge -->
 # Badge · شارة — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Badge in the Web Components file, with our variables and styles.** Read this file only. Generated from [`badge.md`](badge.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](badge.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Badge · شارة |
 | Platform | Web · React + MUI |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`badge.md`](badge.md) @ `a1414800ca92ccb0` |
+| Source | [`badge.md`](badge.md) @ `b2fb1109c88cad50` |
 
 ## 1. Library connections in this file
 
@@ -176,7 +176,7 @@ No component tokens — every value is an existing semantic token (P-04); `badge
 | `brand` | `color-background-brand-default` | `color-text-on-brand` | `color-icon-on-brand` |
 | `secondary` | `color-background-secondary-default` | `color-text-on-secondary` | `color-icon-on-secondary` |
 | `success` | `color-background-success-default` | `color-text-on-success` | `color-icon-on-success` |
-| `warning` | `color-icon-role-warning` | `color-text-inverse` | — (not allowed) |
+| `warning` | `color-icon-role-warning` | `color-text-on-warning` | — (not allowed) |
 | `info` | `color-background-info-default` | `color-text-on-info` | `color-icon-on-info` |
 | `neutral` | `color-surface-inverse` | `color-text-inverse` | `color-icon-inverse` |
 
@@ -551,7 +551,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

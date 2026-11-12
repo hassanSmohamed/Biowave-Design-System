@@ -78,7 +78,7 @@ function getColorTokens(color: BadgeColor): BadgeColorTokens {
     case 'warning':
       return {
         background: cssVars.color.icon.role.warning,
-        foreground: cssVars.color.text.inverse,
+        foreground: cssVars.color.text.on.warning,
       };
     case 'info':
       return {

@@ -513,7 +513,7 @@ Horizontal
 container        ↔ horizontal · width FILL when placed · height HUG
 │                  padding-left / padding-right = {B2 inset} (Start: left only in LTR, right only in RTL)
 │                  counter-axis align = center · gap = {B3 label gap: spacing/md}
-├── line         frame · width FILL (min width {spacing/xl}) · height HUG (no children)
+├── line         frame · width FILL (min width {spacing/xl}) · height = {B3 border-width-default} (bound)
 │                  bottom stroke only: weight {B3 border-width-default}, colour {B3 per Emphasis}
 │                  strokes included in layout = on (the frame is exactly one stroke thick)
 ├── label        T `caption/md` · fill {color/text/subtlest} · width HUG · align center
@@ -523,13 +523,13 @@ container        ↔ horizontal · width FILL when placed · height HUG
 Vertical
 container        ↕ vertical · height FILL when placed · width HUG
 │                  padding-top / padding-bottom = {B2 inset} (Both only)
-└── line         frame · height FILL · width HUG (no children)
+└── line         frame · height FILL · width = {B3 border-width-default} (bound)
                    right stroke only: weight {B3}, colour {B3}; strokes included in layout = on
 ```
 
 With `Show label` off, `label` and the second `line` are hidden, so the first `line` fills the container alone (hidden layers take no gap). Vertical variants have no `label` layer: `Show label` and `Label` do nothing there (B1 — no label on vertical dividers). The default text style is `caption/md`; Arabic samples on doc pages use `caption/md` and the Arabic text “أو”.
 
-If a hug frame with no children cannot keep the stroke-only size, stop and report in D11 (do not switch to a fill rectangle with a raw height).
+An empty auto-layout frame cannot hug its own stroke in Figma, so the `line` thickness (height when horizontal, width when vertical) is bound to the same variable as its stroke weight, `border/width/default` (1.2, from the Wave 7 build). Never a raw height or a fill rectangle.
 
 ```
 LTR, Inset=Start              │      ──────────────────────│
@@ -599,7 +599,9 @@ Component description: “Thin line that separates groups of content, with an op
 - **D3 stop condition hit:** an empty auto-layout frame does not hug its stroke in Figma (it stays 100 px). Instead of a raw height, the `line` thickness (height for horizontal, width for vertical) is **bound to `border/width/default`**, the same variable as its stroke weight, so it stays one stroke thick and follows the token. Planner to confirm or adjust D3.
 - Doc example toolbars use the Icon Button set (edit · share · delete · more_vert).
 
-**Questions for the Planner:** see the deviations above.
+**Resolved:** Line thickness bound to `border/width/default` — **adopted in D3** (spec 1.1.1).
+
+**Questions for the Planner:** none
 
 ---
 
@@ -795,6 +797,7 @@ Skipped: Figma build is `Planned` and `figma` is skipped in `_workflow/config.js
 
 | Version | Date | Change | Breaking | Migration |
 |---|---|---|---|---|
+| 1.1.1 | 2026-11-12 | D3: the `line` thickness is bound to `border/width/default` (an empty auto-layout frame cannot hug its stroke); replaces the D3 stop condition (Wave 7 build) | No | — |
 | 1.0 | 2026-10-22 | Initial | No | — |
 | 1.1 | 2026-10-23 | New props `showLabel`, `label`, `component` (`hr` · `li`); labelled root `<div role="separator" aria-label>`; `li` root always `aria-hidden`; two new warnings (B1); label tokens (B2–B3), RTL (B5), semantics (B6), tests (B9); Figma `Show label` + `Label` (D3–D4) | No | — (new options default off) |
 | 1.1 | 2026-10-24 | Review round 1 Planner finding #3: header Source code row links the built folder [`src/components/divider/`](../../src/components/divider/). Executor findings #1–#2 need no plan change (fixes stated in E2). No spec change; Plan → Finished, web contract regenerated | No | — |

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-12 — Wave 7 fixes: Badge warning text, Divider line, Tooltip tokens
+
+- **Badge (bug):** the token 2.0 migration had turned the Warning count text into `color-text-inverse` — white on the warning fill in light mode, about 3.2:1. Back to `color-text-on-warning` (6.10:1 light · 13.11:1 dark, as measured in review) in B3 on all three platforms, `Badge.tsx` and its test (web badge tests 21/21), and the Count × Warning variants in the Web, Tablet and Mobile Figma sets.
+- **Divider:** D3 now binds the `line` thickness to `border/width/default` (an empty auto-layout frame cannot hug its stroke); the stop condition is replaced.
+- **Tooltip:** D1 / B3 say Figma binds to the Figma-only `Tooltip / Container` collection; `tooltip.tokens.json` added on Tablet and Mobile (`npm run component-tokens` ✓ on all three).
+- Specs 1.1.1, contracts regenerated, D11 logs marked resolved, `docs:check` ✓.
+
 ## 2026-11-12 — Wave 7 on Tablet and Mobile: Badge, Divider, Tooltip (Figma)
 
 Figma only, from the Tablet and Mobile Figma contracts (same structure as Web). New pages `↳ Badge`, `↳ Divider`, `↳ Tooltip` after `↳ Button Group` in both files.

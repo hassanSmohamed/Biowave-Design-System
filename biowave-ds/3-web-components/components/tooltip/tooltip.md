@@ -468,7 +468,7 @@ Checks: `npm run typecheck` ✓ (2.38 s); `npm run test:web` ✓ 146/146 in thre
 
 ### D1 Rules for this build
 
-Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first, every value bound, no local variables or styles. Tooltip has **no component tokens** (P-04), so bind directly to the Foundations library variables listed in the contract (§3); `figma-read-tokens.js` lint must still report 0.
+Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first, every value bound, no local variables or styles. Code reads the semantic tokens directly (P-04); Figma binds to the **Figma-only** `Tooltip / Container` collection from [`tooltip.tokens.json`](tooltip.tokens.json) (contract §2), whose values alias those semantic tokens, plus `size/container/xxs` for the max width; `figma-read-tokens.js` lint must still report 0.
 - Text uses the published text styles `label/sm` (EN variant → `en`, AR variant → `ar`).
 - No effect style (no shadow) and no stroke.
 
@@ -570,7 +570,9 @@ Component description: "Short text that names an icon-only control or adds a one
 - The contract §2 says Tooltip has component tokens in `Tooltip / Container` while D1 says it has none; the build binds to `Tooltip / Container` (the collection exists in the file and aliases the same Foundations variables). Planner to align D1.
 - Long text: the label is auto width in the set; the doc examples that wrap set the instance to 240 and the label to fill (Figma cannot wrap an auto-width text at a max width).
 
-**Questions for the Planner:** see the deviations above.
+**Resolved:** Binding to `Tooltip / Container` — **adopted in D1 / B3** and `tooltip.tokens.json` added on Tablet and Mobile (spec 1.1.1).
+
+**Questions for the Planner:** none
 
 ---
 
@@ -759,5 +761,6 @@ Headless Chrome 156, anchor 40×40 at (400,300), light/en (others identical exce
 
 | Version | Date | Change | Breaking | Migration |
 |---|---|---|---|---|
+| 1.1.1 | 2026-11-12 | D1 / B3: Figma binds to the Figma-only `Tooltip / Container` collection (`tooltip.tokens.json`, now also on Tablet and Mobile); code still reads the semantic tokens. Wave 7 build | No | — |
 | 1.1 | 2026-10-24 | Review round 1 #1 (Planner): B2 / B4 / B6 — the `spacing-xs` gap is inside the hover area; C3 › Offset (no popper `offset` modifier, anchor-facing tooltip margin per resolved placement, logical properties) and C3 › Description id; B9 step-by-step hover-across-the-gap test, gap-geometry test and one-id-during-exit check; C5 / C6 / C7 (AC-7 – AC-10) and the Fix round 1 task list for #1 – #3 | No | None — same props, same visible gap |
 | 1.0 | 2026-10-23 | Initial. Tokens and timings taken from the approved Icon button temporary tooltip (Icon button B3.4 and B4) plus max width `size-container-xxs` | No | Icon button and Text field help tooltip switch to `Tooltip` in their own follow-up plans (C2) |

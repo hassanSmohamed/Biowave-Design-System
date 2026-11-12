@@ -47,7 +47,7 @@ const colorTokens: Record<
   },
   warning: {
     background: cssVars.color.icon.role.warning,
-    foreground: cssVars.color.text.inverse,
+    foreground: cssVars.color.text.on.warning,
   },
   info: {
     background: cssVars.color.background.info.default,
@@ -150,6 +150,9 @@ describe('Badge visual contract', () => {
 
     expect(indicator).toHaveStyle({
       backgroundColor: cssVars.color.icon.role.warning,
+      color: cssVars.color.text.on.warning,
+    });
+    expect(indicator).not.toHaveStyle({
       color: cssVars.color.text.inverse,
     });
     expect(indicator).not.toHaveStyle({

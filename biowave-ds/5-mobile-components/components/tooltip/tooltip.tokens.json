@@ -1,0 +1,47 @@
+{
+  "$schema": "component-tokens/v1",
+  "$description": "Figma-only Tooltip component tokens. Every value aliases a semantic token; code consumes the semantic tokens directly.",
+  "$extensions": {
+    "biowave": {
+      "figmaOnly": true
+    }
+  },
+  "tooltip": {
+    "container": {
+      "$extensions": {
+        "figma": {
+          "collection": "Tooltip / Container",
+          "modes": true
+        }
+      },
+      "$descriptions": {
+        "container": "Tooltip fill. Bind to: tooltip frame fill.",
+        "label": "Tooltip text colour. Bind to: tooltip text fill.",
+        "radius": "Corner radius. Bind to: frame corner radius.",
+        "padding-block": "Top and bottom padding. Bind to: top and bottom padding.",
+        "padding-inline": "Start and end padding, mirrored in RTL. Bind to: left and right padding.",
+        "offset": "Distance from the anchor. Use for: tooltip position."
+      },
+      "default": {
+        "container": {
+          "$value": "{color.surface.inverse}"
+        },
+        "label": {
+          "$value": "{color.text.inverse}"
+        },
+        "radius": {
+          "$value": "{radius.sm}"
+        },
+        "padding-block": {
+          "$value": "{spacing.xs}"
+        },
+        "padding-inline": {
+          "$value": "{spacing.md}"
+        },
+        "offset": {
+          "$value": "{spacing.xs}"
+        }
+      }
+    }
+  }
+}

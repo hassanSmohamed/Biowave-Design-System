@@ -1,4 +1,4 @@
-<!-- GENERATED from tooltip.md @ cce9b91f16a9291e — do not edit; change the source and run: npm run contract -- tablet tooltip -->
+<!-- GENERATED from tooltip.md @ 42f2ce65eced0049 — do not edit; change the source and run: npm run contract -- tablet tooltip -->
 # Tooltip · تلميح — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Tooltip in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`tooltip.md`](tooltip.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](tooltip.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Tooltip · تلميح |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`tooltip.md`](tooltip.md) @ `cce9b91f16a9291e` |
+| Source | [`tooltip.md`](tooltip.md) @ `42f2ce65eced0049` |
 
 ## 1. Library connections in this file
 
@@ -34,18 +34,27 @@ const set = await figma.importComponentSetByKeyAsync('<component set key>');
 
 ## 2. Component-token collections (bind layers to these)
 
-None yet — this component has no component tokens. Bind to the Foundations variables in §3 and report it in D11 so the Planner adds component tokens.
+Already in this file, created by the sync tooling from [`tooltip.tokens.json`](tooltip.tokens.json). **Bind component layers to these variables** and pick the option with the collection's explicit variable mode. Each value aliases the Foundations variable shown (key in §3).
+
+| Collection | Modes | Variable | Alias target per mode |
+|---|---|---|---|
+| Tooltip / Container | default | `container` | default → 1. Themes › `color/surface/inverse` |
+| Tooltip / Container | default | `label` | default → 1. Themes › `color/text/inverse` |
+| Tooltip / Container | default | `radius` | default → 2. Radius › `radius/sm` |
+| Tooltip / Container | default | `padding-block` | default → 3. Spacing › `spacing/xs` |
+| Tooltip / Container | default | `padding-inline` | default → 3. Spacing › `spacing/md` |
+| Tooltip / Container | default | `offset` | default → 3. Spacing › `spacing/xs` |
 
 ## 3. Foundations variables used (keys)
 
 | Token | Figma variable | Key | Type | Scopes | Used by |
 |---|---|---|---|---|---|
-| `color-surface-inverse` | 1. Themes › `color/surface/inverse` | `364770c6a80914cb1d30c8afc1e354431dbb5f07` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
-| `color-text-inverse` | 1. Themes › `color/text/inverse` | `83e1f6c6d7ddf8376b1bc5d0b9d5f6cd13b68e9b` | COLOR | TEXT_FILL | spec |
-| `radius-sm` | 2. Radius › `radius/sm` | `44047be92c065ef35e4aa9ed6732645870ae38c9` | FLOAT | CORNER_RADIUS | spec |
+| `color-surface-inverse` | 1. Themes › `color/surface/inverse` | `364770c6a80914cb1d30c8afc1e354431dbb5f07` | COLOR | FRAME_FILL, SHAPE_FILL | spec, component token |
+| `color-text-inverse` | 1. Themes › `color/text/inverse` | `83e1f6c6d7ddf8376b1bc5d0b9d5f6cd13b68e9b` | COLOR | TEXT_FILL | spec, component token |
+| `radius-sm` | 2. Radius › `radius/sm` | `44047be92c065ef35e4aa9ed6732645870ae38c9` | FLOAT | CORNER_RADIUS | spec, component token |
 | `size-container-xxs` | 4. Size › `size/container/xxs` | `8f6b24b58d8c1a4206dee923c88a2cb14caf031d` | FLOAT | WIDTH_HEIGHT | spec |
-| `spacing-md` | 3. Spacing › `spacing/md` | `58c93e3cec1b6ba603371a027483e101adcef4f0` | FLOAT | GAP | spec |
-| `spacing-xs` | 3. Spacing › `spacing/xs` | `9ea993d003d5368c5100b038d51c7c8f3e95c115` | FLOAT | GAP | spec |
+| `spacing-md` | 3. Spacing › `spacing/md` | `58c93e3cec1b6ba603371a027483e101adcef4f0` | FLOAT | GAP | spec, component token |
+| `spacing-xs` | 3. Spacing › `spacing/xs` | `9ea993d003d5368c5100b038d51c7c8f3e95c115` | FLOAT | GAP | spec, component token |
 
 Code-only tokens (no Figma variable by design — motion, layers): `motion-duration-2xl` · `motion-duration-instant` · `motion-duration-md` · `motion-duration-sm` · `motion-easing-standard-accelerate` · `motion-easing-standard-decelerate`. Use them only as written values in prototype settings and docs.
 
@@ -120,7 +129,7 @@ Layout rules: the tooltip is drawn in the `Overlay` above the page and never cha
 
 ### B3 Tokens by part and state
 
-Every value is a semantic token; there are no component tokens (P-04 — the same set as the Web Tooltip and Icon button B3.4).
+Every value is a semantic token (P-04 — the same set as the Web Tooltip and Icon button B3.4). Figma binds them through the Figma-only `Tooltip / Container` collection ([`tooltip.tokens.json`](tooltip.tokens.json), same as Web); code reads the semantic tokens directly.
 
 | Part | Property | Shown | Entering / exiting |
 |---|---|---|---|
@@ -191,7 +200,7 @@ RTL   placement: end    ┌ تعديل الجهاز ┐ [◆]
 
 ### D1 Rules for this build
 
-Same as [Web D1](../../../3-web-components/components/tooltip/tooltip.md#d1-rules-for-this-build) (library first, everything bound, no local variables or styles, no component tokens), plus:
+Same as [Web D1](../../../3-web-components/components/tooltip/tooltip.md#d1-rules-for-this-build) (library first, everything bound, no local variables or styles; bind to the Figma-only `Tooltip / Container` collection, contract §2), plus:
 - **Typography mode:** on page `↳ Tooltip` set the explicit variable mode **`Tablet · EN`** of `5. Typography` (Arabic frames and examples: **`Tablet · AR`**) (`page.setExplicitVariableModeForCollection`). Text styles stay `label/sm`; the mode gives the Tablet scale and the language font.
 
 ### D2 Component structure
@@ -226,7 +235,7 @@ The Tablet Part D refers to these Web sections; they are copied here so you read
 
 #### D1 Rules for this build
 
-Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first, every value bound, no local variables or styles. Tooltip has **no component tokens** (P-04), so bind directly to the Foundations library variables listed in the contract (§3); `figma-read-tokens.js` lint must still report 0.
+Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first, every value bound, no local variables or styles. Code reads the semantic tokens directly (P-04); Figma binds to the **Figma-only** `Tooltip / Container` collection from [`tooltip.tokens.json`](tooltip.tokens.json) (contract §2), whose values alias those semantic tokens, plus `size/container/xxs` for the max width; `figma-read-tokens.js` lint must still report 0.
 - Text uses the published text styles `label/sm` (EN variant → `en`, AR variant → `ar`).
 - No effect style (no shadow) and no stroke.
 
@@ -509,7 +518,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8 and the inherited Web D1), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

@@ -1,4 +1,4 @@
-<!-- GENERATED from badge.md @ a4d933a5e7ff75e0 — do not edit; change the source and run: npm run contract -- mobile badge -->
+<!-- GENERATED from badge.md @ 46983f7d3e2c1c94 — do not edit; change the source and run: npm run contract -- mobile badge -->
 # Badge · شارة — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Badge in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`badge.md`](badge.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](badge.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Badge · شارة |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`badge.md`](badge.md) @ `a4d933a5e7ff75e0` |
+| Source | [`badge.md`](badge.md) @ `46983f7d3e2c1c94` |
 
 ## 1. Library connections in this file
 
@@ -62,6 +62,7 @@ None yet — this component has no component tokens. Bind to the Foundations var
 | `color-text-on-info` | 1. Themes › `color/text/on/info` | `f321b04e3d1a4b3d6640c131b730c637107f2124` | COLOR | TEXT_FILL | spec |
 | `color-text-on-secondary` | 1. Themes › `color/text/on/secondary` | `c94b4241b9f81084e2ef11af7d3724b092d9da57` | COLOR | TEXT_FILL | spec |
 | `color-text-on-success` | 1. Themes › `color/text/on/success` | `72f5f649b899d7488e05dd8e79537c94251c7aa2` | COLOR | TEXT_FILL | spec |
+| `color-text-on-warning` | 1. Themes › `color/text/on/warning` | `c8d1dc5f68cdfab924bd2028bfc6a96a5225b3e9` | COLOR | TEXT_FILL | spec |
 | `radius-full` | 2. Radius › `radius/full` | `cde1a4778562f488d8f32680d4d00f7957cc2a21` | FLOAT | CORNER_RADIUS | spec |
 | `size-icon-md` | 4. Size › `size/icon/md` | `eb459c673e6ca16e3c81b240f04b467717953a9a` | FLOAT | WIDTH_HEIGHT | spec |
 | `size-icon-sm` | 4. Size › `size/icon/sm` | `2aa4b1f12a5ed0745f9a8b3251dc1fd9f7dd3476` | FLOAT | WIDTH_HEIGHT | spec |
@@ -158,7 +159,7 @@ Identical to [Web B3](../../../3-web-components/components/badge/badge.md#b3-tok
 | `brand` | `color-background-brand-default` → `backgroundBrandDefault` | `color-text-on-brand` → `textOnBrand` | `color-icon-on-brand` → `iconOnBrand` |
 | `secondary` | `color-background-secondary-default` → `backgroundSecondaryDefault` | `color-text-on-secondary` → `textOnSecondary` | `color-icon-on-secondary` → `iconOnSecondary` |
 | `success` | `color-background-success-default` → `backgroundSuccessDefault` | `color-text-on-success` → `textOnSuccess` | `color-icon-on-success` → `iconOnSuccess` |
-| `warning` | `color-icon-role-warning` → `iconRoleWarning` | `color-text-inverse` → `textInverse` | — |
+| `warning` | `color-icon-role-warning` → `iconRoleWarning` | `color-text-on-warning` → `textOnWarning` | — |
 | `info` | `color-background-info-default` → `backgroundInfoDefault` | `color-text-on-info` → `textOnInfo` | `color-icon-on-info` → `iconOnInfo` |
 | `neutral` | `color-surface-inverse` → `surfaceInverse` | `color-text-inverse` → `textInverse` | `color-icon-inverse` → `iconInverse` |
 
@@ -557,7 +558,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8 and the inherited Web D1), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

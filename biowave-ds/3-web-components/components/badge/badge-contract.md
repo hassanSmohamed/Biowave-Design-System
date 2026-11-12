@@ -1,4 +1,4 @@
-<!-- GENERATED from badge.md @ 3c5aa19e0b5912df — do not edit; change the source and run: npm run contract -- web badge -->
+<!-- GENERATED from badge.md @ 1c14d83497ffabcf — do not edit; change the source and run: npm run contract -- web badge -->
 # Badge · شارة — Web — code contract
 
 > **Everything you need to build Badge on Web, and nothing else.** Read this file only. Generated from [`badge.md`](badge.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](badge.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.1 · 2026-10-24 |
 | Source code | [`src/components/badge/`](../../src/components/badge/) |
 | Tokens | — |
-| Source | [`badge.md`](badge.md) @ `3c5aa19e0b5912df` |
+| Source | [`badge.md`](badge.md) @ `1c14d83497ffabcf` |
 
 ## 1. What it is
 
@@ -117,7 +117,7 @@ No component tokens — every value is an existing semantic token (P-04); `badge
 | `brand` | `color-background-brand-default` | `color-text-on-brand` | `color-icon-on-brand` |
 | `secondary` | `color-background-secondary-default` | `color-text-on-secondary` | `color-icon-on-secondary` |
 | `success` | `color-background-success-default` | `color-text-on-success` | `color-icon-on-success` |
-| `warning` | `color-icon-role-warning` | `color-text-inverse` | — (not allowed) |
+| `warning` | `color-icon-role-warning` | `color-text-on-warning` | — (not allowed) |
 | `info` | `color-background-info-default` | `color-text-on-info` | `color-icon-on-info` |
 | `neutral` | `color-surface-inverse` | `color-text-inverse` | `color-icon-inverse` |
 

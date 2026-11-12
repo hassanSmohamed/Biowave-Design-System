@@ -19,7 +19,7 @@
 | Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/tooltip/` — not built yet (the Executor creates it) |
-| Tokens | — (no component tokens: every value is an existing semantic token, P-04) |
+| Tokens | [`tooltip.tokens.json`](tooltip.tokens.json) — Figma-only `Tooltip / Container` (aliases the semantic tokens below; code reads the semantic tokens, P-04) |
 | Contracts | [`tooltip-contract.md`](tooltip-contract.md) · [`figma-tooltip-contract.md`](figma-tooltip-contract.md) — generated, never edited |
 | Docs page | [`tooltip.html`](tooltip.html) |
 
@@ -230,7 +230,7 @@ Layout rules: the tooltip is drawn in the `Overlay` above the page and never cha
 
 ### B3 Tokens by part and state
 
-Every value is a semantic token; there are no component tokens (P-04 — the same set as the Web Tooltip and Icon button B3.4).
+Every value is a semantic token (P-04 — the same set as the Web Tooltip and Icon button B3.4). Figma binds them through the Figma-only `Tooltip / Container` collection ([`tooltip.tokens.json`](tooltip.tokens.json), same as Web); code reads the semantic tokens directly.
 
 | Part | Property | Shown | Entering / exiting |
 |---|---|---|---|
@@ -438,7 +438,7 @@ Implement every item in B9, plus:
 
 ### D1 Rules for this build
 
-Same as [Web D1](../../../3-web-components/components/tooltip/tooltip.md#d1-rules-for-this-build) (library first, everything bound, no local variables or styles, no component tokens), plus:
+Same as [Web D1](../../../3-web-components/components/tooltip/tooltip.md#d1-rules-for-this-build) (library first, everything bound, no local variables or styles; bind to the Figma-only `Tooltip / Container` collection, contract §2), plus:
 - **Typography mode:** on page `↳ Tooltip` set the explicit variable mode **`Tablet · EN`** of `5. Typography` (Arabic frames and examples: **`Tablet · AR`**) (`page.setExplicitVariableModeForCollection`). Text styles stay `label/sm`; the mode gives the Tablet scale and the language font.
 
 ### D2 Component structure
@@ -501,7 +501,9 @@ Component description: "Short text that names an icon-only control or adds a one
 - Bound to the local `Tooltip / Container` collection (exists in this file, aliases the same Foundations variables), while this contract says Tooltip has no component tokens; Planner to align.
 - Docs pages 04 and 07 show long press as the trigger (hover only for pointer on Tablet).
 
-**Questions for the Planner:** see the deviations above.
+**Resolved:** Binding to `Tooltip / Container` — **adopted in D1 / B3** and `tooltip.tokens.json` added on Tablet and Mobile (spec 1.1.1).
+
+**Questions for the Planner:** none
 
 ---
 
@@ -535,5 +537,6 @@ Component description: "Short text that names an icon-only control or adds a one
 
 | Version | Date | Change | Breaking | Migration |
 |---|---|---|---|---|
+| 1.1.1 | 2026-11-12 | D1 / B3: Figma binds to the Figma-only `Tooltip / Container` collection (`tooltip.tokens.json`, now also on Tablet and Mobile); code still reads the semantic tokens. Wave 7 build | No | — |
 | 1.1 | 2026-10-24 | Web review round 1 #1 applied: B2 / B6 — the `BwSpacing.xs` gap is inside the hover area; C3 › Position (main-axis transparent padding in the builder, padded child touching the target, clamp `BwSpacing.md - BwSpacing.xs` on the main axis); B9 hover-across-the-gap test; C7 AC-7 | No | None |
 | 1.0 | 2026-10-23 | Initial. Same tokens and timings as the Web Tooltip; built on `RawTooltip` for token-driven fade timing | No | `BwIconButton` and the Text field help icon switch to `BwTooltip` in their own follow-up plans (C2) |

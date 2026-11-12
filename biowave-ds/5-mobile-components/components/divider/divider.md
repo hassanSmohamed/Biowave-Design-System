@@ -470,7 +470,9 @@ Component description: “Thin line that separates groups of content, with an op
 **Deviations:**
 - An empty auto-layout frame cannot hug its stroke: the `line` thickness is bound to `border/width/default` (same as Web; D3 stop condition reported).
 
-**Questions for the Planner:** see the deviations above.
+**Resolved:** Line thickness bound to `border/width/default` — **adopted in D3** (spec 1.1.1).
+
+**Questions for the Planner:** none
 
 ---
 

@@ -299,7 +299,7 @@ No component tokens — every value is an existing semantic token (P-04); `badge
 | `brand` | `color-background-brand-default` | `color-text-on-brand` | `color-icon-on-brand` |
 | `secondary` | `color-background-secondary-default` | `color-text-on-secondary` | `color-icon-on-secondary` |
 | `success` | `color-background-success-default` | `color-text-on-success` | `color-icon-on-success` |
-| `warning` | `color-icon-role-warning` | `color-text-inverse` | — (not allowed) |
+| `warning` | `color-icon-role-warning` | `color-text-on-warning` | — (not allowed) |
 | `info` | `color-background-info-default` | `color-text-on-info` | `color-icon-on-info` |
 | `neutral` | `color-surface-inverse` | `color-text-inverse` | `color-icon-inverse` |
 
@@ -671,7 +671,9 @@ Component description: "Marks an element with a count, a dot or a check (Check b
 - `Count × Warning` text is `color/text/inverse`, as in B3 and the code (`Badge.test.tsx`); the B3 prose line that quotes `color-text-on-warning` 6.10:1 does not match the table — Planner to align the prose.
 - Doc examples use the Icon Button set (`notifications` glyph) and Avatar as anchors; the badge is placed on the top-end corner (circular overlap 14.6%).
 
-**Questions for the Planner:** see the deviations above.
+**Resolved:** Count × Warning text was briefly bound to `color/text/inverse` (from a stale B3 row after the token 2.0 migration); **resolved 2026-11-12** — B3, the web code and all three Figma sets now use `color/text/on/warning` (spec 1.1.1).
+
+**Questions for the Planner:** none
 
 ---
 
@@ -979,5 +981,6 @@ Plan version 1.1; Plan `Finished`; contracts regenerated for web, tablet and mob
 
 | Version | Date | Change | Breaking | Migration |
 |---|---|---|---|---|
+| 1.1.1 | 2026-11-12 | B3 `warning` count text back to `color-text-on-warning` (the token 2.0 migration had changed it to `color-text-inverse`: white on the warning fill in light, about 3.2:1; `color-text-on-warning` measures 6.10:1 light · 13.11:1 dark). Web code and test fixed; Figma sets rebound | No — fixes a contrast regression | — |
 | 1.1 | 2026-10-24 | B3 `warning` fill `color-icon-role-warning`; B1/B2/B4 hidden standalone takes no space; B6 contrast row; B9 `warning`, hidden-standalone and behavioural test wording; C3/C6/C7 AC-8–11 + Fix round 1 task list; D1/D8/D10 `Warning` fill variable (review round 1 #1–#5) | No — visual change of `warning` fill only | — |
 | 1.0 | 2026-10-21 | Initial | No | — |

@@ -1,4 +1,4 @@
-<!-- GENERATED from divider.md @ e725a9e8b29d7fd0 — do not edit; change the source and run: npm run contract -- mobile divider -->
+<!-- GENERATED from divider.md @ e5b958711b22a46d — do not edit; change the source and run: npm run contract -- mobile divider -->
 # Divider · فاصل — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Divider in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`divider.md`](divider.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](divider.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Divider · فاصل |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-23 |
-| Source | [`divider.md`](divider.md) @ `e725a9e8b29d7fd0` |
+| Source | [`divider.md`](divider.md) @ `e5b958711b22a46d` |
 
 ## 1. Library connections in this file
 
@@ -217,7 +217,7 @@ Horizontal
 container        ↔ horizontal · width FILL when placed · height HUG
 │                  padding-left / padding-right = {B2 inset} (Start: left only in LTR, right only in RTL)
 │                  counter-axis align = center · gap = {B3 label gap: spacing/md}
-├── line         frame · width FILL (min width {spacing/xl}) · height HUG (no children)
+├── line         frame · width FILL (min width {spacing/xl}) · height = {B3 border-width-default} (bound)
 │                  bottom stroke only: weight {B3 border-width-default}, colour {B3 per Emphasis}
 │                  strokes included in layout = on (the frame is exactly one stroke thick)
 ├── label        T `caption/md` · fill {color/text/subtlest} · width HUG · align center
@@ -227,13 +227,13 @@ container        ↔ horizontal · width FILL when placed · height HUG
 Vertical
 container        ↕ vertical · height FILL when placed · width HUG
 │                  padding-top / padding-bottom = {B2 inset} (Both only)
-└── line         frame · height FILL · width HUG (no children)
+└── line         frame · height FILL · width = {B3 border-width-default} (bound)
                    right stroke only: weight {B3}, colour {B3}; strokes included in layout = on
 ```
 
 With `Show label` off, `label` and the second `line` are hidden, so the first `line` fills the container alone (hidden layers take no gap). Vertical variants have no `label` layer: `Show label` and `Label` do nothing there (B1 — no label on vertical dividers). The default text style is `caption/md`; Arabic samples on doc pages use `caption/md` and the Arabic text “أو”.
 
-If a hug frame with no children cannot keep the stroke-only size, stop and report in D11 (do not switch to a fill rectangle with a raw height).
+An empty auto-layout frame cannot hug its own stroke in Figma, so the `line` thickness (height when horizontal, width when vertical) is bound to the same variable as its stroke weight, `border/width/default` (1.2, from the Wave 7 build). Never a raw height or a fill rectangle.
 
 ```
 LTR, Inset=Start              │      ──────────────────────│
@@ -487,7 +487,7 @@ Component description field (Figma "Description"): one line from A1 + link to th
 
 All rules in **D1** (§8 and the inherited Web D1), plus:
 
-**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component> / <Group>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
+**Component tokens only (strict, D-13).** This file may contain exactly one kind of local variable: the `<Component>` or `<Component> / <Axis>` collections in §2. Never create a local primitive or semantic variable or any other collection; never copy or detach a library variable; never create a local text, effect, colour or grid style; bind layers to the component token when one exists for the property. Run `_sync/figma-read-tokens.js` (lint) **before Phase 1 and after each phase** — it must report 0 violations.
 
 ## 12. Acceptance criteria (the Reviewer checks exactly these)
 

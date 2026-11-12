@@ -1,4 +1,4 @@
-<!-- GENERATED from tooltip.md @ 3f36a36fc76427a5 — do not edit; change the source and run: npm run contract -- mobile tooltip -->
+<!-- GENERATED from tooltip.md @ 7a845e2ffb354a2e — do not edit; change the source and run: npm run contract -- mobile tooltip -->
 # Tooltip · تلميح — Mobile — code contract
 
 > **Everything you need to build Tooltip on Mobile, and nothing else.** Read this file only. Generated from [`tooltip.md`](tooltip.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](tooltip.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -11,8 +11,8 @@
 | Import | `BwTooltip` from `package:biowave_mobile/biowave_mobile.dart` |
 | Version | 1.1 · 2026-10-24 |
 | Source code | `lib/src/components/tooltip/` — not built yet (the Executor creates it) |
-| Tokens | — |
-| Source | [`tooltip.md`](tooltip.md) @ `3f36a36fc76427a5` |
+| Tokens | [`tooltip.tokens.json`](tooltip.tokens.json) |
+| Source | [`tooltip.md`](tooltip.md) @ `7a845e2ffb354a2e` |
 
 ## 1. What it is
 
@@ -78,7 +78,7 @@ Layout rules: the tooltip is drawn in the `Overlay` above the page and never cha
 
 ## 4. Tokens by part and state
 
-Every value is a semantic token; there are no component tokens (P-04 — the same set as the Web Tooltip and Icon button B3.4).
+Every value is a semantic token (P-04 — the same set as the Web Tooltip and Icon button B3.4). Figma binds them through the Figma-only `Tooltip / Container` collection ([`tooltip.tokens.json`](tooltip.tokens.json), same as Web); code reads the semantic tokens directly.
 
 | Part | Property | Shown | Entering / exiting |
 |---|---|---|---|
@@ -105,6 +105,19 @@ Values are for checking only — never paste a value.
 | `size-container-xxs` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 320 | 320 |
 | `spacing-md` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 8 | 8 |
 | `spacing-xs` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 4 | 4 |
+
+### 4.2 Component tokens
+
+The code token map must equal [`tooltip.tokens.json`](tooltip.tokens.json) (tests compare them).
+
+| Collection | Variable | Modes → semantic token |
+|---|---|---|
+| Tooltip / Container | container | default: `color-surface-inverse` |
+| Tooltip / Container | label | default: `color-text-inverse` |
+| Tooltip / Container | radius | default: `radius-sm` |
+| Tooltip / Container | padding-block | default: `spacing-xs` |
+| Tooltip / Container | padding-inline | default: `spacing-md` |
+| Tooltip / Container | offset | default: `spacing-xs` |
 
 ## 5. States and transitions
 

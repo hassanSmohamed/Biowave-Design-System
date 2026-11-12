@@ -288,7 +288,7 @@ Identical to [Web B3](../../../3-web-components/components/badge/badge.md#b3-tok
 | `brand` | `color-background-brand-default` → `backgroundBrandDefault` | `color-text-on-brand` → `textOnBrand` | `color-icon-on-brand` → `iconOnBrand` |
 | `secondary` | `color-background-secondary-default` → `backgroundSecondaryDefault` | `color-text-on-secondary` → `textOnSecondary` | `color-icon-on-secondary` → `iconOnSecondary` |
 | `success` | `color-background-success-default` → `backgroundSuccessDefault` | `color-text-on-success` → `textOnSuccess` | `color-icon-on-success` → `iconOnSuccess` |
-| `warning` | `color-icon-role-warning` → `iconRoleWarning` | `color-text-inverse` → `textInverse` | — |
+| `warning` | `color-icon-role-warning` → `iconRoleWarning` | `color-text-on-warning` → `textOnWarning` | — |
 | `info` | `color-background-info-default` → `backgroundInfoDefault` | `color-text-on-info` → `textOnInfo` | `color-icon-on-info` → `iconOnInfo` |
 | `neutral` | `color-surface-inverse` → `surfaceInverse` | `color-text-inverse` → `textInverse` | `color-icon-inverse` → `iconInverse` |
 
@@ -533,7 +533,9 @@ Component description: "Marks an element with a count, a dot or a check (Check b
 - `check-icon` is the Material Symbols `check` (Rounded) from the library, not an Icon set in this file (none exists); same as Web.
 - Count × Warning text `color/text/inverse` (B3 table and code); the B3 prose line quoting `color-text-on-warning` needs aligning.
 
-**Questions for the Planner:** see the deviations above.
+**Resolved:** Count × Warning text was briefly bound to `color/text/inverse` (from a stale B3 row after the token 2.0 migration); **resolved 2026-11-12** — B3, the web code and all three Figma sets now use `color/text/on/warning` (spec 1.1.1).
+
+**Questions for the Planner:** none
 
 ---
 
@@ -568,5 +570,6 @@ Component description: "Marks an element with a count, a dot or a check (Check b
 
 | Version | Date | Change | Breaking | Migration |
 |---|---|---|---|---|
+| 1.1.1 | 2026-11-12 | B3 `warning` count text back to `color-text-on-warning` (the token 2.0 migration had changed it to `color-text-inverse`: white on the warning fill in light, about 3.2:1; `color-text-on-warning` measures 6.10:1 light · 13.11:1 dark). Web code and test fixed; Figma sets rebound | No — fixes a contrast regression | — |
 | 1.1 | 2026-10-24 | B3 `warning` fill `iconRoleWarning`; B1/B4 hidden standalone takes no space; B6 contrast row; B9 `warning` and hidden-standalone tests (web review round 1 #1, #2) | No | — |
 | 1.0 | 2026-10-21 | Initial | No | — |
