@@ -2053,6 +2053,19 @@
     },
     "docKit": {
       "2-foundations/figma-doc-kit.md": "4357f5479d99546e"
+    },
+    "web": {
+      "3-web-components/components/avatar/figma-avatar-contract.md": "9877cf900ba5feff",
+      "3-web-components/components/badge/figma-badge-contract.md": "6a7332f5b485d149",
+      "3-web-components/components/button-group/figma-button-group-contract.md": "3a648e218731c46e",
+      "3-web-components/components/button/figma-button-contract.md": "2d84cc0123490cc9",
+      "3-web-components/components/divider/figma-divider-contract.md": "80ef391473ff9633",
+      "3-web-components/components/icon-button/figma-icon-button-contract.md": "f023ac9b68286a58",
+      "3-web-components/components/icon/figma-icon-contract.md": "a832448065c13336",
+      "3-web-components/components/link/figma-link-contract.md": "96a127ab3ecb0432",
+      "3-web-components/components/split-button/figma-split-button-contract.md": "61ee4531e7e869f9",
+      "3-web-components/components/text-field/figma-text-field-contract.md": "467e153335b0a8b8",
+      "3-web-components/components/tooltip/figma-tooltip-contract.md": "8741715730a9d81d"
     }
   },
   "componentTokens": {
@@ -2061,6 +2074,7 @@
     "mobile": "e4159db1b63b3dd8"
   },
   "docsSyncedAt": {
-    "docKit": "2026-10-18T10:45:49.592Z"
+    "docKit": "2026-10-18T10:45:49.592Z",
+    "web": "2026-11-12T21:55:00.937Z"
   }
 }

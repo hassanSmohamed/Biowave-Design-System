@@ -16,7 +16,7 @@
 | Version | 1.1 · 2026-10-24 |
 | Plan | Finished |
 | Code | Approved |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | Round 2 · 2026-10-24 · Approved |
 | Source code | [`src/components/tooltip/`](../../src/components/tooltip/) |
 | Tokens | [`tooltip.tokens.json`](tooltip.tokens.json) |
@@ -561,13 +561,16 @@ Component description: "Short text that names an icon-only control or adds a one
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude (Figma Agent) · build · rtl · qa · document |
+| Date | 2026-11-12 |
+| Node IDs | component set `622:68` (page `↳ Tooltip`, section `Tooltip — Component`) · docs section `628:2569` (pages 00–11, incl. 10 for 1.1) · Components List card in row `Wave 7 / Basic cards` |
+| QA report | Lint on the set: 0 raw values. 2 variants (Language EN · AR). Bound to the local `Tooltip / Container` collection (container, label, radius, padding-block, padding-inline) and `size/container/xxs` for max width; text `label/sm`. |
 
-**Deviations:** none
-**Questions for the Planner:** none
+**Deviations:**
+- The contract §2 says Tooltip has component tokens in `Tooltip / Container` while D1 says it has none; the build binds to `Tooltip / Container` (the collection exists in the file and aliases the same Foundations variables). Planner to align D1.
+- Long text: the label is auto width in the set; the doc examples that wrap set the instance to 240 and the label to fill (Figma cannot wrap an auto-width text at a max width).
+
+**Questions for the Planner:** see the deviations above.
 
 ---
 

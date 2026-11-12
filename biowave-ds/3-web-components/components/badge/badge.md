@@ -16,7 +16,7 @@
 | Version | 1.1 · 2026-10-24 |
 | Plan | Finished |
 | Code | Approved |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | Round 3 · 2026-10-24 · Approved |
 | Source code | [`src/components/badge/`](../../src/components/badge/) |
 | Tokens | — (no component tokens: every value is an existing semantic token, P-04) |
@@ -661,13 +661,17 @@ Component description: "Marks an element with a count, a dot or a check (Check b
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document |
-| Date | |
-| Node IDs | component set `{id}` · docs section `{id}` |
-| QA report | |
+| Agent / stages run | Claude (Figma Agent) · build · rtl · qa · document |
+| Date | 2026-11-12 |
+| Node IDs | component set `620:136` (page `↳ Badge`, section `Badge — Component`) · docs section `625:3379` (pages 00–11, incl. 10 for 1.1) · Components List card in row `Wave 7 / Basic cards` (`629:2817`) |
+| QA report | Lint on the set: 0 raw paints, 0 unbound radius / padding / gap / stroke weight, every text on `data/sm`. 50 variants (Count 28 · Dot 12 · Check 10). Light / Dark checked on doc page 01; AR Count variants use the Typography mode Web · AR. |
 
-**Deviations:** none
-**Questions for the Planner:** none
+**Deviations:**
+- `check-icon` is an instance of the **Material Symbols** `check` set (Rounded, Unfilled) from the library, not of an Icon set in this file: the Web file has no `↳ Icon` page; the input family uses the library glyphs the same way. Size bound to `size/icon/sm`, glyph fill bound to the B3 icon colour.
+- `Count × Warning` text is `color/text/inverse`, as in B3 and the code (`Badge.test.tsx`); the B3 prose line that quotes `color-text-on-warning` 6.10:1 does not match the table — Planner to align the prose.
+- Doc examples use the Icon Button set (`notifications` glyph) and Avatar as anchors; the badge is placed on the top-end corner (circular overlap 14.6%).
+
+**Questions for the Planner:** see the deviations above.
 
 ---
 

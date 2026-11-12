@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-11-12 — Wave 7 on Web: Badge, Divider, Tooltip (Figma)
+
+Figma only (Web Components file), built from the approved Figma contracts (`figma-badge-contract.md`, `figma-divider-contract.md`, `figma-tooltip-contract.md`); first wave of `_workflow/tasks/2026-11-12-next-waves-plan.md`. New pages `↳ Badge`, `↳ Divider`, `↳ Tooltip` after `↳ Icon Button`.
+- **Badge** (50 variants: Count 28 · Dot 12 · Check 10): Variant × Color × Ring × Language; Count text property; Check glyph from the Material Symbols library; Warning fill on `color/icon/role/warning`. All values bound to Foundations.
+- **Divider** (18 variants): Orientation × Emphasis × Inset × Direction; Show label + Label (“or”). The line thickness is bound to `border/width/default` because an empty auto-layout frame cannot hug its stroke (D3 stop condition, reported in D11).
+- **Tooltip** (2 variants, Language): bound to the `Tooltip / Container` collection and `size/container/xxs`; text `label/sm`.
+- **Docs 00–11** for all three (page 10 for their 1.1 changes) from the Doc Kit, with live examples on Icon Button, Avatar and Button; Components List row `Wave 7 / Basic cards`.
+- Lint on the three sets: 0 raw values. D11 execution logs filled; Figma build → Built; `sync:done:web` run.
+
+Planner follow-ups in D11: Badge B3 prose vs table for the Warning text colour; Divider D3 line thickness; Tooltip D1 vs §2 (component tokens).
+
 ## 2026-11-11 — Input family on Mobile (Figma, copied from Web)
 
 Figma only (Mobile Components file; no code or repo token change). Same steps as the Tablet entry below, for Mobile:

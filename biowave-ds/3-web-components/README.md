@@ -50,9 +50,9 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Split button | Finished | Built | Planned | Round 3 · 2026-10-21 · Approved | [page](components/split-button/split-button.html) | [split-button.md](components/split-button/split-button.md) |
 | Text field | Finished | Approved | Planned | Round 3 · 2026-10-21 · Approved | [page](components/text-field/text-field.html) | [text-field.md](components/text-field/text-field.md) |
 | Link | Finished | Approved | Planned | Round 2 · 2026-10-24 · Approved | [page](components/link/link.html) | [link.md](components/link/link.md) |
-| Badge | Finished | Approved | Planned | Round 3 · 2026-10-24 · Approved | [page](components/badge/badge.html) | [badge.md](components/badge/badge.md) |
-| Divider | Finished | Approved | Planned | Round 2 · 2026-10-24 · Approved | [page](components/divider/divider.html) | [divider.md](components/divider/divider.md) |
-| Tooltip | Finished | Approved | Planned | Round 2 · 2026-10-24 · Approved | [page](components/tooltip/tooltip.html) | [tooltip.md](components/tooltip/tooltip.md) |
+| Badge | Finished | Approved | Built | Round 3 · 2026-10-24 · Approved | [page](components/badge/badge.html) | [badge.md](components/badge/badge.md) |
+| Divider | Finished | Approved | Built | Round 2 · 2026-10-24 · Approved | [page](components/divider/divider.html) | [divider.md](components/divider/divider.md) |
+| Tooltip | Finished | Approved | Built | Round 2 · 2026-10-24 · Approved | [page](components/tooltip/tooltip.html) | [tooltip.md](components/tooltip/tooltip.md) |
 | Avatar | Finished | Approved | Planned | Round 2 · 2026-10-24 · Approved | [page](components/avatar/avatar.html) | [avatar.md](components/avatar/avatar.md) |
 
 ## 5. Backlog (from the Figma "Web Components" pages, suggested order)

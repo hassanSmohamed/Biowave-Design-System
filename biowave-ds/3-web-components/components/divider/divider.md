@@ -16,7 +16,7 @@
 | Version | 1.1 · 2026-10-23 |
 | Plan | Finished |
 | Code | Approved |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | Round 2 · 2026-10-24 · Approved |
 | Source code | [`src/components/divider/`](../../src/components/divider/) |
 | Tokens | — (no component tokens: every value is a semantic token, P-04) |
@@ -590,13 +590,16 @@ Component description: “Thin line that separates groups of content, with an op
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document |
-| Date | |
-| Node IDs | component set `{id}` · docs section `{id}` |
-| QA report | |
+| Agent / stages run | Claude (Figma Agent) · build · rtl · qa · document |
+| Date | 2026-11-12 |
+| Node IDs | component set `622:62` (page `↳ Divider`, section `Divider — Component`) · docs section `627:3767` (pages 00–11, incl. 10 for 1.1) · Components List card in row `Wave 7 / Basic cards` |
+| QA report | Lint on the set: 0 raw values. 18 variants (Horizontal 12 incl. Start · RTL, Vertical 6). Show label (BOOLEAN) drives `label` and the second `line`; Label (TEXT) default “or”. |
 
-**Deviations:** none
-**Questions for the Planner:** none
+**Deviations:**
+- **D3 stop condition hit:** an empty auto-layout frame does not hug its stroke in Figma (it stays 100 px). Instead of a raw height, the `line` thickness (height for horizontal, width for vertical) is **bound to `border/width/default`**, the same variable as its stroke weight, so it stays one stroke thick and follows the token. Planner to confirm or adjust D3.
+- Doc example toolbars use the Icon Button set (edit · share · delete · more_vert).
+
+**Questions for the Planner:** see the deviations above.
 
 ---
 
