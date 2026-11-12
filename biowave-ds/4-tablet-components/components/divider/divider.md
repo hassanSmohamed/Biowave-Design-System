@@ -16,7 +16,7 @@
 | Version | 1.1 · 2026-10-23 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/divider/` — not built yet (the Executor creates it) |
 | Tokens | — (no component tokens: every value is a semantic token, P-04) |
@@ -462,13 +462,15 @@ Component description: “Thin line that separates groups of content, with an op
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document |
-| Date | |
-| Node IDs | component set `{id}` · docs section `{id}` |
-| QA report | |
+| Agent / stages run | Claude (Figma Agent) · build · rtl · qa · document |
+| Date | 2026-11-12 |
+| Node IDs | component set `165:198` (page `↳ Divider`) · docs section `167:7432` (pages 00–11, incl. 10 for 1.1) · Components List row `Wave 7 / Basic cards` (`168:26`) |
+| QA report | Lint on the set: 0 raw values, every text on a published style. 18 variants, same structure as Web. Typography modes Tablet · EN / Tablet · AR on the page and on AR variants. |
 
-**Deviations:** none
-**Questions for the Planner:** none
+**Deviations:**
+- An empty auto-layout frame cannot hug its stroke: the `line` thickness is bound to `border/width/default` (same as Web; D3 stop condition reported).
+
+**Questions for the Planner:** see the deviations above.
 
 ---
 

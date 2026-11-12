@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-12 — Wave 7 on Tablet and Mobile: Badge, Divider, Tooltip (Figma)
+
+Figma only, from the Tablet and Mobile Figma contracts (same structure as Web). New pages `↳ Badge`, `↳ Divider`, `↳ Tooltip` after `↳ Button Group` in both files.
+- Sets built in each file: Badge 50 · Divider 18 · Tooltip 2 variants, all bound to Foundations (Tooltip to the local `Tooltip / Container` collection); Typography modes Tablet · EN/AR and Mobile · EN/AR on the pages and Arabic variants. Lint 0 on all six sets.
+- Docs 00–11 for each (page 10 for 1.1): device frames Tablet landscape + portrait / Phone, touch wording (long press for Tooltip, 48 target for the Badge anchor), platform tables from each spec's A8.
+- Components List row `Wave 7 / Basic cards` in both files. D11 logs filled, Figma build → Built, `sync:done:tablet` and `sync:done:mobile` run.
+- Badge and Tooltip are not in the native iOS / Android list (N-01): one Biowave design on Mobile.
+
 ## 2026-11-12 — Wave 7 on Web: Badge, Divider, Tooltip (Figma)
 
 Figma only (Web Components file), built from the approved Figma contracts (`figma-badge-contract.md`, `figma-divider-contract.md`, `figma-tooltip-contract.md`); first wave of `_workflow/tasks/2026-11-12-next-waves-plan.md`. New pages `↳ Badge`, `↳ Divider`, `↳ Tooltip` after `↳ Icon Button`.

@@ -2066,6 +2066,32 @@
       "3-web-components/components/split-button/figma-split-button-contract.md": "61ee4531e7e869f9",
       "3-web-components/components/text-field/figma-text-field-contract.md": "467e153335b0a8b8",
       "3-web-components/components/tooltip/figma-tooltip-contract.md": "8741715730a9d81d"
+    },
+    "tablet": {
+      "4-tablet-components/components/avatar/figma-avatar-contract.md": "a350362b6bcdf873",
+      "4-tablet-components/components/badge/figma-badge-contract.md": "9c9d6d433a7a3f09",
+      "4-tablet-components/components/button-group/figma-button-group-contract.md": "b08f172bb323c45c",
+      "4-tablet-components/components/button/figma-button-contract.md": "8eac2181f4e765bf",
+      "4-tablet-components/components/divider/figma-divider-contract.md": "8f11d32bad994319",
+      "4-tablet-components/components/icon-button/figma-icon-button-contract.md": "cb0935d587d8cf4e",
+      "4-tablet-components/components/icon/figma-icon-contract.md": "e3c53e3d9bda15c7",
+      "4-tablet-components/components/link/figma-link-contract.md": "4a9697066662790a",
+      "4-tablet-components/components/split-button/figma-split-button-contract.md": "030e4e6d5882b26c",
+      "4-tablet-components/components/text-field/figma-text-field-contract.md": "e163c1423d3211e0",
+      "4-tablet-components/components/tooltip/figma-tooltip-contract.md": "60d1d2d1a8385d70"
+    },
+    "mobile": {
+      "5-mobile-components/components/avatar/figma-avatar-contract.md": "45f30c74909e9161",
+      "5-mobile-components/components/badge/figma-badge-contract.md": "d31cf7aa95f0d62f",
+      "5-mobile-components/components/button-group/figma-button-group-contract.md": "63590e5c97e4b0c2",
+      "5-mobile-components/components/button/figma-button-contract.md": "8e65a2e50eb87017",
+      "5-mobile-components/components/divider/figma-divider-contract.md": "190bb389fd4091da",
+      "5-mobile-components/components/icon-button/figma-icon-button-contract.md": "f905e5274c9c18eb",
+      "5-mobile-components/components/icon/figma-icon-contract.md": "f0f2ceba4c653f53",
+      "5-mobile-components/components/link/figma-link-contract.md": "8c38da1e22af03df",
+      "5-mobile-components/components/split-button/figma-split-button-contract.md": "84066b3a7d1c0ff8",
+      "5-mobile-components/components/text-field/figma-text-field-contract.md": "78a94cfb8ee76fe6",
+      "5-mobile-components/components/tooltip/figma-tooltip-contract.md": "1de4858985c1fba6"
     }
   },
   "componentTokens": {
@@ -2075,6 +2101,8 @@
   },
   "docsSyncedAt": {
     "docKit": "2026-10-18T10:45:49.592Z",
-    "web": "2026-11-12T21:55:00.937Z"
+    "web": "2026-11-12T21:55:00.937Z",
+    "tablet": "2026-11-12T23:41:25.609Z",
+    "mobile": "2026-11-12T23:41:25.763Z"
   }
 }

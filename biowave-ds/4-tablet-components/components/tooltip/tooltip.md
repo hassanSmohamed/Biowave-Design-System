@@ -16,7 +16,7 @@
 | Version | 1.1 · 2026-10-24 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/tooltip/` — not built yet (the Executor creates it) |
 | Tokens | — (no component tokens: every value is an existing semantic token, P-04) |
@@ -492,13 +492,16 @@ Component description: "Short text that names an icon-only control or adds a one
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude (Figma Agent) · build · rtl · qa · document |
+| Date | 2026-11-12 |
+| Node IDs | component set `165:204` (page `↳ Tooltip`) · docs section `167:9962` (pages 00–11, incl. 10 for 1.1) · Components List row `Wave 7 / Basic cards` (`168:26`) |
+| QA report | Lint on the set: 0 raw values, every text on a published style. 2 variants, same structure as Web. Typography modes Tablet · EN / Tablet · AR on the page and on AR variants. |
 
-**Deviations:** none
-**Questions for the Planner:** none
+**Deviations:**
+- Bound to the local `Tooltip / Container` collection (exists in this file, aliases the same Foundations variables), while this contract says Tooltip has no component tokens; Planner to align.
+- Docs pages 04 and 07 show long press as the trigger (hover only for pointer on Tablet).
+
+**Questions for the Planner:** see the deviations above.
 
 ---
 

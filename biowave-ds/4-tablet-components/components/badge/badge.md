@@ -16,7 +16,7 @@
 | Version | 1.1 · 2026-10-24 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/badge/` — not built yet (the Executor creates it) |
 | Tokens | — (no component tokens: every value is an existing semantic token, P-04) |
@@ -524,13 +524,16 @@ Component description: "Marks an element with a count, a dot or a check (Check b
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document |
-| Date | |
-| Node IDs | component set `{id}` · docs section `{id}` |
-| QA report | |
+| Agent / stages run | Claude (Figma Agent) · build · rtl · qa · document |
+| Date | 2026-11-12 |
+| Node IDs | component set `165:136` (page `↳ Badge`) · docs section `167:4785` (pages 00–11, incl. 10 for 1.1) · Components List row `Wave 7 / Basic cards` (`168:26`) |
+| QA report | Lint on the set: 0 raw values, every text on a published style. 50 variants, same structure as Web. Typography modes Tablet · EN / Tablet · AR on the page and on AR variants. |
 
-**Deviations:** none
-**Questions for the Planner:** none
+**Deviations:**
+- `check-icon` is the Material Symbols `check` (Rounded) from the library, not an Icon set in this file (none exists); same as Web.
+- Count × Warning text `color/text/inverse` (B3 table and code); the B3 prose line quoting `color-text-on-warning` needs aligning.
+
+**Questions for the Planner:** see the deviations above.
 
 ---
 
