@@ -100,7 +100,7 @@ The design lead pointed to the four Web elements the product uses (Foundations f
 | 8 | Frame name typo "Breadcrump" | Breadcrumb page | Component named Breadcrumbs (next phase) |
 | 9 | Every nav item shows a count "12" as plain text | Side Menu | `count` is optional per item (`Show count`), off by default |
 
-**Decisions for the design lead (proposal)**
+**Decisions (approved by the design lead 2026-11-13)**
 
 | ID | Question | Proposal |
 |---|---|---|
