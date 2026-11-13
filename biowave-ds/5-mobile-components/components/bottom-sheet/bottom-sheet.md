@@ -472,7 +472,6 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 
 ```
 ❖ Bottom sheet                    ← component set (published)
-  ├─ ◇ .Bottom sheet/row           ← private: one Android row (Type=List · Action, Selected, Destructive)
   ├─ ◇ .Bottom sheet/ios-row       ← private: one iOS sheet row (separator, check)
   ├─ ◇ .Bottom sheet/ios-action    ← private: one iOS Action sheet button
   └─ ◇ .Bottom sheet/content       ← private placeholder slot for `Standard`
@@ -501,7 +500,7 @@ Bottom sheet (OS=iOS, Action)
 | `Type` | VARIANT | `Standard` · `List` · `Action` | `Standard` | `type` | `standard` · `list` · `action` |
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | locale |
 | `Title` | TEXT | | `Filter by status` | `title` | |
-| `Footer` | BOOLEAN | | `false` | `footerAction` | Android `Standard` only |
+| `Footer` | BOOLEAN | | `true` | `footerAction` | Android `Standard` only |
 | `Content` | INSTANCE_SWAP | preferred: `.Bottom sheet/content` | | `content` | |
 
 ### D5 Variants to generate

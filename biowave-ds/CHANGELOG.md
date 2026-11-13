@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-13 — Wave 8 on Web and Tablet (Figma): Dialog, Bottom sheet, Side sheet
+
+- **Web:** pages `↳ Dialog` (12 variants: Size × Kind × Language) and `↳ Side sheet` (12: Size × Mode × Language), private `.Scrim`, docs 00–09 and 11, Components List cards.
+- **Tablet:** `↳ Dialog` (12), `↳ Bottom sheet` (6: Type × Language) and `↳ Side sheet` (6, Modal only), docs and cards. Bottom sheet rows reuse the **List item** set (checkbox rows with counts, single choice with a selected row, icon rows); legacy status-filter content rebuilt.
+- Every value bound to Foundations variables and styles; lint 0 on both files.
+- Figma rule found: a TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` / `Body` are bound on EN variants and AR variants carry Arabic copy (D4 notes). Dialog `sm`: the two actions share the footer width (B2).
+
 ## 2026-11-13 — Wave 8 specs: Dialog, Bottom sheet, Side sheet
 
 - New specs 1.0 (Plan Finished, Code and Figma Planned): Dialog on Web · Tablet · Mobile, Bottom sheet on Tablet · Mobile, Side sheet on Web · Tablet. Contracts generated. Brief `_workflow/tasks/2026-11-12-wave8-overlays-brief.md` (O-01 … O-06 approved).

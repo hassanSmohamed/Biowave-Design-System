@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/side-sheet/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -501,13 +501,14 @@ Component description: "A panel that slides in from the side of the window to sh
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `175:14` · set `177:3473` (6, Modal only) · `.Side sheet/body` `177:2520` · `.Side sheet/body AR` `177:2527` · docs `180:8240` (00–09, 11) · card `181:5997` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · text uses library styles · Light and Dark by mode switch |
 
 **Deviations:**
-- none
+- `Title` and `Body` bound on EN variants only (D4 note); AR back button uses `arrow_forward` (mirrored `arrow_back`)
+- Variant height fixed at 720 as a sample
 
 **Questions for the Planner:**
 - none

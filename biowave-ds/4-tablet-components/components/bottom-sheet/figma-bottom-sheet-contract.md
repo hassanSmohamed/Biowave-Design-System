@@ -1,4 +1,4 @@
-<!-- GENERATED from bottom-sheet.md @ 07739c684d4570e4 — do not edit; change the source and run: npm run contract -- tablet bottom-sheet -->
+<!-- GENERATED from bottom-sheet.md @ 694f08ecdeda9af8 — do not edit; change the source and run: npm run contract -- tablet bottom-sheet -->
 # Bottom sheet · اللوحة السفلية — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Bottom sheet in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`bottom-sheet.md`](bottom-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](bottom-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Bottom sheet · اللوحة السفلية |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `07739c684d4570e4` |
+| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `694f08ecdeda9af8` |
 
 ## 1. Library connections in this file
 
@@ -234,7 +234,6 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 
 ```
 ❖ Bottom sheet                    ← component set (published)
-  ├─ ◇ .Bottom sheet/row           ← private: one row (Type=List · Action, Selected, Destructive)
   └─ ◇ .Bottom sheet/content       ← private placeholder slot for `standard`
 ```
 
@@ -247,7 +246,7 @@ Bottom sheet               ↕ vertical · width FIXED bound to size/container/l
 ├── header                 ↔ padding-inline spacing/layout/container · gap spacing/xl · BOOLEAN `Header`
 │   ├── title              T title/lg · color/text/default · fill · TEXT `Title`
 │   └── close-button       ◇ Icon Button transparent · neutral · md · close
-├── content                ↕ (Standard: ◇ .Bottom sheet/content, INSTANCE_SWAP `Content`; List / Action: 3–4 ◇ .Bottom sheet/row)
+├── content                ↕ padding-inline spacing/lg (Standard: ◇ .Bottom sheet/content = List item `Leading=checkbox` rows, INSTANCE_SWAP `Content`; List: ◇ List item `Leading=none` + trailing count, one `State=selected`; Action: ◇ List item `Leading=icon`)
 └── footer                 ↕ padding spacing/layout/container · BOOLEAN `Footer` (Standard only)
     └── footer-action      ◇ Button filled · brand · lg · width fill
 ```
@@ -260,7 +259,7 @@ Bottom sheet               ↕ vertical · width FIXED bound to size/container/l
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | locale |
 | `Header` | BOOLEAN | | `true` | `title` | set / null |
 | `Title` | TEXT | | `Filter by status` | `title` | |
-| `Footer` | BOOLEAN | | `false` | `footerAction` | present / absent |
+| `Footer` | BOOLEAN | | `true` | `footerAction` | present / absent (Standard only) |
 | `Content` | INSTANCE_SWAP | preferred: `.Bottom sheet/content` | | `content` | |
 
 ### D5 Variants to generate

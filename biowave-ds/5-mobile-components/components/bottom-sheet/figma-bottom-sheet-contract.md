@@ -1,4 +1,4 @@
-<!-- GENERATED from bottom-sheet.md @ 6265a78c386fd394 — do not edit; change the source and run: npm run contract -- mobile bottom-sheet -->
+<!-- GENERATED from bottom-sheet.md @ 22c28f8e2505013a — do not edit; change the source and run: npm run contract -- mobile bottom-sheet -->
 # Bottom sheet · اللوحة السفلية — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Bottom sheet in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`bottom-sheet.md`](bottom-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](bottom-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Bottom sheet · اللوحة السفلية |
 | Platform | Mobile · Flutter + Material 3 + Cupertino (adaptive, N-07) |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `6265a78c386fd394` |
+| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `22c28f8e2505013a` |
 
 ## 1. Library connections in this file
 
@@ -233,7 +233,6 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 
 ```
 ❖ Bottom sheet                    ← component set (published)
-  ├─ ◇ .Bottom sheet/row           ← private: one Android row (Type=List · Action, Selected, Destructive)
   ├─ ◇ .Bottom sheet/ios-row       ← private: one iOS sheet row (separator, check)
   ├─ ◇ .Bottom sheet/ios-action    ← private: one iOS Action sheet button
   └─ ◇ .Bottom sheet/content       ← private placeholder slot for `Standard`
@@ -262,7 +261,7 @@ Bottom sheet (OS=iOS, Action)
 | `Type` | VARIANT | `Standard` · `List` · `Action` | `Standard` | `type` | `standard` · `list` · `action` |
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | locale |
 | `Title` | TEXT | | `Filter by status` | `title` | |
-| `Footer` | BOOLEAN | | `false` | `footerAction` | Android `Standard` only |
+| `Footer` | BOOLEAN | | `true` | `footerAction` | Android `Standard` only |
 | `Content` | INSTANCE_SWAP | preferred: `.Bottom sheet/content` | | `content` | |
 
 ### D5 Variants to generate

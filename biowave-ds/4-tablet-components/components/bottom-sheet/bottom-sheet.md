@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/bottom-sheet/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -455,7 +455,6 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 
 ```
 ❖ Bottom sheet                    ← component set (published)
-  ├─ ◇ .Bottom sheet/row           ← private: one row (Type=List · Action, Selected, Destructive)
   └─ ◇ .Bottom sheet/content       ← private placeholder slot for `standard`
 ```
 
@@ -468,7 +467,7 @@ Bottom sheet               ↕ vertical · width FIXED bound to size/container/l
 ├── header                 ↔ padding-inline spacing/layout/container · gap spacing/xl · BOOLEAN `Header`
 │   ├── title              T title/lg · color/text/default · fill · TEXT `Title`
 │   └── close-button       ◇ Icon Button transparent · neutral · md · close
-├── content                ↕ (Standard: ◇ .Bottom sheet/content, INSTANCE_SWAP `Content`; List / Action: 3–4 ◇ .Bottom sheet/row)
+├── content                ↕ padding-inline spacing/lg (Standard: ◇ .Bottom sheet/content = List item `Leading=checkbox` rows, INSTANCE_SWAP `Content`; List: ◇ List item `Leading=none` + trailing count, one `State=selected`; Action: ◇ List item `Leading=icon`)
 └── footer                 ↕ padding spacing/layout/container · BOOLEAN `Footer` (Standard only)
     └── footer-action      ◇ Button filled · brand · lg · width fill
 ```
@@ -481,7 +480,7 @@ Bottom sheet               ↕ vertical · width FIXED bound to size/container/l
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | locale |
 | `Header` | BOOLEAN | | `true` | `title` | set / null |
 | `Title` | TEXT | | `Filter by status` | `title` | |
-| `Footer` | BOOLEAN | | `false` | `footerAction` | present / absent |
+| `Footer` | BOOLEAN | | `true` | `footerAction` | present / absent (Standard only) |
 | `Content` | INSTANCE_SWAP | preferred: `.Bottom sheet/content` | | `content` | |
 
 ### D5 Variants to generate
@@ -532,13 +531,15 @@ Component description: "A panel that slides up from the bottom of a touch screen
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `175:13` · set `178:3339` (6) · `.Bottom sheet/content` `178:2452` · `.Bottom sheet/content AR` `178:2514` · docs `181:3955` (00–09, 11) · card `181:5996` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · text uses library styles · Light and Dark by mode switch |
 
 **Deviations:**
-- none
+- Rows are live **List item** instances (reuse) instead of a private `.Bottom sheet/row`: Standard = `Leading=checkbox` rows with counts, List = `Leading=none` with trailing count and one `State=selected` row, Action = `Leading=icon` rows. D2 / D3 updated
+- `Footer` default `true` and bound on Standard only (List and Action have no footer layer); `Title` bound on EN Standard and List; `Content` on EN Standard (D4)
+- Content and rows have padding-inline `spacing-lg` so the row text lines up with the header (List item has its own `spacing-lg`)
 
 **Questions for the Planner:**
 - none

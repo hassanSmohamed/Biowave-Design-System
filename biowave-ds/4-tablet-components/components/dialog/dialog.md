@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/dialog/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -546,13 +546,15 @@ Component description: "Modal window for a decision or a short task. Spec: 4-tab
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `175:12` · set `175:3671` (12) · `.Scrim` `175:2465` (shared by Bottom sheet and Side sheet) · `.Dialog/body` `175:2466` · docs `180:3988` (00–09, 11) · card `181:5995` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · text uses library styles · Light and Dark by mode switch |
 
 **Deviations:**
-- none
+- `Title` bound on EN variants only (D4 note); AR buttons use `.Button _ar`
+- `sm`: actions share the footer width (B2)
+- Alert slot is a dashed placeholder frame until Alert (Wave 9)
 
 **Questions for the Planner:**
 - none
