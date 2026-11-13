@@ -100,3 +100,7 @@ The Foundations guidelines already fix some values; the specs follow them instea
 | Dialog title `title/md` | Web `heading-sm` · Tablet / Mobile `heading-md`; sheet titles `title-lg` | typography.md |
 | Padding | `spacing-layout-container` (24 · 24 · 16); Side sheet header `spacing-2xl` | spacing.md |
 | Private `_scrim` spec folder | No separate spec: `scrim` is a part in each spec and a private `.Scrim` component in each Figma file | one fact one home |
+
+## 7. Decision O-07 (2026-11-13) — iOS 27 look in code
+
+Figma follows the iOS and iPadOS 27 kit (start-aligned alert, capsule actions, floating sheet with round Close / Done, action sheet without a separate Cancel). If the Flutter version in use still draws the older Cupertino look, **wait for Flutter**: the Executor keeps `CupertinoAlertDialog` / `CupertinoActionSheet` / `CupertinoSheetRoute` and reports the gap in C8. Custom Biowave iOS widgets are built only after the gap is confirmed in a review. Approved by the design lead.
