@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-13 — Page control dots bound to size-indicator
+
+- `size/indicator/sm` · `size/indicator/lg` published in the Foundations library; `.Dot` in the Web, Tablet and Mobile files now binds them (8 · 24), and doc page 02 shows the new tokens. Navigation review items NV-14 … NV-18 are all done.
+
 ## 2026-11-13 — App header uses the Foundations Logo
 
 - Web `App header`: the `Logo` slot now holds the published Foundations `Logo` (Horizontal · Default) in EN and AR (placement moves, the logo is not mirrored); docs and card update through the instances.

@@ -359,7 +359,7 @@ Component description: "Dots that show which page of a short carousel or onboard
 
 **Deviations:**
 - Inactive dots use `color-border-bold` (4.95:1): `color-border-default` was 1.38:1, below the 3:1 non-text minimum
-- Dot sizes bound to `size-indicator-sm` / `size-indicator-lg` (new Foundations tokens) once the Foundations library is published; until then `spacing-md` / `spacing-3xl` (same values)
+- Dot sizes bound to `size-indicator-sm` / `size-indicator-lg` (new Foundations tokens, published 2026-11-13)
 
 **Questions for the Planner:**
 - none
