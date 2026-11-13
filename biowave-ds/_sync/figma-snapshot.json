@@ -2064,10 +2064,12 @@
       "3-web-components/components/icon-button/figma-icon-button-contract.md": "f023ac9b68286a58",
       "3-web-components/components/icon/figma-icon-contract.md": "a832448065c13336",
       "3-web-components/components/link/figma-link-contract.md": "96a127ab3ecb0432",
+      "3-web-components/components/primary-navigation/figma-primary-navigation-contract.md": "ce61aea92f5fcd43",
       "3-web-components/components/side-sheet/figma-side-sheet-contract.md": "08c71558a0027e2c",
       "3-web-components/components/split-button/figma-split-button-contract.md": "61ee4531e7e869f9",
       "3-web-components/components/text-field/figma-text-field-contract.md": "467e153335b0a8b8",
-      "3-web-components/components/tooltip/figma-tooltip-contract.md": "50f1a69eaa3be4b0"
+      "3-web-components/components/tooltip/figma-tooltip-contract.md": "50f1a69eaa3be4b0",
+      "3-web-components/components/top-app-bar/figma-top-app-bar-contract.md": "23a0a166855b4c1b"
     },
     "tablet": {
       "4-tablet-components/components/avatar/figma-avatar-contract.md": "a350362b6bcdf873",
@@ -2108,7 +2110,7 @@
   },
   "docsSyncedAt": {
     "docKit": "2026-10-18T10:45:49.592Z",
-    "web": "2026-11-13T12:42:57.173Z",
+    "web": "2026-11-13T15:53:48.849Z",
     "tablet": "2026-11-13T12:42:57.387Z",
     "mobile": "2026-11-13T12:42:57.570Z"
   }

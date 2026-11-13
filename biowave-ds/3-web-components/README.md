@@ -56,8 +56,8 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Avatar | Finished | Approved | Planned | Round 2 · 2026-10-24 · Approved | [page](components/avatar/avatar.html) | [avatar.md](components/avatar/avatar.md) |
 | Dialog | Finished | Planned | Built | — | [page](components/dialog/dialog.html) | [dialog.md](components/dialog/dialog.md) |
 | Side sheet | Finished | Planned | Built | — | [page](components/side-sheet/side-sheet.html) | [side-sheet.md](components/side-sheet/side-sheet.md) |
-| Primary navigation | Finished | Planned | Planned | — | [page](components/primary-navigation/primary-navigation.html) | [primary-navigation.md](components/primary-navigation/primary-navigation.md) |
-| Top app bar | Finished | Planned | Planned | — | [page](components/top-app-bar/top-app-bar.html) | [top-app-bar.md](components/top-app-bar/top-app-bar.md) |
+| Primary navigation | Finished | Planned | Built | — | [page](components/primary-navigation/primary-navigation.html) | [primary-navigation.md](components/primary-navigation/primary-navigation.md) |
+| Top app bar | Finished | Planned | Built | — | [page](components/top-app-bar/top-app-bar.html) | [top-app-bar.md](components/top-app-bar/top-app-bar.md) |
 
 ## 5. Backlog (from the Figma "Web Components" pages, suggested order)
 1. Button · Icon button · Button group · Split button

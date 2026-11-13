@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `src/components/primary-navigation/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -478,13 +478,15 @@ Component description: "Moves the user between the top-level sections (modules) 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `646:286` · `Side navigation` `646:715` (4) · `.Nav item` `646:331` (12) · `.Module switcher` `646:355` (4) · `.Collapse handle` `646:368` (4) · docs `648:3977` (00–09, 11) · card row `648:9907` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · measurements match the product elements (Foundations › Sidebar, Navbar) |
 
 **Deviations:**
-- none
+- Private parts got a `Direction = LTR · RTL` axis: an instance cannot reorder its layers, so Arabic needs mirrored variants
+- The modal drawer is shown on page 07 as the open side navigation over `.Scrim` (no separate set on Web)
+- The module Menu (locked modules) is documented in text; it uses the existing Menu component
 
 **Questions for the Planner:**
 - none

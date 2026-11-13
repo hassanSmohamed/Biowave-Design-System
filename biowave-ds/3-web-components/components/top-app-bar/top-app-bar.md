@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `src/components/top-app-bar/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -414,13 +414,14 @@ Component description: "The bar at the top of every screen: on Web the app heade
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `646:287` · `App header` `647:485` (2) · docs `648:6775` (00–09, 11) · card row `648:9907` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · measurements match the product elements (Foundations › Sidebar, Navbar) |
 
 **Deviations:**
-- none
+- `Logo` and `Title` are SLOT properties: Foundations has no published Logo component yet (logos.md: assets pending), and Breadcrumbs is the next component — both drop into the slots
+- Search is not in the set (off in the product); the spec keeps it optional
 
 **Questions for the Planner:**
 - none

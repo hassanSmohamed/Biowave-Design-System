@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-13 — Navigation on Web (Figma): Primary navigation, Top app bar
+
+- New `↳ Primary navigation`: `Side navigation` (State Expanded · Collapsed × Language), private `.Nav item`, `.Module switcher`, `.Collapse handle` (with `Direction` for RTL). Rebuilt from the product side menu: module switcher (level 1) + module pages (level 2), 248 / 96, items 40, padding 16, gap 8, radius 8, icons 16 — all bound to tokens (NV-11 grey menu, NV-12 navy-tint selection, NV-13 two levels).
+- New `↳ Top app bar`: `App header` (Language), 72 high, logo block 248 aligned with the menu, `Logo` and `Title` slots (logo asset and Breadcrumbs), quick-add, inbox and notifications with Badges, profile menu.
+- Docs 00–09, 11; Components List cards; lint 0.
+- **Badge fix (all three files):** `Count` variants hug their text (were fixed 20 wide, clipping "99+").
+- **Mobile fix:** iOS neutral capsules and the round Close button use `color/background/transparent/hovered` as the spec says (were bound to `-pressed`).
+- Review of the product's Web navigation elements: brief `2026-11-13-navigation-brief.md` §5 (11 findings).
+
 ## 2026-11-13 — R-1: picker and select 07 pages use the new Dialog and Bottom sheet
 
 - Dialog `Body`, Side sheet `Body` (Web, Tablet) and Bottom sheet `Content` (Tablet, Mobile) are now real Figma **SLOT** properties (were INSTANCE_SWAP): any content can be placed without detaching. Mobile Bottom sheet gains a `Header` boolean (as Tablet).

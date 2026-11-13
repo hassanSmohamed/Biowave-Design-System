@@ -99,6 +99,8 @@ The design lead pointed to the four Web elements the product uses (Foundations f
 | 7 | Logo block 247 wide, side menu 248 — 1 px off | Navbar | Logo block bound to `layout-width-sidebar-start` |
 | 8 | Frame name typo "Breadcrump" | Breadcrumb page | Component named Breadcrumbs (next phase) |
 | 9 | Every nav item shows a count "12" as plain text | Side Menu | `count` is optional per item (`Show count`), off by default |
+| 10 | No Logo component is published in Foundations (logos.md: assets pending); the Navbar draws the logo as a frame | Foundations | App header `Logo` slot; a Logo component should be added to Foundations |
+| 11 | Badge `Count` variants had a fixed width (20), so "99+" was clipped | Badge set (Wave 7), all three files | Fixed: Count variants hug (min width kept) |
 
 **Decisions (approved by the design lead 2026-11-13)**
 
