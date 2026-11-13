@@ -1,4 +1,4 @@
-<!-- GENERATED from top-app-bar.md @ 79c4892cf7eb1275 — do not edit; change the source and run: npm run contract -- web top-app-bar -->
+<!-- GENERATED from top-app-bar.md @ 7a9225e73e674901 — do not edit; change the source and run: npm run contract -- web top-app-bar -->
 # Top app bar · شريط التطبيق العلوي — Web — code contract
 
 > **Everything you need to build Top app bar on Web, and nothing else.** Read this file only. Generated from [`top-app-bar.md`](top-app-bar.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](top-app-bar.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `src/components/top-app-bar/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`top-app-bar.md`](top-app-bar.md) @ `79c4892cf7eb1275` |
+| Source | [`top-app-bar.md`](top-app-bar.md) @ `7a9225e73e674901` |
 
 ## 1. What it is
 
@@ -42,7 +42,7 @@ The top app bar sits at the top of every screen. On Web it is the **app header**
 | Prop | Type | Values | Default | Required | Description |
 |---|---|---|---|---|---|
 | `title` | `ReactNode` | text now, Breadcrumbs later | — | ✓ | `title` |
-| `logo` | `ReactNode` | | Biowave logo | | `logo` |
+| `logo` | `ReactNode` | | Biowave `Logo` (horizontal, default) | | `logo` |
 | `search` | `ReactNode` | a Biowave `SearchField` | — | | optional |
 | `onQuickAdd` | `() => void` | | — | | (+) Icon button |
 | `inbox` · `notifications` | `{ count: number; onClick }` | | — | | Icon buttons with Badges (`max` 99 → "99+") |

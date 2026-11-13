@@ -168,7 +168,7 @@ Tablet / Mobile — Small and Large
 | Prop | Type | Values | Default | Required | Description |
 |---|---|---|---|---|---|
 | `title` | `ReactNode` | text now, Breadcrumbs later | — | ✓ | `title` |
-| `logo` | `ReactNode` | | Biowave logo | | `logo` |
+| `logo` | `ReactNode` | | Biowave `Logo` (horizontal, default) | | `logo` |
 | `search` | `ReactNode` | a Biowave `SearchField` | — | | optional |
 | `onQuickAdd` | `() => void` | | — | | (+) Icon button |
 | `inbox` · `notifications` | `{ count: number; onClick }` | | — | | Icon buttons with Badges (`max` 99 → "99+") |
@@ -420,7 +420,7 @@ Component description: "The bar at the top of every screen: on Web the app heade
 | QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · measurements match the product elements (Foundations › Sidebar, Navbar) |
 
 **Deviations:**
-- `Logo` and `Title` are SLOT properties: Foundations has no published Logo component yet (logos.md: assets pending), and Breadcrumbs drop into `Title` (done: the `Title` slot holds a `Breadcrumbs` instance, Items=3, in both languages)
+- `Logo` and `Title` are SLOT properties: `Logo` holds the Foundations `Logo` component (Layout=Horizontal, Color=Default, 2026-11-13 NV-18), `Title` holds Breadcrumbs (done: the `Title` slot holds a `Breadcrumbs` instance, Items=3, in both languages)
 - Search is not in the set (off in the product); the spec keeps it optional
 
 **Questions for the Planner:**

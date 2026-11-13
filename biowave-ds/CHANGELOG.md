@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-13 — App header uses the Foundations Logo
+
+- Web `App header`: the `Logo` slot now holds the published Foundations `Logo` (Horizontal · Default) in EN and AR (placement moves, the logo is not mirrored); docs and card update through the instances.
+- `size/indicator/sm` · `size/indicator/lg` are still unpublished in the Foundations library; the page control dots keep `spacing-md` / `spacing-3xl` (same values) until they are.
+
 ## 2026-11-13 — Navigation review: Logo component, size-indicator tokens, Tablet rail grey
 
 - **Foundations Figma:** new `Logo` component set (Layout Horizontal · Vertical · Icon × Color Default · Brand · Black · White), artwork detached from the old external library; new variables `size/indicator/sm` (8) and `size/indicator/lg` (24) in `4. Size`. **Needs a library publish.**
