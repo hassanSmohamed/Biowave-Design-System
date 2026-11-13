@@ -11,6 +11,8 @@
     "icon",
     "icon-button",
     "link",
+    "page-control",
+    "pagination",
     "primary-navigation",
     "side-sheet",
     "split-button",

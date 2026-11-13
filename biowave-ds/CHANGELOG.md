@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-13 — Pagination (Web, Tablet) and Page control (Web, Tablet, Mobile): spec and Figma
+
+- **Pagination specs:** `components/pagination` on Web and Tablet (Mobile: load more, NV-08). Numbered · Table (rows per page Select + "1–20 of 240") · Compact ("Page 3 of 12"); current page uses the selected fill (NV-12).
+- **Page control specs:** `components/page-control` on all three; elongated brand current dot; Mobile iOS = iOS and iPadOS 27 Page Control (platter, opaque current dot), Android = Biowave dots (M3 has none).
+- **Figma:** `Pagination` (Form × Language) with private `.Page item` (6 states), reusing Icon Button and Select; `Page control` (Pages × Language; Mobile OS × Pages × Language) with private `.Dot`. Docs 00–09, 11; cards; lint 0.
+- Inactive dots use `color-border-bold` (4.95:1) — `color-border-default` fails the 3:1 non-text minimum. Token gap: no size token for 8 (dots bound to `spacing-md`); proposal `size-indicator-sm` / `-lg` for Foundations.
+
 ## 2026-11-13 — Tabs (Web, Tablet, Mobile): spec and Figma
 
 - **Specs:** `components/tabs` on all three platforms (1.0, A–D). Primary = labels on a divider with a brand underline (as the product); Secondary = pill chips for a second level; icons and Badges optional; scrollable when they do not fit.

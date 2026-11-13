@@ -2065,6 +2065,8 @@
       "3-web-components/components/icon-button/figma-icon-button-contract.md": "f023ac9b68286a58",
       "3-web-components/components/icon/figma-icon-contract.md": "a832448065c13336",
       "3-web-components/components/link/figma-link-contract.md": "96a127ab3ecb0432",
+      "3-web-components/components/page-control/figma-page-control-contract.md": "9d4e78609b1a8da1",
+      "3-web-components/components/pagination/figma-pagination-contract.md": "bdda056c2012086a",
       "3-web-components/components/primary-navigation/figma-primary-navigation-contract.md": "ce61aea92f5fcd43",
       "3-web-components/components/side-sheet/figma-side-sheet-contract.md": "08c71558a0027e2c",
       "3-web-components/components/split-button/figma-split-button-contract.md": "61ee4531e7e869f9",
@@ -2085,6 +2087,8 @@
       "4-tablet-components/components/icon-button/figma-icon-button-contract.md": "cb0935d587d8cf4e",
       "4-tablet-components/components/icon/figma-icon-contract.md": "e3c53e3d9bda15c7",
       "4-tablet-components/components/link/figma-link-contract.md": "4a9697066662790a",
+      "4-tablet-components/components/page-control/figma-page-control-contract.md": "b3aa949635fc2d90",
+      "4-tablet-components/components/pagination/figma-pagination-contract.md": "30d19509f8d4ac80",
       "4-tablet-components/components/primary-navigation/figma-primary-navigation-contract.md": "5da09a203af005cd",
       "4-tablet-components/components/side-sheet/figma-side-sheet-contract.md": "74a1429307f2fd59",
       "4-tablet-components/components/split-button/figma-split-button-contract.md": "030e4e6d5882b26c",
@@ -2104,6 +2108,7 @@
       "5-mobile-components/components/icon-button/figma-icon-button-contract.md": "f905e5274c9c18eb",
       "5-mobile-components/components/icon/figma-icon-contract.md": "f0f2ceba4c653f53",
       "5-mobile-components/components/link/figma-link-contract.md": "8c38da1e22af03df",
+      "5-mobile-components/components/page-control/figma-page-control-contract.md": "9bb2c03a88ea1605",
       "5-mobile-components/components/primary-navigation/figma-primary-navigation-contract.md": "4c84c66b931d9e78",
       "5-mobile-components/components/split-button/figma-split-button-contract.md": "84066b3a7d1c0ff8",
       "5-mobile-components/components/tabs/figma-tabs-contract.md": "7ad2a6236cf7b161",
@@ -2119,8 +2124,8 @@
   },
   "docsSyncedAt": {
     "docKit": "2026-10-18T10:45:49.592Z",
-    "web": "2026-11-13T18:56:39.424Z",
-    "tablet": "2026-11-13T18:56:39.588Z",
-    "mobile": "2026-11-13T18:56:39.761Z"
+    "web": "2026-11-13T19:10:51.031Z",
+    "tablet": "2026-11-13T19:10:51.229Z",
+    "mobile": "2026-11-13T19:10:51.421Z"
   }
 }
