@@ -1,10 +1,10 @@
 # Wave 8 brief — Dialog · Bottom sheet · Side sheet (+ Scrim)
 
-> Agent summary: audit and proposed decisions for the overlay family, before specs are written. Sources: legacy Foundations sets and product screens, the iOS 27 and Material 3 kits linked in the Mobile file, and the input family's hand-made 07 compositions. Decisions marked **O-xx** are proposals until the design lead answers. Plan context: `2026-11-12-next-waves-plan.md` (Wave 8, native rule N-01/N-02).
+> Agent summary: audit and proposed decisions for the overlay family, before specs are written. Sources: legacy Foundations sets and product screens, the iOS 27 and Material 3 kits linked in the Mobile file, and the input family's hand-made 07 compositions. Decisions **O-01 … O-06** were approved by the design lead on 2026-11-13. Plan context: `2026-11-12-next-waves-plan.md` (Wave 8, native rule N-01/N-02).
 
 | Field | Value |
 |---|---|
-| Status | Draft for review · 2026-11-12 |
+| Status | Approved · 2026-11-13 (O-01 … O-06 as proposed) |
 | Platforms | Dialog W · T · M (M: native iOS / Android) · Bottom sheet T · M (M: native) · Side sheet W · T · Scrim W · T · M |
 | Tokens available | `color/overlay/default` (scrim, 60–70% grey) · `color/surface/raised` · `elevation/3` · `elevation/4` · `layer/drawer` 1200 · `layer/overlay` 1300 · `layer/modal` 1400 · `size/container/xs 384 · sm 480 · md 560 · lg 640 · xl 768` · `radius/xl 12 · 2xl 16` · motion `md 200 · lg 300` |
 
@@ -16,7 +16,7 @@
 | Legacy Web `↳ Slide Out Panel` (5 screens) | Floating right panel inset from the window edge with rounded corners: title + close, info banner, sectioned body (selectable cards), sticky footer with a full-width primary | Anatomy for the Side sheet |
 | Legacy product screen `LMS _Disconnect` | Dialog ~560 wide: title + close, warning banner under the header, body text and list, typed confirmation field, footer with divider: Cancel (outlined) + destructive filled | Anatomy for Dialog, the Destructive pattern (Day 21) |
 | Legacy product screen `Request Details_ Reject_ Edit Reason` | Mobile bottom panel with a message composer above the keyboard | Bottom sheet with an input (keyboard-aware) |
-| iOS 27 kit | `Alert`, `Action Sheet`, `Sheet - iPhone` (detents), `Grabber`, `Sheet - iPad` | Native iOS forms on Mobile |
+| iOS and iPadOS 27 kit (latest; the only iOS source) | `Alert`, `Action Sheet`, `Sheet - iPhone` (detents), `Grabber`, `Sheet - iPad` | Native iOS forms on Mobile |
 | Material 3 kit | `Basic dialog`, `List dialog`, `Scrollable list dialog`, `Bottom sheet` (drag handle), `Side Sheet` (standard · modal) | Native Android forms on Mobile, structure reference |
 | Input family 07 pages | Hand-made Dialog (Tablet pickers) and Bottom sheet (Tablet lists, all Mobile) frames | Replaced by instances after this wave (plan R-1) |
 
@@ -68,7 +68,7 @@ Content slot (list, filters, calendar…)
 | Bottom sheet | Sheet with grabber and detents; header Cancel · Title · Done; Action sheet for choices | M3 Bottom sheet with drag handle; title + content; actions in the content |
 | Action list (File upload sources, Select on iOS) | Action sheet | Bottom sheet `List` / `Action` |
 
-Biowave colours, type and icons stay; the anatomy follows the OS.
+Biowave colours, type and icons stay; the anatomy follows the OS. iOS forms are taken only from the latest Apple kit linked in the Mobile file, **iOS and iPadOS 27** (library `lk-3167e7e1…`); older iOS kits or hand-drawn iOS parts are not used. When Apple ships a newer kit, the iOS forms are re-checked against it.
 
 ## 4. Decisions to make
 
