@@ -3,8 +3,10 @@
   "components": [
     "avatar",
     "badge",
+    "bottom-sheet",
     "button",
     "button-group",
+    "dialog",
     "divider",
     "icon",
     "icon-button",

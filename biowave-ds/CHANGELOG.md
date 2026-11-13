@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-13 — Wave 8 specs: Dialog, Bottom sheet, Side sheet
+
+- New specs 1.0 (Plan Finished, Code and Figma Planned): Dialog on Web · Tablet · Mobile, Bottom sheet on Tablet · Mobile, Side sheet on Web · Tablet. Contracts generated. Brief `_workflow/tasks/2026-11-12-wave8-overlays-brief.md` (O-01 … O-06 approved).
+- Mobile Dialog and Bottom sheet are native (N-01, N-07): iOS from the iOS and iPadOS 27 kit (Alert, Sheet, Action sheet), Android from Material 3; Biowave colours and type.
+- No new tokens; values follow radius.md, elevation.md, motion.md, typography.md and spacing.md (brief §6).
+
 ## 2026-11-12 — Wave 7 fixes: Badge warning text, Divider line, Tooltip tokens
 
 - **Badge (bug):** the token 2.0 migration had turned the Warning count text into `color-text-inverse` — white on the warning fill in light mode, about 3.2:1. Back to `color-text-on-warning` (6.10:1 light · 13.11:1 dark, as measured in review) in B3 on all three platforms, `Badge.tsx` and its test (web badge tests 21/21), and the Count × Warning variants in the Web, Tablet and Mobile Figma sets.

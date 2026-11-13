@@ -86,3 +86,17 @@ Biowave colours, type and icons stay; the anatomy follows the OS. iOS forms are 
 1. Specs (`components/dialog`, `bottom-sheet`, `side-sheet`, private `_scrim`) for each platform, `tokens.json` where a component collection is needed, contracts generated.
 2. Figma Web (Dialog, Side sheet) → Tablet (all three) → Mobile (Dialog and Bottom sheet with `OS=iOS · Android`), docs 00–11, cards.
 3. Replace the hand-made Dialog / Bottom sheet frames on the input family 07 pages (Tablet, Mobile) with instances (plan R-1).
+
+## 6. Corrections while writing the specs (2026-11-13)
+
+The Foundations guidelines already fix some values; the specs follow them instead of the brief's first guesses:
+
+| Brief said | Spec uses | Source |
+|---|---|---|
+| Dialog `radius/xl` | `radius-3xl` | radius.md — dialogs and modal surfaces |
+| Sheets `radius/2xl` (Bottom) · `radius/xl` (Side) | `radius-4xl` (Bottom: top corners only; Side: all corners, because it floats) | radius.md — sheets |
+| Bottom sheet `elevation/3` | `elevation-4` | elevation.md — dialogs, drawers, bottom sheets |
+| Dialog enter fade + scale 0.96 | fade only (`lg` in, `md` out, emphasized easings) | motion.md; a scale value would be a raw number |
+| Dialog title `title/md` | Web `heading-sm` · Tablet / Mobile `heading-md`; sheet titles `title-lg` | typography.md |
+| Padding | `spacing-layout-container` (24 · 24 · 16); Side sheet header `spacing-2xl` | spacing.md |
+| Private `_scrim` spec folder | No separate spec: `scrim` is a part in each spec and a private `.Scrim` component in each Figma file | one fact one home |
