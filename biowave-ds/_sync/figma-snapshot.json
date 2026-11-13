@@ -2059,12 +2059,12 @@
       "3-web-components/components/badge/figma-badge-contract.md": "64e42c17ede534f5",
       "3-web-components/components/button-group/figma-button-group-contract.md": "3a648e218731c46e",
       "3-web-components/components/button/figma-button-contract.md": "2d84cc0123490cc9",
-      "3-web-components/components/dialog/figma-dialog-contract.md": "93c4848f39f1cf69",
+      "3-web-components/components/dialog/figma-dialog-contract.md": "dbd995e8dabddc28",
       "3-web-components/components/divider/figma-divider-contract.md": "10549c39ec5f5ed5",
       "3-web-components/components/icon-button/figma-icon-button-contract.md": "f023ac9b68286a58",
       "3-web-components/components/icon/figma-icon-contract.md": "a832448065c13336",
       "3-web-components/components/link/figma-link-contract.md": "96a127ab3ecb0432",
-      "3-web-components/components/side-sheet/figma-side-sheet-contract.md": "11d9dc49d678fe6a",
+      "3-web-components/components/side-sheet/figma-side-sheet-contract.md": "08c71558a0027e2c",
       "3-web-components/components/split-button/figma-split-button-contract.md": "61ee4531e7e869f9",
       "3-web-components/components/text-field/figma-text-field-contract.md": "467e153335b0a8b8",
       "3-web-components/components/tooltip/figma-tooltip-contract.md": "50f1a69eaa3be4b0"
@@ -2072,15 +2072,15 @@
     "tablet": {
       "4-tablet-components/components/avatar/figma-avatar-contract.md": "a350362b6bcdf873",
       "4-tablet-components/components/badge/figma-badge-contract.md": "4de3edf243968a77",
-      "4-tablet-components/components/bottom-sheet/figma-bottom-sheet-contract.md": "7b42cdfefb5ca020",
+      "4-tablet-components/components/bottom-sheet/figma-bottom-sheet-contract.md": "77f4c20846cfccf9",
       "4-tablet-components/components/button-group/figma-button-group-contract.md": "b08f172bb323c45c",
       "4-tablet-components/components/button/figma-button-contract.md": "8eac2181f4e765bf",
-      "4-tablet-components/components/dialog/figma-dialog-contract.md": "2dd5d1d1f3abc4df",
+      "4-tablet-components/components/dialog/figma-dialog-contract.md": "64ce12b2defc9c3f",
       "4-tablet-components/components/divider/figma-divider-contract.md": "c054c18b6f21c1a0",
       "4-tablet-components/components/icon-button/figma-icon-button-contract.md": "cb0935d587d8cf4e",
       "4-tablet-components/components/icon/figma-icon-contract.md": "e3c53e3d9bda15c7",
       "4-tablet-components/components/link/figma-link-contract.md": "4a9697066662790a",
-      "4-tablet-components/components/side-sheet/figma-side-sheet-contract.md": "65e5f2e2051962a3",
+      "4-tablet-components/components/side-sheet/figma-side-sheet-contract.md": "74a1429307f2fd59",
       "4-tablet-components/components/split-button/figma-split-button-contract.md": "030e4e6d5882b26c",
       "4-tablet-components/components/text-field/figma-text-field-contract.md": "e163c1423d3211e0",
       "4-tablet-components/components/tooltip/figma-tooltip-contract.md": "1191fd5cc2584797"
@@ -2088,7 +2088,7 @@
     "mobile": {
       "5-mobile-components/components/avatar/figma-avatar-contract.md": "45f30c74909e9161",
       "5-mobile-components/components/badge/figma-badge-contract.md": "6fe498ec6ef9e33a",
-      "5-mobile-components/components/bottom-sheet/figma-bottom-sheet-contract.md": "bc8af1321cc2c55d",
+      "5-mobile-components/components/bottom-sheet/figma-bottom-sheet-contract.md": "ac5ccfd5b20611b2",
       "5-mobile-components/components/button-group/figma-button-group-contract.md": "63590e5c97e4b0c2",
       "5-mobile-components/components/button/figma-button-contract.md": "8e65a2e50eb87017",
       "5-mobile-components/components/dialog/figma-dialog-contract.md": "bbb7ac0e8c549c16",
@@ -2108,8 +2108,8 @@
   },
   "docsSyncedAt": {
     "docKit": "2026-10-18T10:45:49.592Z",
-    "web": "2026-11-13T01:18:29.396Z",
-    "tablet": "2026-11-13T01:18:29.551Z",
-    "mobile": "2026-11-13T12:33:22.543Z"
+    "web": "2026-11-13T12:42:57.173Z",
+    "tablet": "2026-11-13T12:42:57.387Z",
+    "mobile": "2026-11-13T12:42:57.570Z"
   }
 }

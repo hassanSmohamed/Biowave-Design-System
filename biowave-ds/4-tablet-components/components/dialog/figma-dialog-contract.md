@@ -1,4 +1,4 @@
-<!-- GENERATED from dialog.md @ 676cedeb4a58a69f — do not edit; change the source and run: npm run contract -- tablet dialog -->
+<!-- GENERATED from dialog.md @ 2d23e6cecb4745ef — do not edit; change the source and run: npm run contract -- tablet dialog -->
 # Dialog · نافذة حوار — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Dialog in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Dialog · نافذة حوار |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`dialog.md`](dialog.md) @ `676cedeb4a58a69f` |
+| Source | [`dialog.md`](dialog.md) @ `2d23e6cecb4745ef` |
 
 ## 1. Library connections in this file
 
@@ -235,7 +235,7 @@ Dialog                     ↕ vertical · gap spacing/xl · padding spacing/lay
 │   ├── title              T heading/md · fill color/text/default · width fill · TEXT `Title`
 │   └── close-button       ◇ Icon Button transparent · neutral · md · glyph close · BOOLEAN `Close button`
 ├── alert                  ◇ placeholder frame (Alert in Wave 9) · width fill · BOOLEAN `Alert`
-├── body                   ◇ .Dialog/body · width fill · INSTANCE_SWAP `Body`
+├── body                   ▢ SLOT `Body` (default content ◇ .Dialog/body) · width fill
 └── footer                 ↔ end-aligned · gap spacing/md
     ├── tertiary-action    ◇ Button text · neutral · md · BOOLEAN `Tertiary action`
     ├── spacer             (fill, only when tertiary is shown)
@@ -255,11 +255,13 @@ Dialog                     ↕ vertical · gap spacing/xl · padding spacing/lay
 | `Title` | TEXT | | `Disconnect LMS?` | `title` | |
 | `Close button` | BOOLEAN | | `true` | `closeButton` | |
 | `Alert` | BOOLEAN | | `false` | `alert` | present / absent |
-| `Body` | INSTANCE_SWAP | preferred: `.Dialog/body` | `.Dialog/body` | `children` / `content` | |
+| `Body` | SLOT | any content (default `.Dialog/body`) | `.Dialog/body` | `children` / `content` | |
 | `Secondary action` | BOOLEAN | | `true` | `secondaryAction` | present / absent |
 | `Tertiary action` | BOOLEAN | | `false` | `tertiaryAction` | present / absent |
 
-**Language and shared properties (Figma rule).** A TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` is bound on the `EN` variants only; `AR` variants carry Arabic sample copy that designers edit directly. `Body` keeps the same main component on every variant and Arabic text is an override.
+**Language and shared properties (Figma rule).** A TEXT property has one value for the whole set, so `Title` is bound on the `EN` variants only; `AR` variants carry Arabic sample copy that designers edit directly.
+
+**Slots (R-1).** `Body` is a real Figma SLOT shared by all variants: drop any content in (form fields, a Calendar, a list) without detaching. The 07 pages of the pickers use it.
 
 ### D5 Variants to generate
 

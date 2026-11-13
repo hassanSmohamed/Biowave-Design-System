@@ -437,7 +437,7 @@ Side sheet                 ↕ vertical · width FIXED bound to size/container/x
 │   ├── back-button        ◇ Icon Button transparent · neutral · md · arrow_back · BOOLEAN `Back button`
 │   ├── title              T title/lg · color/text/default · fill · TEXT `Title`
 │   └── close-button       ◇ Icon Button transparent · neutral · md · close
-├── body                   ◇ .Side sheet/body · fill both · padding-inline spacing/layout/container · INSTANCE_SWAP `Body`
+├── body                   ▢ SLOT `Body` (default content ◇ .Side sheet/body, padding-inline spacing/layout/container) · fill both
 └── footer                 ↕ padding spacing/layout/container · BOOLEAN `Footer`
     └── footer-action      ◇ Button filled · brand · lg · width fill · TEXT via nested label
 ```
@@ -452,9 +452,9 @@ Side sheet                 ↕ vertical · width FIXED bound to size/container/x
 | `Title` | TEXT | | `Edit device` | `title` | |
 | `Back button` | BOOLEAN | | `false` | `onBack` | set / null |
 | `Footer` | BOOLEAN | | `true` | `footer` | present / absent |
-| `Body` | INSTANCE_SWAP | preferred: `.Side sheet/body` | | `children` / `content` | |
+| `Body` | SLOT | any content (default `.Side sheet/body`, AR `.Side sheet/body AR`) | | `children` / `content` | |
 
-**Language and shared properties (Figma rule).** A TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` and `Body` are bound on the `EN` variants only; `AR` variants carry Arabic copy and the private `.Side sheet/body AR` slot.
+**Language and shared properties (Figma rule).** A TEXT property has one value for the whole set, so `Title` is bound on the `EN` variants only; `AR` variants carry Arabic copy and `.Side sheet/body AR` as their default slot content.
 
 ### D5 Variants to generate
 

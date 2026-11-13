@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-13 — R-1: picker and select 07 pages use the new Dialog and Bottom sheet
+
+- Dialog `Body`, Side sheet `Body` (Web, Tablet) and Bottom sheet `Content` (Tablet, Mobile) are now real Figma **SLOT** properties (were INSTANCE_SWAP): any content can be placed without detaching. Mobile Bottom sheet gains a `Header` boolean (as Tablet).
+- Mobile 07 pages: 8 hand-drawn sheets replaced by `Bottom sheet` instances (Android Standard) with the original Menu / Calendar / picker panel moved into the slot; pickers turn Header and Footer off because the panel has its own.
+- Tablet 07 pages: 6 hand-drawn sheets → `Bottom sheet`; 8 picker popovers acting as dialogs → `Dialog` SM (title, close, Cancel / Apply) with the calendar or time panel in the Body slot. Scrim rectangles → `.Scrim`.
+
 ## 2026-11-13 — Wave 8 on Mobile (Figma, native): Dialog, Bottom sheet
 
 - `↳ Dialog` (8: OS × Kind × Language) — iOS and iPadOS 27 Alert (start-aligned, capsule actions) and Material 3 Basic dialog; private `.Dialog/ios-action` (Default · Cancel · Destructive capsules).

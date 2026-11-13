@@ -79,7 +79,7 @@ Goal: on Mobile, components that the operating system owns (navigation chrome, s
 
 | # | Change | Where |
 |---|---|---|
-| R-1 | Swap the hand-made Dialog / Bottom sheet frames on 07 pages for the new components (Wave 8) | Tablet and Mobile, 24 pages each |
+| R-1 | ✅ 2026-11-13 — Swap the hand-made Dialog / Bottom sheet frames on 07 pages for the new components (Wave 8). Done: Mobile 8 sheets (Select, Autocomplete, Phone, Calendar, Date, Date range, Time, Color) · Tablet 6 sheets (Select, Autocomplete, Phone × landscape / portrait) + 8 dialogs (Calendar, Date, Date range, Time × 2). Dialog `Body`, Side sheet `Body` and Bottom sheet `Content` became real SLOT properties so the content moves in without detaching | Tablet and Mobile |
 | R-2 | Tablet 07 pages: check the field width render issue found on Mobile (fill inside the device slot) and fix the same way | Tablet |
 | R-3 | Native forms for already-built Mobile components: Switch, Progress spinner, Date / Time / Date range pickers, Select (and Segmented button vs iOS segmented control) — after N-01 / N-02 | Mobile |
 | R-4 | `Button Group` page empty on Mobile — paste from Web | Mobile |

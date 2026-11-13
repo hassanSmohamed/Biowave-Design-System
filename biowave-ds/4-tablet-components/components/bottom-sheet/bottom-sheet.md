@@ -467,7 +467,7 @@ Bottom sheet               ↕ vertical · width FIXED bound to size/container/l
 ├── header                 ↔ padding-inline spacing/layout/container · gap spacing/xl · BOOLEAN `Header`
 │   ├── title              T title/lg · color/text/default · fill · TEXT `Title`
 │   └── close-button       ◇ Icon Button transparent · neutral · md · close
-├── content                ↕ padding-inline spacing/lg (Standard: ◇ .Bottom sheet/content = List item `Leading=checkbox` rows, INSTANCE_SWAP `Content`; List: ◇ List item `Leading=none` + trailing count, one `State=selected`; Action: ◇ List item `Leading=icon`)
+├── content                ↕ padding-inline spacing/lg (Standard: ◇ .Bottom sheet/content = List item `Leading=checkbox` rows, inside ▢ SLOT `Content`; List: ◇ List item `Leading=none` + trailing count, one `State=selected`; Action: ◇ List item `Leading=icon`)
 └── footer                 ↕ padding spacing/layout/container · BOOLEAN `Footer` (Standard only)
     └── footer-action      ◇ Button filled · brand · lg · width fill
 ```
@@ -481,7 +481,9 @@ Bottom sheet               ↕ vertical · width FIXED bound to size/container/l
 | `Header` | BOOLEAN | | `true` | `title` | set / null |
 | `Title` | TEXT | | `Filter by status` | `title` | |
 | `Footer` | BOOLEAN | | `true` | `footerAction` | present / absent (Standard only) |
-| `Content` | INSTANCE_SWAP | preferred: `.Bottom sheet/content` | | `content` | |
+| `Content` | SLOT | any content (default `.Bottom sheet/content`) — Standard only | | `content` | |
+
+**Slots (R-1).** `Content` is a real Figma SLOT on the Standard variants: Select, Autocomplete, Phone and the pickers place their own content in it (07 pages). Turn `Header` and `Footer` off when that content brings its own title and actions.
 
 ### D5 Variants to generate
 

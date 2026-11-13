@@ -1,4 +1,4 @@
-<!-- GENERATED from bottom-sheet.md @ 5dda0702674bbbeb — do not edit; change the source and run: npm run contract -- tablet bottom-sheet -->
+<!-- GENERATED from bottom-sheet.md @ b1732cdcc9e43145 — do not edit; change the source and run: npm run contract -- tablet bottom-sheet -->
 # Bottom sheet · اللوحة السفلية — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Bottom sheet in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`bottom-sheet.md`](bottom-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](bottom-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Bottom sheet · اللوحة السفلية |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `5dda0702674bbbeb` |
+| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `b1732cdcc9e43145` |
 
 ## 1. Library connections in this file
 
@@ -246,7 +246,7 @@ Bottom sheet               ↕ vertical · width FIXED bound to size/container/l
 ├── header                 ↔ padding-inline spacing/layout/container · gap spacing/xl · BOOLEAN `Header`
 │   ├── title              T title/lg · color/text/default · fill · TEXT `Title`
 │   └── close-button       ◇ Icon Button transparent · neutral · md · close
-├── content                ↕ padding-inline spacing/lg (Standard: ◇ .Bottom sheet/content = List item `Leading=checkbox` rows, INSTANCE_SWAP `Content`; List: ◇ List item `Leading=none` + trailing count, one `State=selected`; Action: ◇ List item `Leading=icon`)
+├── content                ↕ padding-inline spacing/lg (Standard: ◇ .Bottom sheet/content = List item `Leading=checkbox` rows, inside ▢ SLOT `Content`; List: ◇ List item `Leading=none` + trailing count, one `State=selected`; Action: ◇ List item `Leading=icon`)
 └── footer                 ↕ padding spacing/layout/container · BOOLEAN `Footer` (Standard only)
     └── footer-action      ◇ Button filled · brand · lg · width fill
 ```
@@ -260,7 +260,9 @@ Bottom sheet               ↕ vertical · width FIXED bound to size/container/l
 | `Header` | BOOLEAN | | `true` | `title` | set / null |
 | `Title` | TEXT | | `Filter by status` | `title` | |
 | `Footer` | BOOLEAN | | `true` | `footerAction` | present / absent (Standard only) |
-| `Content` | INSTANCE_SWAP | preferred: `.Bottom sheet/content` | | `content` | |
+| `Content` | SLOT | any content (default `.Bottom sheet/content`) — Standard only | | `content` | |
+
+**Slots (R-1).** `Content` is a real Figma SLOT on the Standard variants: Select, Autocomplete, Phone and the pickers place their own content in it (07 pages). Turn `Header` and `Footer` off when that content brings its own title and actions.
 
 ### D5 Variants to generate
 
