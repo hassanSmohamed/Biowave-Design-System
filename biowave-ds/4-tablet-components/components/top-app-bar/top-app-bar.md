@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/top-app-bar/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -411,13 +411,13 @@ Component description: "The bar at the top of every screen: on Web the app heade
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `188:347` · `Top app bar` `190:1240` (4) · docs `191:7316` · card row `192:1433` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · page modes Typography and Grid set to the platform |
 
 **Deviations:**
-- none
+- Large keeps the bar row (title hidden) and adds the large title row below, so leading and actions stay in place
 
 **Questions for the Planner:**
 - none

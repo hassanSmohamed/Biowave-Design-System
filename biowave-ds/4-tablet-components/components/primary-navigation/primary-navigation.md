@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/primary-navigation/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -460,13 +460,14 @@ Component description: "Moves the user between the top-level sections (modules) 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `188:346` · `Navigation rail` `188:968` (2) · `Navigation drawer` `188:1131` (2) · `.Rail item` `188:756` · `.Nav item` `188:785` (State × Direction) · `.Module switcher` `188:814` · docs `191:3432` · card row `192:1433` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · page modes Typography and Grid set to the platform |
 
 **Deviations:**
-- none
+- Rail destinations are the app modules (Home, Devices, Users, Attendance, Access); the drawer holds the module switcher + pages, as Web
+- Drawer items are touch height (`size-control-height-lg`); private parts have `Direction` for RTL
 
 **Questions for the Planner:**
 - none

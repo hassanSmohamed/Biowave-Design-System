@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/primary-navigation/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -468,13 +468,15 @@ Component description: "Moves the user between the top-level sections (modules) 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `149:377` · `Navigation bar` `149:717` (4: OS × Language) · `Navigation drawer` `149:934` (Android, 2) · `.Tab item` `149:424` (OS × Selected, Badge) · `.Nav item` `149:746` · `.Module switcher` `149:771` · docs `151:3060` · card row `151:8569` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · page modes Typography and Grid set to the platform |
 
 **Deviations:**
-- none
+- iOS from the iOS and iPadOS 27 Tab Bar (floating capsule, pill highlight); Android from the M3 Navigation Bar (indicator behind the icon)
+- `.Tab item` has a `Badge` boolean (count on the icon)
+- Android drawer items use the M3 full-pill selection
 
 **Questions for the Planner:**
 - none

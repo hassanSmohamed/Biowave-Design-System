@@ -2082,10 +2082,12 @@
       "4-tablet-components/components/icon-button/figma-icon-button-contract.md": "cb0935d587d8cf4e",
       "4-tablet-components/components/icon/figma-icon-contract.md": "e3c53e3d9bda15c7",
       "4-tablet-components/components/link/figma-link-contract.md": "4a9697066662790a",
+      "4-tablet-components/components/primary-navigation/figma-primary-navigation-contract.md": "5da09a203af005cd",
       "4-tablet-components/components/side-sheet/figma-side-sheet-contract.md": "74a1429307f2fd59",
       "4-tablet-components/components/split-button/figma-split-button-contract.md": "030e4e6d5882b26c",
       "4-tablet-components/components/text-field/figma-text-field-contract.md": "e163c1423d3211e0",
-      "4-tablet-components/components/tooltip/figma-tooltip-contract.md": "1191fd5cc2584797"
+      "4-tablet-components/components/tooltip/figma-tooltip-contract.md": "1191fd5cc2584797",
+      "4-tablet-components/components/top-app-bar/figma-top-app-bar-contract.md": "b6287e9cffc20a3f"
     },
     "mobile": {
       "5-mobile-components/components/avatar/figma-avatar-contract.md": "45f30c74909e9161",
@@ -2098,9 +2100,11 @@
       "5-mobile-components/components/icon-button/figma-icon-button-contract.md": "f905e5274c9c18eb",
       "5-mobile-components/components/icon/figma-icon-contract.md": "f0f2ceba4c653f53",
       "5-mobile-components/components/link/figma-link-contract.md": "8c38da1e22af03df",
+      "5-mobile-components/components/primary-navigation/figma-primary-navigation-contract.md": "4c84c66b931d9e78",
       "5-mobile-components/components/split-button/figma-split-button-contract.md": "84066b3a7d1c0ff8",
       "5-mobile-components/components/text-field/figma-text-field-contract.md": "78a94cfb8ee76fe6",
-      "5-mobile-components/components/tooltip/figma-tooltip-contract.md": "47c26cbc8f5e2c18"
+      "5-mobile-components/components/tooltip/figma-tooltip-contract.md": "47c26cbc8f5e2c18",
+      "5-mobile-components/components/top-app-bar/figma-top-app-bar-contract.md": "327d674d319a5b81"
     }
   },
   "componentTokens": {
@@ -2111,7 +2115,7 @@
   "docsSyncedAt": {
     "docKit": "2026-10-18T10:45:49.592Z",
     "web": "2026-11-13T15:53:48.849Z",
-    "tablet": "2026-11-13T12:42:57.387Z",
-    "mobile": "2026-11-13T12:42:57.570Z"
+    "tablet": "2026-11-13T16:07:22.910Z",
+    "mobile": "2026-11-13T16:07:23.062Z"
   }
 }

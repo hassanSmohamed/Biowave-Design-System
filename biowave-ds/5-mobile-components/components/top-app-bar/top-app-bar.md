@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/top-app-bar/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -427,13 +427,14 @@ Component description: "The bar at the top of every screen: on Web the app heade
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `149:378` · `Top app bar` `150:1410` (8: OS × Size × Language) · `.Top app bar/ios-back` `150:471` · `.Top app bar/ios-actions` `150:472` · docs `151:6005` · card row `151:8569` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · page modes Typography and Grid set to the platform |
 
 **Deviations:**
-- none
+- iOS from the iOS and iPadOS 27 Toolbar - Top (round back, centred title, grouped actions); the RTL back chevron is the flipped `chevron_left`
+- The Android menu leading (drawer) is documented, not a separate variant
 
 **Questions for the Planner:**
 - none

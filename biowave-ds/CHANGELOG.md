@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-13 — Navigation on Tablet and Mobile (Figma): Primary navigation, Top app bar
+
+- **Tablet:** `Navigation rail` (80 wide, icon + label, pill indicator, menu button), `Navigation drawer` (module switcher + pages, as Web), `Top app bar` (Small · Large × Language).
+- **Mobile (native):** `Navigation bar` (OS × Language) — iOS and iPadOS 27 floating tab bar and M3 navigation bar, with Badge; Android `Navigation drawer`; `Top app bar` (OS × Size × Language) — iOS 27 round back + grouped actions + large title, M3 small and large app bar.
+- Docs 00–09, 11 on both files (iPhone and Android side by side); cards; lint 0.
+
 ## 2026-11-13 — Navigation on Web (Figma): Primary navigation, Top app bar
 
 - New `↳ Primary navigation`: `Side navigation` (State Expanded · Collapsed × Language), private `.Nav item`, `.Module switcher`, `.Collapse handle` (with `Direction` for RTL). Rebuilt from the product side menu: module switcher (level 1) + module pages (level 2), 248 / 96, items 40, padding 16, gap 8, radius 8, icons 16 — all bound to tokens (NV-11 grey menu, NV-12 navy-tint selection, NV-13 two levels).
