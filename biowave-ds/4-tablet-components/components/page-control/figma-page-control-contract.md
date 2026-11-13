@@ -1,7 +1,7 @@
-<!-- GENERATED from page-control.md @ 7c674e655cc0fd67 — do not edit; change the source and run: npm run contract -- tablet page-control -->
+<!-- GENERATED from page-control.md @ 409107d4133f1c3a — do not edit; change the source and run: npm run contract -- tablet page-control -->
 # Page control · مؤشر الصفحات — Tablet — Figma contract
 
-> **Everything the Figma Agent needs to build Page control in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`page-control.md`](page-control.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](page-control.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Page control in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`page-control.md`](page-control.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](page-control.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Page control · مؤشر الصفحات |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`page-control.md`](page-control.md) @ `7c674e655cc0fd67` |
+| Source | [`page-control.md`](page-control.md) @ `409107d4133f1c3a` |
 
 ## 1. Library connections in this file
 
@@ -47,7 +47,8 @@ None yet — this component has no component tokens. Bind to the Foundations var
 | `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
 | `color-surface-default` | 1. Themes › `color/surface/default` | `2013a1c60d84d2bac2524fd0c32229e20cc341a1` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `radius-full` | 2. Radius › `radius/full` | `cde1a4778562f488d8f32680d4d00f7957cc2a21` | FLOAT | CORNER_RADIUS | spec |
-| `spacing-3xl` | 3. Spacing › `spacing/3xl` | `5074b95f9af7de39e16a9c1f1796ca42e5d08925` | FLOAT | GAP | spec |
+| `size-indicator-lg` | 4. Size › `size/indicator/lg` | `d89b59dd7794ed8bab385886fe4f30718e4b8741` | FLOAT | WIDTH_HEIGHT | spec |
+| `size-indicator-sm` | 4. Size › `size/indicator/sm` | `c92e3f33bc4da813e300178b0eaee8aaf75f10ec` | FLOAT | WIDTH_HEIGHT | spec |
 | `spacing-md` | 3. Spacing › `spacing/md` | `58c93e3cec1b6ba603371a027483e101adcef4f0` | FLOAT | GAP | spec |
 | `target-min` | 6. Grid & Layout › `target/min` | `db23ec2826d3bfa3e600e5a82801e0c7d37ba298` | FLOAT | WIDTH_HEIGHT | spec |
 
@@ -81,12 +82,12 @@ No icon named in this spec. Icons come only from the Google · Material Symbols 
 
 ### B2 Dimensions
 
-Dot sizes use spacing tokens: there is no size token for 8 (`size-icon-*` starts at 12). Reported in C4.
+Dot sizes use `size-indicator-sm` (8) and `size-indicator-lg` (24), added to Foundations for this component (2026-11-13).
 
 | Part | Property | Token |
 |---|---|---|
-| dot | size · gap · radius | `spacing-md` · `spacing-md` · `radius-full` |
-| current | width · height | `spacing-3xl` · `spacing-md` |
+| dot | size · gap · radius | `size-indicator-sm` · `spacing-md` · `radius-full` |
+| current | width · height | `size-indicator-lg` · `size-indicator-sm` |
 | row | hit area | `target-min` height
 
 ### B3 Tokens by part and state

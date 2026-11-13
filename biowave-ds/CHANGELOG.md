@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-13 — Navigation review: Logo component, size-indicator tokens, Tablet rail grey
+
+- **Foundations Figma:** new `Logo` component set (Layout Horizontal · Vertical · Icon × Color Default · Brand · Black · White), artwork detached from the old external library; new variables `size/indicator/sm` (8) and `size/indicator/lg` (24) in `4. Size`. **Needs a library publish.**
+- **Tokens:** `size.indicator.sm` · `size.indicator.lg` in `semantic/size.json`; icons.md documents them; `_sync/figma-library.json` gains their keys; all contracts regenerated.
+- **Tablet:** Navigation rail fill `color-surface-subtle` (NV-14); colors.md updated.
+- **Pagination:** disabled previous shown on doc page 03 via the Icon Button's `Appearance › State` (Web, Tablet).
+- **logos.md:** Figma component documented; SVG / PNG assets still pending.
+
 ## 2026-11-13 — Stepper (Web, Tablet, Mobile): spec and Figma — navigation family complete
 
 - **Specs:** `components/stepper` on all three (1.0, A–D). Steps Upcoming · Current · Completed · Error (number · check · "!"); horizontal and vertical on Web / Tablet; Mobile compact ("Step 2 of 4" + linear Progress, NV-09) and vertical.

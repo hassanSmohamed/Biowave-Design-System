@@ -1,4 +1,4 @@
-<!-- GENERATED from page-control.md @ 463ca9f58b55960a — do not edit; change the source and run: npm run contract -- web page-control -->
+<!-- GENERATED from page-control.md @ 1a1431b782097068 — do not edit; change the source and run: npm run contract -- web page-control -->
 # Page control · مؤشر الصفحات — Web — code contract
 
 > **Everything you need to build Page control on Web, and nothing else.** Read this file only. Generated from [`page-control.md`](page-control.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](page-control.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `src/components/page-control/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`page-control.md`](page-control.md) @ `463ca9f58b55960a` |
+| Source | [`page-control.md`](page-control.md) @ `1a1431b782097068` |
 
 ## 1. What it is
 
@@ -40,12 +40,12 @@ A page control is a row of dots under a short carousel or onboarding flow. Each 
 
 ## 3. Dimensions
 
-Dot sizes use spacing tokens: there is no size token for 8 (`size-icon-*` starts at 12). Reported in C4.
+Dot sizes use `size-indicator-sm` (8) and `size-indicator-lg` (24), added to Foundations for this component (2026-11-13).
 
 | Part | Property | Token |
 |---|---|---|
-| dot | size · gap · radius | `spacing-md` · `spacing-md` · `radius-full` |
-| current | width · height | `spacing-3xl` · `spacing-md` |
+| dot | size · gap · radius | `size-indicator-sm` · `spacing-md` · `radius-full` |
+| current | width · height | `size-indicator-lg` · `size-indicator-sm` |
 | row | hit area | pointer: each dot a `target-min` button
 
 ## 4. Tokens by part and state
@@ -71,7 +71,8 @@ Values are for checking only — never paste a value.
 | `motion-duration-md` | `var(--bw-motion-duration-md)` · `cssVars.motion.duration.md` | 200 | 200 |
 | `motion-easing-standard` | `var(--bw-motion-easing-standard)` · `cssVars.motion.easing.standard` | [0.2,0,0,1] | [0.2,0,0,1] |
 | `radius-full` | `var(--bw-radius-full)` · `cssVars.radius.full` | 9999 | 9999 |
-| `spacing-3xl` | `var(--bw-spacing-3xl)` · `cssVars.spacing.3xl` | 24 | 24 |
+| `size-indicator-lg` | `var(--bw-size-indicator-lg)` · `cssVars.size.indicator.lg` | 24 | 24 |
+| `size-indicator-sm` | `var(--bw-size-indicator-sm)` · `cssVars.size.indicator.sm` | 8 | 8 |
 | `spacing-md` | `var(--bw-spacing-md)` · `cssVars.spacing.md` | 8 | 8 |
 | `target-min` | `var(--bw-target-min)` · `cssVars.target.min` |  |  |
 
@@ -120,7 +121,7 @@ The Web Page control matches B1–B6 and passes B9 and C6.
 
 ### Token gaps
 
-Dot sizes use `spacing-md` / `spacing-3xl` because there is no size token below 12 (`size-icon-xs`). Proposal for Foundations: `size-indicator-sm` 8 · `size-indicator-lg` 24. Until then the spacing tokens are used.
+None — `size-indicator-sm` and `size-indicator-lg` were added to Foundations (`size.json`) for the dots.
 
 ### Files to create / change
 

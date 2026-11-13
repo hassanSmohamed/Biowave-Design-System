@@ -198,7 +198,7 @@ Shown on Web and in the drawer: the modules the user's licence includes; modules
 
 ```
 ├ layout-width-sidebar-start (80 on Tablet) ┤          Drawer: width size-container-xxs · radius-4xl inline-end corners · elevation-4
-┌──────────┐  fill color-surface-default · border-inline-end color-border-subtle
+┌──────────┐  fill color-surface-subtle · border-inline-end color-border-subtle
 │   [≡]    │  menu Icon button · margin-block spacing-lg
 │  ▐ ▦ ▌   │  indicator: height size-control-height-sm · padding-inline spacing-xl · radius-full · color-background-selected-default
 │   Home   │  label label-md · gap spacing-xs
@@ -209,7 +209,7 @@ Shown on Web and in the drawer: the modules the user's licence includes; modules
 
 | Part | Property | Token | Flutter |
 |---|---|---|---|
-| container | width · fill | `layout-width-sidebar-start` · `color-surface-default` | `NavigationRail(minWidth: context.bw.layout.sidebarStart, backgroundColor: surfaceDefault)` |
+| container | width · fill | `layout-width-sidebar-start` · `color-surface-subtle` (NV-11, as Web) | `NavigationRail(minWidth: context.bw.layout.sidebarStart, backgroundColor: surfaceSubtle)` |
 | indicator | height · padding · radius · fill | `size-control-height-sm` · `spacing-xl` · `radius-full` · `color-background-selected-default` | `indicatorColor`, `indicatorShape: StadiumBorder()` |
 | icon | size · colour | `size-icon-lg` · `color-icon-default`, selected `color-icon-role-brand` (filled glyph) | `selectedIcon` |
 | label | style · colour | `label-md` · `color-text-subtle`, selected `color-text-role-brand` | `labelType: NavigationRailLabelType.all` |
@@ -222,7 +222,7 @@ Every value is a semantic token; there is no `primary-navigation.tokens.json`.
 
 | Part | Property | Default | Hover | Pressed | Selected |
 |---|---|---|---|---|---|
-| container | fill | `color-surface-default` | — | — | — |
+| container | fill | `color-surface-subtle` | — | — | — |
 | item | fill | transparent | `color-background-transparent-hovered` | `color-background-transparent-pressed` | `color-background-selected-default` (hover `-hovered`, pressed `-pressed`) |
 | item | icon | `color-icon-default` | — | — | `color-icon-role-brand` (rail and bar: filled glyph) |
 | item | label | `color-text-subtle` | `color-text-default` | — | `color-text-role-brand` |
@@ -397,7 +397,7 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 ### D3 Layer tree and auto layout
 
 ```
-Navigation rail            ↕ width layout/width/sidebar/start · height 640 sample · fill color/surface/default · stroke inline-end · padding-block spacing/lg · gap spacing/lg · centred
+Navigation rail            ↕ width layout/width/sidebar/start · height 640 sample · fill color/surface/subtle · stroke inline-end · padding-block spacing/lg · gap spacing/lg · centred
 ├── menu-button            ◇ Icon Button (menu)
 └── items                  ◇ .Rail item × 5 (icon in indicator pill + label/md)
 Navigation drawer          ↕ width size/container/xxs · radius/4xl inline-end · Elevation/4 · fill color/surface/raised · padding spacing/md

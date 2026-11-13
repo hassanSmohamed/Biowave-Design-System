@@ -301,6 +301,8 @@ Raw ramps. Maintainers only: never bind these inside components.
 | `size-icon-xl` | {"value":32,"unit":"px"} | Icon 32. Emphasis: leading icon of a banner, avatar fallback at xl. |
 | `size-icon-2xl` | {"value":40,"unit":"px"} | Icon 40 (optical size). Feature or section icons, small empty states. |
 | `size-icon-3xl` | {"value":48,"unit":"px"} | Icon 48 (optical size). Empty states, onboarding, large illustrative icons. |
+| `size-indicator-sm` | {"value":8,"unit":"px"} | Indicator 8. Page control dot (both axes); height of the current dot. |
+| `size-indicator-lg` | {"value":24,"unit":"px"} | Indicator 24. Width of the elongated current page dot. |
 | `size-control-height-sm` | {"value":32,"unit":"px"} | Control height 32. Dense web only: tables, toolbars, filters. On touch never without a target-min hit area. |
 | `size-control-height-md` | {"value":40,"unit":"px"} | Control height 40. Default on web. |
 | `size-control-height-lg` | {"value":48,"unit":"px"} | Control height 48. Default on tablet and mobile (= touch target). |

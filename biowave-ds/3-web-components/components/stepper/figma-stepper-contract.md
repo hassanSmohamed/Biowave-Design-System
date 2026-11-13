@@ -1,7 +1,7 @@
-<!-- GENERATED from stepper.md @ 80f8ccb23930ea07 — do not edit; change the source and run: npm run contract -- web stepper -->
+<!-- GENERATED from stepper.md @ b81a0fc86cafe3ae — do not edit; change the source and run: npm run contract -- web stepper -->
 # Stepper · مؤشر الخطوات — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Stepper in the Web Components file, with our variables and styles.** Read this file only. Generated from [`stepper.md`](stepper.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](stepper.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Stepper in the Web Components file, with our variables and styles.** Read this file only. Generated from [`stepper.md`](stepper.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](stepper.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Stepper · مؤشر الخطوات |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`stepper.md`](stepper.md) @ `80f8ccb23930ea07` |
+| Source | [`stepper.md`](stepper.md) @ `b81a0fc86cafe3ae` |
 
 ## 1. Library connections in this file
 

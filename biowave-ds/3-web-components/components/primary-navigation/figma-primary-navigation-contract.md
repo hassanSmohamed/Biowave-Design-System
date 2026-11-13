@@ -1,7 +1,7 @@
-<!-- GENERATED from primary-navigation.md @ 16fc08d71f684eaa — do not edit; change the source and run: npm run contract -- web primary-navigation -->
+<!-- GENERATED from primary-navigation.md @ 2a3646f19f458102 — do not edit; change the source and run: npm run contract -- web primary-navigation -->
 # Primary navigation · التنقل الرئيسي — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Primary navigation in the Web Components file, with our variables and styles.** Read this file only. Generated from [`primary-navigation.md`](primary-navigation.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](primary-navigation.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Primary navigation in the Web Components file, with our variables and styles.** Read this file only. Generated from [`primary-navigation.md`](primary-navigation.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](primary-navigation.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Primary navigation · التنقل الرئيسي |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`primary-navigation.md`](primary-navigation.md) @ `16fc08d71f684eaa` |
+| Source | [`primary-navigation.md`](primary-navigation.md) @ `2a3646f19f458102` |
 
 ## 1. Library connections in this file
 

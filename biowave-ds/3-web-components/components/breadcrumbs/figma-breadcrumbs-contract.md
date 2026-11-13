@@ -1,7 +1,7 @@
-<!-- GENERATED from breadcrumbs.md @ c8c101c7711e07e0 — do not edit; change the source and run: npm run contract -- web breadcrumbs -->
+<!-- GENERATED from breadcrumbs.md @ 157244b9d3aa5fa0 — do not edit; change the source and run: npm run contract -- web breadcrumbs -->
 # Breadcrumbs · مسار التنقل — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Breadcrumbs in the Web Components file, with our variables and styles.** Read this file only. Generated from [`breadcrumbs.md`](breadcrumbs.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](breadcrumbs.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Breadcrumbs in the Web Components file, with our variables and styles.** Read this file only. Generated from [`breadcrumbs.md`](breadcrumbs.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](breadcrumbs.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Breadcrumbs · مسار التنقل |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`breadcrumbs.md`](breadcrumbs.md) @ `c8c101c7711e07e0` |
+| Source | [`breadcrumbs.md`](breadcrumbs.md) @ `157244b9d3aa5fa0` |
 
 ## 1. Library connections in this file
 

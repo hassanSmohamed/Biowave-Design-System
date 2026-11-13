@@ -137,12 +137,12 @@ No text. The accessible name says the position: "Page 2 of 5".
 
 ### B2 Dimensions
 
-Dot sizes use spacing tokens: there is no size token for 8 (`size-icon-*` starts at 12). Reported in C4.
+Dot sizes use `size-indicator-sm` (8) and `size-indicator-lg` (24), added to Foundations for this component (2026-11-13).
 
 | Part | Property | Token |
 |---|---|---|
-| dot | size · gap · radius | `spacing-md` · `spacing-md` · `radius-full` |
-| current | width · height | `spacing-3xl` · `spacing-md` |
+| dot | size · gap · radius | `size-indicator-sm` · `spacing-md` · `radius-full` |
+| current | width · height | `size-indicator-lg` · `size-indicator-sm` |
 | row | hit area | pointer: each dot a `target-min` button
 
 ### B3 Tokens by part and state
@@ -220,7 +220,7 @@ The Web Page control matches B1–B6 and passes B9 and C6.
 
 ### C4 Token gaps
 
-Dot sizes use `spacing-md` / `spacing-3xl` because there is no size token below 12 (`size-icon-xs`). Proposal for Foundations: `size-indicator-sm` 8 · `size-indicator-lg` 24. Until then the spacing tokens are used.
+None — `size-indicator-sm` and `size-indicator-lg` were added to Foundations (`size.json`) for the dots.
 
 ### C5 Files to create / change
 
@@ -359,7 +359,7 @@ Component description: "Dots that show which page of a short carousel or onboard
 
 **Deviations:**
 - Inactive dots use `color-border-bold` (4.95:1): `color-border-default` was 1.38:1, below the 3:1 non-text minimum
-- Dot sizes are bound to `spacing-md` / `spacing-3xl` (no size token below 12; C4 proposal)
+- Dot sizes bound to `size-indicator-sm` / `size-indicator-lg` (new Foundations tokens) once the Foundations library is published; until then `spacing-md` / `spacing-3xl` (same values)
 
 **Questions for the Planner:**
 - none

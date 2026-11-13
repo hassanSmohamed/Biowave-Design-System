@@ -70,6 +70,17 @@
         "$description": "Icon 48 (optical size). Empty states, onboarding, large illustrative icons."
       }
     },
+    "indicator": {
+      "$description": "Page-position marks smaller than any icon: page control dots and similar indicators. Not for interactive targets (they keep target-min).",
+      "sm": {
+        "$value": "{primitive.dimension.8}",
+        "$description": "Indicator 8. Page control dot (both axes); height of the current dot."
+      },
+      "lg": {
+        "$value": "{primitive.dimension.24}",
+        "$description": "Indicator 24. Width of the elongated current page dot."
+      }
+    },
     "control": {
       "$description": "Height of controls with a fixed height (Button, Icon button, Split button, Text field, Select, Segmented button). One size per row: controls side by side share a size. Components that sit in the same row as controls (Avatar) may use these heights through their component tokens so they line up. Touch platforms default to lg; xl is tablet/mobile primary actions only.",
       "height": {

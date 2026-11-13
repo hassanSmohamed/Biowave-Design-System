@@ -1,7 +1,7 @@
-<!-- GENERATED from primary-navigation.md @ 22f1393914c3fdd1 — do not edit; change the source and run: npm run contract -- tablet primary-navigation -->
+<!-- GENERATED from primary-navigation.md @ ddba2c2ea4065fc6 — do not edit; change the source and run: npm run contract -- tablet primary-navigation -->
 # Primary navigation · التنقل الرئيسي — Tablet — Figma contract
 
-> **Everything the Figma Agent needs to build Primary navigation in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`primary-navigation.md`](primary-navigation.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](primary-navigation.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Primary navigation in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`primary-navigation.md`](primary-navigation.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](primary-navigation.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Primary navigation · التنقل الرئيسي |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`primary-navigation.md`](primary-navigation.md) @ `22f1393914c3fdd1` |
+| Source | [`primary-navigation.md`](primary-navigation.md) @ `ddba2c2ea4065fc6` |
 
 ## 1. Library connections in this file
 
@@ -48,8 +48,8 @@ None yet — this component has no component tokens. Bind to the Foundations var
 | `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
 | `color-icon-role-brand` | 1. Themes › `color/icon/role/brand` | `73d6989d2161d900c2070cd9b67f01653e54251d` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
 | `color-overlay-default` | 1. Themes › `color/overlay/default` | `3ecd2f2ffb4741abe966b362763abdda03333e76` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
-| `color-surface-default` | 1. Themes › `color/surface/default` | `2013a1c60d84d2bac2524fd0c32229e20cc341a1` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-surface-raised` | 1. Themes › `color/surface/raised` | `92b71ada5e0cffef4eec84e17092c1f3d81da69f` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
+| `color-surface-subtle` | 1. Themes › `color/surface/subtle` | `5963036a1ce77158a13d05d89008d80267f7be1f` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec |
 | `color-text-role-brand` | 1. Themes › `color/text/role/brand` | `bf6f82d7545a8ae04bb4d55ee373397e5d16c45a` | COLOR | TEXT_FILL | spec |
 | `color-text-subtle` | 1. Themes › `color/text/subtle` | `dac97f2fd2a80ccffd6283bcc06c623f64ebe90a` | COLOR | TEXT_FILL | spec |
@@ -110,7 +110,7 @@ No icon named in this spec. Icons come only from the Google · Material Symbols 
 
 ```
 ├ layout-width-sidebar-start (80 on Tablet) ┤          Drawer: width size-container-xxs · radius-4xl inline-end corners · elevation-4
-┌──────────┐  fill color-surface-default · border-inline-end color-border-subtle
+┌──────────┐  fill color-surface-subtle · border-inline-end color-border-subtle
 │   [≡]    │  menu Icon button · margin-block spacing-lg
 │  ▐ ▦ ▌   │  indicator: height size-control-height-sm · padding-inline spacing-xl · radius-full · color-background-selected-default
 │   Home   │  label label-md · gap spacing-xs
@@ -121,7 +121,7 @@ No icon named in this spec. Icons come only from the Google · Material Symbols 
 
 | Part | Property | Token | Flutter |
 |---|---|---|---|
-| container | width · fill | `layout-width-sidebar-start` · `color-surface-default` | `NavigationRail(minWidth: context.bw.layout.sidebarStart, backgroundColor: surfaceDefault)` |
+| container | width · fill | `layout-width-sidebar-start` · `color-surface-subtle` (NV-11, as Web) | `NavigationRail(minWidth: context.bw.layout.sidebarStart, backgroundColor: surfaceSubtle)` |
 | indicator | height · padding · radius · fill | `size-control-height-sm` · `spacing-xl` · `radius-full` · `color-background-selected-default` | `indicatorColor`, `indicatorShape: StadiumBorder()` |
 | icon | size · colour | `size-icon-lg` · `color-icon-default`, selected `color-icon-role-brand` (filled glyph) | `selectedIcon` |
 | label | style · colour | `label-md` · `color-text-subtle`, selected `color-text-role-brand` | `labelType: NavigationRailLabelType.all` |
@@ -134,7 +134,7 @@ Every value is a semantic token; there is no `primary-navigation.tokens.json`.
 
 | Part | Property | Default | Hover | Pressed | Selected |
 |---|---|---|---|---|---|
-| container | fill | `color-surface-default` | — | — | — |
+| container | fill | `color-surface-subtle` | — | — | — |
 | item | fill | transparent | `color-background-transparent-hovered` | `color-background-transparent-pressed` | `color-background-selected-default` (hover `-hovered`, pressed `-pressed`) |
 | item | icon | `color-icon-default` | — | — | `color-icon-role-brand` (rail and bar: filled glyph) |
 | item | label | `color-text-subtle` | `color-text-default` | — | `color-text-role-brand` |
@@ -214,7 +214,7 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 ### D3 Layer tree and auto layout
 
 ```
-Navigation rail            ↕ width layout/width/sidebar/start · height 640 sample · fill color/surface/default · stroke inline-end · padding-block spacing/lg · gap spacing/lg · centred
+Navigation rail            ↕ width layout/width/sidebar/start · height 640 sample · fill color/surface/subtle · stroke inline-end · padding-block spacing/lg · gap spacing/lg · centred
 ├── menu-button            ◇ Icon Button (menu)
 └── items                  ◇ .Rail item × 5 (icon in indicator pill + label/md)
 Navigation drawer          ↕ width size/container/xxs · radius/4xl inline-end · Elevation/4 · fill color/surface/raised · padding spacing/md

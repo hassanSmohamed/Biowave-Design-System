@@ -1,7 +1,7 @@
-<!-- GENERATED from dialog.md @ 84dc775731c81a1e — do not edit; change the source and run: npm run contract -- mobile dialog -->
+<!-- GENERATED from dialog.md @ 10c0f8b37e846ecf — do not edit; change the source and run: npm run contract -- mobile dialog -->
 # Dialog · نافذة حوار — Mobile — Figma contract
 
-> **Everything the Figma Agent needs to build Dialog in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Dialog in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Dialog · نافذة حوار |
 | Platform | Mobile · Flutter + Material 3 + Cupertino (adaptive, N-07) |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`dialog.md`](dialog.md) @ `84dc775731c81a1e` |
+| Source | [`dialog.md`](dialog.md) @ `10c0f8b37e846ecf` |
 
 ## 1. Library connections in this file
 

@@ -1,4 +1,4 @@
-<!-- GENERATED from primary-navigation.md @ edd6112ac6292f8c — do not edit; change the source and run: npm run contract -- tablet primary-navigation -->
+<!-- GENERATED from primary-navigation.md @ eb75b5e063a46bb6 — do not edit; change the source and run: npm run contract -- tablet primary-navigation -->
 # Primary navigation · التنقل الرئيسي — Tablet — code contract
 
 > **Everything you need to build Primary navigation on Tablet, and nothing else.** Read this file only. Generated from [`primary-navigation.md`](primary-navigation.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](primary-navigation.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `lib/src/components/primary-navigation/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`primary-navigation.md`](primary-navigation.md) @ `edd6112ac6292f8c` |
+| Source | [`primary-navigation.md`](primary-navigation.md) @ `eb75b5e063a46bb6` |
 
 ## 1. What it is
 
@@ -60,7 +60,7 @@ Primary navigation is how people move between the main sections of Biowave — D
 
 ```
 ├ layout-width-sidebar-start (80 on Tablet) ┤          Drawer: width size-container-xxs · radius-4xl inline-end corners · elevation-4
-┌──────────┐  fill color-surface-default · border-inline-end color-border-subtle
+┌──────────┐  fill color-surface-subtle · border-inline-end color-border-subtle
 │   [≡]    │  menu Icon button · margin-block spacing-lg
 │  ▐ ▦ ▌   │  indicator: height size-control-height-sm · padding-inline spacing-xl · radius-full · color-background-selected-default
 │   Home   │  label label-md · gap spacing-xs
@@ -71,7 +71,7 @@ Primary navigation is how people move between the main sections of Biowave — D
 
 | Part | Property | Token | Flutter |
 |---|---|---|---|
-| container | width · fill | `layout-width-sidebar-start` · `color-surface-default` | `NavigationRail(minWidth: context.bw.layout.sidebarStart, backgroundColor: surfaceDefault)` |
+| container | width · fill | `layout-width-sidebar-start` · `color-surface-subtle` (NV-11, as Web) | `NavigationRail(minWidth: context.bw.layout.sidebarStart, backgroundColor: surfaceSubtle)` |
 | indicator | height · padding · radius · fill | `size-control-height-sm` · `spacing-xl` · `radius-full` · `color-background-selected-default` | `indicatorColor`, `indicatorShape: StadiumBorder()` |
 | icon | size · colour | `size-icon-lg` · `color-icon-default`, selected `color-icon-role-brand` (filled glyph) | `selectedIcon` |
 | label | style · colour | `label-md` · `color-text-subtle`, selected `color-text-role-brand` | `labelType: NavigationRailLabelType.all` |
@@ -84,7 +84,7 @@ Every value is a semantic token; there is no `primary-navigation.tokens.json`.
 
 | Part | Property | Default | Hover | Pressed | Selected |
 |---|---|---|---|---|---|
-| container | fill | `color-surface-default` | — | — | — |
+| container | fill | `color-surface-subtle` | — | — | — |
 | item | fill | transparent | `color-background-transparent-hovered` | `color-background-transparent-pressed` | `color-background-selected-default` (hover `-hovered`, pressed `-pressed`) |
 | item | icon | `color-icon-default` | — | — | `color-icon-role-brand` (rail and bar: filled glyph) |
 | item | label | `color-text-subtle` | `color-text-default` | — | `color-text-role-brand` |
@@ -108,8 +108,8 @@ Values are for checking only — never paste a value.
 | `color-icon-default` | `context.bw.colors.iconDefault` | #0A0A0A | #F7F7F7 |
 | `color-icon-role-brand` | `context.bw.colors.iconRoleBrand` | #132843 | #BEC9D9 |
 | `color-overlay-default` | `context.bw.colors.overlayDefault` | #54545499 | #545454B3 |
-| `color-surface-default` | `context.bw.colors.surfaceDefault` | #FFFFFF | #141414 |
 | `color-surface-raised` | `context.bw.colors.surfaceRaised` | #FFFFFF | #292929 |
+| `color-surface-subtle` | `context.bw.colors.surfaceSubtle` | #F7F7F7 | #292929 |
 | `color-text-default` | `context.bw.colors.textDefault` | #0A0A0A | #F7F7F7 |
 | `color-text-role-brand` | `context.bw.colors.textRoleBrand` | #132843 | #BEC9D9 |
 | `color-text-subtle` | `context.bw.colors.textSubtle` | #292929 | #DBDBDB |

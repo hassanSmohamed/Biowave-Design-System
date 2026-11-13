@@ -275,6 +275,10 @@ abstract final class BwSize {
   static const double iconXl2 = 40;
   /// Icon 48 (optical size). Empty states, onboarding, large illustrative icons.
   static const double iconXl3 = 48;
+  /// Indicator 8. Page control dot (both axes); height of the current dot.
+  static const double indicatorSm = 8;
+  /// Indicator 24. Width of the elongated current page dot.
+  static const double indicatorLg = 24;
   /// Control height 32. Dense web only: tables, toolbars, filters. On touch never without a target-min hit area.
   static const double controlHeightSm = 32;
   /// Control height 40. Default on web.

@@ -71,6 +71,10 @@ export const base = {
       "2xl": 40,
       "3xl": 48
     },
+    indicator: {
+      sm: 8,
+      lg: 24
+    },
     control: {
       height: {
         sm: 32,
@@ -1235,6 +1239,10 @@ export const cssVars = {
       xl: "var(--bw-size-icon-xl)",
       "2xl": "var(--bw-size-icon-2xl)",
       "3xl": "var(--bw-size-icon-3xl)"
+    },
+    indicator: {
+      sm: "var(--bw-size-indicator-sm)",
+      lg: "var(--bw-size-indicator-lg)"
     },
     control: {
       height: {

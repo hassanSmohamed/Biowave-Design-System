@@ -27,6 +27,8 @@ Biowave uses **Google Material Symbols** — style **Rounded**, weight 400, grad
 | `size-icon-2xl` | 40px · optical | Feature or section icons, small empty states |
 | `size-icon-3xl` | 48px · optical | Empty states, onboarding, large illustrative icons |
 
+Marks smaller than any icon use `size-indicator-sm` (8px: page control dot) and `size-indicator-lg` (24px: elongated current dot). They are never interactive targets on their own.
+
 Material Symbols optical sizes are 20, 24, 40 and 48; the other sizes scale the nearest one.
 
 Default inline icon: `size-icon-md` (20) on web, `size-icon-lg` (24) on tablet/mobile. Icon-only buttons keep the icon size but the **target** must reach `target-min`.

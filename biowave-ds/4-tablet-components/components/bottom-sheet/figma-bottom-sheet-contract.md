@@ -1,7 +1,7 @@
-<!-- GENERATED from bottom-sheet.md @ b1732cdcc9e43145 — do not edit; change the source and run: npm run contract -- tablet bottom-sheet -->
+<!-- GENERATED from bottom-sheet.md @ 3664233f601cb57a — do not edit; change the source and run: npm run contract -- tablet bottom-sheet -->
 # Bottom sheet · اللوحة السفلية — Tablet — Figma contract
 
-> **Everything the Figma Agent needs to build Bottom sheet in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`bottom-sheet.md`](bottom-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](bottom-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Bottom sheet in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`bottom-sheet.md`](bottom-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](bottom-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Bottom sheet · اللوحة السفلية |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `b1732cdcc9e43145` |
+| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `3664233f601cb57a` |
 
 ## 1. Library connections in this file
 

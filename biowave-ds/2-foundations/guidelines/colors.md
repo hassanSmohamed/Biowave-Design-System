@@ -99,7 +99,7 @@ Static containers, no states.
 |---|---|---|---|
 | `color-surface-page` | `#F7F7F7` · neutral.50 | `#0A0A0A` · neutral.950 | App canvas behind all content (Web page, Flutter Scaffold). Lowest emphasis. Users never interact with it; interactive elements on it use background tokens. |
 | `color-surface-default` | `#FFFFFF` · neutral.0 | `#141414` · neutral.900 | Container for grouped content: Card, Panel, Data table container, each split-view pane on Tablet/Foldable. If the whole container is clickable, use background/base instead. |
-| `color-surface-subtle` | `#F7F7F7` · neutral.50 | `#292929` · neutral.800 | Low-emphasis static block inside a page or card: page header band, grouped section, documentation home card. Also the Web app chrome: Side navigation and App header (NV-11). Not clickable; a clickable block uses background/base. |
+| `color-surface-subtle` | `#F7F7F7` · neutral.50 | `#292929` · neutral.800 | Low-emphasis static block inside a page or card: page header band, grouped section, documentation home card. Also the app chrome: Web Side navigation and App header, Tablet Navigation rail (NV-11). Not clickable; a clickable block uses background/base. |
 | `color-surface-raised` | `#FFFFFF` · neutral.0 | `#292929` · neutral.800 | Floating container above the page: Modal, Dialog, Menu, Popover, Drawer, Bottom sheet. Always pair with an elevation token. Menu items inside it use background tokens. |
 | `color-surface-inverse` | `#141414` · neutral.900 | `#FFFFFF` · neutral.0 | Opposite-theme container: Tooltip and Snackbar body. Text and icons on it use text/inverse and icon/inverse. For a clickable element on a dark area, use background/inverse. |
 

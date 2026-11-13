@@ -1,7 +1,7 @@
-<!-- GENERATED from side-sheet.md @ afd06edf3f3aba46 — do not edit; change the source and run: npm run contract -- web side-sheet -->
+<!-- GENERATED from side-sheet.md @ 6d96c74e632e1181 — do not edit; change the source and run: npm run contract -- web side-sheet -->
 # Side sheet · اللوحة الجانبية — Web — Figma contract
 
-> **Everything the Figma Agent needs to build Side sheet in the Web Components file, with our variables and styles.** Read this file only. Generated from [`side-sheet.md`](side-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](side-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Side sheet in the Web Components file, with our variables and styles.** Read this file only. Generated from [`side-sheet.md`](side-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](side-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Side sheet · اللوحة الجانبية |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`side-sheet.md`](side-sheet.md) @ `afd06edf3f3aba46` |
+| Source | [`side-sheet.md`](side-sheet.md) @ `6d96c74e632e1181` |
 
 ## 1. Library connections in this file
 

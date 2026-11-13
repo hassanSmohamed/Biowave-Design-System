@@ -1,7 +1,7 @@
-<!-- GENERATED from dialog.md @ 2d23e6cecb4745ef — do not edit; change the source and run: npm run contract -- tablet dialog -->
+<!-- GENERATED from dialog.md @ f290e5653409df36 — do not edit; change the source and run: npm run contract -- tablet dialog -->
 # Dialog · نافذة حوار — Tablet — Figma contract
 
-> **Everything the Figma Agent needs to build Dialog in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Dialog in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Dialog · نافذة حوار |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`dialog.md`](dialog.md) @ `2d23e6cecb4745ef` |
+| Source | [`dialog.md`](dialog.md) @ `f290e5653409df36` |
 
 ## 1. Library connections in this file
 

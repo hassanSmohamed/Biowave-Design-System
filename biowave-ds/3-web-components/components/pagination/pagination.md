@@ -414,7 +414,7 @@ Component description: "Moves through the pages of a long list or table: previou
 | QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · page Typography mode set to the platform |
 
 **Deviations:**
-- Previous / next are the Icon Button with the Material Symbols chevron swapped in; the Icon Button set has no disabled variant, so the first-page disabled state is documented, not drawn
+- Previous / next are the Icon Button with the Material Symbols chevron swapped in; disabled (first / last page) uses the Icon Button's exposed `Appearance › State = disabled`, shown on doc page 03 ("First page")
 - Table form: rows per page is the `.Select _en` / `_ar` (`sm`, 96 wide)
 
 **Questions for the Planner:**

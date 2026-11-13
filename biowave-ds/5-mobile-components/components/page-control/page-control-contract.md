@@ -1,4 +1,4 @@
-<!-- GENERATED from page-control.md @ 2f71a4da0abb6a5d — do not edit; change the source and run: npm run contract -- mobile page-control -->
+<!-- GENERATED from page-control.md @ cdb9b6574b0ba1d3 — do not edit; change the source and run: npm run contract -- mobile page-control -->
 # Page control · مؤشر الصفحات — Mobile — code contract
 
 > **Everything you need to build Page control on Mobile, and nothing else.** Read this file only. Generated from [`page-control.md`](page-control.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](page-control.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `lib/src/components/page-control/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`page-control.md`](page-control.md) @ `2f71a4da0abb6a5d` |
+| Source | [`page-control.md`](page-control.md) @ `cdb9b6574b0ba1d3` |
 
 ## 1. What it is
 
@@ -40,13 +40,13 @@ A page control is a row of dots under a short carousel or onboarding flow. Each 
 
 ## 3. Dimensions
 
-Dot sizes use spacing tokens: there is no size token for 8 (`size-icon-*` starts at 12). Reported in C4.
+Dot sizes use `size-indicator-sm` (8) and `size-indicator-lg` (24), added to Foundations for this component (2026-11-13).
 
 | Part | Property | iOS | Android |
 |---|---|---|---|
 | platter | padding · radius · fill | `spacing-lg` / `spacing-md` · `radius-full` · `color-background-neutral-default` | — |
-| dot | size · gap | `spacing-md` · `spacing-md` | `spacing-md` · `spacing-md` |
-| current | size | `spacing-md` (same size, opaque) | width `spacing-3xl`, height `spacing-md` |
+| dot | size · gap | `size-indicator-sm` · `spacing-md` | `size-indicator-sm` · `spacing-md` |
+| current | size | `size-indicator-sm` (same size, opaque) | width `size-indicator-lg`, height `size-indicator-sm` |
 | dot | radius | `radius-full` | `radius-full` |
 
 ## 4. Tokens by part and state
@@ -74,7 +74,8 @@ Values are for checking only — never paste a value.
 | `motion-duration-md` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 200 | 200 |
 | `motion-easing-standard` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | [0.2,0,0,1] | [0.2,0,0,1] |
 | `radius-full` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 9999 | 9999 |
-| `spacing-3xl` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 24 | 24 |
+| `size-indicator-lg` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 24 | 24 |
+| `size-indicator-sm` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 8 | 8 |
 | `spacing-lg` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 12 | 12 |
 | `spacing-md` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 8 | 8 |
 | `target-min` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` |  |  |
@@ -124,7 +125,7 @@ The Mobile Page control matches B1–B6 and passes B9 and C6.
 
 ### Token gaps
 
-Dot sizes use `spacing-md` / `spacing-3xl` because there is no size token below 12 (`size-icon-xs`). Proposal for Foundations: `size-indicator-sm` 8 · `size-indicator-lg` 24. Until then the spacing tokens are used.
+None — `size-indicator-sm` and `size-indicator-lg` were added to Foundations (`size.json`) for the dots.
 
 ### Files to create / change
 

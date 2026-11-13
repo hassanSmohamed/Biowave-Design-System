@@ -125,3 +125,13 @@ All 9 navigation types are specified and built in Figma (Web → Tablet → Mobi
 | Stepper | Horizontal · Vertical | Horizontal · Vertical | Compact + Progress · Vertical |
 
 Open points for review: Tablet rail fill (`surface-default` vs NV-11 grey) · Breadcrumbs current page neutral vs brand · token proposals `size-indicator-sm/-lg` (dots) · Logo component in Foundations.
+
+## 7. Review decisions (2026-11-13, approved by the design lead)
+
+| ID | Decision | Done |
+|---|---|---|
+| NV-14 | Tablet Navigation rail uses `color-surface-subtle`, like the Web chrome (NV-11 extended) | Spec + Figma Tablet rail; colors.md |
+| NV-15 | Breadcrumbs current page stays on the neutral chip (location, not a selection — NV-12 is for navigation items) | No change |
+| NV-16 | New Foundations tokens `size-indicator-sm` (8) and `size-indicator-lg` (24) for page control dots | `size.json`, Figma variables (`4. Size`), icons.md, page-control specs; dots are rebound in the component files after the Foundations library is published |
+| NV-17 | Disabled previous / next in Pagination uses the Icon Button's exposed `Appearance › State = disabled` (already available; no new variant) | Doc page 03 "First page" on Web and Tablet |
+| NV-18 | Foundations `Logo` component: Layout Horizontal · Vertical · Icon × Color Default · Brand · Black · White, from the `↳ Logo` page | Figma Foundations `5418:496`; logos.md. App header Logo slot and collapsed side navigation use it after the library is published |

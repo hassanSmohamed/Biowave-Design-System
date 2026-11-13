@@ -1,7 +1,7 @@
-<!-- GENERATED from tabs.md @ e15494acf6f40a9a — do not edit; change the source and run: npm run contract -- mobile tabs -->
+<!-- GENERATED from tabs.md @ a27cd0181be322b8 — do not edit; change the source and run: npm run contract -- mobile tabs -->
 # Tabs · علامات التبويب — Mobile — Figma contract
 
-> **Everything the Figma Agent needs to build Tabs in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`tabs.md`](tabs.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](tabs.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
+> **Everything the Figma Agent needs to build Tabs in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`tabs.md`](tabs.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](tabs.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
 
 **Two phases, one review:** Phase 1 — build the component set (§7–§8). Phase 2 — as soon as Phase 1 is finished, the 12 documentation pages and the Components List card (§9).
 
@@ -12,7 +12,7 @@
 | Component | Tabs · علامات التبويب |
 | Platform | Mobile · Flutter + Material 3 + Cupertino (adaptive, N-07) |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`tabs.md`](tabs.md) @ `e15494acf6f40a9a` |
+| Source | [`tabs.md`](tabs.md) @ `a27cd0181be322b8` |
 
 ## 1. Library connections in this file
 
