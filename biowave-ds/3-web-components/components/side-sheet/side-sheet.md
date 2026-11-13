@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `src/components/side-sheet/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -454,6 +454,8 @@ Side sheet                 ↕ vertical · width FIXED bound to size/container/x
 | `Footer` | BOOLEAN | | `true` | `footer` | present / absent |
 | `Body` | INSTANCE_SWAP | preferred: `.Side sheet/body` | | `children` / `content` | |
 
+**Language and shared properties (Figma rule).** A TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` and `Body` are bound on the `EN` variants only; `AR` variants carry Arabic copy and the private `.Side sheet/body AR` slot.
+
 ### D5 Variants to generate
 
 - Axes: `Size × Mode × Language` = 3 × 2 × 2 = **12** variants
@@ -503,13 +505,15 @@ Component description: "A panel that slides in from the side of the window to sh
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `635:15` · set `636:2391` (12) · `.Side sheet/body` `636:542` · `.Side sheet/body AR` `636:549` · docs `639:3780` (00–09, 11) · card `639:7440` · `.Scrim` shared from the Dialog page |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local variables or styles added · text uses library styles · Light and Dark by mode switch |
 
 **Deviations:**
-- none
+- `Title` and `Body` bound on EN variants only; AR variants use `.Side sheet/body AR` (D4 note)
+- Back button in AR uses the `arrow_forward` glyph (the mirrored `arrow_back`)
+- Variant height fixed at 720 as a sample; in docs the sheet fills the window height minus the inset
 
 **Questions for the Planner:**
 - none

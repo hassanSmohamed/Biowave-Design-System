@@ -450,6 +450,8 @@ Side sheet                 ↕ vertical · width FIXED bound to size/container/x
 | `Footer` | BOOLEAN | | `true` | `footer` | present / absent |
 | `Body` | INSTANCE_SWAP | preferred: `.Side sheet/body` | | `children` / `content` | |
 
+**Language and shared properties (Figma rule).** A TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` and `Body` are bound on the `EN` variants only; `AR` variants carry Arabic copy and the private `.Side sheet/body AR` slot.
+
 ### D5 Variants to generate
 
 - Axes: `Size × Language` = 3 × 2 = **6** variants (modal only)

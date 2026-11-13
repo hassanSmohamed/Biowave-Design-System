@@ -1,4 +1,4 @@
-<!-- GENERATED from dialog.md @ d8a25d6a0c8ebfb7 — do not edit; change the source and run: npm run contract -- tablet dialog -->
+<!-- GENERATED from dialog.md @ 676cedeb4a58a69f — do not edit; change the source and run: npm run contract -- tablet dialog -->
 # Dialog · نافذة حوار — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Dialog in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Dialog · نافذة حوار |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`dialog.md`](dialog.md) @ `d8a25d6a0c8ebfb7` |
+| Source | [`dialog.md`](dialog.md) @ `676cedeb4a58a69f` |
 
 ## 1. Library connections in this file
 
@@ -130,6 +130,7 @@ Platform naming: web `children` = Flutter `content`; `onClick` = `onPressed`.
 | `alert` | component | one Alert | `BwAlert` |
 | `body` | text style · overflow | `body-md` · scrolls | `context.bw.text.bodyMd` · `SingleChildScrollView` |
 | `footer` | actions | Button `md`: secondary `outlined neutral`, tertiary `text neutral`, primary `filled` `brand` / `error`; gap `spacing-md`; end-aligned | `BwButton`; `OverflowBar(spacing: BwSpacing.md, overflowSpacing: BwSpacing.md, alignment: MainAxisAlignment.end)` |
+| `footer` | `sm` | secondary and primary share the row width equally (Button minimum width removed) so both fit at `size-container-xs` | `Expanded` children in a `Row` |
 | `footer` | stacking | stacked, full width, primary first, when the row does not fit | `OverflowBar` overflow, `overflowDirection: VerticalDirection.up` |
 | `footer` | divider | Divider default, shown only while the body scrolls | `BwDivider` toggled by the body's `ScrollMetrics` |
 
@@ -257,6 +258,8 @@ Dialog                     ↕ vertical · gap spacing/xl · padding spacing/lay
 | `Body` | INSTANCE_SWAP | preferred: `.Dialog/body` | `.Dialog/body` | `children` / `content` | |
 | `Secondary action` | BOOLEAN | | `true` | `secondaryAction` | present / absent |
 | `Tertiary action` | BOOLEAN | | `false` | `tertiaryAction` | present / absent |
+
+**Language and shared properties (Figma rule).** A TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` is bound on the `EN` variants only; `AR` variants carry Arabic sample copy that designers edit directly. `Body` keeps the same main component on every variant and Arabic text is an override.
 
 ### D5 Variants to generate
 

@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `src/components/dialog/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -251,6 +251,7 @@ Platform naming: web `children` = Flutter `content`; `onClick` = `onPressed`; `p
 | `body` | text style | `body-md` for plain text |
 | `body` | overflow | scrolls vertically; header, alert and footer stay fixed |
 | `footer` | actions | Button `size=md`; secondary `variant=outlined color=neutral`, tertiary `variant=text color=neutral`, primary `variant=filled` `color=brand` (`basic`) or `color=error` (`destructive`); gap `spacing-md`; end-aligned; tertiary at the start |
+| `footer` | `sm` | secondary and primary share the row width equally (Button minimum width removed) so both fit at `size-container-xs` |
 | `footer` | stacking | when the actions do not fit in one row: stacked, full width, primary first, gap `spacing-md` |
 | `footer` | divider | Divider (default emphasis) at the top of the footer and under the header, shown only while the body scrolls |
 
@@ -504,6 +505,8 @@ Dialog                     ↕ vertical · gap spacing/xl · padding spacing/lay
 | `Secondary action` | BOOLEAN | | `true` | `secondaryAction` | present / absent |
 | `Tertiary action` | BOOLEAN | | `false` | `tertiaryAction` | present / absent |
 
+**Language and shared properties (Figma rule).** A TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` is bound on the `EN` variants only; `AR` variants carry Arabic sample copy that designers edit directly. `Body` keeps the same main component on every variant and Arabic text is an override.
+
 ### D5 Variants to generate
 
 - Axes: `Size × Kind × Language` = 3 × 2 × 2 = **12** variants
@@ -553,13 +556,16 @@ Component description: "Modal window for a decision or a short task. Spec: 3-web
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `635:14` · set `635:2663` (12) · `.Scrim` `635:1457` · `.Dialog/body` `635:1458` · docs `637:4017` (00–09, 11) · card `639:7439` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local variables or styles added · text uses library styles · Light and Dark by mode switch |
 
 **Deviations:**
-- none
+- `Title` bound on EN variants only (D4 note); AR buttons use `.Button _ar`
+- `sm`: secondary and primary fill the footer equally (B2) — the Button minimum width does not fit two actions at `size-container-xs`
+- Alert slot is a dashed placeholder frame until Alert (Wave 9)
+- Dividers that appear while scrolling are described on page 04, not drawn as a variant
 
 **Questions for the Planner:**
 - none

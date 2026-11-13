@@ -1,4 +1,4 @@
-<!-- GENERATED from dialog.md @ 86d0baadf577026d — do not edit; change the source and run: npm run contract -- mobile dialog -->
+<!-- GENERATED from dialog.md @ 07864e8ad3be57b9 — do not edit; change the source and run: npm run contract -- mobile dialog -->
 # Dialog · نافذة حوار — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Dialog in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Dialog · نافذة حوار |
 | Platform | Mobile · Flutter + Material 3 + Cupertino (adaptive, N-07) |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`dialog.md`](dialog.md) @ `86d0baadf577026d` |
+| Source | [`dialog.md`](dialog.md) @ `07864e8ad3be57b9` |
 
 ## 1. Library connections in this file
 
@@ -242,6 +242,8 @@ Dialog (OS=Android)        ↕ vertical · width fixed 312 example (B2: framewor
 | `Message` | TEXT | | `Staff will be told it was cancelled.` | `message` | |
 | `Primary label` | TEXT | | `Delete` | `primaryAction.label` | |
 | `Secondary label` | TEXT | | `Cancel` | `secondaryAction.label` | |
+
+**Language and shared properties (Figma rule).** TEXT properties have one value for the whole set, so they are bound on the `EN` variants only; `AR` variants carry Arabic copy edited directly.
 
 ### D5 Variants to generate
 

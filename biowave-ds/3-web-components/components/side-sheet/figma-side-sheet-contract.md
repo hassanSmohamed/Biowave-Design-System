@@ -1,4 +1,4 @@
-<!-- GENERATED from side-sheet.md @ 61b7f11bf6bfed84 — do not edit; change the source and run: npm run contract -- web side-sheet -->
+<!-- GENERATED from side-sheet.md @ ef1429349035ee3c — do not edit; change the source and run: npm run contract -- web side-sheet -->
 # Side sheet · اللوحة الجانبية — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Side sheet in the Web Components file, with our variables and styles.** Read this file only. Generated from [`side-sheet.md`](side-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](side-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Side sheet · اللوحة الجانبية |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`side-sheet.md`](side-sheet.md) @ `61b7f11bf6bfed84` |
+| Source | [`side-sheet.md`](side-sheet.md) @ `ef1429349035ee3c` |
 
 ## 1. Library connections in this file
 
@@ -244,6 +244,8 @@ Side sheet                 ↕ vertical · width FIXED bound to size/container/x
 | `Back button` | BOOLEAN | | `false` | `onBack` | set / null |
 | `Footer` | BOOLEAN | | `true` | `footer` | present / absent |
 | `Body` | INSTANCE_SWAP | preferred: `.Side sheet/body` | | `children` / `content` | |
+
+**Language and shared properties (Figma rule).** A TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` and `Body` are bound on the `EN` variants only; `AR` variants carry Arabic copy and the private `.Side sheet/body AR` slot.
 
 ### D5 Variants to generate
 

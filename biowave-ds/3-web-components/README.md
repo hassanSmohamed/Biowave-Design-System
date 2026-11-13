@@ -54,8 +54,8 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Divider | Finished | Approved | Built | Round 2 · 2026-10-24 · Approved | [page](components/divider/divider.html) | [divider.md](components/divider/divider.md) |
 | Tooltip | Finished | Approved | Built | Round 2 · 2026-10-24 · Approved | [page](components/tooltip/tooltip.html) | [tooltip.md](components/tooltip/tooltip.md) |
 | Avatar | Finished | Approved | Planned | Round 2 · 2026-10-24 · Approved | [page](components/avatar/avatar.html) | [avatar.md](components/avatar/avatar.md) |
-| Dialog | Finished | Planned | Planned | — | [page](components/dialog/dialog.html) | [dialog.md](components/dialog/dialog.md) |
-| Side sheet | Finished | Planned | Planned | — | [page](components/side-sheet/side-sheet.html) | [side-sheet.md](components/side-sheet/side-sheet.md) |
+| Dialog | Finished | Planned | Built | — | [page](components/dialog/dialog.html) | [dialog.md](components/dialog/dialog.md) |
+| Side sheet | Finished | Planned | Built | — | [page](components/side-sheet/side-sheet.html) | [side-sheet.md](components/side-sheet/side-sheet.md) |
 
 ## 5. Backlog (from the Figma "Web Components" pages, suggested order)
 1. Button · Icon button · Button group · Split button

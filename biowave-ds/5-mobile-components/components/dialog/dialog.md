@@ -497,6 +497,8 @@ Dialog (OS=Android)        ↕ vertical · width fixed 312 example (B2: framewor
 | `Primary label` | TEXT | | `Delete` | `primaryAction.label` | |
 | `Secondary label` | TEXT | | `Cancel` | `secondaryAction.label` | |
 
+**Language and shared properties (Figma rule).** TEXT properties have one value for the whole set, so they are bound on the `EN` variants only; `AR` variants carry Arabic copy edited directly.
+
 ### D5 Variants to generate
 
 - Axes: `OS × Kind × Language` = 2 × 2 × 2 = **8** variants

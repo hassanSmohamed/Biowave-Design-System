@@ -1,4 +1,4 @@
-<!-- GENERATED from dialog.md @ 6e9e4035d0596e23 — do not edit; change the source and run: npm run contract -- tablet dialog -->
+<!-- GENERATED from dialog.md @ 94fe2e4e4de12c74 — do not edit; change the source and run: npm run contract -- tablet dialog -->
 # Dialog · نافذة حوار — Tablet — code contract
 
 > **Everything you need to build Dialog on Tablet, and nothing else.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](dialog.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `lib/src/components/dialog/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`dialog.md`](dialog.md) @ `6e9e4035d0596e23` |
+| Source | [`dialog.md`](dialog.md) @ `94fe2e4e4de12c74` |
 
 ## 1. What it is
 
@@ -89,6 +89,7 @@ Platform naming: web `children` = Flutter `content`; `onClick` = `onPressed`.
 | `alert` | component | one Alert | `BwAlert` |
 | `body` | text style · overflow | `body-md` · scrolls | `context.bw.text.bodyMd` · `SingleChildScrollView` |
 | `footer` | actions | Button `md`: secondary `outlined neutral`, tertiary `text neutral`, primary `filled` `brand` / `error`; gap `spacing-md`; end-aligned | `BwButton`; `OverflowBar(spacing: BwSpacing.md, overflowSpacing: BwSpacing.md, alignment: MainAxisAlignment.end)` |
+| `footer` | `sm` | secondary and primary share the row width equally (Button minimum width removed) so both fit at `size-container-xs` | `Expanded` children in a `Row` |
 | `footer` | stacking | stacked, full width, primary first, when the row does not fit | `OverflowBar` overflow, `overflowDirection: VerticalDirection.up` |
 | `footer` | divider | Divider default, shown only while the body scrolls | `BwDivider` toggled by the body's `ScrollMetrics` |
 

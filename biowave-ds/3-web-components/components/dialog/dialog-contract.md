@@ -1,4 +1,4 @@
-<!-- GENERATED from dialog.md @ 75f260d6590872e1 — do not edit; change the source and run: npm run contract -- web dialog -->
+<!-- GENERATED from dialog.md @ a0e07f98ed97e65a — do not edit; change the source and run: npm run contract -- web dialog -->
 # Dialog · نافذة حوار — Web — code contract
 
 > **Everything you need to build Dialog on Web, and nothing else.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](dialog.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `src/components/dialog/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`dialog.md`](dialog.md) @ `75f260d6590872e1` |
+| Source | [`dialog.md`](dialog.md) @ `a0e07f98ed97e65a` |
 
 ## 1. What it is
 
@@ -97,6 +97,7 @@ Platform naming: web `children` = Flutter `content`; `onClick` = `onPressed`; `p
 | `body` | text style | `body-md` for plain text |
 | `body` | overflow | scrolls vertically; header, alert and footer stay fixed |
 | `footer` | actions | Button `size=md`; secondary `variant=outlined color=neutral`, tertiary `variant=text color=neutral`, primary `variant=filled` `color=brand` (`basic`) or `color=error` (`destructive`); gap `spacing-md`; end-aligned; tertiary at the start |
+| `footer` | `sm` | secondary and primary share the row width equally (Button minimum width removed) so both fit at `size-container-xs` |
 | `footer` | stacking | when the actions do not fit in one row: stacked, full width, primary first, gap `spacing-md` |
 | `footer` | divider | Divider (default emphasis) at the top of the footer and under the header, shown only while the body scrolls |
 

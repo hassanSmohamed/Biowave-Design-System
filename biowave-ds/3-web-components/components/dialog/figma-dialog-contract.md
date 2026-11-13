@@ -1,4 +1,4 @@
-<!-- GENERATED from dialog.md @ d2d4624faacdd41c — do not edit; change the source and run: npm run contract -- web dialog -->
+<!-- GENERATED from dialog.md @ a8029d21b6037c7a — do not edit; change the source and run: npm run contract -- web dialog -->
 # Dialog · نافذة حوار — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Dialog in the Web Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Dialog · نافذة حوار |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`dialog.md`](dialog.md) @ `d2d4624faacdd41c` |
+| Source | [`dialog.md`](dialog.md) @ `a8029d21b6037c7a` |
 
 ## 1. Library connections in this file
 
@@ -134,6 +134,7 @@ Platform naming: web `children` = Flutter `content`; `onClick` = `onPressed`; `p
 | `body` | text style | `body-md` for plain text |
 | `body` | overflow | scrolls vertically; header, alert and footer stay fixed |
 | `footer` | actions | Button `size=md`; secondary `variant=outlined color=neutral`, tertiary `variant=text color=neutral`, primary `variant=filled` `color=brand` (`basic`) or `color=error` (`destructive`); gap `spacing-md`; end-aligned; tertiary at the start |
+| `footer` | `sm` | secondary and primary share the row width equally (Button minimum width removed) so both fit at `size-container-xs` |
 | `footer` | stacking | when the actions do not fit in one row: stacked, full width, primary first, gap `spacing-md` |
 | `footer` | divider | Divider (default emphasis) at the top of the footer and under the header, shown only while the body scrolls |
 
@@ -262,6 +263,8 @@ Dialog                     ↕ vertical · gap spacing/xl · padding spacing/lay
 | `Body` | INSTANCE_SWAP | preferred: `.Dialog/body` | `.Dialog/body` | `children` / `content` | |
 | `Secondary action` | BOOLEAN | | `true` | `secondaryAction` | present / absent |
 | `Tertiary action` | BOOLEAN | | `false` | `tertiaryAction` | present / absent |
+
+**Language and shared properties (Figma rule).** A TEXT or INSTANCE_SWAP property has one value for the whole set, so `Title` is bound on the `EN` variants only; `AR` variants carry Arabic sample copy that designers edit directly. `Body` keeps the same main component on every variant and Arabic text is an override.
 
 ### D5 Variants to generate
 
