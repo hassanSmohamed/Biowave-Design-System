@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-13 — Tabs (Web, Tablet, Mobile): spec and Figma
+
+- **Specs:** `components/tabs` on all three platforms (1.0, A–D). Primary = labels on a divider with a brand underline (as the product); Secondary = pill chips for a second level; icons and Badges optional; scrollable when they do not fit.
+- **Figma Web and Tablet:** `Tabs` (Variant × Language, Tab 4 · Tab 5) with private `.Tab` (Variant × State × Direction = 24; Label, Show icon, Icon, Show badge).
+- **Figma Mobile (native, NV-07):** `Tabs` (OS × Language) — iOS and iPadOS 27 Segmented Control (raised segment, `Elevation/2`) and M3 primary tabs (brand underline under the label).
+- Docs 00–09, 11 on all three files; cards; lint 0.
+
 ## 2026-11-13 — Breadcrumbs (Web, Tablet): spec and Figma
 
 - **Specs:** `3-web-components/components/breadcrumbs`, `4-tablet-components/components/breadcrumbs` (1.0, A–D). Mobile has none (back button in the Top app bar). Links `color-text-subtlest` (7.07:1 on the App header), current page on a `color-background-neutral-default` chip; from 5 items the middle collapses into "…" (Menu).
