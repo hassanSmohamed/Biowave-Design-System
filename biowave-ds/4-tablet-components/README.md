@@ -62,6 +62,7 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Top app bar | Finished | Planned | Built | — | [page](components/top-app-bar/top-app-bar.html) | [top-app-bar.md](components/top-app-bar/top-app-bar.md) |
 | Tabs | Finished | Planned | Built | — | [page](components/tabs/tabs.html) | [tabs.md](components/tabs/tabs.md) |
 | Page control | Finished | Planned | Built | — | [page](components/page-control/page-control.html) | [page-control.md](components/page-control/page-control.md) |
+| Stepper | Finished | Planned | Built | — | [page](components/stepper/stepper.html) | [stepper.md](components/stepper/stepper.md) |
 | Pagination | Finished | Planned | Built | — | [page](components/pagination/pagination.html) | [pagination.md](components/pagination/pagination.md) |
 | Breadcrumbs | Finished | Planned | Built | — | [page](components/breadcrumbs/breadcrumbs.html) | [breadcrumbs.md](components/breadcrumbs/breadcrumbs.md) |
 

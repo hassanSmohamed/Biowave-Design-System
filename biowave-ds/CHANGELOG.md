@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-13 — Stepper (Web, Tablet, Mobile): spec and Figma — navigation family complete
+
+- **Specs:** `components/stepper` on all three (1.0, A–D). Steps Upcoming · Current · Completed · Error (number · check · "!"); horizontal and vertical on Web / Tablet; Mobile compact ("Step 2 of 4" + linear Progress, NV-09) and vertical.
+- **Figma:** `Stepper` (Orientation × Language; Mobile Form × Language) with private `.Step` (Orientation × State × Direction); Mobile compact reuses Progress. Docs 00–09, 11; cards; lint 0.
+- Navigation brief §6: all 9 navigation types built.
+
 ## 2026-11-13 — Pagination (Web, Tablet) and Page control (Web, Tablet, Mobile): spec and Figma
 
 - **Pagination specs:** `components/pagination` on Web and Tablet (Mobile: load more, NV-08). Numbered · Table (rows per page Select + "1–20 of 240") · Compact ("Page 3 of 12"); current page uses the selected fill (NV-12).

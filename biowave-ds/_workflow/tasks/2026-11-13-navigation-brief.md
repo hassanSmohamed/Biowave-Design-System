@@ -109,3 +109,19 @@ The design lead pointed to the four Web elements the product uses (Foundations f
 | NV-11 | Side menu and header background | Keep the product's grey (`color-surface-subtle`) and update colors.md to say so |
 | NV-12 | Selected page fill | Follow the foundations: light navy `color-background-selected-default` with heavier label (the product's grey selection is the only place selection is neutral) |
 | NV-13 | Navigation levels on Web | As the product: level 1 = module switcher, level 2 = the module's pages; no expandable sub-items |
+
+## 6. Build status (2026-11-13)
+
+All 9 navigation types are specified and built in Figma (Web → Tablet → Mobile), docs 00–09 and 11, cards, lint 0:
+
+| Component | Web | Tablet | Mobile |
+|---|---|---|---|
+| Primary navigation (+ Drawer) | Side navigation | Navigation rail · Drawer | iOS 27 Tab bar · M3 Navigation bar · Android drawer |
+| Top app bar (+ Back button) | App header | Small · Large | iOS 27 · M3 |
+| Tabs | Primary · Secondary | Primary · Secondary | iOS 27 Segmented control · M3 tabs |
+| Breadcrumbs | In the App header | Under the top app bar | — (back button) |
+| Pagination | Numbered · Table · Compact | Numbered · Compact | — (load more, NV-08) |
+| Page control | Dots | Dots | iOS 27 Page control · Biowave dots |
+| Stepper | Horizontal · Vertical | Horizontal · Vertical | Compact + Progress · Vertical |
+
+Open points for review: Tablet rail fill (`surface-default` vs NV-11 grey) · Breadcrumbs current page neutral vs brand · token proposals `size-indicator-sm/-lg` (dots) · Logo component in Foundations.
