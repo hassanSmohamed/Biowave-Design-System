@@ -2087,16 +2087,18 @@
     },
     "mobile": {
       "5-mobile-components/components/avatar/figma-avatar-contract.md": "45f30c74909e9161",
-      "5-mobile-components/components/badge/figma-badge-contract.md": "d31cf7aa95f0d62f",
+      "5-mobile-components/components/badge/figma-badge-contract.md": "6fe498ec6ef9e33a",
+      "5-mobile-components/components/bottom-sheet/figma-bottom-sheet-contract.md": "bc8af1321cc2c55d",
       "5-mobile-components/components/button-group/figma-button-group-contract.md": "63590e5c97e4b0c2",
       "5-mobile-components/components/button/figma-button-contract.md": "8e65a2e50eb87017",
-      "5-mobile-components/components/divider/figma-divider-contract.md": "190bb389fd4091da",
+      "5-mobile-components/components/dialog/figma-dialog-contract.md": "bbb7ac0e8c549c16",
+      "5-mobile-components/components/divider/figma-divider-contract.md": "861a9c0d23f919fd",
       "5-mobile-components/components/icon-button/figma-icon-button-contract.md": "f905e5274c9c18eb",
       "5-mobile-components/components/icon/figma-icon-contract.md": "f0f2ceba4c653f53",
       "5-mobile-components/components/link/figma-link-contract.md": "8c38da1e22af03df",
       "5-mobile-components/components/split-button/figma-split-button-contract.md": "84066b3a7d1c0ff8",
       "5-mobile-components/components/text-field/figma-text-field-contract.md": "78a94cfb8ee76fe6",
-      "5-mobile-components/components/tooltip/figma-tooltip-contract.md": "1de4858985c1fba6"
+      "5-mobile-components/components/tooltip/figma-tooltip-contract.md": "47c26cbc8f5e2c18"
     }
   },
   "componentTokens": {
@@ -2108,6 +2110,6 @@
     "docKit": "2026-10-18T10:45:49.592Z",
     "web": "2026-11-13T01:18:29.396Z",
     "tablet": "2026-11-13T01:18:29.551Z",
-    "mobile": "2026-11-12T23:41:25.763Z"
+    "mobile": "2026-11-13T12:33:22.543Z"
   }
 }

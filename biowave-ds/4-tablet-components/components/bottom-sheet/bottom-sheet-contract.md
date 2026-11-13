@@ -1,4 +1,4 @@
-<!-- GENERATED from bottom-sheet.md @ 6ad6cea533cff075 — do not edit; change the source and run: npm run contract -- tablet bottom-sheet -->
+<!-- GENERATED from bottom-sheet.md @ 5e9b9d07b81b8da3 — do not edit; change the source and run: npm run contract -- tablet bottom-sheet -->
 # Bottom sheet · اللوحة السفلية — Tablet — code contract
 
 > **Everything you need to build Bottom sheet on Tablet, and nothing else.** Read this file only. Generated from [`bottom-sheet.md`](bottom-sheet.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](bottom-sheet.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `lib/src/components/bottom-sheet/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `6ad6cea533cff075` |
+| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `5e9b9d07b81b8da3` |
 
 ## 1. What it is
 
@@ -25,7 +25,7 @@ A bottom sheet slides up from the bottom edge of a touch screen and sits on top 
 | 1 | `scrim` | Yes | Dims the screen behind and closes the sheet on tap |
 | 2 | `container` | Yes | Raised surface attached to the bottom edge, rounded top corners only |
 | 3 | `grabber` | Yes | Small bar that shows the sheet can be dragged; dragging it down closes the sheet or moves it between heights |
-| 4 | `header` | No | The sheet title with a close button, or, on iOS, a leading action · title · trailing action row (Cancel · Title · Done) |
+| 4 | `header` | No | The sheet title with a close button, or, on iOS, a row of round Close · title · Done buttons |
 | 5 | `content` | Yes | The options, actions or task. Scrolls when it is taller than the sheet |
 | 6 | `footer` | No | One full-width main action that applies the choice (Apply, Save). Stays at the bottom while the content scrolls |
 

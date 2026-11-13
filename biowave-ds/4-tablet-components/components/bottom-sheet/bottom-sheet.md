@@ -63,7 +63,7 @@ A bottom sheet slides up from the bottom edge of a touch screen and sits on top 
 | 1 | `scrim` | Yes | Dims the screen behind and closes the sheet on tap |
 | 2 | `container` | Yes | Raised surface attached to the bottom edge, rounded top corners only |
 | 3 | `grabber` | Yes | Small bar that shows the sheet can be dragged; dragging it down closes the sheet or moves it between heights |
-| 4 | `header` | No | The sheet title with a close button, or, on iOS, a leading action · title · trailing action row (Cancel · Title · Done) |
+| 4 | `header` | No | The sheet title with a close button, or, on iOS, a row of round Close · title · Done buttons |
 | 5 | `content` | Yes | The options, actions or task. Scrolls when it is taller than the sheet |
 | 6 | `footer` | No | One full-width main action that applies the choice (Apply, Save). Stays at the bottom while the content scrolls |
 

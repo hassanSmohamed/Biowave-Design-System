@@ -1,4 +1,4 @@
-<!-- GENERATED from dialog.md @ 07864e8ad3be57b9 — do not edit; change the source and run: npm run contract -- mobile dialog -->
+<!-- GENERATED from dialog.md @ 84dc775731c81a1e — do not edit; change the source and run: npm run contract -- mobile dialog -->
 # Dialog · نافذة حوار — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Dialog in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](dialog.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Dialog · نافذة حوار |
 | Platform | Mobile · Flutter + Material 3 + Cupertino (adaptive, N-07) |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`dialog.md`](dialog.md) @ `07864e8ad3be57b9` |
+| Source | [`dialog.md`](dialog.md) @ `84dc775731c81a1e` |
 
 ## 1. Library connections in this file
 
@@ -40,17 +40,25 @@ None yet — this component has no component tokens. Bind to the Foundations var
 
 | Token | Figma variable | Key | Type | Scopes | Used by |
 |---|---|---|---|---|---|
+| `color-background-brand-default` | 1. Themes › `color/background/brand/default` | `bdd7bfecb9dd5c41ac657e880d4d2efe36909e3f` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
+| `color-background-brand-pressed` | 1. Themes › `color/background/brand/pressed` | `53e9e1b8df7612fbd2878471501d6b72fd3b12be` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
+| `color-background-transparent-hovered` | 1. Themes › `color/background/transparent/hovered` | `51354205cb02a343717bc6e5ca84b0e151af3de8` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-background-transparent-pressed` | 1. Themes › `color/background/transparent/pressed` | `830ae424ad770312d061208a89f7452569d643d8` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
-| `color-border-subtle` | 1. Themes › `color/border/subtle` | `07f3e9a3d1ca641c7f05d37bf2e4383e4a8e6112` | COLOR | STROKE_COLOR | spec |
 | `color-overlay-default` | 1. Themes › `color/overlay/default` | `3ecd2f2ffb4741abe966b362763abdda03333e76` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-surface-raised` | 1. Themes › `color/surface/raised` | `92b71ada5e0cffef4eec84e17092c1f3d81da69f` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec |
 | `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec |
-| `color-text-role-brand` | 1. Themes › `color/text/role/brand` | `bf6f82d7545a8ae04bb4d55ee373397e5d16c45a` | COLOR | TEXT_FILL | spec |
+| `color-text-on-brand` | 1. Themes › `color/text/on/brand` | `993ca33a3563483742db3f20ac2db1d094fa2106` | COLOR | TEXT_FILL | spec |
 | `color-text-role-error` | 1. Themes › `color/text/role/error` | `99d512c8b115971ff7f8045c6decd1cada845f37` | COLOR | TEXT_FILL | spec |
 | `color-text-subtle` | 1. Themes › `color/text/subtle` | `dac97f2fd2a80ccffd6283bcc06c623f64ebe90a` | COLOR | TEXT_FILL | spec |
 | `radius-3xl` | 2. Radius › `radius/3xl` | `591d461e10b84f8ba353fe4d1c2b3deaa849aabb` | FLOAT | CORNER_RADIUS | spec |
+| `radius-4xl` | 2. Radius › `radius/4xl` | `a2d1c8c46c25b7c73e9257b28732ea9ec156c6bb` | FLOAT | CORNER_RADIUS | spec |
+| `radius-full` | 2. Radius › `radius/full` | `cde1a4778562f488d8f32680d4d00f7957cc2a21` | FLOAT | CORNER_RADIUS | spec |
+| `size-container-xxs` | 4. Size › `size/container/xxs` | `8f6b24b58d8c1a4206dee923c88a2cb14caf031d` | FLOAT | WIDTH_HEIGHT | spec |
+| `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | spec |
+| `spacing-layout-container` | 6. Grid & Layout › `spacing/layout/container` | `3bed90002d4c00acf31906a48972c1bf1c043e72` | FLOAT | GAP | spec |
 | `spacing-md` | 3. Spacing › `spacing/md` | `58c93e3cec1b6ba603371a027483e101adcef4f0` | FLOAT | GAP | spec |
+| `spacing-xl` | 3. Spacing › `spacing/xl` | `5fa0c2ce8ae034e9696038d2704e520fd8383e55` | FLOAT | GAP | spec |
 
 Code-only tokens (no Figma variable by design — motion, layers): `elevation-4` · `motion-duration-instant` · `motion-duration-lg` · `motion-duration-md` · `motion-easing-emphasized-accelerate` · `motion-easing-emphasized-decelerate`. Use them only as written values in prototype settings and docs.
 
@@ -101,28 +109,27 @@ Platform naming: web `children` = Flutter `message`; `onClick` = `onPressed`. Th
 
 ```
 iOS — iOS and iPadOS 27 Alert                 Android — M3 Basic dialog
-   ┌─────────────────────────┐                ┌───────────────────────────────┐   radius-3xl · elevation-4
-   │    Delete this shift?   │ heading-md     │ Delete this shift?            │   heading-md · start-aligned
-   │  Staff will be told it  │ body-md        │ Staff will be told it was     │   body-md · color-text-subtle
-   │  was cancelled.         │                │ cancelled.                    │
-   ├────────────┬────────────┤ separators     │              Cancel   Delete  │   text buttons · gap spacing-md
-   │   Cancel   │   Delete   │                └───────────────────────────────┘
-   └────────────┴────────────┘                width: M3 280–560, inset spacing-layout-container
-   width and padding from the OS
+   ╭─────────────────────────╮ radius-4xl     ┌───────────────────────────────┐   radius-3xl · elevation-4
+   │ Delete this shift?      │ title-lg       │ Delete this shift?            │   heading-md · start-aligned
+   │ Staff will be told it   │ body-md        │ Staff will be told it was     │   body-md · color-text-subtle
+   │ was cancelled.          │                │ cancelled.                    │
+   │ (  Cancel  )( Delete  ) │ capsules       │              Cancel   Delete  │   text buttons · gap spacing-md
+   ╰─────────────────────────╯ h size-control-height-lg · radius-full          └───────────────────────────────┘
+   width size-container-xxs · padding spacing-xl          width size-container-xxs (M3 280–560), padding spacing-layout-container
 ```
 
 | Part | Property | iOS (`CupertinoAlertDialog`) | Android (M3 `AlertDialog`) |
 |---|---|---|---|
 | `scrim` | fill | `color-overlay-default` (`barrierColor`) | `color-overlay-default` (`barrierColor`) |
-| `container` | width · padding | from the OS (Apple kit) | M3 min 280 / max 560 from the framework; `insetPadding: EdgeInsets.symmetric(horizontal: context.bw.layout.container)` |
-| `container` | background | `color-surface-raised` at the OS translucency (`CupertinoTheme` `barBackgroundColor`) | `color-surface-raised`; `surfaceTintColor: Colors.transparent` |
-| `container` | radius · elevation | from the OS | `radius-3xl` · `elevation-4` |
-| `title` | text style | `heading-md` at the OS weight, centred | `heading-md`, start-aligned |
-| `body` (`message`) | text style · colour | `body-md` · `color-text-subtle`, centred | `body-md` · `color-text-subtle` |
-| `footer` | actions | `CupertinoDialogAction`; primary `isDefaultAction: true` in `color-text-role-brand`; destructive `isDestructiveAction: true` in `color-text-role-error`; separators `color-border-subtle` | `TextButton`s via `BwButton(variant: text)`; primary `brand`, destructive `error`; secondary `neutral`; gap `spacing-md`, end-aligned |
+| `container` | width · padding | `size-container-xxs` (Figma; nearest token to the kit's 300 pt) · `spacing-xl`; title block padding-inline `spacing-md`, gap `spacing-md` | `size-container-xxs` (M3 280–560 from the framework) · `spacing-layout-container`; `insetPadding: EdgeInsets.symmetric(horizontal: context.bw.layout.container)` |
+| `container` | background | `color-surface-raised` (the OS adds its glass material in code) | `color-surface-raised`; `surfaceTintColor: Colors.transparent` |
+| `container` | radius · elevation | `radius-4xl` · `elevation-4` | `radius-3xl` · `elevation-4` |
+| `title` | text style | `title-lg`, start-aligned (iOS 27 alert title is a small headline) | `heading-md`, start-aligned |
+| `body` (`message`) | text style · colour | `body-md` · `color-text-subtle`, start-aligned | `body-md` · `color-text-subtle` |
+| `footer` | actions | capsules, height `size-control-height-lg`, `radius-full`, label `action-md`, gap `spacing-md`: Default = `color-background-brand-default` + `color-text-on-brand`; Cancel = `color-background-transparent-hovered` + `color-text-default`; Destructive = `color-background-transparent-hovered` + `color-text-role-error` | `TextButton`s via `BwButton(variant: text)`; primary `brand`, destructive `error`; secondary `neutral`; gap `spacing-md`, end-aligned |
 | `footer` | layout | two actions side by side; three stacked (OS rule) | in one row; stacked when they do not fit (`OverflowBar`) |
 
-Fonts: IBM Plex Sans Arabic / Inter through `context.bw.text` on both OSes (Biowave identity); the OS keeps its layout, materials and separators.
+Fonts: IBM Plex Sans Arabic / Inter through `context.bw.text` on both OSes (Biowave identity); the OS keeps its layout and materials (iOS 27: capsule actions, no separators).
 
 ### B3 Tokens by part and state
 
@@ -134,10 +141,9 @@ Every value is a semantic token; there is no `dialog.tokens.json` (no component 
 | `container` | background | `color-surface-raised` | — | — |
 | `title` | color | `color-text-default` | — | — |
 | `body` | color | `color-text-subtle` | — | — |
-| primary action (iOS) | label | `color-text-role-brand` | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| destructive action (iOS) | label | `color-text-role-error` | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| secondary action (iOS) | label | `color-text-role-brand` (regular weight) | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| action separators (iOS) | stroke | `color-border-subtle` | — | — |
+| default action (iOS) | fill · label | `color-background-brand-default` · `color-text-on-brand` | `color-background-brand-pressed` | `color-text-disabled` |
+| cancel action (iOS) | fill · label | `color-background-transparent-hovered` · `color-text-default` | `color-background-transparent-pressed` | `color-text-disabled` |
+| destructive action (iOS) | fill · label | `color-background-transparent-hovered` · `color-text-role-error` | `color-background-transparent-pressed` | `color-text-disabled` |
 | actions (Android) | — | Button `text` B3 (`brand`, `error`, `neutral`) | Button B3 | Button B3 |
 
 Dark theme: same tokens; no exceptions.
@@ -158,7 +164,7 @@ Reduced motion: opacity changes become `motion-duration-instant` (Android form; 
 
 | Part | In RTL |
 |---|---|
-| iOS | Title and message centred (no change); actions in a row swap order (Cancel on the right) — the framework mirrors them |
+| iOS | Title and message start-aligned (right); capsules in a row swap order (Cancel on the right) — the framework mirrors them |
 | Android | Title and text start-aligned (right); actions end-aligned (left), main action last |
 | text | Arabic copy from A6; numbers and Latin names stay LTR |
 
@@ -208,24 +214,23 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 ```
 ❖ Dialog                          ← component set (published)
   ├─ ◇ .Scrim                      ← private, shared with Bottom sheet
-  ├─ ◇ .Dialog/ios-action          ← private: one iOS alert action (label + state)
-  └─ ◇ .Dialog/body                ← private placeholder (not used on Mobile — text only)
+  └─ ❖ .Dialog/ios-action          ← private set: iOS 27 capsule action, Style = Default · Cancel · Destructive, TEXT `Label` (also used by the iOS Action Sheet)
 ```
 
 ### D3 Layer tree and auto layout
 
 ```
-Dialog (OS=iOS)            ↕ vertical · width from the Apple kit · radius from the kit · fill color/surface/raised
-├── header                 ↕ centred · padding from the kit
-│   ├── title              T heading/md · centred · TEXT `Title`
-│   └── body               T body/md · color/text/subtle · centred · TEXT `Message`
-└── footer                 ↔ (2 actions) or ↕ (3) · separators color/border/subtle
-    ├── secondary-action   ◇ .Dialog/ios-action · TEXT `Secondary label`
-    └── primary-action     ◇ .Dialog/ios-action · TEXT `Primary label` · colour by Kind
+Dialog (OS=iOS)            ↕ vertical · width size/container/xxs · padding spacing/xl · gap spacing/xl · radius/4xl · Elevation/4 · fill color/surface/raised
+├── header                 ↕ padding-inline spacing/md · gap spacing/md
+│   ├── title              T title/lg · start · TEXT `Title`
+│   └── message            T body/md · color/text/subtle · start · TEXT `Message`
+└── footer                 ↔ gap spacing/md (2 actions, each fill) · ↕ for 3
+    ├── secondary-action   ◇ .Dialog/ios-action Style=Cancel
+    └── primary-action     ◇ .Dialog/ios-action Style=Default (Basic) | Destructive
 
-Dialog (OS=Android)        ↕ vertical · width fixed 312 example (B2: framework 280–560) · padding spacing/layout/container · radius/3xl · Elevation/4 · fill color/surface/raised
+Dialog (OS=Android)        ↕ vertical · width size/container/xxs (B2: framework 280–560) · padding spacing/layout/container · radius/3xl · Elevation/4 · fill color/surface/raised
 ├── title                  T heading/md · start · TEXT `Title`
-├── body                   T body/md · color/text/subtle · TEXT `Message`
+├── message                T body/md · color/text/subtle · TEXT `Message`
 └── footer                 ↔ end-aligned · gap spacing/md
     ├── secondary-action   ◇ Button variant=text color=neutral size=md · TEXT
     └── primary-action     ◇ Button variant=text color=brand|error size=md · TEXT
@@ -240,8 +245,7 @@ Dialog (OS=Android)        ↕ vertical · width fixed 312 example (B2: framewor
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | locale |
 | `Title` | TEXT | | `Delete this shift?` | `title` | |
 | `Message` | TEXT | | `Staff will be told it was cancelled.` | `message` | |
-| `Primary label` | TEXT | | `Delete` | `primaryAction.label` | |
-| `Secondary label` | TEXT | | `Cancel` | `secondaryAction.label` | |
+| `Secondary action` | BOOLEAN | | `true` | `secondaryAction` | present / absent |
 
 **Language and shared properties (Figma rule).** TEXT properties have one value for the whole set, so they are bound on the `EN` variants only; `AR` variants carry Arabic copy edited directly.
 

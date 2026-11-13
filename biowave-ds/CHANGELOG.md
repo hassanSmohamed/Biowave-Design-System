@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-13 — Wave 8 on Mobile (Figma, native): Dialog, Bottom sheet
+
+- `↳ Dialog` (8: OS × Kind × Language) — iOS and iPadOS 27 Alert (start-aligned, capsule actions) and Material 3 Basic dialog; private `.Dialog/ios-action` (Default · Cancel · Destructive capsules).
+- `↳ Bottom sheet` (12: OS × Type × Language) — iOS 27 floating Sheet with the kit Grabber and round Close / Done, iOS 27 Action Sheet, M3 Bottom sheet; rows reuse List item.
+- Docs 00–09, 11 with iPhone and Android side by side; cards; lint 0.
+- Mobile specs corrected to the iOS 27 anatomy measured in the kit (the first draft described the older iOS alert and action sheet). Code note: if Flutter's Cupertino widgets still draw the older look, the Executor reports it instead of restyling (C3).
+
 ## 2026-11-13 — Wave 8 on Web and Tablet (Figma): Dialog, Bottom sheet, Side sheet
 
 - **Web:** pages `↳ Dialog` (12 variants: Size × Kind × Language) and `↳ Side sheet` (12: Size × Mode × Language), private `.Scrim`, docs 00–09 and 11, Components List cards.

@@ -1,4 +1,4 @@
-<!-- GENERATED from dialog.md @ 817717321062dd41 — do not edit; change the source and run: npm run contract -- mobile dialog -->
+<!-- GENERATED from dialog.md @ a753fade2e6526d9 — do not edit; change the source and run: npm run contract -- mobile dialog -->
 # Dialog · نافذة حوار — Mobile — code contract
 
 > **Everything you need to build Dialog on Mobile, and nothing else.** Read this file only. Generated from [`dialog.md`](dialog.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](dialog.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `lib/src/components/dialog/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`dialog.md`](dialog.md) @ `817717321062dd41` |
+| Source | [`dialog.md`](dialog.md) @ `a753fade2e6526d9` |
 
 ## 1. What it is
 
@@ -65,28 +65,27 @@ Platform naming: web `children` = Flutter `message`; `onClick` = `onPressed`. Th
 
 ```
 iOS — iOS and iPadOS 27 Alert                 Android — M3 Basic dialog
-   ┌─────────────────────────┐                ┌───────────────────────────────┐   radius-3xl · elevation-4
-   │    Delete this shift?   │ heading-md     │ Delete this shift?            │   heading-md · start-aligned
-   │  Staff will be told it  │ body-md        │ Staff will be told it was     │   body-md · color-text-subtle
-   │  was cancelled.         │                │ cancelled.                    │
-   ├────────────┬────────────┤ separators     │              Cancel   Delete  │   text buttons · gap spacing-md
-   │   Cancel   │   Delete   │                └───────────────────────────────┘
-   └────────────┴────────────┘                width: M3 280–560, inset spacing-layout-container
-   width and padding from the OS
+   ╭─────────────────────────╮ radius-4xl     ┌───────────────────────────────┐   radius-3xl · elevation-4
+   │ Delete this shift?      │ title-lg       │ Delete this shift?            │   heading-md · start-aligned
+   │ Staff will be told it   │ body-md        │ Staff will be told it was     │   body-md · color-text-subtle
+   │ was cancelled.          │                │ cancelled.                    │
+   │ (  Cancel  )( Delete  ) │ capsules       │              Cancel   Delete  │   text buttons · gap spacing-md
+   ╰─────────────────────────╯ h size-control-height-lg · radius-full          └───────────────────────────────┘
+   width size-container-xxs · padding spacing-xl          width size-container-xxs (M3 280–560), padding spacing-layout-container
 ```
 
 | Part | Property | iOS (`CupertinoAlertDialog`) | Android (M3 `AlertDialog`) |
 |---|---|---|---|
 | `scrim` | fill | `color-overlay-default` (`barrierColor`) | `color-overlay-default` (`barrierColor`) |
-| `container` | width · padding | from the OS (Apple kit) | M3 min 280 / max 560 from the framework; `insetPadding: EdgeInsets.symmetric(horizontal: context.bw.layout.container)` |
-| `container` | background | `color-surface-raised` at the OS translucency (`CupertinoTheme` `barBackgroundColor`) | `color-surface-raised`; `surfaceTintColor: Colors.transparent` |
-| `container` | radius · elevation | from the OS | `radius-3xl` · `elevation-4` |
-| `title` | text style | `heading-md` at the OS weight, centred | `heading-md`, start-aligned |
-| `body` (`message`) | text style · colour | `body-md` · `color-text-subtle`, centred | `body-md` · `color-text-subtle` |
-| `footer` | actions | `CupertinoDialogAction`; primary `isDefaultAction: true` in `color-text-role-brand`; destructive `isDestructiveAction: true` in `color-text-role-error`; separators `color-border-subtle` | `TextButton`s via `BwButton(variant: text)`; primary `brand`, destructive `error`; secondary `neutral`; gap `spacing-md`, end-aligned |
+| `container` | width · padding | `size-container-xxs` (Figma; nearest token to the kit's 300 pt) · `spacing-xl`; title block padding-inline `spacing-md`, gap `spacing-md` | `size-container-xxs` (M3 280–560 from the framework) · `spacing-layout-container`; `insetPadding: EdgeInsets.symmetric(horizontal: context.bw.layout.container)` |
+| `container` | background | `color-surface-raised` (the OS adds its glass material in code) | `color-surface-raised`; `surfaceTintColor: Colors.transparent` |
+| `container` | radius · elevation | `radius-4xl` · `elevation-4` | `radius-3xl` · `elevation-4` |
+| `title` | text style | `title-lg`, start-aligned (iOS 27 alert title is a small headline) | `heading-md`, start-aligned |
+| `body` (`message`) | text style · colour | `body-md` · `color-text-subtle`, start-aligned | `body-md` · `color-text-subtle` |
+| `footer` | actions | capsules, height `size-control-height-lg`, `radius-full`, label `action-md`, gap `spacing-md`: Default = `color-background-brand-default` + `color-text-on-brand`; Cancel = `color-background-transparent-hovered` + `color-text-default`; Destructive = `color-background-transparent-hovered` + `color-text-role-error` | `TextButton`s via `BwButton(variant: text)`; primary `brand`, destructive `error`; secondary `neutral`; gap `spacing-md`, end-aligned |
 | `footer` | layout | two actions side by side; three stacked (OS rule) | in one row; stacked when they do not fit (`OverflowBar`) |
 
-Fonts: IBM Plex Sans Arabic / Inter through `context.bw.text` on both OSes (Biowave identity); the OS keeps its layout, materials and separators.
+Fonts: IBM Plex Sans Arabic / Inter through `context.bw.text` on both OSes (Biowave identity); the OS keeps its layout and materials (iOS 27: capsule actions, no separators).
 
 ## 4. Tokens by part and state
 
@@ -98,10 +97,9 @@ Every value is a semantic token; there is no `dialog.tokens.json` (no component 
 | `container` | background | `color-surface-raised` | — | — |
 | `title` | color | `color-text-default` | — | — |
 | `body` | color | `color-text-subtle` | — | — |
-| primary action (iOS) | label | `color-text-role-brand` | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| destructive action (iOS) | label | `color-text-role-error` | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| secondary action (iOS) | label | `color-text-role-brand` (regular weight) | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| action separators (iOS) | stroke | `color-border-subtle` | — | — |
+| default action (iOS) | fill · label | `color-background-brand-default` · `color-text-on-brand` | `color-background-brand-pressed` | `color-text-disabled` |
+| cancel action (iOS) | fill · label | `color-background-transparent-hovered` · `color-text-default` | `color-background-transparent-pressed` | `color-text-disabled` |
+| destructive action (iOS) | fill · label | `color-background-transparent-hovered` · `color-text-role-error` | `color-background-transparent-pressed` | `color-text-disabled` |
 | actions (Android) | — | Button `text` B3 (`brand`, `error`, `neutral`) | Button B3 | Button B3 |
 
 Dark theme: same tokens; no exceptions.
@@ -112,13 +110,15 @@ Values are for checking only — never paste a value.
 
 | Token | Dart | Light | Dark |
 |---|---|---|---|
+| `color-background-brand-default` | `context.bw.colors.backgroundBrandDefault` | #193351 | #607D9F |
+| `color-background-brand-pressed` | `context.bw.colors.backgroundBrandPressed` | #0D1E33 | #BEC9D9 |
+| `color-background-transparent-hovered` | `context.bw.colors.backgroundTransparentHovered` | #5454541A | #54545466 |
 | `color-background-transparent-pressed` | `context.bw.colors.backgroundTransparentPressed` | #54545433 | #54545499 |
-| `color-border-subtle` | `context.bw.colors.borderSubtle` | #EDEDED | #292929 |
 | `color-overlay-default` | `context.bw.colors.overlayDefault` | #54545499 | #545454B3 |
 | `color-surface-raised` | `context.bw.colors.surfaceRaised` | #FFFFFF | #292929 |
 | `color-text-default` | `context.bw.colors.textDefault` | #0A0A0A | #F7F7F7 |
 | `color-text-disabled` | `context.bw.colors.textDisabled` | #969696 | #707070 |
-| `color-text-role-brand` | `context.bw.colors.textRoleBrand` | #132843 | #BEC9D9 |
+| `color-text-on-brand` | `context.bw.colors.textOnBrand` | #FFFFFF | #0A0A0A |
 | `color-text-role-error` | `context.bw.colors.textRoleError` | #A31A1A | #FEA3A3 |
 | `color-text-subtle` | `context.bw.colors.textSubtle` | #292929 | #DBDBDB |
 | `elevation-4` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 0px 16px 48px -4px rgb(7 19 35 / 18%) | 0px 16px 48px -4px rgb(0 0 0 / 45%) |
@@ -128,7 +128,13 @@ Values are for checking only — never paste a value.
 | `motion-easing-emphasized-accelerate` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | [0.3,0,0.8,0.15] | [0.3,0,0.8,0.15] |
 | `motion-easing-emphasized-decelerate` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | [0.05,0.7,0.1,1] | [0.05,0.7,0.1,1] |
 | `radius-3xl` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 20 | 20 |
+| `radius-4xl` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 24 | 24 |
+| `radius-full` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 9999 | 9999 |
+| `size-container-xxs` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 320 | 320 |
+| `size-control-height-lg` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 48 | 48 |
+| `spacing-layout-container` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` |  |  |
 | `spacing-md` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 8 | 8 |
+| `spacing-xl` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 16 | 16 |
 
 ## 5. States and transitions
 
@@ -146,7 +152,7 @@ Reduced motion: opacity changes become `motion-duration-instant` (Android form; 
 
 | Part | In RTL |
 |---|---|
-| iOS | Title and message centred (no change); actions in a row swap order (Cancel on the right) — the framework mirrors them |
+| iOS | Title and message start-aligned (right); capsules in a row swap order (Cancel on the right) — the framework mirrors them |
 | Android | Title and text start-aligned (right); actions end-aligned (left), main action last |
 | text | Arabic copy from A6; numbers and Latin names stay LTR |
 
@@ -213,6 +219,7 @@ BwDialog(title: 'حذف هذه الوردية؟', kind: BwDialogKind.destructive
 - **Theme:** colours and fonts come from `BwMobileTheme` (`ThemeData.dialogTheme`, `CupertinoThemeData` with Biowave `primaryColor` and text theme). Nothing in the widget hard-codes the OS look.
 - **Motion:** Android form `AnimationStyle` as Tablet; iOS keeps the framework animation (B4).
 - **Gotcha:** `CupertinoAlertDialog` ignores `ThemeData` text styles — pass the Biowave `TextStyle`s to `title` and `content` explicitly.
+- **Gotcha (iOS 27 look):** Figma shows the iOS and iPadOS 27 Alert (start-aligned text, capsule actions). If the Flutter version in use still draws the older Cupertino alert (centred text, separators), do not restyle it by hand: keep `CupertinoAlertDialog` and report it in C8 › Questions, so the Planner decides between waiting for Flutter and a custom `_BwIosAlert`.
 
 ### Token gaps
 

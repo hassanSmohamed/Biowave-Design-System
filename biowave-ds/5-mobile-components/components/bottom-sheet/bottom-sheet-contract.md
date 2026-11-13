@@ -1,4 +1,4 @@
-<!-- GENERATED from bottom-sheet.md @ b3acae0e0f708f5e — do not edit; change the source and run: npm run contract -- mobile bottom-sheet -->
+<!-- GENERATED from bottom-sheet.md @ b4eadd6583931254 — do not edit; change the source and run: npm run contract -- mobile bottom-sheet -->
 # Bottom sheet · اللوحة السفلية — Mobile — code contract
 
 > **Everything you need to build Bottom sheet on Mobile, and nothing else.** Read this file only. Generated from [`bottom-sheet.md`](bottom-sheet.md) (Parts B and C). If something is unclear or impossible, stop and write it in [C8 Execution log → Questions](bottom-sheet.md#c8-execution-log-filled-by-the-executor) — never invent behaviour.
@@ -12,7 +12,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Source code | `lib/src/components/bottom-sheet/` — not built yet (the Executor creates it) |
 | Tokens | — |
-| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `b3acae0e0f708f5e` |
+| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `b4eadd6583931254` |
 
 ## 1. What it is
 
@@ -25,7 +25,7 @@ A bottom sheet slides up from the bottom edge of a touch screen and sits on top 
 | 1 | `scrim` | Yes | Dims the screen behind and closes the sheet on tap |
 | 2 | `container` | Yes | Raised surface attached to the bottom edge, rounded top corners only |
 | 3 | `grabber` | Yes | Small bar that shows the sheet can be dragged; dragging it down closes the sheet or moves it between heights |
-| 4 | `header` | No | The sheet title with a close button, or, on iOS, a leading action · title · trailing action row (Cancel · Title · Done) |
+| 4 | `header` | No | The sheet title with a close button, or, on iOS, a row of round Close · title · Done buttons |
 | 5 | `content` | Yes | The options, actions or task. Scrolls when it is taller than the sheet |
 | 6 | `footer` | No | One full-width main action that applies the choice (Apply, Save). Stays at the bottom while the content scrolls |
 
@@ -45,9 +45,9 @@ A bottom sheet slides up from the bottom edge of a touch screen and sits on top 
 |---|---|---|---|---|---|
 | `type` | `BwBottomSheetType` | `standard` · `list` · `action` | `standard` | | A4.1 |
 | `detent` | `BwBottomSheetDetent` | `auto` · `full` | `auto` | | A4.2 |
-| `title` | `String?` | (A6) | — | | `header` title (iOS: centre of the Cancel · Title · Done row; Android: start) |
+| `title` | `String?` | (A6) | — | | `header` title (iOS: centre of the Close · Title · Done row; Android: start) |
 | `message` | `String?` | | — | | iOS Action sheet message line only |
-| `doneLabel` | `String?` | | — | | iOS header trailing action for `standard`; replaces the footer on iOS |
+| `doneLabel` | `String?` | | — | | Accessible name of the iOS Done (✓) button for `standard`; replaces the footer on iOS |
 | `content` | `Widget?` | any | — | with `standard` | `content` for `standard` |
 | `options` | `List<BwSheetOption<T>>` | `label`, `value`, `trailing`, `enabled` | — | with `list` | Rows for `list`; `selected` marks the chosen value |
 | `selected` | `T?` | | — | | The chosen option in a `list` |
@@ -70,29 +70,29 @@ Platform naming: Web has no Bottom sheet (A8 of Dialog / Side sheet).
 
 ```
 iOS — Sheet (iOS and iPadOS 27)              Android — M3 bottom sheet
-┌───────────────────────────────────┐        ┌───────────────────────────────────┐  radius-4xl top · elevation-4
-│               ━━━━                │        │               ━━━━                │  grabber (both)
-│ Cancel    Filter by status   Done │        │ Filter by status              [✕] │  title-lg
-│ ───────────────────────────────── │        │ ○ Pending                    12   │  rows size-control-height-lg
-│ Pending                      12 ✓ │        │ [             Apply             ] │  Button lg full width
-└───────────────────────────────────┘        └───────────────────────────────────┘
+╭───────────────────────────────────╮        ┌───────────────────────────────────┐  iOS radius-4xl all corners, inset spacing-sm
+│               ━━━━                │        │               ━━━━                │  Android radius-4xl top · elevation-4
+│ (✕)     Filter by status     (✓)  │        │ Filter by status              [✕] │  title-lg
+│ ☐ Pending                    12   │        │ ☐ Pending                    12   │  rows: List item lg
+│ ☐ Approved                    3   │        │ [             Apply             ] │  Button lg full width
+╰───────────────────────────────────╯        └───────────────────────────────────┘
 ```
 
 | Part | Property | iOS | Android |
 |---|---|---|---|
 | `scrim` | fill | `color-overlay-default` | `color-overlay-default` |
-| `container` | width | full screen width | full screen width |
+| `container` | width | screen width minus `spacing-sm` each side (floating) | full screen width |
 | `container` | background | `color-surface-raised` | `color-surface-raised`, `surfaceTintColor: Colors.transparent` |
-| `container` | radius · elevation | from the OS sheet (Apple kit) | `radius-4xl` top corners · `elevation-4` |
+| `container` | radius · elevation | `radius-4xl` all corners · `elevation-4` | `radius-4xl` top corners · `elevation-4` |
 | `container` | heights | `auto` = medium detent · `full` = large detent | `auto` = content up to 90% · `full` = expanded below the status bar |
 | `grabber` | | the OS grabber (`Grabber` in the Apple kit) | width `size-icon-xl` · height `spacing-xs` · `radius-full` · `color-border-default` |
-| `header` | layout | Cancel (leading, `action-md`, `color-text-role-brand`) · title (`title-lg`, centred) · Done (trailing, `action-md` semibold weight from the kit, `color-text-role-brand`) | title `title-lg` start + close Icon button (`transparent neutral md`) |
-| row (`list`) | | `body-md`; chosen row trailing `check` in `color-icon-role-brand`; separators `color-border-subtle` inset to the text | `body-md`; chosen row trailing `check` `color-icon-role-brand`; min height `size-control-height-lg` |
-| `action` | | `CupertinoActionSheet`: actions `action-md` `color-text-role-brand`, destructive `color-text-role-error`, Cancel in its own group | rows with leading icon `size-icon-lg` `color-icon-default` + `body-md` label; destructive in `color-text-role-error` / `color-icon-role-error` |
+| `header` | layout | round buttons `size-control-height-md`, `radius-full`: Close (✕, `color-background-transparent-hovered`, icon `color-icon-default`) · title (`title-lg`, centred) · Done (✓, `color-background-brand-default`, icon `color-icon-on-brand`; hidden on `list`); padding-inline `spacing-xl`, gap `spacing-xl` | title `title-lg` start + close Icon button (`transparent neutral md`) |
+| row (`list`) | | List item lg (same rows as Android); chosen row `selected` with trailing `check` | `body-md`; chosen row trailing `check` `color-icon-role-brand`; min height `size-control-height-lg` |
+| `action` | | iOS 27 Action Sheet card (`radius-4xl`, padding `spacing-xl`): title `title-lg`, message `label-md` `color-text-subtle`, capsule actions (`size-control-height-lg`, `radius-full`, `color-background-transparent-hovered`, label `action-md`), destructive label `color-text-role-error`; no separate Cancel group | rows with leading icon `size-icon-lg` `color-icon-default` + `body-md` label; destructive in `color-text-role-error` / `color-icon-role-error` |
 | `footer` | | none — Done in the header (`doneLabel`) | padding `spacing-layout-container`; Button `filled brand lg` full width |
 | padding | content | `spacing-layout-container` inline | `spacing-layout-container` inline |
 
-Fonts: Biowave text styles (`context.bw.text`) on both OSes; the OS keeps its sheet, materials and separators.
+Fonts: Biowave text styles (`context.bw.text`) on both OSes; the OS keeps its sheet shape and materials. The iOS grabber is the kit instance (system chrome, N-02).
 
 ## 4. Tokens by part and state
 
@@ -120,19 +120,22 @@ Values are for checking only — never paste a value.
 
 | Token | Dart | Light | Dark |
 |---|---|---|---|
+| `color-background-brand-default` | `context.bw.colors.backgroundBrandDefault` | #193351 | #607D9F |
+| `color-background-transparent-hovered` | `context.bw.colors.backgroundTransparentHovered` | #5454541A | #54545466 |
 | `color-background-transparent-pressed` | `context.bw.colors.backgroundTransparentPressed` | #54545433 | #54545499 |
 | `color-border-default` | `context.bw.colors.borderDefault` | #DBDBDB | #404040 |
 | `color-border-subtle` | `context.bw.colors.borderSubtle` | #EDEDED | #292929 |
 | `color-icon-default` | `context.bw.colors.iconDefault` | #0A0A0A | #F7F7F7 |
 | `color-icon-disabled` | `context.bw.colors.iconDisabled` | #969696 | #707070 |
+| `color-icon-on-brand` | `context.bw.colors.iconOnBrand` | #FFFFFF | #0A0A0A |
 | `color-icon-role-brand` | `context.bw.colors.iconRoleBrand` | #132843 | #BEC9D9 |
 | `color-icon-role-error` | `context.bw.colors.iconRoleError` | #A31A1A | #FEA3A3 |
 | `color-overlay-default` | `context.bw.colors.overlayDefault` | #54545499 | #545454B3 |
 | `color-surface-raised` | `context.bw.colors.surfaceRaised` | #FFFFFF | #292929 |
 | `color-text-default` | `context.bw.colors.textDefault` | #0A0A0A | #F7F7F7 |
 | `color-text-disabled` | `context.bw.colors.textDisabled` | #969696 | #707070 |
-| `color-text-role-brand` | `context.bw.colors.textRoleBrand` | #132843 | #BEC9D9 |
 | `color-text-role-error` | `context.bw.colors.textRoleError` | #A31A1A | #FEA3A3 |
+| `color-text-subtle` | `context.bw.colors.textSubtle` | #292929 | #DBDBDB |
 | `elevation-4` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 0px 16px 48px -4px rgb(7 19 35 / 18%) | 0px 16px 48px -4px rgb(0 0 0 / 45%) |
 | `motion-duration-instant` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 0 | 0 |
 | `motion-duration-lg` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 300 | 300 |
@@ -144,9 +147,12 @@ Values are for checking only — never paste a value.
 | `radius-4xl` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 24 | 24 |
 | `radius-full` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 9999 | 9999 |
 | `size-control-height-lg` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 48 | 48 |
+| `size-control-height-md` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 40 | 40 |
 | `size-icon-lg` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 24 | 24 |
 | `size-icon-xl` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 32 | 32 |
 | `spacing-layout-container` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` |  |  |
+| `spacing-sm` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 6 | 6 |
+| `spacing-xl` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 16 | 16 |
 | `spacing-xs` | `context.bw` / `Bw*` constant in `bw_tokens.g.dart` | 4 | 4 |
 
 ## 5. States and transitions
@@ -167,7 +173,7 @@ Reduced motion: slide and fade become `motion-duration-instant`; dragging still 
 
 | Part | In RTL |
 |---|---|
-| layout | Mirrors: title at the start (right), close button at the end (left); iOS header Cancel on the right, Done on the left |
+| layout | Mirrors: title at the start (right), close button at the end (left); iOS header Close on the right, Done on the left |
 | rows | Label at the start, counts and check at the end (left) |
 | icons | `check`, `close`, `photo_camera`, `attach_file` do not mirror; `arrow_back` / `chevron_forward` mirror |
 | grabber | Centred (no change) |
@@ -180,7 +186,7 @@ Design-level rules are in A9; this is how this platform meets them.
 |---|---|
 | Role / semantics | Modal route: `Semantics(scopesRoute: true, namesRoute: true, label: title)`; screen behind excluded |
 | Focus | Focus moves into the sheet (first row or field); returns to the trigger on close |
-| Drag alternative | Close button (Android, Tablet) or Cancel (iOS) and the back gesture; `dismissible: false` still offers Cancel (WCAG 2.5.7) |
+| Drag alternative | Close button (all) and the back gesture; `dismissible: false` still offers Close (WCAG 2.5.7) |
 | Rows | `Semantics(button: true, selected: chosen, inMutuallyExclusiveGroup: true)` for `list` |
 | Target size | Rows ≥ `size-control-height-lg` (48dp), grabber area ≥ 48dp |
 | Keyboard | `viewInsets` lift the sheet above the on-screen keyboard |
@@ -240,8 +246,8 @@ showBwBottomSheet(context: context, sheet: BwBottomSheet(
 
 - **Adaptive (N-07):** branch on `Theme.of(context).platform`.
   - **Android:** same as the Tablet plan (`showModalBottomSheet`, drag handle, Biowave shape, `AnimationStyle`), full screen width.
-  - **iOS `standard` / `list`:** `Navigator.push(CupertinoSheetRoute(builder: …))` with a Biowave `CupertinoTheme`; header row = `CupertinoButton` Cancel · title · `CupertinoButton` Done (`doneLabel`); detents medium / large. If the Flutter version in use has no detents on `CupertinoSheetRoute`, use `DraggableScrollableSheet` inside it with the same snap sizes and record it in C8.
-  - **iOS `action`:** `showCupertinoModalPopup(builder: (_) => CupertinoActionSheet(title:, message:, actions: [CupertinoActionSheetAction(isDestructiveAction: …)], cancelButton: CupertinoActionSheetAction(child: Text('Cancel' / 'إلغاء'))))`.
+  - **iOS `standard` / `list`:** `Navigator.push(CupertinoSheetRoute(builder: …))` with a Biowave `CupertinoTheme`; header row = round Close (✕) button · title · round Done (✓) button (`doneLabel` as its semantics label); detents medium / large. If the Flutter version in use has no detents on `CupertinoSheetRoute`, use `DraggableScrollableSheet` inside it with the same snap sizes and record it in C8.
+  - **iOS `action`:** `showCupertinoModalPopup(builder: (_) => CupertinoActionSheet(title:, message:, actions: [CupertinoActionSheetAction(isDestructiveAction: …)]))`. If the Flutter version still draws the pre-iOS 26 action sheet (separators, separate Cancel group), keep it and report in C8 › Questions (same rule as Dialog).
 - **Theme:** colours and fonts from `BwMobileTheme` (`bottomSheetTheme`, `CupertinoThemeData`); pass `context.bw.text` styles explicitly to Cupertino widgets (they ignore `ThemeData` text).
 - **Dismiss guard:** as Tablet; on iOS also `CupertinoSheetRoute` drag is disabled when `dismissible` is false.
 
@@ -265,7 +271,7 @@ CHANGELOG.md                                                                 cha
 - [ ] Light + dark · en + ar: every part uses exactly the B2–B3 tokens on iOS and Android (`debugDefaultTargetPlatformOverride`)
 - [ ] Every transition in B4 with token durations and easings; reduced motion → `motion-duration-instant`
 - [ ] `list`: tapping a row pops with its value; the chosen row has the check and `selected` semantics
-- [ ] `action`: 2–6 rows; destructive row in the error colours; iOS renders `CupertinoActionSheet` with a separate Cancel
+- [ ] `action`: 2–6 rows; destructive row in the error colours; iOS renders `CupertinoActionSheet`
 - [ ] `detent: auto` hugs short content and stops at 90% of the screen; `full` expands below the status bar
 - [ ] `dismissible: false`: drag down and scrim tap call `onDismissAttempt` and do not close on `false`
 - [ ] The sheet rises above the on-screen keyboard
@@ -274,7 +280,7 @@ CHANGELOG.md                                                                 cha
 - [ ] No raw values (lint over the component folder)
 
 Implement every item in B9, plus:
-- [ ] iOS: `standard` uses `CupertinoSheetRoute` with the Cancel · Title · Done header; `action` uses `CupertinoActionSheet` (goldens en/ar)
+- [ ] iOS: `standard` uses `CupertinoSheetRoute` with the Close · Title · Done header; `action` uses `CupertinoActionSheet` (goldens en/ar)
 - [ ] Biowave fonts on both OSes
 - [ ] Earlier tests still pass
 

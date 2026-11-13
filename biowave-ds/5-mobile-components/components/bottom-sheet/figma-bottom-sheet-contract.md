@@ -1,4 +1,4 @@
-<!-- GENERATED from bottom-sheet.md @ 22c28f8e2505013a — do not edit; change the source and run: npm run contract -- mobile bottom-sheet -->
+<!-- GENERATED from bottom-sheet.md @ e98fefb650cefb0c — do not edit; change the source and run: npm run contract -- mobile bottom-sheet -->
 # Bottom sheet · اللوحة السفلية — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Bottom sheet in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`bottom-sheet.md`](bottom-sheet.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](bottom-sheet.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Bottom sheet · اللوحة السفلية |
 | Platform | Mobile · Flutter + Material 3 + Cupertino (adaptive, N-07) |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `22c28f8e2505013a` |
+| Source | [`bottom-sheet.md`](bottom-sheet.md) @ `e98fefb650cefb0c` |
 
 ## 1. Library connections in this file
 
@@ -40,25 +40,31 @@ None yet — this component has no component tokens. Bind to the Foundations var
 
 | Token | Figma variable | Key | Type | Scopes | Used by |
 |---|---|---|---|---|---|
+| `color-background-brand-default` | 1. Themes › `color/background/brand/default` | `bdd7bfecb9dd5c41ac657e880d4d2efe36909e3f` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
+| `color-background-transparent-hovered` | 1. Themes › `color/background/transparent/hovered` | `51354205cb02a343717bc6e5ca84b0e151af3de8` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-background-transparent-pressed` | 1. Themes › `color/background/transparent/pressed` | `830ae424ad770312d061208a89f7452569d643d8` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-border-default` | 1. Themes › `color/border/default` | `ad520e82898707a0d3112a12f6f9439566c6d6c4` | COLOR | STROKE_COLOR | spec |
 | `color-border-subtle` | 1. Themes › `color/border/subtle` | `07f3e9a3d1ca641c7f05d37bf2e4383e4a8e6112` | COLOR | STROKE_COLOR | spec |
 | `color-icon-default` | 1. Themes › `color/icon/default` | `b0844bd913aafe8789a44bc7b647058cdae299df` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
 | `color-icon-disabled` | 1. Themes › `color/icon/disabled` | `708926473ca446a26d4a0891351f04692171f74f` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
+| `color-icon-on-brand` | 1. Themes › `color/icon/on/brand` | `7adf0bdf71942294bcca707ea3b88ab778741004` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
 | `color-icon-role-brand` | 1. Themes › `color/icon/role/brand` | `73d6989d2161d900c2070cd9b67f01653e54251d` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
 | `color-icon-role-error` | 1. Themes › `color/icon/role/error` | `e7e61106b7c9b1c60197d2c456ad055991cc545d` | COLOR | SHAPE_FILL, STROKE_COLOR | spec |
 | `color-overlay-default` | 1. Themes › `color/overlay/default` | `3ecd2f2ffb4741abe966b362763abdda03333e76` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-surface-raised` | 1. Themes › `color/surface/raised` | `92b71ada5e0cffef4eec84e17092c1f3d81da69f` | COLOR | FRAME_FILL, SHAPE_FILL | spec |
 | `color-text-default` | 1. Themes › `color/text/default` | `4ea63d9ab5254c4df4eba4d26f771377a07929c4` | COLOR | TEXT_FILL | spec |
 | `color-text-disabled` | 1. Themes › `color/text/disabled` | `f88c10f90f454d356c14cc3240da0f04eafbbedd` | COLOR | TEXT_FILL | spec |
-| `color-text-role-brand` | 1. Themes › `color/text/role/brand` | `bf6f82d7545a8ae04bb4d55ee373397e5d16c45a` | COLOR | TEXT_FILL | spec |
 | `color-text-role-error` | 1. Themes › `color/text/role/error` | `99d512c8b115971ff7f8045c6decd1cada845f37` | COLOR | TEXT_FILL | spec |
+| `color-text-subtle` | 1. Themes › `color/text/subtle` | `dac97f2fd2a80ccffd6283bcc06c623f64ebe90a` | COLOR | TEXT_FILL | spec |
 | `radius-4xl` | 2. Radius › `radius/4xl` | `a2d1c8c46c25b7c73e9257b28732ea9ec156c6bb` | FLOAT | CORNER_RADIUS | spec |
 | `radius-full` | 2. Radius › `radius/full` | `cde1a4778562f488d8f32680d4d00f7957cc2a21` | FLOAT | CORNER_RADIUS | spec |
 | `size-control-height-lg` | 4. Size › `size/control/height/lg` | `14c0f56d2add6f7149374e67cf4d3a2656aeb5dc` | FLOAT | WIDTH_HEIGHT | spec |
+| `size-control-height-md` | 4. Size › `size/control/height/md` | `cb6d23a09de76b9cea37c24579dbb2a9e6e6a079` | FLOAT | WIDTH_HEIGHT | spec |
 | `size-icon-lg` | 4. Size › `size/icon/lg` | `e79bd86fedcce89547674c84c9127d0149e60061` | FLOAT | WIDTH_HEIGHT | spec |
 | `size-icon-xl` | 4. Size › `size/icon/xl` | `06927be084b4fad4d4203a7fe7b6922e446d1c84` | FLOAT | WIDTH_HEIGHT | spec |
 | `spacing-layout-container` | 6. Grid & Layout › `spacing/layout/container` | `3bed90002d4c00acf31906a48972c1bf1c043e72` | FLOAT | GAP | spec |
+| `spacing-sm` | 3. Spacing › `spacing/sm` | `8332b62aa90dea8417383c59a11eee680e0f1db5` | FLOAT | GAP | spec |
+| `spacing-xl` | 3. Spacing › `spacing/xl` | `5fa0c2ce8ae034e9696038d2704e520fd8383e55` | FLOAT | GAP | spec |
 | `spacing-xs` | 3. Spacing › `spacing/xs` | `9ea993d003d5368c5100b038d51c7c8f3e95c115` | FLOAT | GAP | spec |
 
 Code-only tokens (no Figma variable by design — motion, layers): `elevation-4` · `motion-duration-instant` · `motion-duration-lg` · `motion-duration-md` · `motion-duration-sm` · `motion-easing-emphasized-accelerate` · `motion-easing-emphasized-decelerate` · `motion-easing-standard`. Use them only as written values in prototype settings and docs.
@@ -69,7 +75,9 @@ None named in B/D.
 
 ## 5. Effect styles used (keys)
 
-None named in B/D.
+| Style | Key |
+|---|---|
+| `Elevation/4` | `0918575e22aab65c62e4adf84b63a7d7761acc6d` |
 
 ## 6. Components to instance (keys)
 
@@ -95,9 +103,9 @@ Library file **Google · Material Symbols** · key `RXlnhYgUKBBE6HveEr7e9C` — 
 |---|---|---|---|---|---|
 | `type` | `BwBottomSheetType` | `standard` · `list` · `action` | `standard` | | A4.1 |
 | `detent` | `BwBottomSheetDetent` | `auto` · `full` | `auto` | | A4.2 |
-| `title` | `String?` | (A6) | — | | `header` title (iOS: centre of the Cancel · Title · Done row; Android: start) |
+| `title` | `String?` | (A6) | — | | `header` title (iOS: centre of the Close · Title · Done row; Android: start) |
 | `message` | `String?` | | — | | iOS Action sheet message line only |
-| `doneLabel` | `String?` | | — | | iOS header trailing action for `standard`; replaces the footer on iOS |
+| `doneLabel` | `String?` | | — | | Accessible name of the iOS Done (✓) button for `standard`; replaces the footer on iOS |
 | `content` | `Widget?` | any | — | with `standard` | `content` for `standard` |
 | `options` | `List<BwSheetOption<T>>` | `label`, `value`, `trailing`, `enabled` | — | with `list` | Rows for `list`; `selected` marks the chosen value |
 | `selected` | `T?` | | — | | The chosen option in a `list` |
@@ -120,29 +128,29 @@ Platform naming: Web has no Bottom sheet (A8 of Dialog / Side sheet).
 
 ```
 iOS — Sheet (iOS and iPadOS 27)              Android — M3 bottom sheet
-┌───────────────────────────────────┐        ┌───────────────────────────────────┐  radius-4xl top · elevation-4
-│               ━━━━                │        │               ━━━━                │  grabber (both)
-│ Cancel    Filter by status   Done │        │ Filter by status              [✕] │  title-lg
-│ ───────────────────────────────── │        │ ○ Pending                    12   │  rows size-control-height-lg
-│ Pending                      12 ✓ │        │ [             Apply             ] │  Button lg full width
-└───────────────────────────────────┘        └───────────────────────────────────┘
+╭───────────────────────────────────╮        ┌───────────────────────────────────┐  iOS radius-4xl all corners, inset spacing-sm
+│               ━━━━                │        │               ━━━━                │  Android radius-4xl top · elevation-4
+│ (✕)     Filter by status     (✓)  │        │ Filter by status              [✕] │  title-lg
+│ ☐ Pending                    12   │        │ ☐ Pending                    12   │  rows: List item lg
+│ ☐ Approved                    3   │        │ [             Apply             ] │  Button lg full width
+╰───────────────────────────────────╯        └───────────────────────────────────┘
 ```
 
 | Part | Property | iOS | Android |
 |---|---|---|---|
 | `scrim` | fill | `color-overlay-default` | `color-overlay-default` |
-| `container` | width | full screen width | full screen width |
+| `container` | width | screen width minus `spacing-sm` each side (floating) | full screen width |
 | `container` | background | `color-surface-raised` | `color-surface-raised`, `surfaceTintColor: Colors.transparent` |
-| `container` | radius · elevation | from the OS sheet (Apple kit) | `radius-4xl` top corners · `elevation-4` |
+| `container` | radius · elevation | `radius-4xl` all corners · `elevation-4` | `radius-4xl` top corners · `elevation-4` |
 | `container` | heights | `auto` = medium detent · `full` = large detent | `auto` = content up to 90% · `full` = expanded below the status bar |
 | `grabber` | | the OS grabber (`Grabber` in the Apple kit) | width `size-icon-xl` · height `spacing-xs` · `radius-full` · `color-border-default` |
-| `header` | layout | Cancel (leading, `action-md`, `color-text-role-brand`) · title (`title-lg`, centred) · Done (trailing, `action-md` semibold weight from the kit, `color-text-role-brand`) | title `title-lg` start + close Icon button (`transparent neutral md`) |
-| row (`list`) | | `body-md`; chosen row trailing `check` in `color-icon-role-brand`; separators `color-border-subtle` inset to the text | `body-md`; chosen row trailing `check` `color-icon-role-brand`; min height `size-control-height-lg` |
-| `action` | | `CupertinoActionSheet`: actions `action-md` `color-text-role-brand`, destructive `color-text-role-error`, Cancel in its own group | rows with leading icon `size-icon-lg` `color-icon-default` + `body-md` label; destructive in `color-text-role-error` / `color-icon-role-error` |
+| `header` | layout | round buttons `size-control-height-md`, `radius-full`: Close (✕, `color-background-transparent-hovered`, icon `color-icon-default`) · title (`title-lg`, centred) · Done (✓, `color-background-brand-default`, icon `color-icon-on-brand`; hidden on `list`); padding-inline `spacing-xl`, gap `spacing-xl` | title `title-lg` start + close Icon button (`transparent neutral md`) |
+| row (`list`) | | List item lg (same rows as Android); chosen row `selected` with trailing `check` | `body-md`; chosen row trailing `check` `color-icon-role-brand`; min height `size-control-height-lg` |
+| `action` | | iOS 27 Action Sheet card (`radius-4xl`, padding `spacing-xl`): title `title-lg`, message `label-md` `color-text-subtle`, capsule actions (`size-control-height-lg`, `radius-full`, `color-background-transparent-hovered`, label `action-md`), destructive label `color-text-role-error`; no separate Cancel group | rows with leading icon `size-icon-lg` `color-icon-default` + `body-md` label; destructive in `color-text-role-error` / `color-icon-role-error` |
 | `footer` | | none — Done in the header (`doneLabel`) | padding `spacing-layout-container`; Button `filled brand lg` full width |
 | padding | content | `spacing-layout-container` inline | `spacing-layout-container` inline |
 
-Fonts: Biowave text styles (`context.bw.text`) on both OSes; the OS keeps its sheet, materials and separators.
+Fonts: Biowave text styles (`context.bw.text`) on both OSes; the OS keeps its sheet shape and materials. The iOS grabber is the kit instance (system chrome, N-02).
 
 ### B3 Tokens by part and state
 
@@ -182,7 +190,7 @@ Reduced motion: slide and fade become `motion-duration-instant`; dragging still 
 
 | Part | In RTL |
 |---|---|
-| layout | Mirrors: title at the start (right), close button at the end (left); iOS header Cancel on the right, Done on the left |
+| layout | Mirrors: title at the start (right), close button at the end (left); iOS header Close on the right, Done on the left |
 | rows | Label at the start, counts and check at the end (left) |
 | icons | `check`, `close`, `photo_camera`, `attach_file` do not mirror; `arrow_back` / `chevron_forward` mirror |
 | grabber | Centred (no change) |
@@ -195,7 +203,7 @@ Design-level rules are in A9; this is how this platform meets them.
 |---|---|
 | Role / semantics | Modal route: `Semantics(scopesRoute: true, namesRoute: true, label: title)`; screen behind excluded |
 | Focus | Focus moves into the sheet (first row or field); returns to the trigger on close |
-| Drag alternative | Close button (Android, Tablet) or Cancel (iOS) and the back gesture; `dismissible: false` still offers Cancel (WCAG 2.5.7) |
+| Drag alternative | Close button (all) and the back gesture; `dismissible: false` still offers Close (WCAG 2.5.7) |
 | Rows | `Semantics(button: true, selected: chosen, inMutuallyExclusiveGroup: true)` for `list` |
 | Target size | Rows ≥ `size-control-height-lg` (48dp), grabber area ≥ 48dp |
 | Keyboard | `viewInsets` lift the sheet above the on-screen keyboard |
@@ -233,9 +241,9 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 
 ```
 ❖ Bottom sheet                    ← component set (published)
-  ├─ ◇ .Bottom sheet/ios-row       ← private: one iOS sheet row (separator, check)
-  ├─ ◇ .Bottom sheet/ios-action    ← private: one iOS Action sheet button
-  └─ ◇ .Bottom sheet/content       ← private placeholder slot for `Standard`
+  ├─ ❖ .Bottom sheet/ios-button    ← private set: round header button, Style = Close · Confirm
+  ├─ ◇ .Bottom sheet/content       ← private slot for `Standard` (List item checkbox rows); `… AR` copy
+  └─ uses ❖ .Dialog/ios-action (Dialog page) for the iOS Action Sheet capsules, and ❖ List item for rows
 ```
 
 ### D3 Layer tree and auto layout
@@ -243,14 +251,13 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 ```
 Bottom sheet (OS=Android)  as Tablet D3, width = screen (fill in the device frame example; set fixed 360 for the set)
 Bottom sheet (OS=iOS, Standard / List)
-├── grabber                ◇ Grabber from the iOS and iPadOS 27 kit (reference shape; rebuilt bound: color/border/default)
-├── header                 ↔ Cancel (T action/md · color/text/role/brand) · title (T title/lg · centred) · Done (T action/md · color/text/role/brand)
-├── content                ◇ .Bottom sheet/ios-row × 3–4  |  ◇ .Bottom sheet/content
-Bottom sheet (OS=iOS, Action)
-├── group                  ↕ radius from the kit · fill color/surface/raised
-│   ├── title · message    T label/md · color/text/subtle · centred (optional)
-│   └── actions            ◇ .Bottom sheet/ios-action × 2–4 · separators color/border/subtle
-└── cancel                 ◇ .Bottom sheet/ios-action (Cancel) in its own group
+│                            width 360 sample · radius/4xl all corners · Elevation/4 · fill color/surface/raised · padding-bottom spacing/lg
+├── grabber-area           ↕ padding-top spacing/sm · ◇ Grabber (iOS and iPadOS 27 kit instance, system chrome)
+├── header                 ↔ padding-inline spacing/xl · gap spacing/xl · ◇ ios-button Close · T title/lg centred · ◇ ios-button Confirm (opacity 0 on List)
+└── content                List item rows (padding-inline spacing/lg) | ◇ .Bottom sheet/content
+Bottom sheet (OS=iOS, Action)   ↕ padding spacing/xl · gap spacing/xl · radius/4xl
+├── header                 ↕ padding-inline spacing/md · T title/lg + T label/md color/text/subtle (message)
+└── content                ↕ gap spacing/md · ◇ .Dialog/ios-action Style=Cancel × 2 + Style=Destructive (fill width)
 ```
 
 ### D4 Properties
@@ -287,7 +294,7 @@ Page notes for Bottom sheet:
 - 01 Introduction: Light + Dark panels, iOS and Android `List` sheets over phone frames with the scrim
 - 03 Variations: OS × Type; detents (`auto` = medium, `full` = large); legacy content rebuilt (status with counts, date range, member picker)
 - 07 Platform: the A8 table and wireframes; IC-08 / IC-16 (pickers and Select open here)
-- 08 RTL: both OSes in Arabic (iOS Cancel on the right)
+- 08 RTL: both OSes in Arabic (iOS Close on the right)
 - 05 Usage: the A7 pairs, built with live instances
 
 Component description: "A panel that slides up from the bottom of a touch screen to show choices, actions or a short task without leaving the screen. Spec: 5-mobile-components/components/bottom-sheet/bottom-sheet.md".

@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Status | Draft for review · 2026-11-13 |
+| Status | Approved · 2026-11-13 (NV-01 … NV-10 as proposed; Mobile Wave 8 first, then R-1, then navigation) |
 | Native rule | N-01 / N-02: OS-owned chrome gets `OS=iOS · Android` on Mobile; iOS from the iOS and iPadOS 27 kit only; Android from Material 3 (Expressive) |
 | Wave 8 | Web and Tablet done; Mobile (native Dialog, Bottom sheet) paused — see NV-10 |
 

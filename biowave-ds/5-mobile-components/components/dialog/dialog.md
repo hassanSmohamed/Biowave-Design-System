@@ -16,7 +16,7 @@
 | Version | 1.0 · 2026-11-13 |
 | Plan | Finished |
 | Code | Planned |
-| Figma build | Planned |
+| Figma build | Built |
 | Review | — |
 | Source code | `lib/src/components/dialog/` — not built yet (the Executor creates it) |
 | Tokens | No component tokens — every value is a semantic token (B3); Figma binds the Foundations variables directly |
@@ -167,19 +167,19 @@ On Mobile the dialog is the **native alert** of each OS (N-01), in Biowave colou
 
 ```
 iOS (iOS and iPadOS 27 Alert)            Android (Material 3 Basic dialog)
-      ┌───────────────────────┐           ┌──────────────────────────────┐
-      │   Delete this shift?  │           │ Delete this shift?           │
+      ╭───────────────────────╮           ┌──────────────────────────────┐
+      │ Delete this shift?    │           │ Delete this shift?           │
       │ Staff will be told it │           │ Staff will be told it was    │
       │ was cancelled.        │           │ cancelled.                   │
-      ├───────────┬───────────┤           │                              │
-      │  Cancel   │  Delete   │           │            Cancel    Delete  │
-      └───────────┴───────────┘           └──────────────────────────────┘
+      │ (  Cancel )( Delete ) │           │                              │
+      ╰───────────────────────╯           │            Cancel    Delete  │
+                                          └──────────────────────────────┘
 ```
 
 | | Mobile |
 |---|---|
 | Available | ✓ `basic` and `destructive`; no `size` (the OS sets the width) |
-| iOS | Apple Alert from the **iOS and iPadOS 27** kit: centred title and message, full-width text actions in a row (two) or a stack (three); destructive action in the error colour; no close button, no alert slot |
+| iOS | Apple Alert from the **iOS and iPadOS 27** kit: start-aligned title and message, capsule actions side by side (two) or stacked (three), the default action filled; destructive action keeps the neutral capsule with error text; no separators, no close button, no alert slot |
 | Android | Material 3 Basic dialog: start-aligned title and supporting text, text buttons at the end; destructive action in the error colour; no close button |
 | Interaction | Touch. Android back gesture and a tap on the scrim close a dismissible dialog; iOS alerts close only through an action |
 | Not supported | `size`, `alert`, `closeButton`, form fields or lists in the body (use a Bottom sheet) |
@@ -232,28 +232,27 @@ Platform naming: web `children` = Flutter `message`; `onClick` = `onPressed`. Th
 
 ```
 iOS — iOS and iPadOS 27 Alert                 Android — M3 Basic dialog
-   ┌─────────────────────────┐                ┌───────────────────────────────┐   radius-3xl · elevation-4
-   │    Delete this shift?   │ heading-md     │ Delete this shift?            │   heading-md · start-aligned
-   │  Staff will be told it  │ body-md        │ Staff will be told it was     │   body-md · color-text-subtle
-   │  was cancelled.         │                │ cancelled.                    │
-   ├────────────┬────────────┤ separators     │              Cancel   Delete  │   text buttons · gap spacing-md
-   │   Cancel   │   Delete   │                └───────────────────────────────┘
-   └────────────┴────────────┘                width: M3 280–560, inset spacing-layout-container
-   width and padding from the OS
+   ╭─────────────────────────╮ radius-4xl     ┌───────────────────────────────┐   radius-3xl · elevation-4
+   │ Delete this shift?      │ title-lg       │ Delete this shift?            │   heading-md · start-aligned
+   │ Staff will be told it   │ body-md        │ Staff will be told it was     │   body-md · color-text-subtle
+   │ was cancelled.          │                │ cancelled.                    │
+   │ (  Cancel  )( Delete  ) │ capsules       │              Cancel   Delete  │   text buttons · gap spacing-md
+   ╰─────────────────────────╯ h size-control-height-lg · radius-full          └───────────────────────────────┘
+   width size-container-xxs · padding spacing-xl          width size-container-xxs (M3 280–560), padding spacing-layout-container
 ```
 
 | Part | Property | iOS (`CupertinoAlertDialog`) | Android (M3 `AlertDialog`) |
 |---|---|---|---|
 | `scrim` | fill | `color-overlay-default` (`barrierColor`) | `color-overlay-default` (`barrierColor`) |
-| `container` | width · padding | from the OS (Apple kit) | M3 min 280 / max 560 from the framework; `insetPadding: EdgeInsets.symmetric(horizontal: context.bw.layout.container)` |
-| `container` | background | `color-surface-raised` at the OS translucency (`CupertinoTheme` `barBackgroundColor`) | `color-surface-raised`; `surfaceTintColor: Colors.transparent` |
-| `container` | radius · elevation | from the OS | `radius-3xl` · `elevation-4` |
-| `title` | text style | `heading-md` at the OS weight, centred | `heading-md`, start-aligned |
-| `body` (`message`) | text style · colour | `body-md` · `color-text-subtle`, centred | `body-md` · `color-text-subtle` |
-| `footer` | actions | `CupertinoDialogAction`; primary `isDefaultAction: true` in `color-text-role-brand`; destructive `isDestructiveAction: true` in `color-text-role-error`; separators `color-border-subtle` | `TextButton`s via `BwButton(variant: text)`; primary `brand`, destructive `error`; secondary `neutral`; gap `spacing-md`, end-aligned |
+| `container` | width · padding | `size-container-xxs` (Figma; nearest token to the kit's 300 pt) · `spacing-xl`; title block padding-inline `spacing-md`, gap `spacing-md` | `size-container-xxs` (M3 280–560 from the framework) · `spacing-layout-container`; `insetPadding: EdgeInsets.symmetric(horizontal: context.bw.layout.container)` |
+| `container` | background | `color-surface-raised` (the OS adds its glass material in code) | `color-surface-raised`; `surfaceTintColor: Colors.transparent` |
+| `container` | radius · elevation | `radius-4xl` · `elevation-4` | `radius-3xl` · `elevation-4` |
+| `title` | text style | `title-lg`, start-aligned (iOS 27 alert title is a small headline) | `heading-md`, start-aligned |
+| `body` (`message`) | text style · colour | `body-md` · `color-text-subtle`, start-aligned | `body-md` · `color-text-subtle` |
+| `footer` | actions | capsules, height `size-control-height-lg`, `radius-full`, label `action-md`, gap `spacing-md`: Default = `color-background-brand-default` + `color-text-on-brand`; Cancel = `color-background-transparent-hovered` + `color-text-default`; Destructive = `color-background-transparent-hovered` + `color-text-role-error` | `TextButton`s via `BwButton(variant: text)`; primary `brand`, destructive `error`; secondary `neutral`; gap `spacing-md`, end-aligned |
 | `footer` | layout | two actions side by side; three stacked (OS rule) | in one row; stacked when they do not fit (`OverflowBar`) |
 
-Fonts: IBM Plex Sans Arabic / Inter through `context.bw.text` on both OSes (Biowave identity); the OS keeps its layout, materials and separators.
+Fonts: IBM Plex Sans Arabic / Inter through `context.bw.text` on both OSes (Biowave identity); the OS keeps its layout and materials (iOS 27: capsule actions, no separators).
 
 ### B3 Tokens by part and state
 
@@ -265,10 +264,9 @@ Every value is a semantic token; there is no `dialog.tokens.json` (no component 
 | `container` | background | `color-surface-raised` | — | — |
 | `title` | color | `color-text-default` | — | — |
 | `body` | color | `color-text-subtle` | — | — |
-| primary action (iOS) | label | `color-text-role-brand` | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| destructive action (iOS) | label | `color-text-role-error` | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| secondary action (iOS) | label | `color-text-role-brand` (regular weight) | `color-background-transparent-pressed` row fill | `color-text-disabled` |
-| action separators (iOS) | stroke | `color-border-subtle` | — | — |
+| default action (iOS) | fill · label | `color-background-brand-default` · `color-text-on-brand` | `color-background-brand-pressed` | `color-text-disabled` |
+| cancel action (iOS) | fill · label | `color-background-transparent-hovered` · `color-text-default` | `color-background-transparent-pressed` | `color-text-disabled` |
+| destructive action (iOS) | fill · label | `color-background-transparent-hovered` · `color-text-role-error` | `color-background-transparent-pressed` | `color-text-disabled` |
 | actions (Android) | — | Button `text` B3 (`brand`, `error`, `neutral`) | Button B3 | Button B3 |
 
 Dark theme: same tokens; no exceptions.
@@ -289,7 +287,7 @@ Reduced motion: opacity changes become `motion-duration-instant` (Android form; 
 
 | Part | In RTL |
 |---|---|
-| iOS | Title and message centred (no change); actions in a row swap order (Cancel on the right) — the framework mirrors them |
+| iOS | Title and message start-aligned (right); capsules in a row swap order (Cancel on the right) — the framework mirrors them |
 | Android | Title and text start-aligned (right); actions end-aligned (left), main action last |
 | text | Arabic copy from A6; numbers and Latin names stay LTR |
 
@@ -383,6 +381,7 @@ Structure, properties, the Figma ↔ code mapping and Code Connect: [Part D](#d-
 - **Theme:** colours and fonts come from `BwMobileTheme` (`ThemeData.dialogTheme`, `CupertinoThemeData` with Biowave `primaryColor` and text theme). Nothing in the widget hard-codes the OS look.
 - **Motion:** Android form `AnimationStyle` as Tablet; iOS keeps the framework animation (B4).
 - **Gotcha:** `CupertinoAlertDialog` ignores `ThemeData` text styles — pass the Biowave `TextStyle`s to `title` and `content` explicitly.
+- **Gotcha (iOS 27 look):** Figma shows the iOS and iPadOS 27 Alert (start-aligned text, capsule actions). If the Flutter version in use still draws the older Cupertino alert (centred text, separators), do not restyle it by hand: keep `CupertinoAlertDialog` and report it in C8 › Questions, so the Planner decides between waiting for Flutter and a custom `_BwIosAlert`.
 
 ### C4 Token gaps
 
@@ -462,24 +461,23 @@ Same as [Button D1](../button/button.md#d1-rules-for-this-build): library first,
 ```
 ❖ Dialog                          ← component set (published)
   ├─ ◇ .Scrim                      ← private, shared with Bottom sheet
-  ├─ ◇ .Dialog/ios-action          ← private: one iOS alert action (label + state)
-  └─ ◇ .Dialog/body                ← private placeholder (not used on Mobile — text only)
+  └─ ❖ .Dialog/ios-action          ← private set: iOS 27 capsule action, Style = Default · Cancel · Destructive, TEXT `Label` (also used by the iOS Action Sheet)
 ```
 
 ### D3 Layer tree and auto layout
 
 ```
-Dialog (OS=iOS)            ↕ vertical · width from the Apple kit · radius from the kit · fill color/surface/raised
-├── header                 ↕ centred · padding from the kit
-│   ├── title              T heading/md · centred · TEXT `Title`
-│   └── body               T body/md · color/text/subtle · centred · TEXT `Message`
-└── footer                 ↔ (2 actions) or ↕ (3) · separators color/border/subtle
-    ├── secondary-action   ◇ .Dialog/ios-action · TEXT `Secondary label`
-    └── primary-action     ◇ .Dialog/ios-action · TEXT `Primary label` · colour by Kind
+Dialog (OS=iOS)            ↕ vertical · width size/container/xxs · padding spacing/xl · gap spacing/xl · radius/4xl · Elevation/4 · fill color/surface/raised
+├── header                 ↕ padding-inline spacing/md · gap spacing/md
+│   ├── title              T title/lg · start · TEXT `Title`
+│   └── message            T body/md · color/text/subtle · start · TEXT `Message`
+└── footer                 ↔ gap spacing/md (2 actions, each fill) · ↕ for 3
+    ├── secondary-action   ◇ .Dialog/ios-action Style=Cancel
+    └── primary-action     ◇ .Dialog/ios-action Style=Default (Basic) | Destructive
 
-Dialog (OS=Android)        ↕ vertical · width fixed 312 example (B2: framework 280–560) · padding spacing/layout/container · radius/3xl · Elevation/4 · fill color/surface/raised
+Dialog (OS=Android)        ↕ vertical · width size/container/xxs (B2: framework 280–560) · padding spacing/layout/container · radius/3xl · Elevation/4 · fill color/surface/raised
 ├── title                  T heading/md · start · TEXT `Title`
-├── body                   T body/md · color/text/subtle · TEXT `Message`
+├── message                T body/md · color/text/subtle · TEXT `Message`
 └── footer                 ↔ end-aligned · gap spacing/md
     ├── secondary-action   ◇ Button variant=text color=neutral size=md · TEXT
     └── primary-action     ◇ Button variant=text color=brand|error size=md · TEXT
@@ -494,8 +492,7 @@ Dialog (OS=Android)        ↕ vertical · width fixed 312 example (B2: framewor
 | `Language` | VARIANT | `EN` · `AR` | `EN` | — | locale |
 | `Title` | TEXT | | `Delete this shift?` | `title` | |
 | `Message` | TEXT | | `Staff will be told it was cancelled.` | `message` | |
-| `Primary label` | TEXT | | `Delete` | `primaryAction.label` | |
-| `Secondary label` | TEXT | | `Cancel` | `secondaryAction.label` | |
+| `Secondary action` | BOOLEAN | | `true` | `secondaryAction` | present / absent |
 
 **Language and shared properties (Figma rule).** TEXT properties have one value for the whole set, so they are bound on the `EN` variants only; `AR` variants carry Arabic copy edited directly.
 
@@ -548,13 +545,15 @@ Component description: "Modal window for a decision or a short task. Spec: 5-mob
 
 | Field | Value |
 |---|---|
-| Agent / stages run | |
-| Date | |
-| Node IDs | |
-| QA report | |
+| Agent / stages run | Claude · build · rtl · qa · document |
+| Date | 2026-11-13 |
+| Node IDs | page `137:8` · set `137:2197` (8: OS × Kind × Language) · `.Dialog/ios-action` `137:2076` · `.Scrim` `137:2069` · docs `140:2490` (00–09, 11) · card `141:6403` |
+| QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · text uses library styles · Light and Dark by mode switch · page modes Mobile (typography) and Mobile (grid) |
 
 **Deviations:**
-- none
+- iOS form rebuilt from the **iOS and iPadOS 27** Alert measured in the kit: start-aligned text, capsule actions, no separators (the spec first described the older centred alert; B2 / B3 / D3 corrected)
+- Width `size-container-xxs` for both OSes (nearest token to the kit's 300 pt and M3's 312 dp)
+- `Primary label` / `Secondary label` TEXT properties dropped: a nested instance's label cannot be bound to a set property; labels are edited on the nested action. `Title` and `Message` bound on EN only
 
 **Questions for the Planner:**
 - none
