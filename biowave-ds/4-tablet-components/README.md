@@ -58,6 +58,8 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Dialog | Finished | Planned | Built | — | [page](components/dialog/dialog.html) | [dialog.md](components/dialog/dialog.md) |
 | Bottom sheet | Finished | Planned | Built | — | [page](components/bottom-sheet/bottom-sheet.html) | [bottom-sheet.md](components/bottom-sheet/bottom-sheet.md) |
 | Side sheet | Finished | Planned | Built | — | [page](components/side-sheet/side-sheet.html) | [side-sheet.md](components/side-sheet/side-sheet.md) |
+| Primary navigation | Finished | Planned | Planned | — | [page](components/primary-navigation/primary-navigation.html) | [primary-navigation.md](components/primary-navigation/primary-navigation.md) |
+| Top app bar | Finished | Planned | Planned | — | [page](components/top-app-bar/top-app-bar.html) | [top-app-bar.md](components/top-app-bar/top-app-bar.md) |
 
 ## 5. Backlog (suggested order)
 Figma has no dedicated tablet components yet (only "Checkbox / Tablet" docs). Tablet components are designed from the mobile set at tablet size and density.

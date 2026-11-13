@@ -67,3 +67,43 @@ Three levels: **app** (where am I in the product), **page** (where am I inside t
 | NV-08 | Pagination on Mobile | None: lists load more as you scroll, with a "Load more" button fallback; Page control (dots) only for carousels and onboarding |
 | NV-09 | Stepper on Mobile | Compact form ("Step 2 of 4" + Progress) in the top app bar area, like the legacy `Progress` top app bar; vertical form for review screens |
 | NV-10 | Wave 8 Mobile (native Dialog, Bottom sheet) | Do it together with the Mobile navigation build (same native kits and session), before Wave 9 |
+
+## 5. Review of the Web elements in use (2026-11-13)
+
+The design lead pointed to the four Web elements the product uses (Foundations file): `Navbar` (`5412:4323`), `Breadcrump` (`3266:158`), `Side Menu` (`3730:899`) and the `Sidebar` section with real screens (`5412:1424`). The new components are rebuilt from them.
+
+**Standard sizes — confirmed, all match tokens**
+
+| Element | Measured | Token |
+|---|---|---|
+| App header height | 72 | `layout-height-app-bar` (Web) |
+| Side menu open · collapsed | 248 · 96 | `layout-width-sidebar-start` · `layout-width-sidebar-start-collapsed` |
+| Logo block in the header | 247 (≈ 248) | `layout-width-sidebar-start` — should be exactly 248 so it lines up with the menu |
+| Nav item | 40 high · padding 16 · gap 8 · radius 8 · icon 16 | `size-control-height-md` · `spacing-xl` · `spacing-md` · `radius-md` · `size-icon-sm` |
+| List | padding-inline 16 · gap 8 | `spacing-xl` · `spacing-md` |
+| Module switcher | 48 high · padding 12 / 16 · radius 8 · area padding 24 / 8 | `size-control-height-lg` · `spacing-lg` / `spacing-xl` · `radius-md` · `spacing-3xl` / `spacing-md` |
+| Module menu (Actions Menu) | 330 wide · padding 8 · rows 56 · radius 8 | Menu · `size-control-height-xl` |
+| Collapse handle | 24 round | `size-icon-lg` · `radius-full` |
+| Header icon buttons · avatar | 40 | `size-control-height-md` |
+
+**Problems found**
+
+| # | Problem | Where | Fix in the new components |
+|---|---|---|---|
+| 1 | Built as plain frames, not components; many raw hex fills and unstyled text (`#f6f7f8`, `#fafafa`, `#414346`, text "raw") | Side Menu, Navbar | New sets bound to Foundations variables and text styles |
+| 2 | Collapsed Menu keeps the full-width children hidden inside (module switcher 247 wide, labels 160 wide in a 48 item) | `Collapsed Menu` | `Form=Collapsed` variants with icon-only layout |
+| 3 | Badge counts written "+99" | Navbar inbox / notifications | Badge component shows "99+" (Badge spec, max + "+") |
+| 4 | Hidden search field uses **Montserrat** (not a Biowave font) and placeholder "Modules" | Navbar `Field` | Search is optional in the App header and uses the Search field component |
+| 5 | Side menu background is grey; colors.md lists Side navigation under `color-surface-default` (white) | Side Menu vs foundations | Kept the product look: `color-surface-subtle`; **decision NV-11 below** |
+| 6 | Selected page uses a neutral grey fill; foundations say `color-background-selected-default` (light navy) + a non-colour cue | Side Menu | Uses `background-selected-default` + heavier label (`label-lg`) + brand icon; **NV-12** |
+| 7 | Logo block 247 wide, side menu 248 — 1 px off | Navbar | Logo block bound to `layout-width-sidebar-start` |
+| 8 | Frame name typo "Breadcrump" | Breadcrumb page | Component named Breadcrumbs (next phase) |
+| 9 | Every nav item shows a count "12" as plain text | Side Menu | `count` is optional per item (`Show count`), off by default |
+
+**Decisions for the design lead (proposal)**
+
+| ID | Question | Proposal |
+|---|---|---|
+| NV-11 | Side menu and header background | Keep the product's grey (`color-surface-subtle`) and update colors.md to say so |
+| NV-12 | Selected page fill | Follow the foundations: light navy `color-background-selected-default` with heavier label (the product's grey selection is the only place selection is neutral) |
+| NV-13 | Navigation levels on Web | As the product: level 1 = module switcher, level 2 = the module's pages; no expandable sub-items |

@@ -11,8 +11,10 @@
     "icon",
     "icon-button",
     "link",
+    "primary-navigation",
     "split-button",
     "text-field",
-    "tooltip"
+    "tooltip",
+    "top-app-bar"
   ]
 }
