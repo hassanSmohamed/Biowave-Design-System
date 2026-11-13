@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-13 — Breadcrumbs (Web, Tablet): spec and Figma
+
+- **Specs:** `3-web-components/components/breadcrumbs`, `4-tablet-components/components/breadcrumbs` (1.0, A–D). Mobile has none (back button in the Top app bar). Links `color-text-subtlest` (7.07:1 on the App header), current page on a `color-background-neutral-default` chip; from 5 items the middle collapses into "…" (Menu).
+- **Figma:** `Breadcrumbs` (Items 2 · 3 · 4 · Collapsed × Language) with private `.Breadcrumb item` (6 states) and `.Breadcrumb separator` (LTR · RTL) on Web and Tablet; docs 00–09, 11; cards; lint 0.
+- **Web App header:** the `Title` slot now holds a `Breadcrumbs` instance (EN and AR).
+- Top app bar A10 links to Breadcrumbs on all three platforms.
+
 ## 2026-11-13 — Navigation on Tablet and Mobile (Figma): Primary navigation, Top app bar
 
 - **Tablet:** `Navigation rail` (80 wide, icon + label, pill indicator, menu button), `Navigation drawer` (module switcher + pages, as Web), `Top app bar` (Small · Large × Language).

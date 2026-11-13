@@ -154,7 +154,7 @@ Tablet / Mobile — Small and Large
 - [Primary navigation](../primary-navigation/primary-navigation.md#a--guidelines) — sections; the bar's menu opens its drawer
 - [Icon button](../icon-button/icon-button.md#a--guidelines) — leading and actions
 - [Badge](../badge/badge.md#a--guidelines) — notification counts
-- Breadcrumbs — the Web title area (next in the navigation family)
+- [Breadcrumbs](../../../3-web-components/components/breadcrumbs/breadcrumbs.md#a--guidelines) — the Web title area (Web and Tablet; Mobile uses back)
 
 ---
 
@@ -420,7 +420,7 @@ Component description: "The bar at the top of every screen: on Web the app heade
 | QA report | Unbound fills, strokes, padding and gaps: 0 · no local styles · measurements match the product elements (Foundations › Sidebar, Navbar) |
 
 **Deviations:**
-- `Logo` and `Title` are SLOT properties: Foundations has no published Logo component yet (logos.md: assets pending), and Breadcrumbs is the next component — both drop into the slots
+- `Logo` and `Title` are SLOT properties: Foundations has no published Logo component yet (logos.md: assets pending), and Breadcrumbs drop into `Title` (done: the `Title` slot holds a `Breadcrumbs` instance, Items=3, in both languages)
 - Search is not in the set (off in the product); the spec keeps it optional
 
 **Questions for the Planner:**

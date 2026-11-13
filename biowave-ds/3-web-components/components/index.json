@@ -3,6 +3,7 @@
   "components": [
     "avatar",
     "badge",
+    "breadcrumbs",
     "button",
     "button-group",
     "dialog",

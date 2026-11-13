@@ -164,7 +164,7 @@ iOS — iOS and iPadOS 27 navigation bar          Android — M3 App bar
 - [Primary navigation](../primary-navigation/primary-navigation.md#a--guidelines) — sections; the bar's menu opens its drawer
 - [Icon button](../icon-button/icon-button.md#a--guidelines) — leading and actions
 - [Badge](../badge/badge.md#a--guidelines) — notification counts
-- Breadcrumbs — the Web title area (next in the navigation family)
+- [Breadcrumbs](../../../3-web-components/components/breadcrumbs/breadcrumbs.md#a--guidelines) — the Web title area (Web and Tablet; Mobile uses back)
 
 ---
 

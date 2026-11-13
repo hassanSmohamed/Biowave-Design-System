@@ -58,6 +58,7 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Side sheet | Finished | Planned | Built | — | [page](components/side-sheet/side-sheet.html) | [side-sheet.md](components/side-sheet/side-sheet.md) |
 | Primary navigation | Finished | Planned | Built | — | [page](components/primary-navigation/primary-navigation.html) | [primary-navigation.md](components/primary-navigation/primary-navigation.md) |
 | Top app bar | Finished | Planned | Built | — | [page](components/top-app-bar/top-app-bar.html) | [top-app-bar.md](components/top-app-bar/top-app-bar.md) |
+| Breadcrumbs | Finished | Planned | Built | — | [page](components/breadcrumbs/breadcrumbs.html) | [breadcrumbs.md](components/breadcrumbs/breadcrumbs.md) |
 
 ## 5. Backlog (from the Figma "Web Components" pages, suggested order)
 1. Button · Icon button · Button group · Split button

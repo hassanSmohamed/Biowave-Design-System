@@ -1,4 +1,4 @@
-<!-- GENERATED from top-app-bar.md @ 2e51f4ae67660d11 — do not edit; change the source and run: npm run contract -- web top-app-bar -->
+<!-- GENERATED from top-app-bar.md @ 7868908bdc7ad9c0 — do not edit; change the source and run: npm run contract -- web top-app-bar -->
 # Top app bar · شريط التطبيق العلوي — Web — Figma contract
 
 > **Everything the Figma Agent needs to build Top app bar in the Web Components file, with our variables and styles.** Read this file only. Generated from [`top-app-bar.md`](top-app-bar.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-05). Questions go to [D11 Execution log](top-app-bar.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Top app bar · شريط التطبيق العلوي |
 | Platform | Web · React + MUI |
 | Version | 1.0 · 2026-11-13 |
-| Source | [`top-app-bar.md`](top-app-bar.md) @ `2e51f4ae67660d11` |
+| Source | [`top-app-bar.md`](top-app-bar.md) @ `7868908bdc7ad9c0` |
 
 ## 1. Library connections in this file
 
