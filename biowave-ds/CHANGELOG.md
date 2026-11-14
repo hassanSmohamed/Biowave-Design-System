@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-14 — Workspace rule covers Windows and Mac
+
+- `AGENTS.md` §0.1: one clone per machine (Windows path kept, Mac clone added); push before switching machines, pull after. `HANDOFF.md` workspace row: both machines on `claude/tender-shannon-1jpxey`, not `main`.
+
 ## 2026-11-14 — Handoff to Antigravity
 
 - `HANDOFF.md`: Hassan's decision, working rules, Figma file / collection / mode / style / glyph / kit IDs, reused component sets, current state, next steps (Wave 9 …) and a connection check for the new agent.

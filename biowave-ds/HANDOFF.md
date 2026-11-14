@@ -10,7 +10,7 @@ Hassan (design lead) moves the execution to **Antigravity**. For the work listed
 |---|---|
 | Repo | `https://github.com/hassanSmohamed/Biowave-Design-System` (project folder `biowave-ds/`) |
 | Branch to continue from | `claude/tender-shannon-1jpxey` — last commit at handoff in `git log -1`. Not merged to `main` yet. Antigravity works on its own branch **based on it** (e.g. `ag/wave9-feedback`) and opens PRs into it, or Hassan merges it to `main` first |
-| Workspace | `D:\workspaces\Design System\Biowave-Design-System` (AGENTS.md §0.1) |
+| Workspace | Windows `D:\workspaces\Design System\Biowave-Design-System` · Mac: Hassan's single clone (AGENTS.md §0.1). Both machines must be on this branch, not `main` (`git checkout claude/tender-shannon-1jpxey && git pull`) |
 | Language to Hassan | Arabic (Egyptian, short). Repo text: English, plain, short sentences |
 | Rhythm | Stop for Hassan's review after each major phase (brief → Web → Tablet → Mobile). Ask before decisions that are his |
 
