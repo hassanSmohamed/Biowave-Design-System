@@ -92,7 +92,16 @@ Run these and report the results to Hassan. Stop if one fails.
 
 1. `git fetch && git checkout claude/tender-shannon-1jpxey && git log -1 --oneline` — matches GitHub.
 2. `cd biowave-ds && npm ci && npm run docs:check && npm run tokens:check` — both ✓. `npm run sync` — sections 1, 2, 5, 6 ✓; section 4 ✗ is the known older item in §5 (not caused by the handoff).
-3. **Figma MCP** with write access (the `use_figma` Plugin-API tool, `get_screenshot`, `search_design_system`): read `figma.root.getSharedPluginData('biowave','w8core').length` in the Web file (expect **13481**) and the Tablet and Mobile files (**13485**).
-4. In the Web file: `importComponentSetByKeyAsync('9b46e7de73427b157abc3a24e5bd338c0887886b')` returns `Logo` with 12 variants; `importVariableByKeyAsync('c92e3f33bc4da813e300178b0eaee8aaf75f10ec')` returns `size/indicator/sm`.
+3. **Figma read** through the Figma MCP (`get_screenshot`, `get_metadata`) works. **Figma write** goes through the Biowave Script Runner (§8): the agent writes a script that returns `figma.root.getSharedPluginData('biowave','w8core').length`; Hassan runs it in the Web file (expect **13481**) and in the Tablet and Mobile files (**13485**).
+4. Same way, in the Web file: `importComponentSetByKeyAsync('9b46e7de73427b157abc3a24e5bd338c0887886b')` returns `Logo` with 12 variants; `importVariableByKeyAsync('c92e3f33bc4da813e300178b0eaee8aaf75f10ec')` returns `size/indicator/sm`.
 5. `get_screenshot` of `647:485` (Web App header) shows the logo, breadcrumbs, actions and profile.
 6. Can push to GitHub on a new branch.
+
+## 8. Writing to Figma from Antigravity (decided 2026-11-14)
+
+Figma's MCP server gives `use_figma` (write to canvas) only to listed clients; **Antigravity and Gemini CLI can read Figma but not write** (Figma MCP docs › "Connect the MCP server to your editor"). Hassan stays on Antigravity only, so writing goes through a free development plugin in this repo:
+
+- **Plugin:** [`_workflow/figma-runner/`](_workflow/figma-runner/README.md) — *Biowave Script Runner*. Install once in the Figma desktop app (Plugins › Development › Import plugin from manifest).
+- **Loop per step:** the agent writes the script to `_workflow/figma-runs/<YYYY-MM-DD>-<task>.js` (same format as `use_figma`: load fonts, top-level `await`, `return` a short JSON summary) → Hassan opens the target file, **Paste & Run**, **Copy result** → pastes the result back → the agent checks with `get_screenshot` / `get_metadata` and continues.
+- **Keep scripts small and idempotent** (each one checks `if exists → return 'exists'`), one build step per script, results under ~20 KB, so a failed run can simply be re-run.
+- Everything else (briefs, specs, tokens, contracts, docs checks, Git) is done by the agent directly.

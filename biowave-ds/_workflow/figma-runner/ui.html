@@ -1,0 +1,29 @@
+<style>
+  body { font: 12px Inter, system-ui, sans-serif; margin: 0; padding: 12px; color: var(--figma-color-text); background: var(--figma-color-bg); }
+  textarea { width: 100%; box-sizing: border-box; font: 11px ui-monospace, Menlo, monospace; color: inherit; background: var(--figma-color-bg-secondary); border: 1px solid var(--figma-color-border); border-radius: 6px; padding: 8px; }
+  #code { height: 300px; } #out { height: 190px; }
+  .row { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
+  button { font: inherit; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--figma-color-border); background: var(--figma-color-bg-brand); color: var(--figma-color-text-onbrand); cursor: pointer; }
+  button.secondary { background: transparent; color: inherit; }
+  #status { color: var(--figma-color-text-secondary); }
+</style>
+<div class="row"><strong>Biowave Script Runner</strong><span id="status">Paste a script from the agent, then Run.</span></div>
+<textarea id="code" spellcheck="false" placeholder="// script (top-level await and return allowed)"></textarea>
+<div class="row">
+  <button id="run">Run</button>
+  <button class="secondary" id="paste">Paste &amp; Run</button>
+  <button class="secondary" id="copy">Copy result</button>
+  <button class="secondary" id="clear">Clear</button>
+</div>
+<textarea id="out" readonly placeholder="Result appears here — copy it back to the agent."></textarea>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const run = () => { $('status').textContent = 'Running…'; $('out').value = ''; parent.postMessage({ pluginMessage: { type: 'run', code: $('code').value } }, '*'); };
+  $('run').onclick = run;
+  $('paste').onclick = async () => { try { $('code').value = await navigator.clipboard.readText(); run(); } catch (e) { $('status').textContent = 'Clipboard blocked — paste with ⌘V, then Run.'; } };
+  $('clear').onclick = () => { $('code').value = ''; $('out').value = ''; $('status').textContent = 'Cleared.'; };
+  $('copy').onclick = () => { $('out').select(); document.execCommand('copy'); $('status').textContent = 'Result copied.'; };
+  onmessage = (e) => { const m = e.data.pluginMessage; if (!m || m.type !== 'done') return;
+    $('out').value = (m.ok ? '' : 'ERROR\n') + m.text;
+    $('status').textContent = (m.ok ? '✓ Done' : '✗ Error') + ' in ' + m.ms + ' ms · file: ' + m.file; };
+</script>

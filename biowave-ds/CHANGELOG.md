@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-14 — Biowave Script Runner (Figma writes from Antigravity)
+
+- `_workflow/figma-runner/`: development Figma plugin that runs `use_figma`-style scripts in the open file and returns the result to copy back (Antigravity can read Figma through the MCP but Figma does not allow it to write).
+- `HANDOFF.md` §8 (how to work with it) and §7 checks 3–4 run through the plugin.
+
 ## 2026-11-14 — HANDOFF: Mac sync watcher note
 
 - `HANDOFF.md` §7: a `build-stamp.json`-only change after a checkout comes from the Mac sync watcher; restore it and continue.
