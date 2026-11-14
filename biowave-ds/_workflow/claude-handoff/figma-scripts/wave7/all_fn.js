@@ -1,0 +1,239 @@
+async function ALL(PK,COMP){
+const PLAT={
+ tablet:{os:'Tablet',modeEN:'3869:8',modeAR:'5258:1',devices:['Tablet landscape','Tablet portrait'],sec:'4-tablet-components'},
+ mobile:{os:'Mobile',modeEN:'3869:7',modeAR:'5258:2',devices:['Phone'],sec:'5-mobile-components'}};
+const PT={
+ tablet:{badge:[['Typical anchors','Navigation rail items, app bar Icon buttons, avatars in lists'],['Size','One size; the count uses the Tablet data/sm text style'],['Interaction','None — touches go to the anchor; the anchor keeps its 48 target'],['Not supported','Badges on Buttons with text labels']],
+  divider:[['Typical places','Lists and settings pages, side sheets, navigation rail groups, toolbars (vertical)'],['Screen readers','The line is never announced; a label is read as plain text'],['Not supported','A label on a vertical divider; thicker lines; decorative and component (web only)']],
+  tooltip:[['Opens on','Long press, or tap for help icons · pointer hover after a delay with a mouse or trackpad · hardware-keyboard focus (at once)'],['Closes on','A short time after the finger lifts · tap elsewhere · pointer leaving · focus moving away · Esc'],['Placement','top · bottom · start · end (start / end suit the navigation rail)'],['Not supported','Rich content (title, actions)']]},
+ mobile:{badge:[['Typical anchors','Navigation bar destinations, app bar Icon buttons, avatars in lists'],['Size','One size; the count uses the Mobile data/sm text style'],['Interaction','None — touches go to the anchor; the anchor keeps its 48 target'],['Not supported','Badges on Buttons with text labels']],
+  divider:[['Typical places','Lists, bottom sheets and settings pages (mostly horizontal); vertical only in compact toolbars'],['Screen readers','The line is never announced; a label is read as plain text'],['Not supported','A label on a vertical divider; thicker lines; decorative and component (web only)']],
+  tooltip:[['Opens on','Long press, or tap for help icons · hardware-keyboard focus (at once) when a keyboard is connected'],['Closes on','A short time after the finger lifts · tap elsewhere · focus moving away'],['Placement','top · bottom · start · end; on narrow screens prefer top / bottom'],['Hover','Not used (no pointer)'],['Not supported','Rich content (title, actions)']]}};
+function badge(p,pl){ const tab=p==='tablet';
+ const devs=PLAT[p].devices.map((d,i)=>[d, tab?(i===0?'App bar Icon buttons with a count and a dot.':'Navigation list with standalone counts.'):'App bar Icon button with a count; list rows with standalone counts.', tab?(i===0?{device:'top',w:560}:{device:'nav'}):{device:'phone'}]);
+ return {name:'Badge',sub:'Count, dot or check on the corner of an element',ver:'1.1',os:pl.os,modeEN:pl.modeEN,
+ desc:'A badge is a small indicator pinned to the top-end corner of another element (an icon button, a navigation item, an avatar) or placed inline after text. Count shows how many new items, Dot shows that something is new, and Check (the Check badge) shows that something is already true. It is never interactive and always has a label that screen readers read with the anchor.',
+ col:'Color',rows:['Variant','Ring','Language'],cellW:72,axisW:330,parts:['anchor','indicator','count','check-icon','ring'],
+ intro:[{anchor:'ib',b:{Variant:'Count'},count:'3'},{anchor:'ib',b:{Variant:'Dot'}},{anchor:'avatar',b:{Variant:'Check',Color:'Success'},overlap:'circular'},{text:'Inbox',b:{Variant:'Count',Ring:'Off'},count:'12'}],
+ propsNote:'One set: Variant × Color × Ring × Language (EN / AR only for Count). Ring = On on an anchor, Off inline after text. Count is a text property; type 99+ above max.',
+ props:[['Variant','VARIANT','Count · Dot · Check','Count','count · dot · check'],['Color','VARIANT','Error · Brand · Secondary · Success · Warning · Info · Neutral','Error','Dot has no Warning; Check has no Error or Warning'],['Ring','VARIANT','On · Off','On','On = anchored · Off = standalone'],['Language','VARIANT','EN · AR','EN','Count only; digits stay Western in Arabic'],['Count','TEXT','—','3','The number; 99+ when count > max']],
+ tokensNote:'No component tokens: every value is a Foundations semantic variable (P-04). Same tokens as Web; the '+pl.os+' Typography mode sets the data/sm scale.',
+ tokens:[['indicator · height','Count · Check','size/icon/md'],['indicator · min width','Count','size/icon/md'],['indicator · size','Dot','spacing/md'],['indicator · padding-inline','Count','spacing/xs'],['indicator · radius','all','radius/full'],['indicator · fill','Error · Brand · Secondary · Success · Info','color/background/{color}/default'],['indicator · fill','Warning','color/icon/role/warning'],['indicator · fill','Neutral','color/surface/inverse'],['count · text','all','color/text/on/{color} (Warning · Neutral: color/text/inverse)'],['count · style','all','data/sm'],['check-icon','Check','size/icon/sm · color/icon/on/{color} (Neutral: color/icon/inverse)'],['ring · stroke','Ring=On','color/border/inverse · border/width/strong (outside)']],
+ vars:[{title:'Variant',desc:'Count for how many, Dot for something new, Check for a state that is already true.',tiles:[['Variant = Count',{anchor:'ib',b:{Variant:'Count'},count:'3'}],['Variant = Dot',{anchor:'ib',b:{Variant:'Dot'}}],['Variant = Check',{anchor:'avatar',b:{Variant:'Check',Color:'Success'},overlap:'circular'}]]},
+  {title:'Color — Count',desc:'Error is the default for attention. Warning uses the darker warning graphic colour.',tiles:['Error','Brand','Secondary','Success','Warning','Info','Neutral'].map(c=>['Color = '+c,{b:{Variant:'Count',Color:c,Ring:'Off'},count:'3'}])},
+  {title:'Color — Dot',desc:'No Warning dot.',tiles:['Error','Brand','Secondary','Success','Info','Neutral'].map(c=>['Color = '+c,{b:{Variant:'Dot',Color:c,Ring:'Off'}}])},
+  {title:'Color — Check',desc:'Never red or orange.',tiles:['Brand','Secondary','Success','Info','Neutral'].map(c=>['Color = '+c,{b:{Variant:'Check',Color:c,Ring:'Off'}}])},
+  {title:'Overlap',desc:'Circular anchors (avatars) move the badge inward to the circle edge at 45°.',tiles:[['overlap = rectangular',{anchor:'ib',b:{Variant:'Count'},count:'3'}],['overlap = circular',{anchor:'avatar',b:{Variant:'Count'},count:'3',overlap:'circular'}]]},
+  {title:'Standalone and max',desc:'Inline after text with no ring. Above max (99) it shows 99+.',tiles:[['Ring = Off (standalone)',{text:'Inbox',b:{Variant:'Count',Ring:'Off'},count:'12'}],['count > max → 99+',{anchor:'ib',b:{Variant:'Count'},count:'99+'}]]}],
+ statesNote:'One look per Color: no pressed, focus or disabled state. Visible or hidden.',
+ motionNote:'Enter: scale 0 → 1, motion-duration-md, standard decelerate. Exit: scale 1 → 0, motion-duration-sm, standard accelerate. Count changes: no animation. Reduced motion: instant.',
+ motion:[['Hidden → Visible (count > 0)','md',{anchor:'ib',none:true},{anchor:'ib',b:{Variant:'Count'},count:'1'}],['Visible → Hidden (count 0)','sm',{anchor:'ib',b:{Variant:'Count'},count:'1'},{anchor:'ib',none:true}]],
+ use:['Show that an anchor has something new (count, dot) or that something is already true (check): unread notifications on the app bar, a verified employee on an avatar.',{anchor:'ib',b:{Variant:'Count'},count:'3'}],
+ notUse:'Not for statuses that need words (Chip). Not on Buttons with text labels. Never as something to tap.',
+ dos:[['Count only what the user can act on',{text:'Requests',b:{Variant:'Count',Ring:'Off'},count:'4'}],['Cap long counts at 99+',{anchor:'ib',b:{Variant:'Count'},count:'99+'}],['Use the Check badge for a state that is already true',{anchor:'avatar',b:{Variant:'Check',Color:'Success'},overlap:'circular'}]],
+ donts:[['Do not count totals that are not new',{text:'Employees',b:{Variant:'Count',Ring:'Off',Color:'Neutral'},count:'1,284'}],['Do not show four-digit counts',{anchor:'ib',b:{Variant:'Count'},count:'1250'}],['Do not stack two badges on one anchor',{anchor:'ib',b:{Variant:'Count'},count:'3',second:true}]],
+ content:[['count','Digits only, Western digits in both languages (D-10)','max + “+”'],['label (count)','Number + what it counts','4 words'],['label (dot)','What is new','3 words'],['label (check)','The state that is true','2 words']],
+ contentEx:[['3 unread messages','3 رسائل غير مقروءة','3 (the number alone)'],['New activity','نشاط جديد','Red dot'],['Verified','تم التحقق','Check mark']],
+ devices:devs, platform:PT[p].badge,
+ rtlNote:'Top-end corner: top-right in English, top-left in Arabic. The count and the check never mirror.',
+ rtl:[[['LTR (en)',{anchor:'ib',b:{Variant:'Count'},count:'3'}],['RTL (ar)',{anchor:'ib',b:{Variant:'Count',Language:'AR'},count:'3',rtl:true}]],[['LTR — inline',{text:'Inbox',b:{Variant:'Count',Ring:'Off'},count:'12'}],['RTL — inline',{text:'الوارد',b:{Variant:'Count',Ring:'Off',Language:'AR'},count:'12',rtl:true}]]],
+ a11yUse:'Every visible badge has a label, read with the anchor. The indicator itself is hidden from assistive technology.',
+ keys:[['—','None. Touch and keyboard go to the anchor']],
+ sr:'TalkBack / VoiceOver: “Notifications, button, 3 unread messages” (the label is merged into the anchor semantics).',
+ focus:'Never focusable, never a target. The anchor keeps its 48 target (target-min) and its focus ring; the badge does not change it.',
+ contrast:[['Count text / indicator (lowest: Brand)','≥ 4.5:1','4.65:1'],['Warning indicator / surface','3.24:1','12.20:1']],
+ changes:'1.1: Warning fill color/icon/role/warning (3:1 on a white surface); a hidden standalone badge gives back its space.',
+ changeTiles:[['New — Warning fill',{b:{Variant:'Count',Color:'Warning',Ring:'Off'},count:'3'}]],
+ changelog:[['1.1','2026-10-24','Warning fill color/icon/role/warning; hidden standalone takes no space','No'],['1.0','2026-10-21','Initial: Count, Dot and Check badge (P-05)','No'],['1.1 · Figma','2026-11-12','Built in the '+pl.os+' Figma file (Wave 7): 50 variants','No']]}; }
+function divider(p,pl){ const tab=p==='tablet';
+ const devs=PLAT[p].devices.map((d,i)=>[d,(i===0?'Settings list with inset dividers.':'Card sections and a labelled divider.'), i===0?{list:true}:{card:true,w:300}]);
+ return {name:'Divider',sub:'Thin line between groups of content',ver:'1.1',os:pl.os,modeEN:pl.modeEN,
+ desc:'A divider is a thin line that separates groups of content inside a surface: list items, sections of a card or settings page, or actions in a toolbar. It never carries meaning of its own. A horizontal divider can show a short centred label such as “or”.',
+ col:'Emphasis',rows:['Orientation','Inset','Direction'],cellW:300,axisW:330,parts:['container','line','label'],
+ intro:[{card:true,w:240},{signin:true}],
+ propsNote:'One set: Orientation × Emphasis × Inset × Direction. Show label and Label work on Horizontal variants only.',
+ props:[['Orientation','VARIANT','Horizontal · Vertical','Horizontal','vertical only in toolbars'],['Emphasis','VARIANT','Subtle · Default · Strong','Default','Line colour'],['Inset','VARIANT','None · Start · Both','None','spacing/xl at the start or both ends'],['Direction','VARIANT','LTR · RTL','LTR','RTL for Horizontal · Start'],['Show label','BOOLEAN','—','false','Centred label'],['Label','TEXT','—','or','One or two connecting words']],
+ tokensNote:'No component tokens. The line thickness is bound to border/width/default.',
+ tokens:[['line · colour','Subtle · Default · Strong','color/border/subtle · default · strong'],['line · thickness','all','border/width/default'],['container · inset','Start · Both','spacing/xl'],['label · style · colour','—','caption/md · color/text/subtlest'],['label · gap','—','spacing/md']],
+ vars:[{title:'Emphasis',desc:'Keep one emphasis per list.',tiles:['Subtle','Default','Strong'].map(e=>['Emphasis = '+e,{d:{Emphasis:e},w:280}])},
+  {title:'Inset',desc:'Start lines up with list text after a leading icon or avatar.',tiles:['None','Start','Both'].map(i=>['Inset = '+i,{d:{Inset:i},w:280}])},
+  {title:'Orientation and label',desc:'Vertical only in compact toolbars. The label is for horizontal dividers.',tiles:[['Orientation = Vertical',{toolbar:true}],['Show label = true',{d:{},label:'or',w:280}]]}],
+ statesNote:'No interactive states.',motionNote:'',motion:[],
+ use:['Use a divider when spacing alone does not make a boundary clear: between list rows, card sections or with a label between two sign-in options.',{card:true,w:280}],
+ notUse:'Not as the only sign that two groups differ. Not between every block. Not with a title on the line.',
+ dos:[['Use spacing first; add a divider only when needed',{card:true,w:280}],['Keep one emphasis per list',{list:true}]],
+ donts:[['Do not put a divider between every block',{every:true}],['Do not mix subtle and strong dividers in one list',{list:true,mixed:true}]],
+ content:[['label','One or two connecting words, lower case, no punctuation','2–3 words']],
+ contentEx:[['or','أو','“OR”, “Or:”'],['or continue with','أو تابع باستخدام','A full sentence on the line']],
+ devices:devs, platform:PT[p].divider,
+ rtlNote:'Inset Start sits on the right in Arabic (Direction = RTL). A centred label looks the same in both directions.',
+ rtl:[[['LTR — Inset = Start',{d:{Inset:'Start'},w:280}],['RTL — Inset = Start',{d:{Inset:'Start',Direction:'RTL'},w:280}]],[['Arabic list',{list:true,ar:true}]]],
+ a11yUse:'A divider is never the only signal of structure. On '+pl.os+' the line is never announced; a label is read as plain text.',
+ keys:[['—','None. Not focusable']],sr:'The line is skipped; a label is read as text (“or”).',focus:'Never focusable, never a target.',
+ contrast:[['Line / surface','decorative','decorative'],['Label / surface','≥ 4.5:1','≥ 4.5:1']],
+ changes:'1.1: a horizontal divider can show a short centred label (Show label + Label).',changeTiles:[['New — Show label',{d:{},label:'or',w:280}]],
+ changelog:[['1.1','2026-10-23','Optional centred label on horizontal dividers','No'],['1.0','2026-10-22','Initial','No'],['1.1 · Figma','2026-11-12','Built in the '+pl.os+' Figma file (Wave 7): 18 variants','No']]}; }
+function tooltip(p,pl){ const tab=p==='tablet';
+ const devs=PLAT[p].devices.map((d,i)=>[d, tab?(i===0?'Navigation rail: placement = end.':'App bar Icon button: placement = bottom.'):'App bar Icon button: placement = bottom, under the icon.', tab&&i===0?{at:'end'}:{at:'bottom'}]);
+ return {name:'Tooltip',sub:'Short text that names a control or adds a hint',ver:'1.1',os:pl.os,modeEN:pl.modeEN,
+ desc:'A tooltip is a small text label that appears next to a control when the user long-presses it'+(tab?', points at it with a mouse or trackpad,':'')+' or focuses it with a hardware keyboard. It names an icon-only control or adds one short hint. Plain text only; nothing the user needs to finish a task may live only in a tooltip.',
+ col:'Language',rows:[],cellW:260,axisW:120,parts:['container','label','anchor'],
+ intro:[{at:'top'},{at:'top',lang:'AR'}],
+ propsNote:'One set with a Language variant. Placement and trigger are not Figma properties.',
+ props:[['Label','TEXT','—','Edit device','The tooltip text'],['Language','VARIANT','EN · AR','EN','Arabic text style and right alignment']],
+ tokensNote:'Bound to the Tooltip / Container collection (aliases of Foundations) and size/container/xxs. No stroke, no shadow.',
+ tokens:[['container · fill','—','color/surface/inverse'],['label · colour','—','color/text/inverse'],['container · radius','—','radius/sm'],['container · padding','block · inline','spacing/xs · spacing/md'],['gap to anchor','—','spacing/xs'],['max width','—','size/container/xxs'],['label · style','—','label/sm']],
+ vars:[{title:'Placement',desc:'Top by default; flips when there is no room.'+(tab?'':' On narrow screens prefer top / bottom.'),tiles:[['placement = top',{at:'top'}],['placement = bottom',{at:'bottom'}],['placement = start',{at:'start'}],['placement = end',{at:'end'}]]},
+  {title:'Long text',desc:'Wraps at the max width; never truncated.',tiles:[['EN',{tip:'EN',label:'Shows the hours worked this week, including breaks and overtime.',wrap:true}],['AR',{tip:'AR',label:'يعرض ساعات العمل لهذا الأسبوع بما في ذلك الاستراحات والعمل الإضافي.',wrap:true}]]}],
+ statesNote:'No pressed, focus or disabled style on the tooltip; the anchor keeps its own states.',
+ motionNote:'Long press (or tap for help icons): fades in with motion-duration-md. Hides a short time after the finger lifts, on a tap elsewhere or when focus moves: fades out with motion-duration-sm.'+(tab?' Pointer hover opens after motion-duration-2xl.':' No hover.')+' Reduced motion: no fade.',
+ motion:[['Long press (or tap on a help icon)','md',{at:'top',none:true},{at:'top'}],['Finger lifts · tap elsewhere','sm',{at:'top'},{at:'top',none:true}]],
+ use:['Give every icon-only control a tooltip with its name; it shows on long press.',{at:'top'}],
+ notUse:'Not for information needed to finish a task (errors, limits, why a control is disabled). Not for links or buttons. Not to repeat a visible label.',
+ dos:[['Keep tooltip text to one short line',{at:'top'}],['Name every icon-only control',{at:'top',label:'More options'}]],
+ donts:[['Do not put paragraphs in a tooltip',{tip:'EN',label:'This action edits the device name, its location, the assigned shift and the people who can use it.',wrap:true}],['Do not hide errors or limits in a tooltip',{at:'top',label:'Disabled: you need admin rights'}]],
+ content:[['label (name)','Verb first, says the action, no full stop','3 words'],['label (hint)','One short sentence, full stop','80 characters']],
+ contentEx:[['Edit device','تعديل الجهاز','Pencil'],['More options','خيارات أخرى','Menu']],
+ devices:devs, platform:PT[p].tooltip,
+ rtlNote:'Start and end follow the reading direction: in Arabic start is to the right. The label is start-aligned. Nothing mirrors inside the tooltip.',
+ rtl:[[['LTR — placement = end',{at:'end'}],['RTL — placement = end',{at:'end',lang:'AR'}]]],
+ a11yUse:'The tooltip text is the control name read by TalkBack / VoiceOver; a hint tooltip is read after the name. It never holds the only copy of important information.',
+ keys:[['Long press','Shows the tooltip'],['Hardware keyboard: Tab','Focus shows it at once'],['Esc (hardware keyboard)','Hides it; focus stays']],
+ sr:'“Edit device, button” — the tooltip text is the semantics label of the anchor.',
+ focus:'Never focusable and never a target; the anchor keeps its 48 target.',
+ contrast:[['label / container','≥ 4.5:1','≥ 4.5:1']],
+ changes:'1.1: the spacing/xs gap to the anchor sits inside the tooltip hover area (pointer use).',changeTiles:[['Gap spacing/xs',{at:'top'}]],
+ changelog:[['1.1','2026-10-24','Gap inside the hover area','No'],['1.0','2026-10-23','Initial','No'],['1.1 · Figma','2026-11-12','Built in the '+pl.os+' Figma file (Wave 7): 2 variants','No']]}; }
+const pl=PLAT[PK]; const D={badge,divider,tooltip}[COMP](PK,pl);
+{ const PLAT={ar:pl.modeAR,comp:COMP};
+const findSet=async(pn,nm)=>{ const p=figma.root.children.find(p=>p.name.trim()===pn); await p.loadAsync(); return p.findOne(n=>n.type==='COMPONENT_SET'&&n.name===nm); };
+const BS=await findSet('↳ Badge','Badge'), DS=await findSet('↳ Divider','Divider'), TS=await findSet('↳ Tooltip','Tooltip');
+const IB=await findSet('↳ Icon Button','Icon Button'), AV=await findSet('↳ Avatar','Avatar'), BT=await findSet('↳ Button','.Button _en');
+D.setId={badge:BS,divider:DS,tooltip:TS}[PLAT.comp].id;
+const iv0=k=>figma.variables.importVariableByKeyAsync(k);
+const TXT=await iv0('4ea63d9ab5254c4df4eba4d26f771377a07929c4'); const BODY=await figma.importStyleByKeyAsync('87a12277da6eb5157d262a0d847b277747f73b69');
+const typoX=await figma.variables.getVariableCollectionByIdAsync('VariableCollectionId:39add4d8aacddd3c691a5adf59aada01231e4adf/5258:780');
+const gly=async k=>{ const s=await figma.importComponentSetByKeyAsync(k); return (s.children.find(c=>c.name==='Style=Rounded, Fill=Unfilled')||s.defaultVariant).id; };
+const G={bell:await gly('0b32136df031bc4e9f23088a3383f5548cc5a47d'),edit:await gly('47f86c39f6fbbb469725e7588206eb14a23c69f6'),share:await gly('7908bb7dab2518df9de6b2f12fc6863fe74ed282'),del:await gly('c0764cd17eaaa27d2b945f17db9a312430c7fea8'),more:await gly('9212fab5a269a60fdb38fa4547b0e14eddf89f12')};
+const ibI=(g)=>{ const i=(IB.children.find(c=>c.name==='Toggle=false, Selected=false, Size=md')||IB.defaultVariant).createInstance(); const ic=i.findOne(n=>n.name.includes('Icon configuration')); if(ic){ const k=Object.keys(ic.componentProperties).find(x=>x.startsWith('Outlined icon')); if(k) try{ ic.setProperties({[k]:g||G.bell}); }catch(e){} } return i; };
+const txt=async s=>{ const t=figma.createText(); await t.setTextStyleIdAsync(BODY.id); t.characters=s; t.fills=[figma.variables.setBoundVariableForPaint({type:'SOLID',color:{r:0,g:0,b:0}},'color',TXT)]; return t; };
+const arMode=n=>{ n.setExplicitVariableModeForCollection(typoX,PLAT.ar); };
+async function badge(b,count){ const props={Variant:'Count',Color:'Error',Ring:'On',Language:'EN',...b}; const v=BS.children.find(c=>c.name===`Variant=${props.Variant}, Color=${props.Color}, Ring=${props.Ring}, Language=${props.Language}`)||BS.defaultVariant; const i=v.createInstance(); if(count&&props.Variant==='Count'){ const k=Object.keys(i.componentProperties).find(x=>x.startsWith('Count')); i.setProperties({[k]:count}); } return i; }
+async function div(p,label,w){ const o={Orientation:'Horizontal',Emphasis:'Default',Inset:'None',Direction:'LTR',...p}; const v=DS.children.find(c=>c.name===`Orientation=${o.Orientation}, Emphasis=${o.Emphasis}, Inset=${o.Inset}, Direction=${o.Direction}`)||DS.defaultVariant; const i=v.createInstance(); if(label){ const ks=Object.keys(i.componentProperties); i.setProperties({[ks.find(k=>k.startsWith('Show label'))]:true,[ks.find(k=>k.startsWith('Label'))]:label}); } if(o.Orientation==='Horizontal') i.resize(w||280,i.height); return i; }
+async function tip(lang,label,wrap){ const v=TS.children.find(c=>c.name==='Language='+(lang||'EN')); const i=v.createInstance(); if(label){ const k=Object.keys(i.componentProperties).find(x=>x.startsWith('Label')); i.setProperties({[k]:label}); } if(wrap){ const t=i.findOne(n=>n.type==='TEXT'); i.layoutSizingHorizontal='FIXED'; i.resize(240,i.height); t.textAutoResize='HEIGHT'; t.layoutSizingHorizontal='FILL'; } return i; }
+const col=g=>{ const c=figma.createAutoLayout('VERTICAL'); c.fills=[]; c.itemSpacing=g; return c; };
+const pad=(n,v)=>{ const p=figma.createAutoLayout('HORIZONTAL'); p.fills=[]; p.paddingTop=p.paddingBottom=p.paddingLeft=p.paddingRight=v; p.appendChild(n); return p; };
+async function anchored(s){ const w=figma.createFrame(); w.fills=[]; w.clipsContent=false; w.name='anchored'; const a=s.anchor==='avatar'?(AV.children.find(c=>c.name==='Type=initials, Size=lg, Shape=circle, Color=brand, Language=en')||AV.defaultVariant).createInstance():ibI(G.bell);
+ w.resize(a.width,a.height); w.appendChild(a); a.x=0; a.y=0;
+ if(!s.none&&s.b){ const bd=await badge(s.b,s.count); w.appendChild(bd); const k=s.overlap==='circular'?0.146:0; const cx=s.rtl?a.width*k:a.width*(1-k), cy=a.height*k; bd.x=Math.round(cx-bd.width/2); bd.y=Math.round(cy-bd.height/2);
+  if(s.second){ const b2=await badge({Variant:'Dot'}); w.appendChild(b2); b2.x=Math.round(a.width-b2.width/2); b2.y=Math.round(a.height-b2.height/2); } }
+ return pad(w,12); }
+async function tipAt(s){ const w=figma.createFrame(); w.fills=[]; w.clipsContent=false; w.name='anchored';
+ const a=ibI(G.edit); w.appendChild(a); if(s.none){ w.resize(a.width,a.height); a.x=0;a.y=0; const p=pad(w,16); p.paddingLeft=p.paddingRight=100; p.paddingTop=p.paddingBottom=40; return p; }
+ const t=await tip(s.lang,s.label||(s.lang==='AR'?'تعديل الجهاز':'Edit device')); w.appendChild(t); const Gp=4; const rtl=s.lang==='AR';
+ let side=s.at; if(side==='start') side=rtl?'right':'left'; if(side==='end') side=rtl?'left':'right';
+ if(side==='top'||side==='bottom'){ const W=Math.max(a.width,t.width); w.resize(W,a.height+t.height+Gp); a.x=Math.round((W-a.width)/2); t.x=Math.round((W-t.width)/2); if(side==='top'){ t.y=0; a.y=t.height+Gp; } else { a.y=0; t.y=a.height+Gp; } }
+ else { const H=Math.max(a.height,t.height); w.resize(a.width+Gp+t.width,H); a.y=Math.round((H-a.height)/2); t.y=Math.round((H-t.height)/2); if(side==='left'){ t.x=0; a.x=t.width+Gp; } else { a.x=0; t.x=a.width+Gp; } }
+ if(rtl) arMode(w); return pad(w,16); }
+async function EX(s){
+ if(s.device==='top'){ const c=col(16); c.paddingLeft=c.paddingRight=c.paddingTop=16; const bar=figma.createAutoLayout('HORIZONTAL'); bar.fills=[]; bar.itemSpacing=8; bar.counterAxisAlignItems='CENTER'; c.appendChild(bar); bar.appendChild(await txt('Biowave')); const sp=figma.createFrame(); sp.fills=[]; sp.resize(10,8); bar.appendChild(sp); sp.layoutGrow=1; bar.appendChild(await anchored({anchor:'ib',b:{Variant:'Count'},count:'3'})); bar.appendChild(await anchored({anchor:'ib',b:{Variant:'Dot'}})); bar.layoutSizingHorizontal='FIXED'; bar.resize(s.w||560,bar.height); return c; }
+ if(s.device==='nav'||s.device==='phone'){ const c=col(8); c.paddingLeft=c.paddingRight=c.paddingTop=16;
+  if(s.device==='phone'){ const bar=figma.createAutoLayout('HORIZONTAL'); bar.fills=[]; bar.counterAxisAlignItems='CENTER'; c.appendChild(bar); bar.appendChild(await txt('Biowave')); const sp=figma.createFrame(); sp.fills=[]; sp.resize(10,8); bar.appendChild(sp); sp.layoutGrow=1; bar.appendChild(await anchored({anchor:'ib',b:{Variant:'Count'},count:'3'})); bar.layoutSizingHorizontal='FIXED'; bar.resize(256,bar.height); }
+  for(const [tx,n] of [['Requests','12'],['Approvals','3'],['Reports',null]]){ const r=figma.createAutoLayout('HORIZONTAL'); r.fills=[]; r.itemSpacing=8; r.counterAxisAlignItems='CENTER'; r.paddingTop=r.paddingBottom=12; r.appendChild(await txt(tx)); if(n) r.appendChild(await badge({Variant:'Count',Ring:'Off'},n)); c.appendChild(r); } return c; }
+ if(s.text){ const r=figma.createAutoLayout('HORIZONTAL'); r.fills=[]; r.itemSpacing=8; r.counterAxisAlignItems='CENTER'; r.appendChild(await txt(s.text)); if(s.b) r.appendChild(await badge(s.b,s.count)); if(s.rtl){ arMode(r); [...r.children].reverse().forEach((c,i)=>r.insertChild(i,c)); } return r; }
+ if(s.anchor) return await anchored(s);
+ if(s.b) return await badge(s.b,s.count);
+ if(s.card){ const c=col(16); const W=s.w||280; for(const [i,t] of ['Profile','Notifications','Security'].entries()){ if(i) c.appendChild(await div({},null,W)); c.appendChild(await txt(t)); } return c; }
+ if(s.signin){ const c=col(16); c.counterAxisAlignItems='CENTER'; for(const [i,l] of ['Sign in with email','Sign in with SSO'].entries()){ if(i) c.appendChild(await div({},'or',260)); const b=(BT.children.find(x=>x.name===`Variant=${i?'outlined':'filled'}, Color=brand, State=default, Size=lg`)||BT.defaultVariant).createInstance(); const ks=Object.keys(b.componentProperties); const sp={}; for(const [pre,val] of [['Label',l],['Leading icon',false],['Trailing icon',false]]){ const k=ks.find(x=>x.startsWith(pre)); if(k) sp[k]=val; } b.setProperties(sp); c.appendChild(b); b.resize(260,b.height); } return c; }
+ if(s.toolbar){ const r=figma.createAutoLayout('HORIZONTAL'); r.fills=[]; r.itemSpacing=8; r.counterAxisAlignItems='CENTER'; const gs=[G.edit,G.share,null,G.del,G.more]; for(const g of gs){ if(!g){ const d=await div({Orientation:'Vertical'}); r.appendChild(d); d.layoutSizingVertical='FILL'; } else r.appendChild(ibI(g)); } return r; }
+ if(s.list){ const c=col(0); const rows=s.ar?['الإشعارات','الرسائل','التقارير']:['Notifications','Messages','Reports']; for(const [i,t] of rows.entries()){ const r=figma.createAutoLayout('HORIZONTAL'); r.fills=[]; r.paddingTop=r.paddingBottom=12; r.paddingLeft=r.paddingRight=32; r.appendChild(await txt(t)); if(s.ar){ arMode(r); r.primaryAxisAlignItems='MAX'; } c.appendChild(r); r.layoutSizingHorizontal='FILL'; if(i<rows.length-1) c.appendChild(await div({Inset:'Start',Direction:s.ar?'RTL':'LTR',Emphasis:s.mixed&&i===1?'Strong':(s.mixed?'Subtle':'Default')},null,280)); } c.resize(280,c.height); c.primaryAxisSizingMode='AUTO'; return c; }
+ if(s.every){ const c=col(8); for(const [i,t] of ['Title','Subtitle','Body','Footer'].entries()){ if(i) c.appendChild(await div({Emphasis:'Strong'},null,280)); c.appendChild(await txt(t)); } return c; }
+ if(s.d){ const d=await div(s.d,s.label,s.w); return d; }
+ if(s.tip) return await tip(s.tip,s.label,s.wrap);
+ if(s.at) return await tipAt(s);
+ return figma.createFrame(); }
+
+{
+const page=figma.root.children.find(p=>p.name.trim()==='↳ '+D.name); await page.loadAsync(); await figma.setCurrentPageAsync(page);
+const old=page.findOne(n=>n.type==='SECTION'&&n.name===D.name+' — Documentation'); if(old&&!D.rebuild) return 'docs exist'; if(old) old.remove();
+for(const f of [['Inter','Regular'],['Inter','Medium'],['Inter','Semi Bold'],['Inter','Bold'],['IBM Plex Sans Arabic','Regular'],['IBM Plex Sans Arabic','Medium'],['IBM Plex Sans Arabic','SemiBold'],['IBM Plex Sans Arabic','Bold']]) await figma.loadFontAsync({family:f[0],style:f[1]});
+const loaded=new Set(); async function lf(node){ for(const t of (node.type==='TEXT'?[node]:node.findAll(n=>n.type==='TEXT'))) for(const s of t.getStyledTextSegments(['fontName'])){const k=JSON.stringify(s.fontName); if(!loaded.has(k)){await figma.loadFontAsync(s.fontName); loaded.add(k);}} }
+const C=async(k,set)=>set?await figma.importComponentSetByKeyAsync(k):await figma.importComponentByKeyAsync(k);
+const DK={header:await C('dd9347ba546590b632ae68976fe2733f3f7d340e'),section:await C('f29dffabb982e9374b1b804639f45514a29146a2'),axis:await C('24a64b9f56bb95bffc1b5f1ce61e58205b3023fb',1),callout:await C('24c24d19f00001b99acb880c3101afb1842a64f6',1),panel:await C('b8b20494dcf5f71d3492d90a96498d510d490132',1),tile:await C('eb3bac08d98c62634cbbc8a6a0129a5fa1783836'),cell:await C('4b48bcab4faac402c079e941b30f8987159bfa3f',1),row:await C('fb2c9fdd139f3be6860495d1d95a911275ed8224',1),table:await C('40980251551a20a72810037dc043c66e9271600b'),motion:await C('2072d9e2a11281879696f1f8c6ee6ef917b029ac'),uses:await C('25ed1809ed37c229827ee8019ec52fe129ec0d31'),do:await C('45fdac0674bae9a7d6502a0d2e7f76943d8ea4f1'),dont:await C('b6271df857b44407da2657601b4e388bf843b7e8'),device:await C('c7c9ec2e833fad1b54333707c2210744515d5339',1),skel:await C('cdb8f9c05ff039be8fda885a25e3ade2986da93b',1),footer:await C('dd342bd1d199a8c5f353c58125681fad6b6c09f2'),change:await C('5cc8476dd2952640e8138cf21feeb637cfcfe73a')};
+const variant=(set,name)=>set.children.find(c=>c.name===name);
+const iv=k=>figma.variables.importVariableByKeyAsync(k);
+const W6=await figma.variables.getVariableByIdAsync('VariableID:99599514c759fa9e28a58abf278f73814f1a0d18/4987:213'), W2=await figma.variables.getVariableByIdAsync('VariableID:099f79a0492cc7bb141b6647f26b8637d2dd7021/4987:218');
+const XL=await iv('5fa0c2ce8ae034e9696038d2704e520fd8383e55'), BG=await iv('82c8830a9ba9a3837c6d6f261cc1b43e8b6a9c08');
+const typo=await figma.variables.getVariableCollectionByIdAsync('VariableCollectionId:39add4d8aacddd3c691a5adf59aada01231e4adf/5258:780');
+const SET=await figma.getNodeByIdAsync(D.setId);
+async function setP(inst,map){ await lf(inst); const p={}; for(const [pre,val] of Object.entries(map)){ const k=Object.keys(inst.componentProperties).find(x=>x===pre||x.split('#')[0]===pre); if(k) p[k]=val; } if(Object.keys(p).length) inst.setProperties(p); return inst; }
+async function vInst(set,props,over){ let v=set.children.find(c=>{const ps=c.name.split(', '); return Object.entries(props||{}).every(([k,x])=>ps.includes(k+'='+x));}); if(!v) v=set.defaultVariant; const i=v.createInstance(); if(over) await setP(i,over); return i; }
+function frame(title,wide){ const f=figma.createAutoLayout('VERTICAL'); f.name=D.name+' / '+title; f.setBoundVariable('width',wide?W6:W2); f.primaryAxisSizingMode='AUTO'; f.counterAxisSizingMode='FIXED'; for(const p of ['paddingTop','paddingBottom','paddingLeft','paddingRight','itemSpacing']) f.setBoundVariable(p,XL); f.fills=[figma.variables.setBoundVariableForPaint({type:'SOLID',color:{r:1,g:1,b:1}},'color',BG)]; f.setExplicitVariableModeForCollection(typo,D.modeEN||'3869:6'); return f; }
+function add(parent,node){ parent.appendChild(node); try{node.layoutSizingHorizontal='FILL';}catch(e){} return node; }
+async function header(f,title){ const h=DK.header.createInstance(); add(f,h); await setP(h,{Title:D.name+' / '+title,Subtitle:D.sub,Platform:D.os||'Web'}); const c=figma.createAutoLayout('VERTICAL'); c.name='Documentation content'; c.fills=[]; c.setBoundVariable('itemSpacing',XL); add(f,c); return c; }
+function footer(f){ add(f,DK.footer.createInstance()); }
+async function section(p,t,d){ const s=DK.section.createInstance(); add(p,s); await setP(s,{Title:t,Description:d||' ','Show description':!!d}); }
+const slotOf=i=>i.findOne(n=>n.type==='SLOT'); const clear=s=>[...s.children].forEach(c=>c.remove());
+async function table(p,rows,codeCols){ const t=DK.table.createInstance(); add(p,t); const sl=slotOf(t); clear(sl);
+ for(let r=0;r<rows.length;r++){ const hdr=r===0; const rw=variant(DK.row,'Row='+(hdr?'Header':'Body')).createInstance(); sl.appendChild(rw); rw.layoutSizingHorizontal='FILL'; const cs=slotOf(rw); clear(cs);
+  for(let ci=0;ci<rows[r].length;ci++){ const kind=hdr?'Text':((codeCols||[]).includes(ci)?'Code':(ci===0?'Bold':'Text')); const cell=variant(DK.cell,`Cell=${kind}, Row=${hdr?'Header':'Body'}`).createInstance(); cs.appendChild(cell); cell.layoutSizingHorizontal='FILL'; await setP(cell,{Text:String(rows[r][ci])}); } } return t; }
+async function tile(p,cap,node){ const t=DK.tile.createInstance(); p.appendChild(t); await setP(t,{Caption:cap}); const sl=slotOf(t); clear(sl); if(node) sl.appendChild(node); return t; }
+function hrow(p){ const r=figma.createAutoLayout('HORIZONTAL'); r.fills=[]; r.setBoundVariable('itemSpacing',XL); p.appendChild(r); r.layoutSizingHorizontal='FILL'; r.layoutWrap='WRAP'; r.setBoundVariable('counterAxisSpacing',XL); return r; }
+const pages=[];
+try{
+{ const f=frame('00 Component sheet',true); pages.push(f); const c=await header(f,'00 Component sheet');
+  await section(c,D.name,SET.children.length+' live variants · rows '+D.rows.join(' → ')+' · '+D.col+' columns');
+  const opts={}; SET.children.forEach(v=>v.name.split(', ').forEach(p=>{const [k,x]=p.split('='); (opts[k]=opts[k]||[]); if(!opts[k].includes(x)) opts[k].push(x);}));
+  const head=figma.createAutoLayout('HORIZONTAL'); head.fills=[]; head.setBoundVariable('itemSpacing',XL); add(c,head); const sp=figma.createFrame(); sp.fills=[]; sp.resize(D.axisW||300,8); head.appendChild(sp);
+  for(const cv of opts[D.col]){ const a=variant(DK.axis,'Orientation=Column').createInstance(); head.appendChild(a); await setP(a,{Property:D.col,Value:cv}); a.resize(D.cellW,a.height); }
+  let combos=[{}]; for(const ax of D.rows){ const nx=[]; for(const cb of combos) for(const o of opts[ax]) nx.push({...cb,[ax]:o}); combos=nx; }
+  for(const cb of combos){ const match=x=>Object.entries(cb).every(([k,y])=>x.name.split(', ').includes(k+'='+y)); if(!SET.children.some(match)) continue;
+   const row=figma.createAutoLayout('HORIZONTAL'); row.fills=[]; row.setBoundVariable('itemSpacing',XL); row.counterAxisAlignItems='CENTER'; add(c,row);
+   const ax=figma.createAutoLayout('HORIZONTAL'); ax.fills=[]; ax.itemSpacing=6; row.appendChild(ax); ax.primaryAxisSizingMode='FIXED'; ax.resize(D.axisW||300,ax.height);
+   const k=Math.max(1,Object.keys(cb).length); for(const [kk,x] of Object.entries(cb)){ const a=variant(DK.axis,'Orientation=Column').createInstance(); ax.appendChild(a); await setP(a,{Property:kk,Value:x}); a.resize(Math.floor(((D.axisW||300)-6*(k-1))/k),a.height); }
+   for(const cv of opts[D.col]){ const cell=figma.createAutoLayout('VERTICAL'); cell.fills=[]; row.appendChild(cell); cell.counterAxisSizingMode='FIXED'; cell.resize(D.cellW,Math.max(cell.height,1)); cell.primaryAxisSizingMode='AUTO';
+    const v=SET.children.find(x=>x.name.split(', ').includes(D.col+'='+cv)&&match(x)); if(v){ const i=v.createInstance(); cell.appendChild(i); if(D.sheetFill) try{ i.layoutSizingHorizontal='FILL'; }catch(e){} } } }
+  footer(f); }
+{ const f=frame('01 Introduction',false); pages.push(f); const c=await header(f,'01 Introduction'); await section(c,'Introduction',D.desc);
+  for(const th of ['Light','Dark']){ const p=variant(DK.panel,'Theme='+th).createInstance(); add(c,p); const sl=slotOf(p); clear(sl);
+   const callRow=figma.createAutoLayout('HORIZONTAL'); callRow.fills=[]; callRow.itemSpacing=16; sl.appendChild(callRow); for(const part of D.parts){ const co=variant(DK.callout,'Side=Bottom').createInstance(); callRow.appendChild(co); await setP(co,{Label:part}); }
+   const ex=figma.createAutoLayout('HORIZONTAL'); ex.fills=[]; ex.itemSpacing=32; ex.counterAxisAlignItems='CENTER'; sl.appendChild(ex); for(const s of D.intro) ex.appendChild(await EX(s)); }
+  footer(f); }
+{ const f=frame('02 Props and tokens',false); pages.push(f); const c=await header(f,'02 Props and tokens');
+  await section(c,'Props',D.propsNote); await table(c,[['Property','Type','Values','Default','Description'],...D.props]);
+  await section(c,'Tokens',D.tokensNote); await table(c,[['Part · property','Option','Token'],...D.tokens],[2]); footer(f); }
+{ const f=frame('03 Variations',true); pages.push(f); const c=await header(f,'03 Variations');
+  for(const blk of D.vars){ await section(c,blk.title,blk.desc); const r=hrow(c); for(const [cap,s] of blk.tiles) await tile(r,cap,await EX(s)); }
+  footer(f); }
+{ const f=frame('04 States and motion',true); pages.push(f); const c=await header(f,'04 States and motion'); await section(c,'States',D.statesNote);
+  if(D.motion.length){ await section(c,'Motion',D.motionNote);
+   for(const [trig,dur,from,to] of D.motion){ const m=DK.motion.createInstance(); add(c,m); await setP(m,{Trigger:trig}); const sls=m.findAll(n=>n.type==='SLOT'); clear(sls[0]); sls[0].appendChild(await EX(from)); sls[0].appendChild(await EX(to)); if(sls[1]) clear(sls[1]); const tl=m.findOne(n=>n.type==='INSTANCE'&&n.name.includes('Timeline')); if(tl) try{tl.setProperties({Duration:dur});}catch(e){} } }
+  footer(f); }
+{ const f=frame('05 Usage guidelines',false); pages.push(f); const c=await header(f,'05 Usage guidelines');
+  const u=DK.uses.createInstance(); add(c,u); await setP(u,{Title:'When to use',Rules:D.use[0]}); let sl=slotOf(u); clear(sl); sl.appendChild(await EX(D.use[1]));
+  const n=DK.uses.createInstance(); add(c,n); await setP(n,{Title:'When not to use',Rules:D.notUse}); sl=slotOf(n); clear(sl);
+  for(let k=0;k<D.dos.length;k++){ const r=hrow(c); r.layoutWrap='NO_WRAP'; const d=DK.do.createInstance(); r.appendChild(d); d.layoutSizingHorizontal='FILL'; await setP(d,{Rules:D.dos[k][0]}); let s=slotOf(d); clear(s); s.appendChild(await EX(D.dos[k][1]));
+   const t=DK.dont.createInstance(); r.appendChild(t); t.layoutSizingHorizontal='FILL'; await setP(t,{Rules:D.donts[k][0]}); s=slotOf(t); clear(s); s.appendChild(await EX(D.donts[k][1])); }
+  footer(f); }
+{ const f=frame('06 Content guidelines',false); pages.push(f); const c=await header(f,'06 Content guidelines'); await table(c,[['Element','Rule','Max length'],...D.content]); await table(c,[['✓ EN','✓ AR','✗ Avoid'],...D.contentEx]); footer(f); }
+{ const f=frame('07 Platform',false); pages.push(f); const c=await header(f,'07 Platform');
+  for(const [dev,desc,s] of D.devices){ await section(c,dev,desc); const d=variant(DK.device,'Device='+dev).createInstance(); add(c,d); try{ d.layoutSizingHorizontal='FIXED'; d.layoutSizingVertical='FIXED'; d.resize(d.mainComponent.width,d.mainComponent.height); }catch(e){} const sl=slotOf(d); clear(sl); sl.appendChild(await EX(s)); }
+  await table(c,[['Aspect',D.os||'Web'],...D.platform]); footer(f); }
+{ const f=frame('08 RTL',false); pages.push(f); const c=await header(f,'08 RTL'); await section(c,'Mirroring',D.rtlNote);
+  for(const blk of D.rtl){ const r=hrow(c); for(const [cap,s] of blk) await tile(r,cap,await EX(s)); } footer(f); }
+{ const f=frame('09 Accessibility',false); pages.push(f); const c=await header(f,'09 Accessibility');
+  await section(c,'Use case',D.a11yUse); await table(c,[['Key','Action'],...D.keys]); await section(c,'Screen reader',D.sr);
+  await section(c,'Focus and target size',D.focus); await table(c,[['Pair','Light','Dark'],...D.contrast]); footer(f); }
+if(D.changes){ const f=frame('10 Changes from previous version',false); pages.push(f); const c=await header(f,'10 Changes from previous version'); await section(c,'Version '+D.ver,D.changes); const r=hrow(c); for(const [cap,s] of D.changeTiles) await tile(r,cap,await EX(s)); footer(f); }
+{ const f=frame('11 Changelog',false); pages.push(f); const c=await header(f,'11 Changelog'); await table(c,[['Version','Date','Change','Breaking'],...D.changelog]); footer(f); }
+}catch(e){ pages.forEach(p=>p.remove()); throw e; }
+const sec=figma.createSection(); sec.name=D.name+' — Documentation'; page.appendChild(sec);
+const comp=page.findOne(n=>n.type==='SECTION'&&n.name===D.name+' — Component');
+let x=80,y=80,rowH=0,col=0; for(const p of pages){ sec.appendChild(p); p.x=x; p.y=y; rowH=Math.max(rowH,p.height); col++; x+=2000; if(col===3){col=0;x=80;y+=rowH+120;rowH=0;} }
+sec.resizeWithoutConstraints(6080, y+rowH+120); sec.x=comp?comp.x+comp.width+200:0; sec.y=0;
+for(const t of sec.findAll(n=>n.type==='TEXT'&&/^v1\.0$/.test(n.characters))){ await figma.loadFontAsync(t.fontName); t.characters='v'+D.ver; }
+return {section:sec.id,pages:pages.map(p=>p.name.split(' / ')[1]),ids:pages.map(p=>p.id)};
+
+}
+}
+}

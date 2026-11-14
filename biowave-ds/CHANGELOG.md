@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-14 — Handoff to Antigravity
+
+- `HANDOFF.md`: Hassan's decision, working rules, Figma file / collection / mode / style / glyph / kit IDs, reused component sets, current state, next steps (Wave 9 …) and a connection check for the new agent.
+- `_workflow/claude-handoff/`: docs builder (exact copies of the `w8core` plugin data), Figma build scripts (navigation, Wave 7, Wave 8), common lint / card / doc-builder templates, spec generators, every `use_figma` call of the session (`figma-calls.jsonl.gz`) and the conversation log.
+- `AGENTS.md` §0.6 + read order 1a; root `AGENTS.md` / `GEMINI.md` point to both files.
+
 ## 2026-11-13 — Page control dots bound to size-indicator
 
 - `size/indicator/sm` · `size/indicator/lg` published in the Foundations library; `.Dot` in the Web, Tablet and Mobile files now binds them (8 · 24), and doc page 02 shows the new tokens. Navigation review items NV-14 … NV-18 are all done.

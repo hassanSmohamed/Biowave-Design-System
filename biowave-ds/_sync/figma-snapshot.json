@@ -1,7 +1,7 @@
 {
-  "syncedAt": "2026-11-05T08:18:04.309Z",
+  "syncedAt": "2026-11-14T14:25:41.161Z",
   "fileKey": "AyFaSmfDUlTax3GpKhRdHI",
-  "sourceHash": "c751a2da898dfc45",
+  "sourceHash": "4aadc4f51cd55e25",
   "tokens": {
     "1. Themes::color-surface-page": {
       "Light": "#F7F7F7",
@@ -765,6 +765,12 @@
     },
     "4. Size::size-icon-3xl": {
       "Value": 48
+    },
+    "4. Size::size-indicator-sm": {
+      "Value": 8
+    },
+    "4. Size::size-indicator-lg": {
+      "Value": 24
     },
     "4. Size::size-control-height-sm": {
       "Value": 32

@@ -9,10 +9,12 @@ Read this file completely before doing anything. It is short on purpose.
 3. **One agent at a time.** Before you start, run `git status`. If there are changes you did not make, stop and report. Never stash, reset, overwrite or discard them.
 4. **Claude's work is read-only.** Do not edit, rebase, force-push, merge or delete a branch with commits carrying a `Claude-Session` line, and do not edit `_workflow/tasks/` or `_audits/`. Work on your own branch based on it. The Planner, Reviewer and Updater parts in the table below stay theirs. A task brief may name an exact file you can change; nothing else is allowed.
 5. **Stop and report** if a task needs anything outside these rules.
+6. **Handoff to Antigravity (Hassan, 2026-11-14).** Antigravity continues Claude's Planner and Figma Agent work from branch `claude/tender-shannon-1jpxey` on its own branch; rule 4 does not apply to it. Read [`HANDOFF.md`](HANDOFF.md) before any task.
 
 ## 1. Read order (do not read the whole repo)
 
 1. This file.
+1a. [`HANDOFF.md`](HANDOFF.md) — state, IDs, tooling and next steps at the Claude → Antigravity handoff.
 2. Your role's **one file** (below). Each is complete; open nothing else unless it links to it.
 3. Need a token value? `2-foundations/dist/tokens.json` (flat, resolved, every mode) — never guess.
 
