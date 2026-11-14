@@ -88,6 +88,8 @@ Known Figma API lessons (cost hours): TEXT / INSTANCE_SWAP properties hold one v
 
 Run these and report the results to Hassan. Stop if one fails.
 
+**Known, harmless:** on Hassan's Mac the sync watcher (`_sync/watch.mjs`, started at login by `_sync/install-watch.mjs`) rebuilds generated code when a checkout changes token files and rewrites `_sync/build-stamp.json`. If `git status` shows **only** that file, and `git diff` shows only `builtAt` (or a `sourceHash` equal to the committed one after a rebuild), it is not someone else's work: `git restore biowave-ds/_sync/build-stamp.json` and continue. Any other unexpected change → stop and report (AGENTS.md §0.3).
+
 1. `git fetch && git checkout claude/tender-shannon-1jpxey && git log -1 --oneline` — matches GitHub.
 2. `cd biowave-ds && npm ci && npm run docs:check && npm run tokens:check` — both ✓. `npm run sync` — sections 1, 2, 5, 6 ✓; section 4 ✗ is the known older item in §5 (not caused by the handoff).
 3. **Figma MCP** with write access (the `use_figma` Plugin-API tool, `get_screenshot`, `search_design_system`): read `figma.root.getSharedPluginData('biowave','w8core').length` in the Web file (expect **13481**) and the Tablet and Mobile files (**13485**).

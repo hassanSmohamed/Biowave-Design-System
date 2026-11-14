@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-14 — HANDOFF: Mac sync watcher note
+
+- `HANDOFF.md` §7: a `build-stamp.json`-only change after a checkout comes from the Mac sync watcher; restore it and continue.
+
 ## 2026-11-14 — Workspace rule covers Windows and Mac
 
 - `AGENTS.md` §0.1: one clone per machine (Windows path kept, Mac clone added); push before switching machines, pull after. `HANDOFF.md` workspace row: both machines on `claude/tender-shannon-1jpxey`, not `main`.
