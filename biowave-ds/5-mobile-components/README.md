@@ -62,6 +62,10 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Tabs | Finished | Planned | Built | — | [page](components/tabs/tabs.html) | [tabs.md](components/tabs/tabs.md) |
 | Page control | Finished | Planned | Built | — | [page](components/page-control/page-control.html) | [page-control.md](components/page-control/page-control.md) |
 | Stepper | Finished | Planned | Built | — | [page](components/stepper/stepper.html) | [stepper.md](components/stepper/stepper.md) |
+| Alert | Finished | Planned | Built | — | [page](components/alert/alert.html) | [alert.md](components/alert/alert.md) |
+| Snackbar | Finished | Planned | Built | — | [page](components/snackbar/snackbar.html) | [snackbar.md](components/snackbar/snackbar.md) |
+| Empty state | Finished | Planned | Built | — | [page](components/empty-state/empty-state.html) | [empty-state.md](components/empty-state/empty-state.md) |
+| Skeleton | Finished | Planned | Built | — | [page](components/skeleton/skeleton.html) | [skeleton.md](components/skeleton/skeleton.md) |
 
 ## 5. Backlog (suggested order)
 Figma "Mobile Components" pages: Buttons, Inputs, Text Area, Bottom Sheet, Chips, Labels, Avatars, Cards, Tabs, Top App Bar, Navigation Bar, Banners, Snackbar, Checkbox, Radio button, Calendars, Badges, Toggle.

@@ -65,6 +65,10 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Stepper | Finished | Planned | Built | — | [page](components/stepper/stepper.html) | [stepper.md](components/stepper/stepper.md) |
 | Pagination | Finished | Planned | Built | — | [page](components/pagination/pagination.html) | [pagination.md](components/pagination/pagination.md) |
 | Breadcrumbs | Finished | Planned | Built | — | [page](components/breadcrumbs/breadcrumbs.html) | [breadcrumbs.md](components/breadcrumbs/breadcrumbs.md) |
+| Alert | Finished | Planned | Built | — | [page](components/alert/alert.html) | [alert.md](components/alert/alert.md) |
+| Snackbar | Finished | Planned | Built | — | [page](components/snackbar/snackbar.html) | [snackbar.md](components/snackbar/snackbar.md) |
+| Empty state | Finished | Planned | Built | — | [page](components/empty-state/empty-state.html) | [empty-state.md](components/empty-state/empty-state.md) |
+| Skeleton | Finished | Planned | Built | — | [page](components/skeleton/skeleton.html) | [skeleton.md](components/skeleton/skeleton.md) |
 
 ## 5. Backlog (suggested order)
 Figma has no dedicated tablet components yet (only "Checkbox / Tablet" docs). Tablet components are designed from the mobile set at tablet size and density.

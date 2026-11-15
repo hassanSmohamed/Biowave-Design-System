@@ -1,29 +1,113 @@
 <style>
   body { font: 12px Inter, system-ui, sans-serif; margin: 0; padding: 12px; color: var(--figma-color-text); background: var(--figma-color-bg); }
   textarea { width: 100%; box-sizing: border-box; font: 11px ui-monospace, Menlo, monospace; color: inherit; background: var(--figma-color-bg-secondary); border: 1px solid var(--figma-color-border); border-radius: 6px; padding: 8px; }
-  #code { height: 300px; } #out { height: 190px; }
-  .row { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
+  #code { height: 280px; } #out { height: 185px; }
+  .row { display: flex; gap: 8px; align-items: center; margin: 8px 0; flex-wrap: wrap; }
   button { font: inherit; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--figma-color-border); background: var(--figma-color-bg-brand); color: var(--figma-color-text-onbrand); cursor: pointer; }
   button.secondary { background: transparent; color: inherit; }
   #status { color: var(--figma-color-text-secondary); }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--figma-color-border); margin-left: auto; }
+  .badge.live { border-color: #1bc47d; color: #1bc47d; }
 </style>
-<div class="row"><strong>Biowave Script Runner</strong><span id="status">Paste a script from the agent, then Run.</span></div>
+<div class="row">
+  <strong>Biowave Script Runner</strong>
+  <span id="status">Ready.</span>
+  <span id="bridgeBadge" class="badge">Bridge: connecting…</span>
+</div>
 <textarea id="code" spellcheck="false" placeholder="// script (top-level await and return allowed)"></textarea>
 <div class="row">
   <button id="run">Run</button>
   <button class="secondary" id="paste">Paste &amp; Run</button>
   <button class="secondary" id="copy">Copy result</button>
-  <button class="secondary" id="clear">Clear</button>
+  <button id="clear" class="secondary">Clear / Reset</button>
+  <label style="margin-left:auto;display:flex;align-items:center;gap:4px;cursor:pointer;">
+    <input type="checkbox" id="autoBridge" checked /> Auto localhost:9876
+  </label>
 </div>
-<textarea id="out" readonly placeholder="Result appears here — copy it back to the agent."></textarea>
+<textarea id="out" readonly placeholder="Result appears here — sent automatically to localhost:9876 when Auto is on."></textarea>
 <script>
+  const BRIDGE = 'http://localhost:9876';
   const $ = (id) => document.getElementById(id);
-  const run = () => { $('status').textContent = 'Running…'; $('out').value = ''; parent.postMessage({ pluginMessage: { type: 'run', code: $('code').value } }, '*'); };
-  $('run').onclick = run;
-  $('paste').onclick = async () => { try { $('code').value = await navigator.clipboard.readText(); run(); } catch (e) { $('status').textContent = 'Clipboard blocked — paste with ⌘V, then Run.'; } };
-  $('clear').onclick = () => { $('code').value = ''; $('out').value = ''; $('status').textContent = 'Cleared.'; };
+  let currentFile = 'unknown';
+  let busy = false;
+  let onDoneResolve = null;
+
+  const finishBusy = () => {
+    busy = false;
+    if (onDoneResolve) {
+      const r = onDoneResolve;
+      onDoneResolve = null;
+      r();
+    }
+  };
+
+  const runCode = (code, id = null) => {
+    busy = true;
+    $('status').textContent = 'Running…';
+    $('out').value = '';
+    parent.postMessage({ pluginMessage: { type: 'run', id, code } }, '*');
+  };
+
+  $('run').onclick = () => runCode($('code').value, null);
+  $('paste').onclick = async () => {
+    try { $('code').value = await navigator.clipboard.readText(); runCode($('code').value, null); }
+    catch (e) { $('status').textContent = 'Clipboard blocked — paste with ⌘V, then Run.'; }
+  };
+  $('clear').onclick = () => { finishBusy(); $('code').value = ''; $('out').value = ''; $('status').textContent = 'Reset.'; };
   $('copy').onclick = () => { $('out').select(); document.execCommand('copy'); $('status').textContent = 'Result copied.'; };
-  onmessage = (e) => { const m = e.data.pluginMessage; if (!m || m.type !== 'done') return;
+
+  onmessage = async (e) => {
+    const m = e.data.pluginMessage;
+    if (!m) return;
+    if (m.type === 'init') {
+      currentFile = m.file || currentFile;
+      $('bridgeBadge').textContent = '🟢 localhost:9876 · ' + currentFile;
+      $('bridgeBadge').className = 'badge live';
+      return;
+    }
+    if (m.type !== 'done') return;
+    currentFile = m.file || currentFile;
     $('out').value = (m.ok ? '' : 'ERROR\n') + m.text;
-    $('status').textContent = (m.ok ? '✓ Done' : '✗ Error') + ' in ' + m.ms + ' ms · file: ' + m.file; };
+    $('status').textContent = (m.ok ? '✓ Done' : '✗ Error') + ' in ' + m.ms + ' ms · file: ' + currentFile;
+    if (m.id) {
+      try {
+        await fetch(BRIDGE + '/result', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: m.id, ok: m.ok, text: m.text, ms: m.ms, file: currentFile })
+        });
+      } catch (_) {}
+    }
+    finishBusy();
+  };
+
+  async function loopPoll() {
+    while (true) {
+      if ($('autoBridge').checked && !busy) {
+        try {
+          const res = await fetch(BRIDGE + '/v2/poll?file=' + encodeURIComponent(currentFile));
+          if (res.ok) {
+            const data = await res.json();
+            $('bridgeBadge').textContent = '🟢 localhost:9876 · ' + currentFile;
+            $('bridgeBadge').className = 'badge live';
+            if (data && data.id && typeof data.code === 'string') {
+              $('code').value = data.code;
+              const waitDone = new Promise((r) => { onDoneResolve = r; });
+              runCode(data.code, data.id);
+              await waitDone;
+            }
+          }
+        } catch (_) {
+          $('bridgeBadge').textContent = '⚪ Bridge offline';
+          $('bridgeBadge').className = 'badge';
+          await new Promise((r) => setTimeout(r, 1000));
+        }
+      } else {
+        await new Promise((r) => setTimeout(r, 300));
+      }
+    }
+  }
+
+  parent.postMessage({ pluginMessage: { type: 'ping' } }, '*');
+  loopPoll();
 </script>

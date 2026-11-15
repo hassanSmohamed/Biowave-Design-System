@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-11-15 — Wave 9 Feedback & Loading: Mobile Figma builds
+
+- **Figma Mobile (`Biowave DS — Mobile Components`):** built `Alert` (`181:16391`, 10 variants), `Snackbar` (`181:16450`, 4 variants), `Empty state` (`181:16557`, 4 variants), and `Skeleton` (`181:16563`, 3 variants) with 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), Doc Kit pages `00`–`09` and `11` (`181:21193`, `181:23218`, `181:25525`, `181:27012`), and `Components List` cards (`181:27014`, `181:27154`, `181:27226`, `181:27311`).
+
+## 2026-11-15 — Wave 9 Feedback & Loading: Tablet Figma builds
+
+- **Figma Tablet (`Biowave DS — Tablet Components`):** built `Alert` (`218:650151`, 10 variants), `Snackbar` (`218:650210`, 4 variants), `Empty state` (`218:650317`, 4 variants), and `Skeleton` (`218:650323`, 3 variants) with 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), Doc Kit pages `00`–`09` and `11` (`219:654620`, `219:656645`, `219:658890`, `219:660436`), and `Components List` cards (`219:662052`, `219:662178`, `219:662280`, `219:662327`).
+
+## 2026-11-14 — Wave 9 Feedback & Loading: specs (Web, Tablet, Mobile) and Web Figma builds
+
+- **Brief & specs:** `_workflow/tasks/2026-11-14-wave9-feedback-brief.md` (`FB-01` … `FB-07`) and component specs + contracts for `alert`, `snackbar`, `empty-state`, and `skeleton` on Web, Tablet, and Mobile (1.0, A–D).
+- **Figma Web (`Biowave DS — Web Components`):** built `Alert` (`691:219739`, 10 variants), `Snackbar` (`694:220191`, 4 variants), `Empty state` (`694:220298`, 4 variants), and `Skeleton` (`694:219746`, 3 variants) with 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), Doc Kit pages `00`–`09` and `11` (`697:8734`, `699:7445`, `699:9786`, `700:11340`), and `Components List` cards (`700:13903`, `700:14085`, `700:14251`, `700:14359`).
+- **Biowave Script Runner localhost bridge:** added `bridge.mjs` (`http://localhost:9876` long-polling) and `exec.mjs` in `_workflow/figma-runner/` for automated Figma script execution from Antigravity.
+
 ## 2026-11-14 — Biowave Script Runner (Figma writes from Antigravity)
 
 - `_workflow/figma-runner/`: development Figma plugin that runs `use_figma`-style scripts in the open file and returns the result to copy back (Antigravity can read Figma through the MCP but Figma does not allow it to write).

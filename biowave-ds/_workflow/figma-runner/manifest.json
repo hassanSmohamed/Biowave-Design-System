@@ -7,5 +7,10 @@
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
   "permissions": ["teamlibrary"],
-  "networkAccess": { "allowedDomains": ["none"] }
+  "networkAccess": {
+    "allowedDomains": ["none"],
+    "devAllowedDomains": [
+      "http://localhost:9876"
+    ]
+  }
 }
