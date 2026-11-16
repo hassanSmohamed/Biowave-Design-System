@@ -235,6 +235,7 @@
       viewComponent: 'View Component',
       viewTokens: 'View Tokens',
       componentsList: 'Components List',
+      homeFieldLabel: 'Work email', homeFieldHelper: 'Use your work email', homeTooltip: 'Edit device', homeLink: 'View details',
       foundationList: 'Foundation List',
       componentCrumb: 'Component',
       foundationCrumb: 'Foundation',
@@ -287,6 +288,7 @@
       viewComponent: 'عرض المكوّن',
       viewTokens: 'عرض الرموز',
       componentsList: 'قائمة المكوّنات',
+      homeFieldLabel: 'البريد الإلكتروني للعمل', homeFieldHelper: 'استخدم بريد العمل', homeTooltip: 'تعديل الجهاز', homeLink: 'عرض التفاصيل',
       foundationList: 'قائمة الأسس',
       componentCrumb: 'المكوّنات',
       foundationCrumb: 'الأسس',
@@ -317,6 +319,7 @@
     external: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M14 5h5v5M12 12l7-7M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     add: '<svg class="demo-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
     arrow: '<svg class="demo-icon directional" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    arrowOutward: '<svg class="directional" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M7.5 4.16667C7.03976 4.16667 6.66667 4.53976 6.66667 5C6.66667 5.46024 7.03976 5.83333 7.5 5.83333H12.9882L4.41074 14.4107C4.08531 14.7362 4.08531 15.2638 4.41074 15.5893C4.73618 15.9147 5.26382 15.9147 5.58926 15.5893L14.1667 7.01184V12.5C14.1667 12.9602 14.5398 13.3333 15 13.3333C15.4602 13.3333 15.8333 12.9602 15.8333 12.5V5C15.8333 4.53976 15.4602 4.16667 15 4.16667H7.5Z" fill="currentColor"/></svg>',
     pin: '<svg class="demo-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4 8 0-1 5 3 3v2H6v-2l3-3-1-5Zm4 10v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   };
 
@@ -494,7 +497,7 @@
     const ro = st === 'readOnly' ? ' readonly' : '';
     const hasValue = ['clearable', 'password', 'addons', 'endButton'].includes(selected) || st === 'readOnly' || st === 'disabled' || st === 'fieldError';
     const value = selected === 'password' ? '••••••••' : (hasValue ? (st === 'fieldError' ? 'hassan@biowave' : 'hassan@biowave.io') : '');
-    const helper = st === 'fieldError' ? t('fieldErrorText') : t('fieldHelper');
+    const helper = st === 'fieldError' ? t('fieldErrorText') : (opts.helperText || t('fieldHelper'));
     const helperCls = st === 'fieldError' ? ' is-error' : '';
     const fieldSize = opts.size || (configurable ? state.fieldSize : '');
     const size = fieldSize ? ` data-s="${fieldSize}"` : '';
@@ -502,7 +505,7 @@
     const help = configurable && state.fieldHelp ? '<span class="demo-field-help" aria-hidden="true">?</span>' : '';
     const supporting = !configurable || state.fieldHelper || st === 'fieldError' ? helper : '';
     const counter = configurable && state.fieldCounter ? `${value.length} / 120` : '';
-    const labelText = multiline ? t('notesLabel') : (['adornment', 'leading', 'clearable'].includes(selected) ? t('searchLabel') : t('fieldLabel'));
+    const labelText = opts.labelText || (multiline ? t('notesLabel') : (['adornment', 'leading', 'clearable'].includes(selected) ? t('searchLabel') : t('fieldLabel')));
     const label = `<span class="demo-field-label-row"><span class="demo-field-label">${labelText}${required}</span>${help}</span>`;
     const supportingRow = supporting || counter ? `<span class="demo-field-helper${helperCls}"><span>${supporting}</span><span>${counter}</span></span>` : '';
     if (multiline) {
@@ -1075,7 +1078,16 @@
   }
   const homeTitle = (title, lead = '') => `<div class="home-title"><h1>${title}</h1><div class="home-actions">${lead}${prefsControls()}</div></div>`;
   const homeFooter = () => `<footer class="home-footer"><span class="brand-mark">${LOGO}</span><span>Biowave DS</span></footer>`;
-  const homeCard = (preview, title, href, label) => `<article class="home-card"><div class="home-preview" data-platform="${platform}">${preview}</div><div class="home-card-body"><h2>${title}</h2><a href="${href}">${label} <span aria-hidden="true">↗</span></a></div></article>`;
+  const homeCard = (preview, title, href, label, linkIcon = '<span aria-hidden="true">↗</span>') => `<article class="home-card"><div class="home-preview" data-platform="${platform}">${preview}</div><div class="home-card-body"><h2>${title}</h2><a href="${href}">${label} ${linkIcon}</a></div></article>`;
+  // Components List previews for components without a playground demo (Figma: Components List page, .index-card).
+  const HOME_PREVIEW = {
+    avatar: () => '<span class="hp-avatar" aria-hidden="true">SA</span>',
+    badge: () => '<span class="hp-badge" aria-hidden="true">3</span>',
+    divider: () => '<span class="hp-divider" aria-hidden="true"></span>',
+    icon: () => `<span class="hp-icon" aria-hidden="true">${icons.edit}</span>`,
+    link: () => `<span class="hp-link" aria-hidden="true">${t('homeLink')}</span>`,
+    tooltip: () => `<span class="hp-tooltip" aria-hidden="true">${t('homeTooltip')}</span>`,
+  };
 
   function applyPrefs() {
     root.lang = state.lang;
@@ -1093,9 +1105,11 @@
       const platformLinks = Object.entries(platformData).map(([key, item]) => `<a class="platform-tab" href="${ROOT}${SECTION[key]}/index.html"${key === platform ? ' aria-current="page"' : ''}>${item.label[state.lang]}</a>`).join('');
       const cards = Object.entries(components).map(([key, item]) => {
         state.color = componentOptions[key]?.defaultColor || 'brand';
-        const preview = demos[key] ? `<div class="demo-cluster">${componentDemo(key, undefined, { size: platformData[platform].defaultSize, color: state.color })}</div>` : `<span class="home-placeholder">${item.name[state.lang]}</span>`;
-        return homeCard(preview, item.name[state.lang], `components/${key}/${key}.html#overview`, t('viewComponent'));
+        const fieldCopy = key === 'text-field' ? { labelText: t('homeFieldLabel'), helperText: t('homeFieldHelper') } : {};
+        const preview = demos[key] ? `<div class="demo-cluster">${componentDemo(key, undefined, { size: platformData[platform].defaultSize, color: state.color, ...fieldCopy })}</div>` : HOME_PREVIEW[key] ? HOME_PREVIEW[key]() : `<span class="home-placeholder">${item.name[state.lang]}</span>`;
+        return homeCard(preview, item.name[state.lang], `components/${key}/${key}.html#overview`, t('viewComponent'), icons.arrowOutward);
       }).join('');
+      main.classList.add('is-components-list');
       main.innerHTML = `${homeHeader('components')}${homeTitle(t('componentsList'), `<nav class="platform-tabs" aria-label="${t('platform')}">${platformLinks}</nav>`)}<div class="home-grid">${cards}</div>${homeFooter()}`;
       document.title = `${t('componentsList')} · ${platformData[platform].label[state.lang]} · Biowave`;
     } else if (PAGE === 'foundations') {

@@ -1436,6 +1436,44 @@ a:focus-visible,
 .foundation-body { padding: var(--bw-spacing-layout-group) var(--bw-grid-margin-full); display: grid; gap: var(--bw-spacing-xl); }
 @media (max-width: 40rem) { .home-header, .home-title, .home-grid, .foundation-body { padding-inline: var(--bw-spacing-lg); } }
 
+/* Components List — matches Figma "Components List" page (.index-card, node 715:22433).
+   Desktop (≥ 1440px): fixed 406px cards, 40px gaps, centred — 4 per row at 1920px.
+   Below that the grid goes fluid (3 → 2 → 1 columns) so tablet and phone widths fill the screen. */
+.is-components-list { --home-inline: calc(var(--bw-spacing-3xl) * 2); /* 48px */ }
+.is-components-list .home-header { padding: var(--bw-spacing-3xl) var(--home-inline); }
+.is-components-list .home-title { padding: calc(var(--bw-spacing-3xl) + var(--bw-spacing-md)) var(--home-inline); background: var(--bw-color-surface-subtle); border-block-end-color: var(--bw-color-border-default); }
+.is-components-list .home-title h1 { font-size: var(--bw-font-size-display-lg); line-height: var(--bw-font-line-height-display-lg); font-weight: var(--bw-font-weight-display); letter-spacing: var(--bw-font-letter-spacing-display); }
+.is-components-list .home-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: var(--bw-spacing-3xl); padding: var(--bw-grid-margin-full) var(--home-inline); }
+.is-components-list .home-card { border-color: var(--bw-color-border-default); border-radius: var(--bw-radius-md); background: var(--bw-color-background-base-subtlest); }
+.is-components-list .home-preview { block-size: calc(17rem - var(--bw-border-width-default)); /* 272px incl. the card stroke (Figma strokes sit inside) */ min-block-size: 0; box-sizing: border-box; padding: calc(var(--bw-spacing-3xl) + var(--bw-spacing-md)); overflow: hidden; background-color: var(--bw-color-surface-default); background-image: radial-gradient(circle, var(--bw-color-border-default) 1px, transparent 1.5px); background-size: 14px 14px; background-position: 7px 7px; border-block-end-color: var(--bw-color-border-default); }
+.is-components-list .home-preview .demo-field { inline-size: min(100%, 20rem); }
+.is-components-list .home-card-body { gap: var(--bw-spacing-md); padding: var(--bw-spacing-3xl); padding-block-end: calc(var(--bw-spacing-3xl) - var(--bw-border-width-default)); }
+.is-components-list .home-card-body h2 { font-size: var(--bw-font-size-heading-lg); line-height: var(--bw-font-line-height-heading-lg); font-weight: var(--bw-font-weight-heading); color: var(--bw-color-text-default); }
+.is-components-list .home-card-body a { display: inline-flex; align-items: center; gap: var(--bw-spacing-sm); min-block-size: var(--bw-spacing-3xl); font-size: var(--bw-font-size-body-lg); line-height: var(--bw-font-line-height-body-lg); font-weight: var(--bw-font-weight-heading); color: var(--bw-color-link-default); text-decoration: underline; text-underline-offset: 0.15em; border-radius: var(--bw-radius-xxs); }
+.is-components-list .home-card-body a svg { flex: none; inline-size: var(--bw-size-icon-md); block-size: var(--bw-size-icon-md); }
+.is-components-list .home-card-body a svg:dir(rtl) { transform: scaleX(-1); }
+.is-components-list .home-card-body a:hover { color: var(--bw-color-link-hovered); }
+.is-components-list .home-card-body a:focus-visible { outline: var(--bw-border-width-focus) solid var(--bw-color-border-focus); outline-offset: 2px; }
+@media (min-width: 90rem) {
+  .is-components-list .home-grid { grid-template-columns: repeat(auto-fill, 25.375rem); /* 406px */ gap: var(--bw-grid-margin-full); justify-content: center; }
+}
+@media (max-width: 64rem) { .is-components-list { --home-inline: var(--bw-spacing-3xl); } }
+@media (max-width: 40rem) {
+  .is-components-list { --home-inline: var(--bw-spacing-xl); }
+  .is-components-list .home-grid { padding-block: var(--bw-spacing-3xl); gap: var(--bw-spacing-xl); }
+  .is-components-list .home-title h1 { font-size: var(--bw-font-size-display-md); line-height: var(--bw-font-line-height-display-md); }
+  .is-components-list .home-preview { block-size: calc(15rem - var(--bw-border-width-default)); padding: var(--bw-spacing-3xl); }
+}
+/* Simple previews for components without a playground demo. */
+.hp-avatar { display: grid; place-items: center; inline-size: var(--bw-size-icon-3xl); block-size: var(--bw-size-icon-3xl); border-radius: var(--bw-radius-full); background: var(--bw-color-background-brand-subtle); color: var(--bw-color-text-default); font-size: var(--bw-font-size-body-lg); font-weight: var(--bw-font-weight-title); }
+.hp-badge { display: grid; place-items: center; min-inline-size: var(--bw-size-icon-md); block-size: var(--bw-size-icon-md); padding-inline: var(--bw-spacing-xs); box-sizing: border-box; border-radius: var(--bw-radius-full); background: var(--bw-color-background-error-default); color: var(--bw-color-text-on-error); font-size: var(--bw-font-size-label-sm); font-weight: var(--bw-font-weight-label); line-height: 1; }
+.hp-divider { display: block; inline-size: min(100%, 12.5rem); block-size: var(--bw-border-width-default); background: var(--bw-color-border-default); }
+.hp-icon { display: inline-grid; color: var(--bw-color-icon-default); }
+.hp-icon svg { inline-size: var(--bw-size-icon-xl); block-size: var(--bw-size-icon-xl); }
+.hp-link { color: var(--bw-color-link-default); font-size: var(--bw-font-size-body-md); text-decoration: underline; }
+.hp-tooltip { padding: var(--bw-spacing-xs) var(--bw-spacing-md); border-radius: var(--bw-radius-xs); background: var(--bw-color-surface-inverse); color: var(--bw-color-text-inverse); font-size: var(--bw-font-size-label-sm); line-height: var(--bw-font-line-height-label-sm); }
+
+
 /* foundation card previews — semantic tokens only */
 .fp-devices { display: grid; grid-template-columns: repeat(4, auto); gap: var(--bw-spacing-lg); align-items: end; }
 .fp-devices span { display: block; border: var(--bw-border-width-strong) solid var(--bw-color-border-strong); border-radius: var(--bw-radius-sm); background: var(--bw-color-surface-inverse); }

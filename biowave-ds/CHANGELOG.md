@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-16 — Components List matches the Figma index card
+
+The Web, Tablet and Mobile Components List pages (`_docs/viewer.js`, `_docs/viewer.css`) now follow the Figma `Components List` page (`.index-card`, node 715:22433). Cards have a 272px dot-grid preview and a 112px body with a heading-lg title and a 16px "View Component" link with the 20px arrow icon from Figma. The page title uses display-lg. From 1440px wide, cards are a fixed 406px with 40px gaps and centred, so 1920px shows 4 per row. Below 1440px the grid is fluid (3, 2 or 1 per row). Avatar, Badge, Divider, Icon, Link and Tooltip now show a preview instead of their name. The Text field card uses the Figma copy. Foundation List is unchanged. No token changed.
+
 ## 2026-11-05 — Component token descriptions
 
 Every component variable now has a description in `$descriptions` in `tokens.json`, and the sync tooling writes them to Figma. Filled the 44 missing descriptions, shortened the rest to what it is and where to bind it, and removed the `Source:` lists because the alias already shows them. `component-tokens` fails on a missing description. No Foundations token or Figma variable changed.
