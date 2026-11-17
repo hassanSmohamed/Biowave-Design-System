@@ -3,7 +3,8 @@
 
 import os
 
-ROOT = '/Users/hassansaid/Downloads/Biowave Design System/biowave-ds'
+from pathlib import Path
+ROOT = str(Path(__file__).resolve().parents[3])
 SEC = {'web': '3-web-components', 'tablet': '4-tablet-components', 'mobile': '5-mobile-components'}
 LBL = {'web': 'Web', 'tablet': 'Tablet', 'mobile': 'Mobile'}
 DATE = '2026-11-14'

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-// Local HTTP bridge (localhost:9876) + long-polling + file queue between Antigravity and Biowave Script Runner.
+// Local HTTP bridge (127.0.0.1:9876) + long-polling between Antigravity and Biowave Script Runner.
+// Security: bound to 127.0.0.1 only; CORS restricted to Figma plugin UI ('null');
+// /exec requires random X-Bridge-Token written to _workflow/.local/bridge-token.
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,11 +9,30 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const PORT = Number(process.env.FIGMA_BRIDGE_PORT || 9876);
+const HOST = '127.0.0.1';
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const LOCAL_DIR = path.resolve(DIR, '../.local');
 const STATUS_FILE = path.join(LOCAL_DIR, 'figma-bridge-v2-status.json');
+const TOKEN_FILE = path.join(LOCAL_DIR, 'bridge-token');
 
 fs.mkdirSync(LOCAL_DIR, { recursive: true });
+
+// Generate random bridge token at start
+const BRIDGE_TOKEN = crypto.randomBytes(32).toString('hex');
+fs.writeFileSync(TOKEN_FILE, BRIDGE_TOKEN + '\n', { mode: 0o600 });
+
+function cleanupToken() {
+  try {
+    if (fs.existsSync(TOKEN_FILE)) {
+      const current = fs.readFileSync(TOKEN_FILE, 'utf8').trim();
+      if (current === BRIDGE_TOKEN) fs.unlinkSync(TOKEN_FILE);
+    }
+  } catch (_) {}
+}
+
+process.on('SIGINT', () => { cleanupToken(); process.exit(0); });
+process.on('SIGTERM', () => { cleanupToken(); process.exit(0); });
+process.on('exit', () => { cleanupToken(); });
 
 const clients = new Map(); // fileName -> lastSeenMs
 const queue = [];          // [{ id, targetFile, code, resolve, reject, timer }]
@@ -36,6 +57,8 @@ function writeStatusFile() {
   try {
     fs.writeFileSync(STATUS_FILE, JSON.stringify({
       updatedAt: new Date().toISOString(),
+      host: HOST,
+      port: PORT,
       activeFiles,
       waitingPolls: waitingPolls.length,
       queued: queue.length,
@@ -55,7 +78,7 @@ function dispatchQueue() {
       qi--;
       running.set(job.id, job);
       clients.set(wp.file, Date.now());
-      sendJson(wp.res, 200, { id: job.id, code: job.code });
+      sendJson(wp.res, 200, { id: job.id, code: job.code }, true);
     }
   }
   writeStatusFile();
@@ -75,6 +98,7 @@ function enqueueJob({ id = crypto.randomUUID(), targetFile = null, code, timeout
   });
 }
 
+// Background file queue support (fallback)
 setInterval(() => {
   writeStatusFile();
   let files = [];
@@ -102,15 +126,21 @@ setInterval(() => {
   }
 }, 150);
 
-function cors(res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+function applyPluginCors(req, res) {
+  // Only grant CORS to the Figma plugin iframe origin ('null')
+  const origin = req.headers.origin;
+  if (origin === 'null') {
+    res.setHeader('Access-Control-Allow-Origin', 'null');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  }
 }
 
-function sendJson(res, status, obj) {
+function sendJson(res, status, obj, isPluginRoute = false, req = null) {
   if (res.writableEnded) return;
-  cors(res);
+  if (isPluginRoute && req) {
+    applyPluginCors(req, res);
+  }
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify(obj));
 }
@@ -136,25 +166,32 @@ function matchJob(file) {
 }
 
 const server = http.createServer(async (req, res) => {
+  const url = new URL(req.url, `http://${HOST}:${PORT}`);
+  const isPluginPath = url.pathname === '/poll' || url.pathname === '/v2/poll' || url.pathname === '/result';
+
   if (req.method === 'OPTIONS') {
-    cors(res);
-    res.writeHead(204);
+    if (isPluginPath && req.headers.origin === 'null') {
+      applyPluginCors(req, res);
+      res.writeHead(204);
+      res.end();
+      return;
+    }
+    res.writeHead(403);
     res.end();
     return;
   }
 
-  const url = new URL(req.url, `http://localhost:${PORT}`);
-
   if (req.method === 'GET' && (url.pathname === '/poll' || url.pathname === '/v2/poll')) {
+    applyPluginCors(req, res);
     const file = url.searchParams.get('file') || 'unknown';
     clients.set(file, Date.now());
     const job = matchJob(file);
     if (job) {
       running.set(job.id, job);
       writeStatusFile();
-      return sendJson(res, 200, { id: job.id, code: job.code });
+      return sendJson(res, 200, { id: job.id, code: job.code }, true, req);
     }
-    // Hold long-poll open for up to 20s so background window timers don't throttle it
+    // Hold long-poll open for up to 20s
     const wp = {
       file,
       res,
@@ -163,7 +200,7 @@ const server = http.createServer(async (req, res) => {
         if (idx !== -1) waitingPolls.splice(idx, 1);
         clients.set(file, Date.now());
         writeStatusFile();
-        sendJson(res, 200, { id: null });
+        sendJson(res, 200, { id: null }, true, req);
       }, 20000)
     };
     waitingPolls.push(wp);
@@ -178,6 +215,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (req.method === 'POST' && url.pathname === '/result') {
+    applyPluginCors(req, res);
     try {
       const raw = await readBody(req);
       const body = JSON.parse(raw || '{}');
@@ -190,16 +228,23 @@ const server = http.createServer(async (req, res) => {
       }
       writeStatusFile();
     } catch (_) {}
-    return sendJson(res, 200, { ok: true });
+    return sendJson(res, 200, { ok: true }, true, req);
   }
 
   if (req.method === 'POST' && url.pathname === '/exec') {
+    // Authenticate with bridge-token
+    const authHeader = req.headers['x-bridge-token'] || req.headers['authorization'];
+    const token = authHeader ? authHeader.replace(/^Bearer\s+/i, '').trim() : '';
+    if (!token || token !== BRIDGE_TOKEN) {
+      return sendJson(res, 401, { ok: false, error: 'Unauthorized: missing or invalid X-Bridge-Token' });
+    }
+
     try {
       const raw = await readBody(req);
       const body = JSON.parse(raw || '{}');
       const code = body.code;
       const targetFile = body.file || null;
-      const timeoutMs = Number(body.timeoutMs || 60000);
+      const timeoutMs = Number(body.timeoutMs || 180000);
       if (typeof code !== 'string' || !code.trim()) {
         return sendJson(res, 400, { ok: false, error: 'Missing code' });
       }
@@ -213,7 +258,7 @@ const server = http.createServer(async (req, res) => {
   sendJson(res, 404, { ok: false, error: 'Not found' });
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, HOST, () => {
   writeStatusFile();
-  console.log(`Biowave Figma Bridge listening on http://localhost:${PORT}`);
+  console.log(`Biowave Figma Bridge listening securely on http://${HOST}:${PORT}`);
 });

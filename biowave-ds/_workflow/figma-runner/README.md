@@ -2,6 +2,12 @@
 
 Antigravity (and Gemini CLI) can **read** Figma through the Figma MCP server, and **write** to Figma through this development plugin over a local bridge (`http://127.0.0.1:9876`).
 
+## Security Architecture (Hardened)
+- **Localhost only:** The bridge server binds strictly to `127.0.0.1`. It does not listen on public network interfaces (`0.0.0.0`).
+- **Restricted CORS:** `Access-Control-Allow-Origin: *` is completely removed. CORS headers are only emitted for the sandboxed Figma plugin UI iframe origin (`'null'`) on long-polling endpoints (`/poll`, `/v2/poll`, `/result`).
+- **Token Authentication:** The `/exec` endpoint requires an authentication token passed in the `X-Bridge-Token` header. The bridge generates a cryptographically random 256-bit token at startup, stores it with restricted file permissions (`0600`) at `_workflow/.local/bridge-token`, and verifies it on every execution request. Unauthorized requests return `401 Unauthorized`.
+- **Automatic Lifecycle:** The token file is automatically deleted when the bridge server shuts down.
+
 ## Install once (Figma desktop app, Mac or Windows)
 1. Open any Biowave file in the **Figma desktop app**.
 2. Menu › **Plugins › Development › Import plugin from manifest…** → choose `biowave-ds/_workflow/figma-runner/manifest.json`.
@@ -15,7 +21,7 @@ Antigravity (and Gemini CLI) can **read** Figma through the Figma MCP server, an
 2. Keep **Biowave Script Runner** open in the target Figma file (the badge turns green: `🟢 localhost:9876 · <file>`).
 3. The agent writes a script to `_workflow/figma-runs/<date>-<task>.js` and runs:
    ```bash
-   node _workflow/figma-runner/exec.mjs _workflow/figma-runs/<date>-<task>.js
+   node _workflow/figma-runner/exec.mjs _workflow/figma-runs/<date>-<task>.js [targetFile]
    ```
    The plugin runs the script automatically in Figma and returns the JSON output directly to the agent.
 
