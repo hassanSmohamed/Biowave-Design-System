@@ -3,6 +3,7 @@
 ## 2026-11-17 — Screen-first plan
 
 - `_workflow/tasks/2026-11-17-screen-first-plan.md`: components are built only when a product screen needs them. Loop: screen (Hassan) → analysis + gap list (Claude) → build brief (Claude) → build (Antigravity) → review / fix → sync.
+- Wave 9 fixes continue now (Hassan); other waves wait for screens.
 - `_workflow/screens/` (README + `component-inventory.md`) for screens and their analyses. Wave order in `2026-11-17-execution-plan.md` paused from row 1; pointer in `HANDOFF.md` §6.
 
 ## 2026-11-15 — Wave 9 Feedback & Loading: Mobile Figma builds

@@ -35,7 +35,7 @@ Antigravity **does not** write briefs or take design decisions in this loop. If 
 
 | Old row (`2026-11-17-execution-plan.md` §2) | Status |
 |---|---|
-| 0 · 9-fix (Alert · Snackbar · Empty state · Skeleton) | **Hassan to decide:** continue (already built, 3 blockers) or wait until a screen needs them. Recommendation: continue — feedback components appear on almost every screen |
+| 0 · 9-fix (Alert · Snackbar · Empty state · Skeleton) | **Continue now** (Hassan, 2026-11-17). Antigravity fixes all 14 findings of `2026-11-17-wave9-feedback-review.md` on `ag/wave9-feedback`, Web first, then Tablet / Mobile. Claude reviews; the loop in §2 steps 6–8 applies |
 | 1 · Wave 10 Card · Accordion (Web draft in Figma) | **Paused.** Kept as a draft; resumes only if a screen needs it, with the fixes in `2026-11-17-wave10-early-review.md` |
 | 2–15 | **Paused.** Each row starts only when the inventory marks its components `Needed` |
 | 8 · Button family & Text field to spec | Triggered by the first screen that uses them |
