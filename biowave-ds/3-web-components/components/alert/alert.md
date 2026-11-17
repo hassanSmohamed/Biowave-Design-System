@@ -439,10 +439,10 @@ Component description: "An inline banner that communicates important contextual 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document |
-| Date | 2026-11-14 |
+| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 5, 8) |
+| Date | 2026-11-17 |
 | Node IDs | page `691:218883` · component section `691:218884` · component set `691:219739` · docs section `697:8734` · pages `697:4339` (`00`) … `697:8621` (`11`) · Components List card `700:13903` |
-| QA report | 10 variants (`Status × Language`), 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), 11 Doc Kit pages (`00`–`09`, `11`) |
+| QA report | 10 variants (`Status × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG`, Material Symbols glyphs `info`, `warning`, `lightbulb` bound, docs unclipped. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -460,7 +460,8 @@ Component description: "An inline banner that communicates important contextual 
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| — | — | not reviewed | not reviewed |
+| Round 2 | 2026-11-17 | — | Fixed (Findings 2, 5, 8 resolved, lint 0) |
+| Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
 

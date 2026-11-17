@@ -410,10 +410,10 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Field | Value |
 |---|---|
-| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document |
-| Date | 2026-11-14 |
+| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 8, 11) |
+| Date | 2026-11-17 |
 | Node IDs | page `694:219747` · component section `694:219748` · component set `694:220191` · docs section `699:7445` · pages `699:4102` (`00`) … `699:7332` (`11`) · Components List card `700:14085` |
-| QA report | 4 variants (`Action × Language`), 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), 11 Doc Kit pages (`00`–`09`, `11`) |
+| QA report | 4 variants (`Action × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG`, message wraps 1 line (height 56px for EN and AR), docs unclipped. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -431,7 +431,8 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| — | — | not reviewed | not reviewed |
+| Round 2 | 2026-11-17 | — | Fixed (Findings 2, 8, 11 resolved, lint 0) |
+| Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
 

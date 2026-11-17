@@ -372,10 +372,10 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Field | Value |
 |---|---|
-| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document |
-| Date | 2026-11-14 |
+| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (finding 8) |
+| Date | 2026-11-17 |
 | Node IDs | page `694:219741` · component section `694:219742` · component set `694:219746` · docs section `700:11340` · pages `700:9791` (`00`) … `700:11227` (`11`) · Components List card `700:14359` |
-| QA report | 3 variants (`Shape = Line · Circle · Block`), 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), 11 Doc Kit pages (`00`–`09`, `11`) |
+| QA report | 3 variants (`Shape = Line · Circle · Block`), 0 unbound tokens, docs unclipped. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -393,7 +393,8 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| — | — | not reviewed | not reviewed |
+| Round 2 | 2026-11-17 | — | Fixed (Finding 8 resolved, lint 0) |
+| Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
 

@@ -418,10 +418,10 @@ Component description: "Explains why a page, section, card or Data table has no 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document |
-| Date | 2026-11-14 |
+| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 8, 10) |
+| Date | 2026-11-17 |
 | Node IDs | page `694:220192` · component section `694:220193` · component set `694:220298` · docs section `699:9786` · pages `699:7526` (`00`) … `699:9673` (`11`) · Components List card `700:14251` |
-| QA report | 4 variants (`Size × Language`), 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), 11 Doc Kit pages (`00`–`09`, `11`) |
+| QA report | 4 variants (`Size × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG` (actions row does not overflow), variants `primaryAxisSizingMode = AUTO` / `layoutSizingVertical = HUG`, docs unclipped. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -439,7 +439,8 @@ Component description: "Explains why a page, section, card or Data table has no 
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| — | — | not reviewed | not reviewed |
+| Round 2 | 2026-11-17 | — | Fixed (Findings 2, 8, 10 resolved, lint 0) |
+| Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
 
