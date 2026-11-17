@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-17 — Screen-first plan
+
+- `_workflow/tasks/2026-11-17-screen-first-plan.md`: components are built only when a product screen needs them. Loop: screen (Hassan) → analysis + gap list (Claude) → build brief (Claude) → build (Antigravity) → review / fix → sync.
+- `_workflow/screens/` (README + `component-inventory.md`) for screens and their analyses. Wave order in `2026-11-17-execution-plan.md` paused from row 1; pointer in `HANDOFF.md` §6.
+
 ## 2026-11-15 — Wave 9 Feedback & Loading: Mobile Figma builds
 
 - **Figma Mobile (`Biowave DS — Mobile Components`):** built `Alert` (`181:16391`, 10 variants), `Snackbar` (`181:16450`, 4 variants), `Empty state` (`181:16557`, 4 variants), and `Skeleton` (`181:16563`, 3 variants) with 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), Doc Kit pages `00`–`09` and `11` (`181:21193`, `181:23218`, `181:25525`, `181:27012`), and `Components List` cards (`181:27014`, `181:27154`, `181:27226`, `181:27311`).

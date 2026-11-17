@@ -1,5 +1,7 @@
 # Execution plan — remaining waves to Design System 1.0 (Antigravity executes · Claude + Hassan plan and review)
 
+> **Update 2026-11-17:** the wave order in §2 is paused from row 1 on. Components are now built only when a product screen needs them — see `2026-11-17-screen-first-plan.md`. §1 rules still apply.
+
 > Written by Claude (Planner / Reviewer) on 2026-11-17 at Hassan's request. **Antigravity** executes every wave; **Claude + Hassan** approve the brief and review each phase. Sources: `ROADMAP.md` (45 components + 13 patterns), `_workflow/tasks/2026-11-12-next-waves-plan.md` (waves, native layer, R-items), section READMEs, `HANDOFF.md`, the Wave 9 review.
 
 ## 1. How every wave runs

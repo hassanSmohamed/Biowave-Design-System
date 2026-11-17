@@ -79,6 +79,8 @@ Known Figma API lessons (cost hours): TEXT / INSTANCE_SWAP properties hold one v
 
 ## 6. What comes next (in this order, each with a review stop)
 
+> **2026-11-17 — screen-first:** Hassan designs the product screens first; Claude analyses them and writes the build brief; Antigravity builds only what the screens need. Follow `_workflow/tasks/2026-11-17-screen-first-plan.md`. The list below is kept for reference and starts only when a screen needs it.
+
 1. **Wave 9 — Alert · Snackbar · Empty state · Skeleton** (`_workflow/tasks/2026-11-12-next-waves-plan.md` §2). Start with a brief like `2026-11-13-navigation-brief.md`: audit legacy Foundations sets + iOS 27 / M3 kits, propose decisions, wait for Hassan. Snackbar on Mobile: Android M3 snackbar · iOS Biowave toast (plan §3).
 2. Wave 10 remainder — **Accordion · Card** (Tabs and Breadcrumbs are done). Wave 11 remainder — **Action bar** (iOS bottom toolbar · M3 bottom app bar). Wave 13 — **Data table**.
 3. Plan §4 items: **R-2** Tablet 07 field width · **R-3** native forms for Switch, Progress spinner, pickers, Select · **R-4** Mobile Button Group page · **R-5** move legacy reference sets to `_Deprecation Ground` · **R-6** native-layer decision record D-19 + Mobile spec template section · **R-7** unused `hovered` modes.
