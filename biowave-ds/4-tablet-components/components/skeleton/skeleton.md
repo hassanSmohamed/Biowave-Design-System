@@ -378,10 +378,10 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document |
-| Date | 2026-11-15 |
+| Agent / stages run | build · rtl · qa · document · review fixes (finding 8) |
+| Date | 2026-11-18 |
 | Node IDs | page `218:650318` · component section `218:650319` · component set `218:650323` (3 variants) · docs section `219:660436` · pages `219:658891` (00) · `219:658949` (01) · `219:659031` (02) · `219:659402` (03) · `219:659494` (04) · `219:659592` (05) · `219:659691` (06) · `219:659916` (07) · `219:660072` (08) · `219:660139` (09) · `219:660323` (11) · Components List card `219:662327` |
-| QA report | `lint-component-section.js` `unbound: []` · `figma-read-tokens.js` `0 X|` · Light/Dark/RTL verified |
+| QA report | 3 variants (`Shape = Line · Circle · Block`), 0 unbound tokens, docs unclipped. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -399,7 +399,8 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| — | — | not reviewed | not reviewed |
+| Round 2 | 2026-11-18 | — | Fixed (Finding 8 resolved, lint 0) |
+| Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
 

@@ -415,10 +415,10 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document |
-| Date | 2026-11-15 |
+| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 4, 8) |
+| Date | 2026-11-18 |
 | Node IDs | page `218:650152` · component section `218:650153` · component set `218:650210` (4 variants) · docs section `219:656645` · pages `219:654621` (00) · `219:654739` (01) · `219:654873` (02) · `219:655374` (03) · `219:655495` (04) · `219:655673` (05) · `219:655822` (06) · `219:656047` (07) · `219:656209` (08) · `219:656288` (09) · `219:656532` (11) · Components List card `219:662178` |
-| QA report | `lint-component-section.js` `unbound: []` · `figma-read-tokens.js` `0 X|` · Light/Dark/RTL verified |
+| QA report | Replaced hand-drawn controls with real `.Button _en/_ar` (`sm`, `text`, `inverse`, `HUG`) and `Icon Button` (`sm`, `inverse`, `close` icon). Message text FILL. Docs unclipped. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -436,7 +436,8 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| — | — | not reviewed | not reviewed |
+| Round 2 | 2026-11-18 | — | Fixed (Findings 2, 4, 8 resolved, lint 0) |
+| Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
 

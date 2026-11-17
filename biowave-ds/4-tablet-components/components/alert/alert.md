@@ -447,10 +447,10 @@ Component description: "An inline banner that communicates important contextual 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document |
-| Date | 2026-11-15 |
+| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 5, 8) |
+| Date | 2026-11-18 |
 | Node IDs | page `218:649336` · component section `218:649337` · component set `218:650151` (10 variants) · docs section `219:654620` · pages `219:650328` (00) · `219:651217` (01) · `219:651491` (02) · `219:652050` (03) · `219:652784` (04) · `219:653095` (05) · `219:653577` (06) · `219:653824` (07) · `219:654051` (08) · `219:654260` (09) · `219:654507` (11) · Components List card `219:662052` |
-| QA report | `lint-component-section.js` `unbound: []` · `figma-read-tokens.js` `0 X|` · Light/Dark/RTL verified |
+| QA report | Button instances `minWidth = null` / `layoutSizingHorizontal = HUG`, content `FILL`, Material Symbols glyphs `info`, `warning`, `lightbulb` bound, docs unclipped. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -468,7 +468,8 @@ Component description: "An inline banner that communicates important contextual 
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| — | — | not reviewed | not reviewed |
+| Round 2 | 2026-11-18 | — | Fixed (Findings 2, 5, 8 resolved, lint 0) |
+| Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
 
