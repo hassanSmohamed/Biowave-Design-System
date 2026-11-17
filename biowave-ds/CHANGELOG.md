@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-11-18 — Wave 9 Feedback review fixes (Web, Tablet, Mobile)
+
+- **Figma runner security (Finding 1):** `_workflow/figma-runner/bridge.mjs` bound strictly to `127.0.0.1`, removed `*` CORS, enforced random `X-Bridge-Token` from `_workflow/.local/bridge-token`.
+- **Orphan nodes cleanup (Finding P2):** Deleted 20 orphan components with 0 instances on Web `↳ Accordion` page.
+- **Button sizing & minWidth (Finding 2 & 11):** Cleared `minWidth` (`minWidth = null`) and set `layoutSizingHorizontal = 'HUG'` on all `.Button` instances across Alert, Empty state, and Snackbar on Web, Tablet, and Mobile.
+- **Mobile Snackbar OS axis (Finding 3):** Added `OS = Android · iOS` axis to Mobile Snackbar (`181:16450`), generating 8 variants. Android uses `radius/md` (8px), iOS uses `radius/xl` (12px) with leading icon enabled. Page 07 updated with Android and iPhone side by side.
+- **Hand-drawn controls replacement (Finding 4):** Replaced hand-drawn buttons in Tablet and Mobile Snackbar with real `.Button _en/_ar` (`sm`, `text`, `inverse`) and `Icon Button` (`sm`, `inverse`, `close` icon from Material Symbols).
+- **Status glyphs (Finding 5):** Swapped Alert status glyphs across all 3 files to official Material Symbols: `info`, `warning`, `lightbulb`.
+- **Mobile Alert sample width (Finding 6):** Resized Mobile Alert variants to 328px sample width (`layoutSizingHorizontal = FIXED`, content `FILL`).
+- **Mobile Empty state layout (Finding 7):** Configured Mobile Empty state actions to `VERTICAL`, buttons `FILL`, primary action on top.
+- **Docs unclipping (Finding 8):** Unclipped frames across all 12 documentation sections in Web, Tablet, and Mobile.
+- **Review lint verification:** Review lint (`_workflow/figma-runs/*`) returned `issues: []` on all 12 component sets across Web, Tablet, and Mobile.
+
 ## 2026-11-17 — Screen-first plan
 
 - `_workflow/tasks/2026-11-17-screen-first-plan.md`: components are built only when a product screen needs them. Loop: screen (Hassan) → analysis + gap list (Claude) → build brief (Claude) → build (Antigravity) → review / fix → sync.

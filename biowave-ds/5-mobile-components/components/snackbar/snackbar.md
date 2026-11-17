@@ -419,10 +419,10 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document |
-| Date | 2026-11-15 |
-| Node IDs | page `181:16392` · component section `181:16393` · component set `181:16450` (4 variants) · docs section `181:23218` · pages `181:21194` (00) · `181:21312` (01) · `181:21446` (02) · `181:21947` (03) · `181:22068` (04) · `181:22246` (05) · `181:22395` (06) · `181:22620` (07) · `181:22782` (08) · `181:22861` (09) · `181:23105` (11) · Components List card `181:27154` |
-| QA report | `lint-component-section.js` `unbound: []` · `figma-read-tokens.js` `0 X|` · Light/Dark/RTL verified |
+| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 3, 4, 8) |
+| Date | 2026-11-18 |
+| Node IDs | page `181:16392` · component section `181:16393` · component set `181:16450` (8 variants) · docs section `181:23218` · pages `181:21194` (00) · `181:21312` (01) · `181:21446` (02) · `181:21947` (03) · `181:22068` (04) · `181:22246` (05) · `181:22395` (06) · `181:22620` (07) · `181:22782` (08) · `181:22861` (09) · `181:23105` (11) · Components List card `181:27154` |
+| QA report | 8 variants generated (`Action × OS × Language`). Android: `radius-md`, M3 bar; iOS: `radius-xl`, leading icon on, floating toast. Replaced hand-drawn controls with real `.Button _en/_ar` (`sm`, `text`, `inverse`, `HUG`) and `Icon Button` (`sm`, `inverse`, `close` icon). Message text FILL. Docs unclipped and Page 07 updated side-by-side. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -440,7 +440,8 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| — | — | not reviewed | not reviewed |
+| Round 2 | 2026-11-18 | — | Fixed (Findings 2, 3, 4, 8 resolved, lint 0) |
+| Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
 
