@@ -1,0 +1,27 @@
+
+const set = await figma.getNodeByIdAsync("230:662521");
+const unbound = [];
+const checkNode = (n) => {
+  if (n.fills && Array.isArray(n.fills)) {
+    for (const f of n.fills) {
+      if (f.visible !== false && f.type === "SOLID" && (!f.boundVariables || !f.boundVariables.color)) {
+        unbound.push({ node: n.name, type: "fill", color: f.color });
+      }
+    }
+  }
+  if (n.strokes && Array.isArray(n.strokes)) {
+    for (const s of n.strokes) {
+      if (s.visible !== false && s.type === "SOLID" && (!s.boundVariables || !s.boundVariables.color)) {
+        unbound.push({ node: n.name, type: "stroke", color: s.color });
+      }
+    }
+  }
+  if (n.type === "TEXT" && !n.textStyleId) {
+    unbound.push({ node: n.name, type: "textStyle", text: n.characters });
+  }
+  if (n.children) {
+    for (const c of n.children) checkNode(c);
+  }
+};
+checkNode(set);
+return { totalUnbound: unbound.length, unbound };

@@ -1,0 +1,1 @@
+return { title: figma.root.name };

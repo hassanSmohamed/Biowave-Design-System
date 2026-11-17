@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-11-17 — Wave 10 Structure: Mobile Figma builds
+
+- **Figma Mobile (`Biowave DS — Mobile Components`):** built `Accordion` (`201:28301`, 4 variants, 48 px touch target) and `Card` (`202:28604`, 12 variants) with 0 unbound tokens (`totalUnbound: 0, unbound: []`), Doc Kit pages `00`–`09` and `11` (`203:30777`, `203:33519`), and `Components List` cards (`203:35520`, `203:35549`) inside `Wave 10 / Structure cards` (`203:35479`).
+
+## 2026-11-17 — Wave 10 Structure: Tablet Figma builds
+
+- **Figma Tablet (`Biowave DS — Tablet Components`):** built `Accordion` (`230:662521`, 4 variants, 48 px touch target) and `Card` (`240:664022`, 12 variants) with 0 unbound tokens (`totalUnbound: 0, unbound: []`), Doc Kit pages `00`–`09` and `11` (`243:675034`, `243:677788`), and `Components List` cards (`244:678957`, `244:678968`).
+
+## 2026-11-16 — Wave 10 Structure: specs (Web, Tablet, Mobile) and Web Figma builds
+
+- **Brief & specs:** `_workflow/tasks/2026-11-15-wave10-structure-brief.md` (`AC-01` … `AC-03`, `CR-01` … `CR-03`) and component specs + contracts for `accordion` and `card` on Web, Tablet, and Mobile (1.0, A–D).
+- **Figma Web (`Biowave DS — Web Components`):** built `Accordion` (`732:4818`, 4 variants) and `Card` (`738:7973`, 12 variants) with 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), Doc Kit pages `00`–`09` and `11` (`733:7075`, `706:27900`), and `Components List` cards (`738:11041`, `738:11132`).
+
+
 ## 2026-11-15 — Wave 9 Feedback & Loading: Mobile Figma builds
 
 - **Figma Mobile (`Biowave DS — Mobile Components`):** built `Alert` (`181:16391`, 10 variants), `Snackbar` (`181:16450`, 4 variants), `Empty state` (`181:16557`, 4 variants), and `Skeleton` (`181:16563`, 3 variants) with 0 unbound tokens (`lint-component-section.js` `unbound: []`, `figma-read-tokens.js` `0 X|`), Doc Kit pages `00`–`09` and `11` (`181:21193`, `181:23218`, `181:25525`, `181:27012`), and `Components List` cards (`181:27014`, `181:27154`, `181:27226`, `181:27311`).

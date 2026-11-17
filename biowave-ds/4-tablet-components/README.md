@@ -69,6 +69,8 @@ Status is written in each file header and here; `npm run docs:check` fails if th
 | Snackbar | Finished | Planned | Built | — | [page](components/snackbar/snackbar.html) | [snackbar.md](components/snackbar/snackbar.md) |
 | Empty state | Finished | Planned | Built | — | [page](components/empty-state/empty-state.html) | [empty-state.md](components/empty-state/empty-state.md) |
 | Skeleton | Finished | Planned | Built | — | [page](components/skeleton/skeleton.html) | [skeleton.md](components/skeleton/skeleton.md) |
+| Accordion | Finished | Planned | Built | — | [page](components/accordion/accordion.html) | [accordion.md](components/accordion/accordion.md) |
+| Card | Finished | Planned | Built | — | [page](components/card/card.html) | [card.md](components/card/card.md) |
 
 ## 5. Backlog (suggested order)
 Figma has no dedicated tablet components yet (only "Checkbox / Tablet" docs). Tablet components are designed from the mobile set at tablet size and density.
