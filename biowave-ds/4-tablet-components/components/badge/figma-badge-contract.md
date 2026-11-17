@@ -1,4 +1,4 @@
-<!-- GENERATED from badge.md @ 113b0a655c642fae — do not edit; change the source and run: npm run contract -- tablet badge -->
+<!-- GENERATED from badge.md @ 41eb8b099d259b72 — do not edit; change the source and run: npm run contract -- tablet badge -->
 # Badge · شارة — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Badge in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`badge.md`](badge.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](badge.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Badge · شارة |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`badge.md`](badge.md) @ `113b0a655c642fae` |
+| Source | [`badge.md`](badge.md) @ `41eb8b099d259b72` |
 
 ## 1. Library connections in this file
 
@@ -90,7 +90,7 @@ Library file **Google · Material Symbols** · key `RXlnhYgUKBBE6HveEr7e9C` — 
 
 | Icon | Set key | Rounded (unfilled) | Rounded (filled) |
 |---|---|---|---|
-| `check` | ⏳ not indexed — Planner runs `npm run sync:icons:plan` | | |
+| `check` | `7cffc6ec4f597c487859d4091ce6d499ea120150` | `1d3d86b09ceaf33e8c9ebc517270d3f6bd1572d7` | `37c9fb1680a7a09a0402fc22c385d2dc5ba68689` |
 | `mail` | `c0a48a046c2a3fb66c36765d7f150b2ac9a045e0` | `0414b32813202713bf05545f2c8154575f842511` | `c625c93be50f00889f8de6e1d8b1747d848531c9` |
 | `schedule` | `89f2818a7ab025b819eefea315fc7ca3a5191bc7` | `d75c497b23d5d4b9a36ebe79b61f86dc02b01d1e` | `9f684b8f34e33064a012a35fd954d41f7f3d6e69` |
 

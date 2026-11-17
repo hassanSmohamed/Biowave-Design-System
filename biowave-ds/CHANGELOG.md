@@ -3,6 +3,7 @@
 ## 2026-11-18 — Review round 2: Wave 9 Web fixes
 
 - `_workflow/reviews/2026-11-18-wave9-web-fix-review.md`: changes requested (2 blockers, 2 major, 3 minor). Bridge security, button sizing, Alert glyphs, Empty state height fixed; docs examples now spill and overlap (unclip instead of fit), Snackbar close icon black on the inverse bar, RTL pages show English. Tablet / Mobile reviewed after Web is approved.
+- Regenerated 6 Figma contracts (Tablet + Mobile avatar, badge, link) made stale by the icon index refresh in `97f83ba`; `docs:check` ✓ again.
 
 ## 2026-11-18 — Wave 9 Feedback review fixes (Web, Tablet, Mobile)
 

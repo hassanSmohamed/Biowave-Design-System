@@ -1,4 +1,4 @@
-<!-- GENERATED from avatar.md @ 19fbc43e2c6948d9 — do not edit; change the source and run: npm run contract -- mobile avatar -->
+<!-- GENERATED from avatar.md @ d01e85d6a6c6784e — do not edit; change the source and run: npm run contract -- mobile avatar -->
 # Avatar · صورة رمزية — Mobile — Figma contract
 
 > **Everything the Figma Agent needs to build Avatar in the Mobile Components file, with our variables and styles.** Read this file only. Generated from [`avatar.md`](avatar.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](avatar.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Avatar · صورة رمزية |
 | Platform | Mobile · Flutter + Material 3 |
 | Version | 1.1 · 2026-10-24 |
-| Source | [`avatar.md`](avatar.md) @ `19fbc43e2c6948d9` |
+| Source | [`avatar.md`](avatar.md) @ `d01e85d6a6c6784e` |
 
 ## 1. Library connections in this file
 
@@ -87,8 +87,8 @@ Library file **Google · Material Symbols** · key `RXlnhYgUKBBE6HveEr7e9C` — 
 
 | Icon | Set key | Rounded (unfilled) | Rounded (filled) |
 |---|---|---|---|
-| `devices` | ⏳ not indexed — Planner runs `npm run sync:icons:plan` | | |
-| `person` | ⏳ not indexed — Planner runs `npm run sync:icons:plan` | | |
+| `devices` | `f108cff223682f2709a60aa10438cd8c0a05e1b3` | `3f5b05561e3e5e265364bba302d3ff810a12469d` | `72c528d5c565a8427d8411f73d4404bab5f03a9b` |
+| `person` | `61673637f7f6a8d31bb3831a64f3ec41a0c5b4d2` | `f37ebc0574b0db669944973c743e593b07ec5305` | `57dd68d6b629a049cea167fe00f32fbaab4a2b63` |
 
 ## 7. Phase 1 — values (from Part B)
 

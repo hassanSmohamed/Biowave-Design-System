@@ -43,6 +43,7 @@ Severity: 🔴 blocker · 🟠 major · 🟡 minor.
 | # | Sev | Problem | Fix |
 |---|---|---|---|
 | R2-P1 | 🟠 | Tablet and Mobile were built before the Web review. If the R2-1 method is repeated there, the same rework is needed three times | Next push = **Web only**. Then stop |
+| R2-P3 | 🟡 | `97f83ba` refreshed `_sync/figma-icons.json` without regenerating contracts → `docs:check` ✗ (6 stale Figma contracts). Fixed by Claude in this round | After any `sync:icons` / `sync:library`, run `npm run contract -- --all` and `docs:check` before committing |
 | R2-P2 | 🟡 | One commit per platform, not per component per platform; ~60 throw-away probe scripts committed to `_workflow/figma-runs/` (`test-*`, `inspect-*`, `probe-*`) | One commit per component per platform. Keep only scripts that change Figma or are re-usable checks; delete probes before committing |
 
 ## Order of work for the fixer (Antigravity)

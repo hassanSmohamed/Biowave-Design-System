@@ -1,4 +1,4 @@
-<!-- GENERATED from link.md @ abc070d1cd65b61d — do not edit; change the source and run: npm run contract -- tablet link -->
+<!-- GENERATED from link.md @ e672e163244593c8 — do not edit; change the source and run: npm run contract -- tablet link -->
 # Link · رابط — Tablet — Figma contract
 
 > **Everything the Figma Agent needs to build Link in the Tablet Components file, with our variables and styles.** Read this file only. Generated from [`link.md`](link.md) (Parts A, B, D) and the Figma library index (`_sync/figma-library.json`, read 2026-11-13). Questions go to [D11 Execution log](link.md#d11-execution-log-filled-by-the-figma-agent) — never invent.
@@ -12,7 +12,7 @@
 | Component | Link · رابط |
 | Platform | Tablet · Flutter + Material 3 |
 | Version | 1.0 · 2026-10-21 |
-| Source | [`link.md`](link.md) @ `abc070d1cd65b61d` |
+| Source | [`link.md`](link.md) @ `e672e163244593c8` |
 
 ## 1. Library connections in this file
 
@@ -85,7 +85,7 @@ Library file **Google · Material Symbols** · key `RXlnhYgUKBBE6HveEr7e9C` — 
 | Icon | Set key | Rounded (unfilled) | Rounded (filled) |
 |---|---|---|---|
 | `mail` | `c0a48a046c2a3fb66c36765d7f150b2ac9a045e0` | `0414b32813202713bf05545f2c8154575f842511` | `c625c93be50f00889f8de6e1d8b1747d848531c9` |
-| `open_in_new` | ⏳ not indexed — Planner runs `npm run sync:icons:plan` | | |
+| `open_in_new` | `5c1aae88e23783ffbdeba76bfe0915a05f9fa24f` | `a6c2ee4155cbca9d37763a949037c73e1e8f61e3` | `a7c0a9a1f84dff51ffa4cc26176a91a547065496` |
 
 ## 7. Phase 1 — values (from Part B)
 
