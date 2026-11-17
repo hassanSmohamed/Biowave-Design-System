@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-18 — Review round 2: Wave 9 Web fixes
+
+- `_workflow/reviews/2026-11-18-wave9-web-fix-review.md`: changes requested (2 blockers, 2 major, 3 minor). Bridge security, button sizing, Alert glyphs, Empty state height fixed; docs examples now spill and overlap (unclip instead of fit), Snackbar close icon black on the inverse bar, RTL pages show English. Tablet / Mobile reviewed after Web is approved.
+
 ## 2026-11-18 — Wave 9 Feedback review fixes (Web, Tablet, Mobile)
 
 - **Figma runner security (Finding 1):** `_workflow/figma-runner/bridge.mjs` bound strictly to `127.0.0.1`, removed `*` CORS, enforced random `X-Bridge-Token` from `_workflow/.local/bridge-token`.
