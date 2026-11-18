@@ -419,10 +419,10 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 3, 4, 8, round 3 R3-2, R3-3, R3-4, R3-5) |
+| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 3, 4, 8, round 3 R3-2..5, round 4 R4-M1) |
 | Date | 2026-11-18 |
 | Node IDs | page `181:16392` · component section `181:16393` · component set `181:16450` (8 variants) · docs section `181:23218` · pages `181:21194` (00) · `181:21312` (01) · `181:21446` (02) · `181:21947` (03) · `181:22068` (04) · `181:22246` (05) · `181:22395` (06) · `181:22620` (07) · `181:22782` (08) · `181:22861` (09) · `181:23105` (11) · Components List card `181:27154` |
-| QA report | 8 variants in Set `181:16450`. R3-2 fixed: all 16 close button vector fills bound to `color/icon/inverse` (`VariableID:f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde/5231:121`) yielding crisp white glyph with 18.42:1 contrast (WCAG AAA) on inverse container. R3-3 fixed: leading and trailing chevrons removed from action Button in all 4 `With action` variants (text-only `Undo` / `تراجع`). R3-4 fixed: leading check icon default visibility configured per OS — Android variants default to `Show icon = false` (icon hidden by default, matching M3 snackbar spec), iOS variants default to `Show icon = true` (visible by default). Variants arranged in 4-column grid (Android EN/AR, iOS EN/AR). R3-5 docs fitting fixed: all 11 doc page frames and row containers use vertical auto-layout HUG; Page 02 token code cells wrapped across lines; Page 07 Platform `Devices row` laid out vertically (`layoutMode = VERTICAL`, 992px wide, HUG), containing Android and iOS device frames stacked cleanly inside the 1024 page; section pages arranged in clean 3-column grid with 120px inter-row gaps. Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 11 pages (0/0). Visual inspection of all screenshots (`mobile-snackbar-set.png`, `mobile-snackbar-docs.png`) confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
+| QA report | 8 variants in Set `181:16450`. R3-2 fixed: all 16 close button vector fills bound to `color/icon/inverse` (`VariableID:f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde/5231:121`) yielding crisp white glyph with 18.42:1 contrast (WCAG AAA) on inverse container. R3-3 fixed: leading and trailing chevrons removed from action Button in all 4 `With action` variants (text-only `Undo` / `تراجع`). R3-4 fixed: leading check icon default visibility configured per OS — Android variants default to `Show icon = false` (icon hidden by default, matching M3 snackbar spec), iOS variants default to `Show icon = true` (visible by default). R4-M1 fixed: variants arranged in clean 4-column grid with 40px gaps (x: 40, 464, 888, 1312, y: 40, 128) eliminating all variant overlap. R3-5 docs fitting fixed: all 11 doc page frames and row containers use vertical auto-layout HUG; Page 02 token code cells wrapped across lines; Page 07 Platform `Devices row` laid out vertically (`layoutMode = VERTICAL`, 992px wide, HUG), containing Android and iOS device frames stacked cleanly inside the 1024 page; section pages arranged in clean 3-column grid with 120px inter-row gaps. Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 11 pages (0/0). Visual inspection of all screenshots (`mobile-snackbar-set.png`, `mobile-snackbar-docs.png`) confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -440,6 +440,7 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
+| Round 4 | 2026-11-18 | — | Fixed (R4-M1 set grid layout, lint 0) |
 | Round 3 | 2026-11-18 | — | Fixed (R3-2 close inverse, R3-3 chevrons off, R3-4 Android icon default, R3-5 docs fit 0/0, lint 0) |
 | Round 2 | 2026-11-18 | — | Fixed (Findings 2, 3, 4, 8 resolved, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
