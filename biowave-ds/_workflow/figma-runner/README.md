@@ -7,6 +7,7 @@ Antigravity (and Gemini CLI) can **read** Figma through the Figma MCP server, an
 - **Restricted CORS:** `Access-Control-Allow-Origin: *` is completely removed. CORS headers are only emitted for the sandboxed Figma plugin UI iframe origin (`'null'`) on long-polling endpoints (`/poll`, `/v2/poll`, `/result`).
 - **Token Authentication:** The `/exec` endpoint requires an authentication token passed in the `X-Bridge-Token` header. The bridge generates a cryptographically random 256-bit token at startup, stores it with restricted file permissions (`0600`) at `_workflow/.local/bridge-token`, and verifies it on every execution request. Unauthorized requests return `401 Unauthorized`.
 - **Automatic Lifecycle:** The token file is automatically deleted when the bridge server shuts down.
+- **File Queue Fallback:** The file-based request queue (`_workflow/.local/v2-req-*.json`) trusts local processes with write access to `_workflow/.local/`, operating with the same local filesystem boundary as the token file.
 
 ## Install once (Figma desktop app, Mac or Windows)
 1. Open any Biowave file in the **Figma desktop app**.
