@@ -378,10 +378,10 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document · review fixes (finding 8) |
+| Agent / stages run | build · rtl · qa · document · review fixes (finding 8, round 3 R3-5) |
 | Date | 2026-11-18 |
 | Node IDs | page `181:16558` · component section `181:16559` · component set `181:16563` (3 variants) · docs section `181:27012` · pages `181:25526` (00) · `181:25584` (01) · `181:25686` (02) · `181:25978` (03) · `181:26070` (04) · `181:26168` (05) · `181:26267` (06) · `181:26492` (07) · `181:26648` (08) · `181:26715` (09) · `181:26899` (11) · Components List card `181:27311` |
-| QA report | 3 variants (`Shape = Line · Circle · Block`), 0 unbound tokens, docs unclipped. Review lint: `issues: []` |
+| QA report | 3 variants in Set `181:16563` (`Shape = Line · Circle · Block`), 0 unbound tokens. R3-5 docs fitting fixed: all 11 doc page frames and row containers use vertical auto-layout HUG; Page 02 token code cell wrapped across lines (`size/container/xxs (320 dp)\n× 112 dp (pad size/control/height/xl)`); tile slot frames set to `clipsContent = true`; section pages arranged in clean 3-column grid with 120px inter-row gaps. Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 11 pages (0/0). Visual inspection of all screenshots (`mobile-skeleton-set.png`, `mobile-skeleton-docs.png`) confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -399,6 +399,7 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
+| Round 3 | 2026-11-18 | — | Fixed (R3-5 docs fit 0/0, lint 0) |
 | Round 2 | 2026-11-18 | — | Fixed (Finding 8 resolved, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 

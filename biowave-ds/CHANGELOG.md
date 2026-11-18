@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-11-18 — Review round 3: Wave 9 Mobile fixes
+
+- **Mobile Alert set layout (R3-1):** Restructured all 10 variants in Set `181:16391` at 328px sample width: row 1 contains leading icon, content (title + description, `layoutSizingHorizontal = FILL`), and top-aligned close button; row 2 contains action button nested under content and aligned to content start (`layoutSizingHorizontal = HUG`). Content is 206px wide, wrapping title and description cleanly with zero broken words in EN and AR. Variants placed in a 2-column grid (`x: 40`, `x: 416`) with 40px row gaps, set bounds `784 × 1080` with zero overlap. Close button vector fills bound to semantic token `VariableID:96:179326` (`transparent/icon/default`).
+- **Mobile Snackbar close glyph inverse (R3-2):** Bound all 16 close button vector fills across all 8 variants in Set `181:16450` to `color/icon/inverse` (`VariableID:f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde/5231:121`), giving 18.42:1 contrast (WCAG AAA) on the inverse container.
+- **Mobile Snackbar chevrons removed (R3-3):** Disabled leading and trailing icon properties on action Button instances in all 4 `With action` variants (text-only `Undo` / `تراجع`).
+- **Mobile Snackbar OS icon defaults (R3-4):** Configured default icon visibility per OS: Android variants default to `Show icon = false` (icon hidden by default, matching M3 snackbar spec), iOS variants default to `Show icon = true` (visible by default).
+- **Mobile Docs fitting (R3-5):** Applied the Web fitting method across all 4 Mobile documentation sections (Alert, Snackbar, Empty state, Skeleton):
+  - Page frames and `Documentation content` set to vertical auto-layout HUG so pages expand downward with their content.
+  - Page 00 row axis labels configured with `Orientation=Row` and `clipsContent = true`, eliminating negative bracket coordinate spill outside the page edge.
+  - Page 02 token table cells wrapped with line breaks (`\n`) and shortened where necessary, fitting completely within cell boundaries without exceeding the 1024 page width.
+  - Page 07 Platform on Snackbar configured with `Devices row.layoutMode = 'VERTICAL'`, stacking Android and iOS device frames cleanly within the 1024 page width.
+  - Preview slot frames and tile containers set to `clipsContent = true`.
+  - All 4 sections re-spaced into a clean 3-column grid with 120px inter-row gaps, eliminating all page overlaps.
+  - Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 44 Mobile pages.
+- **Visual verification & honest D11 (R3-6):** Exported and visually inspected screenshots for all 4 sets and doc sections (`mobile-alert-docs.png`, `mobile-snackbar-docs.png`, `mobile-empty-state-docs.png`, `mobile-skeleton-docs.png`), confirming zero overlap, no crossing of page boundaries or footers, and zero broken words. Updated D11 execution logs across all 4 Mobile specs. Review lint: `issues: []`.
+
 ## 2026-11-18 — Review round 2: Wave 9 Web fixes
 
 - **Docs fitting (R2-1 & R2-3):** Refactored all 4 Web documentation sections (Alert, Snackbar, Empty state, Skeleton) so docs fit naturally without clipping or overlapping:
