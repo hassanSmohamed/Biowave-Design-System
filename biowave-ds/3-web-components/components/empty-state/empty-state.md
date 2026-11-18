@@ -418,10 +418,10 @@ Component description: "Explains why a page, section, card or Data table has no 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 8, 10) |
-| Date | 2026-11-17 |
+| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 8, 10, R2-1, R2-3, R2-4) |
+| Date | 2026-11-18 |
 | Node IDs | page `694:220192` · component section `694:220193` · component set `694:220298` · docs section `699:9786` · pages `699:7526` (`00`) … `699:9673` (`11`) · Components List card `700:14251` |
-| QA report | 4 variants (`Size × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG` (actions row does not overflow), variants `primaryAxisSizingMode = AUTO` / `layoutSizingVertical = HUG`, docs unclipped. Review lint: `issues: []` |
+| QA report | 4 variants (`Size × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG` (actions row does not overflow), variants `primaryAxisSizingMode = AUTO` / `layoutSizingVertical = HUG`. Documentation layout: Page 00 row frames set to vertical auto-layout HUG so MD and SM rows hug their content and SM row sits cleanly below MD row with no overlap; pages 03, 05, 08 tiles sized to fit within page bounds (488px in 2-column rows on 1024 pages), slot `clipsContent = true`, child instances rescaled; Page 08 RTL verified with AR instance beside EN comparison; visual inspection of all doc screenshots confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -439,7 +439,7 @@ Component description: "Explains why a page, section, card or Data table has no 
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| Round 2 | 2026-11-17 | — | Fixed (Findings 2, 8, 10 resolved, lint 0) |
+| Round 2 | 2026-11-18 | — | Fixed (R2-1 docs fit & sheet rows hug, R2-3 RTL, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
