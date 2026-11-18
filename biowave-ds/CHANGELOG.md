@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-11-18 — Review round 4: Wave 9 Tablet and Mobile fixes
+
+- **Tablet Snackbar set fixes (R4-T1, R4-T2, R4-T3):**
+  - Bound close button vector fills across all 4 variants in Set `218:650210` to `color/icon/inverse` (`VariableID:f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde/5231:121`), giving 18.42:1 contrast (WCAG AAA) on inverse container (R4-T1).
+  - Disabled leading and trailing icon properties on action Button in all `With action` variants (text-only `Undo` / `تراجع`) (R4-T2).
+  - Configured `Show icon` component property default to `false` and hid the leading check icon on all 4 variants (R4-T3).
+  - Placed variants in a clean 2-column grid (`x: 40`, `x: 464`, `y: 40`, `y: 136`) with zero overlap.
+- **Tablet Alert close vector fill:** Bound close button vector fills across all 10 variants to `transparent/icon/default` (`VariableID:100:59`), returning `issues: []` on review lint across all 4 Tablet sets.
+- **Tablet Docs fitting (R4-T4):** Applied Web/Mobile fitting method across all 4 Tablet documentation sections (Alert, Snackbar, Empty state, Skeleton):
+  - Page frames and `Documentation content` set to vertical auto-layout HUG so pages expand downward with their content.
+  - Page 00 row axis labels configured with `Orientation=Row` and `clipsContent = true`, eliminating negative coordinate bracket spill.
+  - Page 02 token table cells wrapped with line breaks (`\n`) and shortened where necessary, fitting completely within cell boundaries without exceeding the 1024 page width.
+  - Preview slot frames and tile containers set to `clipsContent = true`.
+  - All 4 sections re-spaced into a clean 3-column grid with 120px inter-row gaps, eliminating all page overlaps.
+  - Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 44 Tablet pages.
+- **Mobile Set Layouts (R4-M1, R4-M2):**
+  - R4-M1: Snackbar set `181:16450` arranged in clean 4-column grid with 40px gaps (`x: 40, 464, 888, 1312`, `y: 40, 128`), eliminating all variant overlap.
+  - R4-M2: Empty state set `181:16557` arranged in clean grid with 40px gap between MD and SM rows (`MD y: 40`, `SM y: 428`), eliminating all row touches and overlaps.
+- **Visual verification & honest D11:** Exported and visually inspected screenshots for all 8 Tablet files and 2 Mobile set files; updated D11 execution logs across all 4 Tablet specs and 2 Mobile specs. Review lint: `issues: []` on all sets.
+
 ## 2026-11-18 — Review round 3: Wave 9 Mobile fixes
 
 - **Mobile Alert set layout (R3-1):** Restructured all 10 variants in Set `181:16391` at 328px sample width: row 1 contains leading icon, content (title + description, `layoutSizingHorizontal = FILL`), and top-aligned close button; row 2 contains action button nested under content and aligned to content start (`layoutSizingHorizontal = HUG`). Content is 206px wide, wrapping title and description cleanly with zero broken words in EN and AR. Variants placed in a 2-column grid (`x: 40`, `x: 416`) with 40px row gaps, set bounds `784 × 1080` with zero overlap. Close button vector fills bound to semantic token `VariableID:96:179326` (`transparent/icon/default`).
