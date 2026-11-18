@@ -415,10 +415,10 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 4, 8) |
+| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 4, 8, round 4 R4-T1, R4-T2, R4-T3, R4-T4) |
 | Date | 2026-11-18 |
 | Node IDs | page `218:650152` · component section `218:650153` · component set `218:650210` (4 variants) · docs section `219:656645` · pages `219:654621` (00) · `219:654739` (01) · `219:654873` (02) · `219:655374` (03) · `219:655495` (04) · `219:655673` (05) · `219:655822` (06) · `219:656047` (07) · `219:656209` (08) · `219:656288` (09) · `219:656532` (11) · Components List card `219:662178` |
-| QA report | Replaced hand-drawn controls with real `.Button _en/_ar` (`sm`, `text`, `inverse`, `HUG`) and `Icon Button` (`sm`, `inverse`, `close` icon). Message text FILL. Docs unclipped. Review lint: `issues: []` |
+| QA report | 4 variants in Set `218:650210` (`Action × Language`). R4-T1 fixed: close button vectors bound to `color/icon/inverse` (`VariableID:f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde/5231:121`) giving 18.42:1 contrast (WCAG AAA) on inverse container. R4-T2 fixed: leading & trailing icon properties disabled on action Button instances in all `With action` variants (text-only `Undo` / `تراجع`). R4-T3 fixed: leading check icon hidden by default (`Show icon` default false on set and all variants). Variants placed in a clean 2-column grid (x: 40, x: 464, y: 40, y: 136) with zero overlap. R4-T4 docs fitting fixed: all 11 doc page frames and row containers use vertical auto-layout HUG; Page 02 token table cells wrapped across lines (`block spacing/md`, `min size/container/xs`) fitting within cell boundaries without exceeding 1024 width; tile slot frames set to `clipsContent = true`; section pages arranged in clean 3-column grid with 120px inter-row gaps. Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 11 pages (0/0). Visual inspection of all screenshots (`tablet-snackbar-set.png`, `tablet-snackbar-docs.png`) confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -436,6 +436,7 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
+| Round 4 | 2026-11-18 | — | Fixed (R4-T1 close inverse, R4-T2 chevrons off, R4-T3 icon default false, R4-T4 docs fit 0/0, lint 0) |
 | Round 2 | 2026-11-18 | — | Fixed (Findings 2, 4, 8 resolved, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
