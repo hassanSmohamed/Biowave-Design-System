@@ -423,10 +423,10 @@ Component description: "Explains why a page, section, card or Data table has no 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 7, 8) |
+| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 7, 8, round 3 R3-5) |
 | Date | 2026-11-18 |
 | Node IDs | page `181:16451` · component section `181:16452` · component set `181:16557` (4 variants) · docs section `181:25525` · pages `181:23219` (00) · `181:23385` (01) · `181:23571` (02) · `181:24077` (03) · `181:24310` (04) · `181:24436` (05) · `181:24644` (06) · `181:24891` (07) · `181:25064` (08) · `181:25165` (09) · `181:25412` (11) · Components List card `181:27226` |
-| QA report | Actions layout set to VERTICAL (`layoutSizingHorizontal = FILL`), primary action on top, buttons set to FILL with `minWidth = null`, docs unclipped. Review lint: `issues: []` |
+| QA report | 4 variants in Set `181:16557` (`Size = MD · SM`, `Language = EN · AR`). Actions layout confirmed VERTICAL with `layoutSizingHorizontal = FILL`, primary action above secondary action, buttons set to FILL with `minWidth = null`. R3-5 docs fitting fixed: all 11 doc page frames and row containers use vertical auto-layout HUG; Page 00 axis labels set to `clipsContent = true`; Page 02 token code table cells wrapped across lines (`spacing/3xl`, `size/container/sm`, `body/lg`) fitting within cell boundaries with zero edge overflow; tile slot frames set to `clipsContent = true`; section pages arranged in clean 3-column grid with 120px inter-row gaps. Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 11 pages (0/0). Visual inspection of all screenshots (`mobile-empty-state-set.png`, `mobile-empty-state-docs.png`) confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -444,6 +444,7 @@ Component description: "Explains why a page, section, card or Data table has no 
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
+| Round 3 | 2026-11-18 | — | Fixed (R3-5 docs fit 0/0, lint 0) |
 | Round 2 | 2026-11-18 | — | Fixed (Findings 2, 7, 8 resolved, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
