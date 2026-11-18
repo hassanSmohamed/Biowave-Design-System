@@ -447,10 +447,10 @@ Component description: "An inline banner that communicates important contextual 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 5, 6, 8) |
+| Agent / stages run | build · rtl · qa · document · review fixes (findings 2, 5, 6, 8, round 3 R3-1, R3-5) |
 | Date | 2026-11-18 |
 | Node IDs | page `181:15576` · component section `181:15577` · component set `181:16391` (10 variants) · docs section `181:21193` · pages `181:16568` (00) · `181:17457` (01) · `181:17731` (02) · `181:18290` (03) · `181:19111` (04) · `181:19432` (05) · `181:19913` (06) · `181:20160` (07) · `181:20387` (08) · `181:20770` (09) · `181:21080` (11) · Components List card `181:27014` |
-| QA report | Variants resized to mobile sample width 328px (FIXED), content FILL, Button instances `minWidth = null` / `layoutSizingHorizontal = HUG`, Material Symbols glyphs `info`, `warning`, `lightbulb` bound, docs unclipped. Review lint: `issues: []` |
+| QA report | 10 variants in Set `181:16391`. R3-1 fixed: mobile layout restructured at 328px width — row 1 contains leading icon, content (title + description, layoutSizingHorizontal = FILL), and close button (top-aligned, end); row 2 contains action button nested under content and aligned to start (layoutSizingHorizontal = HUG). Content is 206px wide, wrapping title and description cleanly with zero broken words in EN and AR. Variants placed in a 2-column grid (x: 40, x: 416) with 40px row gaps, set bounds 784 × 1080 with zero overlap. Close button vector fills bound to semantic token `VariableID:96:179326` (`transparent/icon/default`). R3-5 docs fitting fixed: all 11 doc page frames and row containers use vertical auto-layout HUG; row axis labels on Page 00 swapped to `Orientation=Row` with `clipsContent = true`; long token code cell on Page 02 shortened to `color/background/{role}/subtlest` (204px wide in 330px cell); tile slot frames set to `clipsContent = true`; section pages arranged in clean 3-column grid with 120px inter-row gaps. Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 11 pages (0/0). Visual inspection of all screenshots (`mobile-alert-set.png`, `mobile-alert-docs.png`) confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -468,6 +468,7 @@ Component description: "An inline banner that communicates important contextual 
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
+| Round 3 | 2026-11-18 | — | Fixed (R3-1 layout & zero broken words, R3-5 docs fit 0/0, lint 0) |
 | Round 2 | 2026-11-18 | — | Fixed (Findings 2, 5, 6, 8 resolved, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
