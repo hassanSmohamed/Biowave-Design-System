@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-11-18 — Wave 9 approved (rounds 1–5)
+
+- **Wave 9 final approval:** Web, Tablet, and Mobile components (Alert, Snackbar, Empty state, Skeleton) fully approved across all platforms after 5 review rounds:
+  - Review lint: `[]` across all 12 component sets.
+  - Variant overlap: 0 across all 12 component sets.
+  - Docs fit: `0 / 0` (0 edge issues, 0 spill issues) across all 132 documentation pages (Web 44, Tablet 44, Mobile 44).
+  - Snackbar close icon: bound to `color/icon/inverse` on inverse bar (WCAG AAA) across all platforms.
+  - Snackbar icon defaults: off on Web & Tablet; Android off, iOS on for Mobile.
+  - Action buttons: chevrons removed (text-only action) across all platforms.
+  - Page 08 RTL documentation: Arabic variant verified and displayed on all platforms.
+- **Closing tasks:**
+  - Removed 31 throw-away inspect/probe/test scripts from `_workflow/figma-runs/` (C1).
+  - Verified and marked synced Tablet and Mobile contracts for Avatar, Badge, and Link following icon index refresh (C2).
+
 ## 2026-11-18 — Review round 4: Wave 9 Tablet and Mobile fixes
 
 - **Tablet Snackbar set fixes (R4-T1, R4-T2, R4-T3):**

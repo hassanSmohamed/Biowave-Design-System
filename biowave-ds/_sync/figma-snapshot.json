@@ -2088,8 +2088,8 @@
     },
     "tablet": {
       "4-tablet-components/components/alert/figma-alert-contract.md": "a3678ddcfb6529f5",
-      "4-tablet-components/components/avatar/figma-avatar-contract.md": "c35b3b189399ff6b",
-      "4-tablet-components/components/badge/figma-badge-contract.md": "d0c6e3fba114088e",
+      "4-tablet-components/components/avatar/figma-avatar-contract.md": "f933e7b48a0ae331",
+      "4-tablet-components/components/badge/figma-badge-contract.md": "90c2c1c6e3084067",
       "4-tablet-components/components/bottom-sheet/figma-bottom-sheet-contract.md": "5ea875bfe4281cc1",
       "4-tablet-components/components/breadcrumbs/figma-breadcrumbs-contract.md": "58ed806726b0534c",
       "4-tablet-components/components/button-group/figma-button-group-contract.md": "e28366f1906199ec",
@@ -2099,7 +2099,7 @@
       "4-tablet-components/components/empty-state/figma-empty-state-contract.md": "faa500423012d5e0",
       "4-tablet-components/components/icon-button/figma-icon-button-contract.md": "fb7016b1745b0c5c",
       "4-tablet-components/components/icon/figma-icon-contract.md": "3d5e708747fdb21f",
-      "4-tablet-components/components/link/figma-link-contract.md": "9488f5e61645f925",
+      "4-tablet-components/components/link/figma-link-contract.md": "62b1699c64feecc0",
       "4-tablet-components/components/page-control/figma-page-control-contract.md": "da077ba7ba38c36d",
       "4-tablet-components/components/pagination/figma-pagination-contract.md": "818d409e3871d389",
       "4-tablet-components/components/primary-navigation/figma-primary-navigation-contract.md": "6e7cfa96eb99d3ed",
@@ -2115,8 +2115,8 @@
     },
     "mobile": {
       "5-mobile-components/components/alert/figma-alert-contract.md": "9d771ddcbb30df51",
-      "5-mobile-components/components/avatar/figma-avatar-contract.md": "7eb597fdd728cd61",
-      "5-mobile-components/components/badge/figma-badge-contract.md": "299ba4464dc825ba",
+      "5-mobile-components/components/avatar/figma-avatar-contract.md": "d6418f40b4394e5b",
+      "5-mobile-components/components/badge/figma-badge-contract.md": "e8f1a085db6bd021",
       "5-mobile-components/components/bottom-sheet/figma-bottom-sheet-contract.md": "bb8d21bc22f2da73",
       "5-mobile-components/components/button-group/figma-button-group-contract.md": "566959b9a1dae406",
       "5-mobile-components/components/button/figma-button-contract.md": "5ab354f687db6bbf",
@@ -2125,7 +2125,7 @@
       "5-mobile-components/components/empty-state/figma-empty-state-contract.md": "a8ae7067781780ef",
       "5-mobile-components/components/icon-button/figma-icon-button-contract.md": "8ad8afaf84ee7401",
       "5-mobile-components/components/icon/figma-icon-contract.md": "fe3eea6e7964ad1a",
-      "5-mobile-components/components/link/figma-link-contract.md": "f2e6991691da5cd7",
+      "5-mobile-components/components/link/figma-link-contract.md": "4b9e59e1da93ef42",
       "5-mobile-components/components/page-control/figma-page-control-contract.md": "205c5f552167a791",
       "5-mobile-components/components/primary-navigation/figma-primary-navigation-contract.md": "6cfda1969c2ebbb8",
       "5-mobile-components/components/skeleton/figma-skeleton-contract.md": "aad18ba0b060eece",
@@ -2146,7 +2146,7 @@
   "docsSyncedAt": {
     "docKit": "2026-10-18T10:45:49.592Z",
     "web": "2026-11-14T20:05:58.206Z",
-    "tablet": "2026-11-15T04:55:48.464Z",
-    "mobile": "2026-11-15T05:41:21.167Z"
+    "tablet": "2026-11-18T06:01:35.042Z",
+    "mobile": "2026-11-18T06:01:35.262Z"
   }
 }
