@@ -2,7 +2,18 @@
 
 ## 2026-11-18 — Review round 2: Wave 9 Web fixes
 
-- `_workflow/reviews/2026-11-18-wave9-web-fix-review.md`: changes requested (2 blockers, 2 major, 3 minor). Bridge security, button sizing, Alert glyphs, Empty state height fixed; docs examples now spill and overlap (unclip instead of fit), Snackbar close icon black on the inverse bar, RTL pages show English. Tablet / Mobile reviewed after Web is approved.
+- **Docs fitting (R2-1 & R2-3):** Refactored all 4 Web documentation sections (Alert, Snackbar, Empty state, Skeleton) so docs fit naturally without clipping or overlapping:
+  - Page frames and `Documentation content` set to vertical auto-layout HUG so pages grow with content.
+  - Page 00 Component sheet row frames hug variant heights (no fixed height), eliminating the SM row overlap on Empty state.
+  - Sub-section row frames hug tile heights, eliminating the section header overlap across all Page 03 Variations.
+  - Usage guideline rows hug tile heights, preventing Do/Don't tiles from crossing page footers on Page 05.
+  - Tiles constrained to 488px in 2-column rows on 1024-wide pages; preview slots set to `clipsContent = true` with child instances rescaled to available slot width (`avail / width`).
+  - Page 08 RTL verified across all 4 components with AR instances showing Arabic text alongside EN comparisons.
+- **Snackbar close icon inverse colour (R2-2):** Bound close button vectors in Web Snackbar set `694:220191` to `color/icon/inverse` (`VariableID:f1c29644d88c107b8e40c4ba2dd9e5c8d9667fde/5231:121`), giving 18.42:1 contrast on the inverse bar (WCAG AAA).
+- **Snackbar Show icon default (R2-5):** Set `Show icon` component property default to `false` in Web Snackbar set and doc page 02, matching D4 and brief FB-04.
+- **Snackbar variant alignment (R2-6):** Aligned `Action=With action, Language=AR` variant to x: 464, creating a consistent 2-column grid.
+- **Figma runner file queue fallback (R2-7):** Documented in `_workflow/figma-runner/README.md` that the file-based request queue operates within the local filesystem security boundary.
+- **Visual verification & honest D11 (R2-4):** Exported and visually inspected screenshots for all 4 sets and doc pages; updated D11 execution logs with exact findings and verified `issues: []` on review lint.
 - Regenerated 6 Figma contracts (Tablet + Mobile avatar, badge, link) made stale by the icon index refresh in `97f83ba`; `docs:check` ✓ again.
 
 ## 2026-11-18 — Wave 9 Feedback review fixes (Web, Tablet, Mobile)

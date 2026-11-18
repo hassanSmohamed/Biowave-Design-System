@@ -372,10 +372,10 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Field | Value |
 |---|---|
-| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (finding 8) |
-| Date | 2026-11-17 |
+| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (finding 8, R2-1, R2-3, R2-4) |
+| Date | 2026-11-18 |
 | Node IDs | page `694:219741` · component section `694:219742` · component set `694:219746` · docs section `700:11340` · pages `700:9791` (`00`) … `700:11227` (`11`) · Components List card `700:14359` |
-| QA report | 3 variants (`Shape = Line · Circle · Block`), 0 unbound tokens, docs unclipped. Review lint: `issues: []` |
+| QA report | 3 variants (`Shape = Line · Circle · Block`), 0 unbound tokens. Documentation layout: all page frames and content containers use vertical auto-layout HUG; row frames hug tile heights; tiles sized to fit within page bounds (488px in 2-column rows on 1024 pages), slot `clipsContent = true`, child instances rescaled; Page 08 RTL shows RTL composition (lines on left, circle on right) alongside LTR comparison; visual inspection of all doc screenshots confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -393,7 +393,7 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| Round 2 | 2026-11-17 | — | Fixed (Finding 8 resolved, lint 0) |
+| Round 2 | 2026-11-18 | — | Fixed (R2-1 docs fit & row hug, R2-3 RTL, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
