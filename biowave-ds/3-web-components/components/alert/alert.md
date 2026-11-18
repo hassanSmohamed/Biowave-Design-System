@@ -439,10 +439,10 @@ Component description: "An inline banner that communicates important contextual 
 
 | Field | Value |
 |---|---|
-| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 5, 8) |
-| Date | 2026-11-17 |
+| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 5, 8, R2-1, R2-3, R2-4) |
+| Date | 2026-11-18 |
 | Node IDs | page `691:218883` · component section `691:218884` · component set `691:219739` · docs section `697:8734` · pages `697:4339` (`00`) … `697:8621` (`11`) · Components List card `700:13903` |
-| QA report | 10 variants (`Status × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG`, Material Symbols glyphs `info`, `warning`, `lightbulb` bound, docs unclipped. Review lint: `issues: []` |
+| QA report | 10 variants (`Status × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG`, Material Symbols glyphs `info`, `warning`, `lightbulb` bound. Documentation layout: all page frames and row containers use vertical auto-layout HUG; tiles sized to fit within page bounds (488px in 2-column rows on 1024 pages), slot `clipsContent = true`, child instances rescaled to available slot width; Page 08 RTL verified with AR instance (Arabic copy) beside EN comparison; visual inspection of all doc screenshots confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -460,7 +460,7 @@ Component description: "An inline banner that communicates important contextual 
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| Round 2 | 2026-11-17 | — | Fixed (Findings 2, 5, 8 resolved, lint 0) |
+| Round 2 | 2026-11-18 | — | Fixed (R2-1, R2-3 docs fit & RTL verified, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
