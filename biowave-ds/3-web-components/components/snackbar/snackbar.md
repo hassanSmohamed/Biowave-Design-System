@@ -410,10 +410,10 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Field | Value |
 |---|---|
-| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 8, 11) |
-| Date | 2026-11-17 |
+| Agent / stages run | Figma Agent (Antigravity) · build · rtl · qa · document · review fixes (findings 2, 8, 11, R2-1, R2-2, R2-3, R2-4, R2-5, R2-6) |
+| Date | 2026-11-18 |
 | Node IDs | page `694:219747` · component section `694:219748` · component set `694:220191` · docs section `699:7445` · pages `699:4102` (`00`) … `699:7332` (`11`) · Components List card `700:14085` |
-| QA report | 4 variants (`Action × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG`, message wraps 1 line (height 56px for EN and AR), docs unclipped. Review lint: `issues: []` |
+| QA report | 4 variants (`Action × Language`), 0 unbound tokens, button instances `minWidth = null` / `layoutSizingHorizontal = HUG`. Dimensions: 384 × 48 px for both EN and AR. Close icon vectors bound to `color/icon/inverse` (`5231:121`) with 18.42:1 contrast (WCAG AAA). `Show icon` component property default set to `false` (icon hidden by default) matching D4 and doc page 02. Variants aligned in 2-column grid (`Language=AR` at x: 464). Documentation layout: all page frames and row containers use vertical auto-layout HUG; tiles sized to fit within page bounds (488px in 2-column rows on 1024 pages), slot `clipsContent = true`, child instances rescaled; Page 08 RTL verified with AR instance ("تم تحديث إعدادات الجهاز. · تراجع") beside EN comparison; visual inspection of all doc screenshots confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -431,7 +431,7 @@ Component description: "A brief, high-contrast inverse bar at `layer-toast` (150
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
-| Round 2 | 2026-11-17 | — | Fixed (Findings 2, 8, 11 resolved, lint 0) |
+| Round 2 | 2026-11-18 | — | Fixed (R2-1 docs fit, R2-2 close icon inverse, R2-3 RTL, R2-5 default false, R2-6 align, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
 ---
