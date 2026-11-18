@@ -378,10 +378,10 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Field | Value |
 |---|---|
-| Agent / stages run | build · rtl · qa · document · review fixes (finding 8) |
+| Agent / stages run | build · rtl · qa · document · review fixes (finding 8, round 4 R4-T4) |
 | Date | 2026-11-18 |
 | Node IDs | page `218:650318` · component section `218:650319` · component set `218:650323` (3 variants) · docs section `219:660436` · pages `219:658891` (00) · `219:658949` (01) · `219:659031` (02) · `219:659402` (03) · `219:659494` (04) · `219:659592` (05) · `219:659691` (06) · `219:659916` (07) · `219:660072` (08) · `219:660139` (09) · `219:660323` (11) · Components List card `219:662327` |
-| QA report | 3 variants (`Shape = Line · Circle · Block`), 0 unbound tokens, docs unclipped. Review lint: `issues: []` |
+| QA report | 3 variants in Set `218:650323` (`Shape = Line · Circle · Block`), 0 unbound tokens. R4-T4 docs fitting fixed: all 11 doc page frames and row containers use vertical auto-layout HUG; Page 02 token code cells wrapped across lines (`radius/xs`, `width size/container/xs`, `padding-block`) fitting completely within cell boundaries without exceeding 1024 width; tile slot frames set to `clipsContent = true`; section pages arranged in clean 3-column grid with 120px inter-row gaps. Official review docs-fit check returned `{ edge: 0, spill: 0 }` across all 11 pages (0/0). Visual inspection of all screenshots (`tablet-skeleton-set.png`, `tablet-skeleton-docs.png`) confirmed zero overlap, no crossing of page boundaries or footers. Review lint: `issues: []` |
 
 **Deviations:**
 - none
@@ -399,6 +399,7 @@ Component description: "Low-contrast animated placeholder (`line`, `circle`, `bl
 
 | Round | Date | Code verdict | Figma verdict |
 |---|---|---|---|
+| Round 4 | 2026-11-18 | — | Fixed (R4-T4 docs fit 0/0, lint 0) |
 | Round 2 | 2026-11-18 | — | Fixed (Finding 8 resolved, lint 0) |
 | Round 1 | 2026-11-17 | — | Changes requested (2026-11-17-wave9-feedback-review.md) |
 
